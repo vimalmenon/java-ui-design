@@ -1,0 +1,7 @@
+CREATE TABLE urls
+(
+   id INT NOT NULL AUTO_INCREMENT,
+   url VARCHAR (250) NOT NULL,
+   method VARCHAR (10) NOT NULL,
+   PRIMARY KEY (id)
+);

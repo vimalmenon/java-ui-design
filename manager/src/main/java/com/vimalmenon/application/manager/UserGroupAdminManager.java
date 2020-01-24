@@ -1,5 +1,8 @@
 package com.vimalmenon.application.manager;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,12 +17,13 @@ public class UserGroupAdminManager {
 
 	
 	
-	public void login () 
+	public Optional<User> login () 
 	{
 		
-		User user = new User();
-		user.setUsername("vimalmenon");
-		userRepository.findByUsername(user);
+		Optional<User> users = userRepository.findByUsername("vimalmenon");
+		
+		//return Optional.of(null);
+		return users;
 	}
 	
 	private boolean vertifyPassword () 

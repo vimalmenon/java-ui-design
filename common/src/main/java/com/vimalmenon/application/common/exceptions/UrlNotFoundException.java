@@ -10,7 +10,7 @@ public class UrlNotFoundException extends RuntimeException{
 	Logger log = LoggerFactory.getLogger(UrlNotFoundException.class);
 	
 	private final String url;
-	private final int code = 2;
+	private final static int code = 2;
 	private final static String type = "Url not found"; 
 	private final static String msg = "Unable to find URL %s";
 	

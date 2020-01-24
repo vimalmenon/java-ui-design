@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import com.vimalmenon.application.common.exceptions.DatabaseException;
 import com.vimalmenon.application.common.exceptions.GeneralException;
 import com.vimalmenon.application.common.exceptions.UrlNotFoundException;
 import com.vimalmenon.application.model.response.ApiResponseModel;
@@ -40,7 +41,13 @@ public class ApiControllerAdvice {
 		return new ApiResponseModel<String>(response, session).setMessage(exception.toString())
 				.setCode(exception.getCode());
 	}
-	
+	@ExceptionHandler(value = DatabaseException.class)
+	public ApiResponseModel<String> generalException(final DatabaseException exception, HttpServletResponse httpResponse) {
+		log.error(exception.getMessage());
+		httpResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+		return new ApiResponseModel<String>(response, session).setMessage(exception.toString())
+				.setCode(exception.getCode());
+	}
 	@ExceptionHandler(value = Exception.class)
 	public ApiResponseModel<String> exception(final Exception exception, HttpServletResponse httpResponse) throws Exception
 	{

@@ -4,7 +4,7 @@ public class GeneralException extends RuntimeException{
 
 	private static final long serialVersionUID = 1L;
 	
-	private final int code = 1;
+	private final static int code = 1;
 	
 	public GeneralException(String msg) {
 		super(msg);
