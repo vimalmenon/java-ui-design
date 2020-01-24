@@ -6,3 +6,14 @@ CREATE TABLE urls
    PRIMARY KEY (id),
    CONSTRAINT UN_URL_URL UNIQUE (url)
 );
+
+insert into urls
+(
+	url,
+	method
+	
+) 
+values (
+	"api/admin",
+	"GET"
+)

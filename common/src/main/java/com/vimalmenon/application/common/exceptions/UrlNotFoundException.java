@@ -1,17 +1,16 @@
 package com.vimalmenon.application.common.exceptions;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.vimalmenon.application.common.enums.ResponseCode;
 
 public class UrlNotFoundException extends RuntimeException{
 
 	private static final long serialVersionUID = 1L;
 	
-	Logger log = LoggerFactory.getLogger(UrlNotFoundException.class);
-	
 	private final String url;
-	private final static int code = 2;
-	private final static String type = "Url not found"; 
+	
+	private static ResponseCode response = ResponseCode.URL;
+	private final static int code = response.code;
+	private final static String type = response.msg; 
 	private final static String msg = "Unable to find URL %s";
 	
 	public UrlNotFoundException(String url) {

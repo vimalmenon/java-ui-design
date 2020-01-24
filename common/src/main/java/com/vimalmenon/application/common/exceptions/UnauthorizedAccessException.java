@@ -1,10 +1,14 @@
 package com.vimalmenon.application.common.exceptions;
 
+import com.vimalmenon.application.common.enums.ResponseCode;
+
 public class UnauthorizedAccessException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
-	private final int code = 4;
-	private final static String msg = "Unauthorized access";
+	
+	private static ResponseCode response = ResponseCode.Unauthorized_ACCESS;
+	private final int code = response.code;
+	private final static String msg = response.msg;
 	
 	public UnauthorizedAccessException() {
 		super(msg);
