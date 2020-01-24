@@ -23,6 +23,7 @@ public class AdminControllerService {
 	{
 		Map<String, Object> data = new HashMap<String, Object>();
 		data.put("preferences", "prefs");
+		data.put("components" , "components");
 		return data;
 	}
 }

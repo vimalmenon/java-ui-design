@@ -12,14 +12,18 @@ public class ApplicationInterceptor implements WebMvcConfigurer{
 	@Autowired
 	private SessionInterceptor sessionInterceptor;
 	
+	@Autowired
+	private AccessInterceptor accessInterceptor;
+	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(sessionInterceptor);
+		registry.addInterceptor(accessInterceptor);
 	}
 
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
-		registry.addMapping("/**").allowedOrigins("http://localhost:4200").allowedMethods("*");
+		registry.addMapping("/**").allowedOrigins("http://localhost:8082").allowedMethods("*");
 	}
 
 }
