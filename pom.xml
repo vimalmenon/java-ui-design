@@ -10,27 +10,23 @@
 	</parent>
 	<groupId>com.vimalmenon</groupId>
 	<artifactId>application</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>${application.version}</version>
 	<name>application</name>
 	<description>VimalMenon application</description>
 
 	<properties>
 		<java.version>1.8</java.version>
+		<application.version>0.0.1-SNAPSHOT</application.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
-    	</dependency>
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jdbc</artifactId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<artifactId>spring-boot-starter-batch</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -42,6 +38,13 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -64,4 +67,12 @@
 		</plugins>
 	</build>
 
+	<packaging>pom</packaging>
+	<modules>
+		<module>web</module>
+		<module>model</module>
+		<module>service</module>
+		<module>data</module>
+		<module>manager</module>
+	</modules>
 </project>
