@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.vimalmenon.application.common.exceptions.ApplicationErrorException;
+import com.vimalmenon.application.common.exceptions.ValidationError;
 import com.vimalmenon.application.data.group.Group;
+import com.vimalmenon.application.data.user.User;
 import com.vimalmenon.application.manager.UserGroupAdminManager;
 import com.vimalmenon.application.model.admin.AdminLoginModel;
 import com.vimalmenon.application.model.group.GroupModel;
@@ -32,18 +34,24 @@ public class AdminService {
 	public GroupModel getDefaultGroup()
 	{
 		Optional<Group> groupOptional = userGroupAdminManager.getDefaultGroup(NO_USER);
-		
 		if (!groupOptional.isPresent()) {
 			throw new ApplicationErrorException();
 		}
-		
 		return new GroupModel(groupOptional.get());
-		
 	}
 	
-	public void logIn (AdminLoginModel loginModel) 
+	public Session logIn (AdminLoginModel loginModel) 
 	{
-		
+		Optional<User> userOptional = userGroupAdminManager.login(loginModel.getUsername());
+		if (userOptional.isPresent()) {
+			System.out.println(session + "Before");
+			setSessionGroup(new GroupModel(userOptional.get().getGroup()));
+			session.setUser(userOptional.get().getUsername());
+			session.setUserId(userOptional.get().getId());
+			System.out.println(session + "After");
+			return session;
+		}
+		throw new ValidationError("Invalid Username or password");
 	}
 
 	public void logOut() 
@@ -55,5 +63,17 @@ public class AdminService {
 		session.setSession(true);
 		session.setUser(null);
 		session.setUserId(null);
+	}
+	
+	private void setSessionGroup (GroupModel groupModel)
+	{
+		session.setId(groupModel.getId());
+		session.setGroup(groupModel.getName());
+		session.setPriority(groupModel.getPriority());
+	}
+	
+	private void setSessionUser ()
+	{
+		
 	}
 }

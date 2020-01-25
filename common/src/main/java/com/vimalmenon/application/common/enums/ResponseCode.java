@@ -7,7 +7,8 @@ public enum ResponseCode {
 	URL_NOT_FOUND(2, "URL not found"),
 	DATABASE(3, "Database error"),
 	UNAUTHORIZED_ACCESS(4, "Unauthorized access"),
-	APPLICATION_ERROR(5, "Application Error");
+	APPLICATION_ERROR(5, "Application Error"),
+	VALIDATION_ERROR(6, null);
 	
 
 	public int code;

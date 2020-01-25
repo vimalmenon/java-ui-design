@@ -21,12 +21,9 @@ public class UserGroupAdminManager {
 	private GroupRepository groupRepository;
 	
 	
-	public Optional<User> login () 
+	public Optional<User> login (String username) 
 	{
-		Optional<User> users = userRepository.findByUsername("vimalmenon");
-		
-		//return Optional.of(null);
-		return users;
+		return userRepository.findByUsername(username);
 	}
 	
 	public Optional<Group> getDefaultGroup (String name)

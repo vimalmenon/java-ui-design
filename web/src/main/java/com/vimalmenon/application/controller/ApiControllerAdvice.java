@@ -13,15 +13,12 @@ import com.vimalmenon.application.common.exceptions.DatabaseException;
 import com.vimalmenon.application.common.exceptions.GeneralException;
 import com.vimalmenon.application.common.exceptions.UnauthorizedAccessException;
 import com.vimalmenon.application.common.exceptions.UrlNotFoundException;
+import com.vimalmenon.application.common.exceptions.ValidationError;
 import com.vimalmenon.application.model.response.ApiResponseModel;
-import com.vimalmenon.application.model.response.Response;
 import com.vimalmenon.application.model.response.Session;
 
 @RestControllerAdvice
 public class ApiControllerAdvice {
-
-	@Autowired
-	private Response response;
 
 	@Autowired
 	private Session session;
@@ -32,7 +29,7 @@ public class ApiControllerAdvice {
 	public ApiResponseModel<String> urlNotFound(final UrlNotFoundException exception, HttpServletResponse httpResponse) {
 		log.error(exception.getMessage());
 		httpResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-		return new ApiResponseModel<String>(response, session).setMessage(exception.toString())
+		return new ApiResponseModel<String>(session).setMessage(exception.toString())
 				.setCode(exception.getCode());
 	}
 	
@@ -40,28 +37,34 @@ public class ApiControllerAdvice {
 	public ApiResponseModel<String> generalException(final GeneralException exception, HttpServletResponse httpResponse) {
 		log.error(exception.getMessage());
 		httpResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-		return new ApiResponseModel<String>(response, session).setMessage(exception.toString())
+		return new ApiResponseModel<String>(session).setMessage(exception.toString())
 				.setCode(exception.getCode());
 	}
 	@ExceptionHandler(value = DatabaseException.class)
 	public ApiResponseModel<String> generalException(final DatabaseException exception, HttpServletResponse httpResponse) {
 		log.error(exception.getMessage());
 		httpResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-		return new ApiResponseModel<String>(response, session).setMessage(exception.toString())
+		return new ApiResponseModel<String>(session).setMessage(exception.toString())
 				.setCode(exception.getCode());
 	}
 	@ExceptionHandler(value = ApplicationErrorException.class)
 	public ApiResponseModel<String> applicationErrorException(final ApplicationErrorException exception, HttpServletResponse httpResponse) {
 		log.error(exception.getMessage());
 		httpResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-		return new ApiResponseModel<String>(response, session).setMessage(exception.toString())
+		return new ApiResponseModel<String>(session).setMessage(exception.toString())
 				.setCode(exception.getCode());
 	}
 	@ExceptionHandler(value = UnauthorizedAccessException.class)
 	public ApiResponseModel<String> unauthorizedAccessException(final UnauthorizedAccessException exception, HttpServletResponse httpResponse) {
 		log.error(exception.getMessage());
 		httpResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-		return new ApiResponseModel<String>(response, session).setMessage(exception.toString())
+		return new ApiResponseModel<String>(session).setMessage(exception.toString())
+				.setCode(exception.getCode());
+	}
+	@ExceptionHandler(value = ValidationError.class)
+	public ApiResponseModel<String> validationError(final ValidationError exception, HttpServletResponse httpResponse) {
+		log.error(exception.getMessage());
+		return new ApiResponseModel<String>(session).setMessage(exception.toString())
 				.setCode(exception.getCode());
 	}
 	@ExceptionHandler(value = Exception.class)
