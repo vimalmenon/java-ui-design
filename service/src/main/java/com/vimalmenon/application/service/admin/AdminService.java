@@ -33,7 +33,7 @@ public class AdminService {
 	
 	public GroupModel getDefaultGroup()
 	{
-		Optional<Group> groupOptional = userGroupAdminManager.getDefaultGroup(NO_USER);
+		Optional<Group> groupOptional = userGroupAdminManager.getDefaultGroup(Super_Admin);
 		if (!groupOptional.isPresent()) {
 			throw new ApplicationErrorException();
 		}
@@ -74,8 +74,4 @@ public class AdminService {
 		session.setPriority(groupModel.getPriority());
 	}
 	
-	private void setSessionUser ()
-	{
-		
-	}
 }

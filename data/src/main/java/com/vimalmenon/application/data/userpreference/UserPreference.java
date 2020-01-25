@@ -21,4 +21,28 @@ public class UserPreference {
 	@Column(nullable = false, name = "preference")
 	private String preference;
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
+	public String getPreference() {
+		return preference;
+	}
+
+	public void setPreference(String preference) {
+		this.preference = preference;
+	}
+
 }

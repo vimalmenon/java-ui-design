@@ -1,5 +1,6 @@
 package com.vimalmenon.application.manager;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,10 @@ public class UserGroupAdminManager {
 	private boolean verifyPassword () 
 	{
 		return false;
+	}
+
+	public Optional<List<Group>> getSwitchableGroups(int groupId) {
+		return groupRepository.findByPriorityGreaterThanEqual(groupId);
 	}
 
 }

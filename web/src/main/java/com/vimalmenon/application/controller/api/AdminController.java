@@ -45,5 +45,11 @@ public class AdminController {
 	public ApiResponseModel<String> switchAccount() {
 		return new ApiResponseModel<String>(session).setData("switch_account");
 	}
+	
+	@PostMapping("/preferences")
+	public ApiResponseModel<String> savePreferences() {
+		return new ApiResponseModel<String>(session).setData("preferences");
+	}
+	
 
 }
