@@ -42,13 +42,15 @@ public class AdminService {
 	
 	public Session logIn (AdminLoginModel loginModel) 
 	{
+		Optional<Integer> userIdOptional = Optional.ofNullable(session.getUserId());
+		if(userIdOptional.isPresent()) {
+			throw new ValidationError("User already login");
+		}
 		Optional<User> userOptional = userGroupAdminManager.login(loginModel.getUsername());
 		if (userOptional.isPresent()) {
-			System.out.println(session + "Before");
 			setSessionGroup(new GroupModel(userOptional.get().getGroup()));
 			session.setUser(userOptional.get().getUsername());
 			session.setUserId(userOptional.get().getId());
-			System.out.println(session + "After");
 			return session;
 		}
 		throw new ValidationError("Invalid Username or password");
