@@ -8,7 +8,7 @@ public class UrlNotFoundException extends RuntimeException{
 	
 	private final String url;
 	
-	private static ResponseCode response = ResponseCode.URL;
+	private static ResponseCode response = ResponseCode.URL_NOT_FOUND;
 	private final static int code = response.code;
 	private final static String type = response.msg; 
 	private final static String msg = "Unable to find URL %s";

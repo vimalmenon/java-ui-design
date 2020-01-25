@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import com.vimalmenon.application.common.exceptions.ApplicationErrorException;
 import com.vimalmenon.application.common.exceptions.DatabaseException;
 import com.vimalmenon.application.common.exceptions.GeneralException;
 import com.vimalmenon.application.common.exceptions.UnauthorizedAccessException;
@@ -44,6 +45,13 @@ public class ApiControllerAdvice {
 	}
 	@ExceptionHandler(value = DatabaseException.class)
 	public ApiResponseModel<String> generalException(final DatabaseException exception, HttpServletResponse httpResponse) {
+		log.error(exception.getMessage());
+		httpResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+		return new ApiResponseModel<String>(response, session).setMessage(exception.toString())
+				.setCode(exception.getCode());
+	}
+	@ExceptionHandler(value = ApplicationErrorException.class)
+	public ApiResponseModel<String> applicationErrorException(final ApplicationErrorException exception, HttpServletResponse httpResponse) {
 		log.error(exception.getMessage());
 		httpResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 		return new ApiResponseModel<String>(response, session).setMessage(exception.toString())

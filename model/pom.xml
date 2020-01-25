@@ -7,4 +7,16 @@
   </parent>
   <groupId>com.vimalmenon.application.model</groupId>
   <artifactId>model</artifactId>
+  <dependencies>
+  	<dependency>
+	  <groupId>com.vimalmenon.application.common</groupId>
+  	  <artifactId>common</artifactId>
+  	  <version>${application.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>com.vimalmenon.application.data</groupId>
+		<artifactId>data</artifactId>
+		<version>${application.version}</version>
+	</dependency>
+  </dependencies>
 </project>

@@ -6,7 +6,7 @@ public class UnauthorizedAccessException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
 	
-	private static ResponseCode response = ResponseCode.Unauthorized_ACCESS;
+	private static ResponseCode response = ResponseCode.UNAUTHORIZED_ACCESS;
 	private final int code = response.code;
 	private final static String msg = response.msg;
 	

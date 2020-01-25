@@ -13,7 +13,7 @@ public class UrlManager {
 	
 	public boolean checkEntitlement (int groupId, String url,String method) {
 		
-		System.out.println(urlEntitlementRepository.findByGroupIdAndUrlUrlAndUrlMethod(groupId, url, method));
+		System.out.println(groupId + " | " +urlEntitlementRepository.findByGroupIdAndUrlUrlAndUrlMethod(groupId, url, method));
 		return false;
 	}
 

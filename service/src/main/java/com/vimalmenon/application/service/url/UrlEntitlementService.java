@@ -18,7 +18,7 @@ public class UrlEntitlementService {
 	
 	public boolean checkEntitlement(String url, String method) 
 	{
-		urlManager.checkEntitlement(session.getId(), url, method);
+		urlManager.checkEntitlement(session.getId(), Helper.urlFixer(url), method);
 		System.out.println(url+ " | "+method + " "+ Helper.urlFixer(url));
 		return false;
 	}

@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
+import com.vimalmenon.application.model.group.GroupModel;
 import com.vimalmenon.application.model.response.Session;
+import com.vimalmenon.application.service.admin.AdminService;
 
 @Component
 public class SessionInterceptor implements HandlerInterceptor{
@@ -15,17 +17,19 @@ public class SessionInterceptor implements HandlerInterceptor{
 	@Autowired
 	private Session session;
 
+	@Autowired
+	private AdminService adminService;
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		/*if (!session.isSession()) {
+		if (!session.isSession()) {
 			GroupModel groupModel = adminService.getDefaultGroup();
 			session.setId(groupModel.getId());
 			session.setGroup(groupModel.getName());
 			session.setPriority(groupModel.getPriority());
 			session.setSession(true);
-		}*/
+		}
 		return true;
 	}
 }
