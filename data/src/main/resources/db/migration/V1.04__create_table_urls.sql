@@ -16,4 +16,15 @@ insert into urls
 values (
 	"/api/admin",
 	"GET"
-)
+);
+
+insert into urls
+(
+	url,
+	method
+	
+) 
+values (
+	"/api/admin/log_out",
+	"POST"
+);

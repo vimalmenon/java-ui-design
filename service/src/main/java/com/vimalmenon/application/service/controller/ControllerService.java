@@ -1,10 +1,14 @@
 package com.vimalmenon.application.service.controller;
 
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.vimalmenon.application.data.component.ComponentEntitlement;
 import com.vimalmenon.application.manager.database.ComponentManager;
+import com.vimalmenon.application.model.component.ComponentEntitlementModel;
 import com.vimalmenon.application.model.response.Session;
 
 @Service
@@ -22,9 +26,13 @@ public class ControllerService {
 	}
 	
 	
-	public void getComponentEntitlement (String name)
+	public ComponentEntitlementModel getComponentEntitlement (String name)
 	{
-		componentManager.checkEntitlement(session.getId(), name);
-		System.out.println(name);
+		Optional<ComponentEntitlement> entitlementOption = componentManager.checkEntitlement(session.getId(), name);
+		if (entitlementOption.isPresent()) {
+			return new ComponentEntitlementModel(entitlementOption.get());
+		}
+		return new ComponentEntitlementModel();
+
 	}
 }

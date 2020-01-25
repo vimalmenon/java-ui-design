@@ -24,7 +24,6 @@ public class UrlEntitlementService {
 	{
 		Optional<UrlEntitlement> urlEntitlementOptional = urlManager.getEntitlementByGroupIdUrlMethod(session.getId(), Helper.urlFixer(url), method);
 		if (urlEntitlementOptional.isPresent()) {
-			System.out.println(new UrlEntitlementModel(urlEntitlementOptional.get()));
 			return new UrlEntitlementModel(urlEntitlementOptional.get()).isAccess();
 		}
 		return false;

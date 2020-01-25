@@ -11,6 +11,8 @@ public class ComponentEntitlementModel {
 		setWrite(entitlement.getWriteAccess() == 1 ? true : false);
 		setRead(entitlement.getReadAccess() == 1 ? true : false);
 	}
+	public ComponentEntitlementModel() {
+	}
 	public boolean isWrite() {
 		return write;
 	}
