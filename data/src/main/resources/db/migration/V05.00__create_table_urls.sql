@@ -4,7 +4,7 @@ CREATE TABLE urls
    url VARCHAR (250) NOT NULL,
    method VARCHAR (10) NOT NULL,
    PRIMARY KEY (id),
-   CONSTRAINT UN_URL_URL UNIQUE (url)
+   CONSTRAINT UN_URL_URL_METHOD UNIQUE (url, method)
 );
 
 insert into urls
