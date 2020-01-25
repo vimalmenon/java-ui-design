@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.vimalmenon.application.model.response.ApiResponseModel;
 import com.vimalmenon.application.model.response.Session;
+import com.vimalmenon.application.service.admin.AdminService;
 import com.vimalmenon.application.service.controller.AdminControllerService;
 
 @RestController
@@ -20,6 +21,9 @@ public class AdminController {
 	
 	@Autowired
 	private AdminControllerService adminControllerService;
+	
+	@Autowired
+	private AdminService adminService;
 
 	@Autowired
 	private Session session;
@@ -33,6 +37,7 @@ public class AdminController {
 	
 	@PostMapping("/log_out")
 	public ApiResponseModel<String> logOut() {
+		adminService.logOut();
 		return new ApiResponseModel<String>(session).setData("log-out");
 	}
 	
