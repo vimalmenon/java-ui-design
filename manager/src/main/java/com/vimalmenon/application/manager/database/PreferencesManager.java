@@ -14,8 +14,24 @@ public class PreferencesManager {
 	@Autowired
 	private UserPreferenceRepository prefrence;
 	
-	public Optional<UserPreference> getUserPrefence(Integer userId) {
+	public Optional<UserPreference> getUserPrefence(Integer userId) 
+	{
 		return prefrence.findByUserId(userId);
+	}
+
+	public void savePreferences(Integer userId, String preference) 
+	{
+		Optional<UserPreference> prefOptional = prefrence.findByUserId(userId);
+		UserPreference prefs;
+		if (prefOptional.isPresent()) {
+			prefs = prefOptional.get();
+			prefs.setPreference(preference);
+		} else {
+			prefs = new UserPreference();
+			prefs.setUserId(userId);
+			prefs.setPreference(preference);
+		}
+		prefrence.save(prefs);
 	}
 
 }

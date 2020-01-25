@@ -48,4 +48,9 @@ public class AdminControllerService {
 		}
 		return data;
 	}
+
+
+	public void savePreferences(String preferences) {
+		preferencesManager.savePreferences(session.getUserId(), preferences);
+	}
 }
