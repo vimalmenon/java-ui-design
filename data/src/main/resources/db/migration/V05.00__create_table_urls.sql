@@ -40,3 +40,14 @@ values (
 	"POST"
 );
 
+insert into urls
+(
+	url,
+	method
+	
+) 
+values (
+	"/api/admin/preferences",
+	"POST"
+);
+

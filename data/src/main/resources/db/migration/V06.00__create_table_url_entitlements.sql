@@ -87,3 +87,31 @@ select id, (select id from groups where name = 'Visitor' ), 1 from urls where ur
 
 
 
+
+insert into url_entitlements 
+(
+	url_id,
+	group_id,
+	access
+)
+select id, (select id from groups where name = 'No User' ), 0 from urls where url = '/api/admin/preferences';
+
+insert into url_entitlements 
+(
+	url_id,
+	group_id,
+	access
+)
+select id, (select id from groups where name = 'Super Admin' ), 1 from urls where url = '/api/admin/preferences';
+
+insert into url_entitlements 
+(
+	url_id,
+	group_id,
+	access
+)
+select id, (select id from groups where name = 'Visitor' ), 1 from urls where url = '/api/admin/preferences';
+
+
+
+

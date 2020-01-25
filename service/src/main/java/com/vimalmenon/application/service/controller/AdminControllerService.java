@@ -32,9 +32,9 @@ public class AdminControllerService {
 	public Map<String, Object> adminIndex () 
 	{
 		Map<String, Object> data = new HashMap<String, Object>();
-		Optional<UserPreference> prefs = preferencesManager.getUserPrefence(session.getUserId());
+		Optional<UserPreference> prefs = preferencesManager.getUserPrefence(1);
 		if (prefs.isPresent()) {
-			data.put("preferences", prefs.get());
+			data.put("preferences", prefs.get().getPreference());
 		}
 		
 		Optional<List<Group>> switchableGroup = userGroupAdminManager.getSwitchableGroups(session.getPriority());
@@ -51,6 +51,6 @@ public class AdminControllerService {
 
 
 	public void savePreferences(String preferences) {
-		preferencesManager.savePreferences(session.getUserId(), preferences);
+		preferencesManager.savePreferences(1, preferences);
 	}
 }

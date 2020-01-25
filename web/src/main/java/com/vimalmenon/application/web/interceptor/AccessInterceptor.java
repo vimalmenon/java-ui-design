@@ -20,7 +20,10 @@ public class AccessInterceptor implements HandlerInterceptor{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		String url = request.getRequestURI();
 		String method = request.getMethod();
-		if(url.startsWith("/api/admin") && !urlEntitlementService.hasAccess(url, method)) {
+		if (method.equals("OPTIONS")) {
+			return true;
+		}
+		if(url.startsWith("/api/admin") && !urlEntitlementService.hasAccess(url, method) ) {
 			throw new UnauthorizedAccessException();
 		}
 		return true;

@@ -10,6 +10,7 @@ import com.vimalmenon.application.model.response.Session;
 @RequestMapping("/api/admin/notes")
 public class NoteController {
 
+	@SuppressWarnings("unused")
 	@Autowired
 	private Session session;
 	
