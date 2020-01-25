@@ -14,6 +14,6 @@ insert into urls
 	
 ) 
 values (
-	"api/admin",
+	"/api/admin",
 	"GET"
 )

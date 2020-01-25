@@ -33,6 +33,7 @@ public class UserGroupAdminManager {
 	{
 		return groupRepository.findByName(name);
 	}
+	@SuppressWarnings("unused")
 	private boolean verifyPassword () 
 	{
 		return false;

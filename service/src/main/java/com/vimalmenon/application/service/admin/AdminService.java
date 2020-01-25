@@ -18,6 +18,9 @@ public class AdminService {
 	@SuppressWarnings("unused")
 	private static String Super_Admin = "Super Admin";
 	
+	@SuppressWarnings("unused")
+	private static String Visitor = "Visitor";
+	
 	@Autowired
 	private UserGroupAdminManager userGroupAdminManager;
 	

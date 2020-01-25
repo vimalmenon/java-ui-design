@@ -14,3 +14,94 @@ CREATE TABLE component_entitlements
       group_id
    )
 );
+
+insert into component_entitlements
+(
+	component_id,
+	group_id,
+	write_access,
+	read_access
+)
+select id,
+(select id from groups where name="No User"),
+1,
+1 
+from components where name = "AdminLogin";
+
+
+insert into component_entitlements
+(
+	component_id,
+	group_id,
+	write_access,
+	read_access
+)
+select id,
+(select id from groups where name="Super Admin"),
+0,
+0 
+from components where name = "AdminLogin";
+
+
+
+insert into component_entitlements
+(
+	component_id,
+	group_id,
+	write_access,
+	read_access
+)
+select id,
+(select id from groups where name="Visitor"),
+0,
+0 
+from components where name = "AdminLogin";
+
+
+
+insert into component_entitlements
+(
+	component_id,
+	group_id,
+	write_access,
+	read_access
+)
+select id,
+(select id from groups where name="No User"),
+0,
+0 
+from components where name = "AdminPage";
+
+
+insert into component_entitlements
+(
+	component_id,
+	group_id,
+	write_access,
+	read_access
+)
+select id,
+(select id from groups where name="Super Admin"),
+1,
+1 
+from components where name = "AdminPage";
+
+
+
+insert into component_entitlements
+(
+	component_id,
+	group_id,
+	write_access,
+	read_access
+)
+select id,
+(select id from groups where name="Visitor"),
+1,
+1 
+from components where name = "AdminPage";
+
+
+
+
+

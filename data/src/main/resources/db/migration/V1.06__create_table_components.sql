@@ -5,3 +5,21 @@ CREATE TABLE components
    PRIMARY KEY (id),
    CONSTRAINT UN_COMPONENT_NAME UNIQUE (name)
 );
+
+insert into components
+(
+	name
+)
+values 
+(
+	"AdminLogin"
+);
+
+insert into components
+(
+	name
+)
+values 
+(
+	"AdminPage"
+);
