@@ -28,3 +28,15 @@ values (
 	"/api/admin/log_out",
 	"POST"
 );
+
+insert into urls
+(
+	url,
+	method
+	
+) 
+values (
+	"/api/admin/switch_account",
+	"POST"
+);
+

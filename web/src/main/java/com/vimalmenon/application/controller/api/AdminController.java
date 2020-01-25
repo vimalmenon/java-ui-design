@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vimalmenon.application.model.response.ApiResponseModel;
-import com.vimalmenon.application.model.response.Response;
 import com.vimalmenon.application.model.response.Session;
 import com.vimalmenon.application.service.controller.AdminControllerService;
 
@@ -21,9 +20,6 @@ public class AdminController {
 	
 	@Autowired
 	private AdminControllerService adminControllerService;
-	
-	@Autowired
-	private Response response;
 
 	@Autowired
 	private Session session;
@@ -32,17 +28,17 @@ public class AdminController {
 	
 	@GetMapping("")
 	public ApiResponseModel<Map<String, Object>> index() {
-		return new ApiResponseModel<Map<String, Object>>(response, session).setData(adminControllerService.adminIndex());
+		return new ApiResponseModel<Map<String, Object>>(session).setData(adminControllerService.adminIndex());
 	}
 	
 	@PostMapping("/log_out")
 	public ApiResponseModel<String> logOut() {
-		return new ApiResponseModel<String>(response, session).setData("log-out");
+		return new ApiResponseModel<String>(session).setData("log-out");
 	}
 	
 	@PostMapping("/switch_account")
 	public ApiResponseModel<String> switchAccount() {
-		return new ApiResponseModel<String>(response, session).setData("log-out");
+		return new ApiResponseModel<String>(session).setData("switch_account");
 	}
 
 }

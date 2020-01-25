@@ -28,7 +28,7 @@ public class ApiController {
 		return new ApiResponseModel<String>(session).setData("testing");
 	}
 	
-	@PostMapping("/login")
+	@PostMapping("/log_in")
 	public ApiResponseModel<String> login() 
 	{
 		return new ApiResponseModel<String>(session).setData("testing");
