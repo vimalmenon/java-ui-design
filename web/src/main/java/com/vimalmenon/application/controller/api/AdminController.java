@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.vimalmenon.application.model.account.SwitchAccountModel;
 import com.vimalmenon.application.model.response.ApiResponseModel;
 import com.vimalmenon.application.model.response.Session;
 import com.vimalmenon.application.service.admin.AdminService;
@@ -43,7 +44,8 @@ public class AdminController {
 	}
 	
 	@PostMapping("/switch_account")
-	public ApiResponseModel<String> switchAccount() {
+	public ApiResponseModel<String> switchAccount(@RequestBody SwitchAccountModel switchAccount) {
+		adminService.switchAccount(switchAccount);
 		return new ApiResponseModel<String>(session).setData("switch_account");
 	}
 	

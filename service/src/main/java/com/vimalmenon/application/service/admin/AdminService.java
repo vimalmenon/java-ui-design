@@ -11,6 +11,7 @@ import com.vimalmenon.application.common.exceptions.ValidationError;
 import com.vimalmenon.application.data.group.Group;
 import com.vimalmenon.application.data.user.User;
 import com.vimalmenon.application.manager.UserGroupAdminManager;
+import com.vimalmenon.application.model.account.SwitchAccountModel;
 import com.vimalmenon.application.model.admin.AdminLoginModel;
 import com.vimalmenon.application.model.group.GroupModel;
 import com.vimalmenon.application.model.response.Session;
@@ -27,7 +28,7 @@ public class AdminService {
 	
 	public GroupModel getDefaultGroup()
 	{
-		Optional<Group> groupOptional = userGroupAdminManager.getDefaultGroup(Groups.SUPER_ADMIN.name);
+		Optional<Group> groupOptional = userGroupAdminManager.getGroupByName(Groups.SUPER_ADMIN.name);
 		if (!groupOptional.isPresent()) {
 			throw new ApplicationErrorException();
 		}
@@ -66,6 +67,16 @@ public class AdminService {
 		session.setId(groupModel.getId());
 		session.setGroup(groupModel.getName());
 		session.setPriority(groupModel.getPriority());
+	}
+
+	public void switchAccount(SwitchAccountModel switchAccount) {
+		Optional<Group> groupOptional = userGroupAdminManager.getGroupByName(switchAccount.getName());
+		if (groupOptional.isPresent()) {
+			System.out.println(new GroupModel(groupOptional.get()));
+			setSessionGroup(new GroupModel(groupOptional.get()));
+			return;
+		}
+		throw new ValidationError("Not a valid group");
 	}
 	
 }

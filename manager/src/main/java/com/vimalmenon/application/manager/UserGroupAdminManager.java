@@ -27,7 +27,7 @@ public class UserGroupAdminManager {
 		return userRepository.findByUsername(username);
 	}
 	
-	public Optional<Group> getDefaultGroup (String name)
+	public Optional<Group> getGroupByName (String name)
 	{
 		return groupRepository.findByName(name);
 	}
