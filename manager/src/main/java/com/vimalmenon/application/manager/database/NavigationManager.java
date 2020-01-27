@@ -13,6 +13,7 @@ import com.vimalmenon.application.data.navigation.NavigationRepository;
 @Service
 public class NavigationManager {
 
+	@SuppressWarnings("unused")
 	@Autowired
 	private NavigationRepository navigation;
 	

@@ -15,7 +15,6 @@ import com.vimalmenon.application.model.response.Session;
 @Service
 public class NoteService {
 
-	@SuppressWarnings("unused")
 	@Autowired
 	private Session session;
 	

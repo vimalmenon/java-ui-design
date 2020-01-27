@@ -31,6 +31,11 @@ public class UserGroupAdminManager {
 	{
 		return groupRepository.findByName(name);
 	}
+	
+	public Optional<User> getUserById (int userId)
+	{
+		return userRepository.findById(userId);
+	}
 	@SuppressWarnings("unused")
 	private boolean verifyPassword () 
 	{
