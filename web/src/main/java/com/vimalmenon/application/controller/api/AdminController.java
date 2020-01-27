@@ -46,7 +46,7 @@ public class AdminController {
 	@PostMapping("/switch_account")
 	public ApiResponseModel<String> switchAccount(@RequestBody SwitchAccountModel switchAccount) {
 		adminService.switchAccount(switchAccount);
-		return new ApiResponseModel<String>(session).setData("switch_account");
+		return new ApiResponseModel<String>(session).setData("Success");
 	}
 	
 	@PostMapping("/preferences")

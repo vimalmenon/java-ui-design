@@ -28,7 +28,7 @@ public class AdminService {
 	
 	public GroupModel getDefaultGroup()
 	{
-		Optional<Group> groupOptional = userGroupAdminManager.getGroupByName(Groups.SUPER_ADMIN.name);
+		Optional<Group> groupOptional = userGroupAdminManager.getGroupByName(Groups.NO_USER.name);
 		if (!groupOptional.isPresent()) {
 			throw new ApplicationErrorException();
 		}
