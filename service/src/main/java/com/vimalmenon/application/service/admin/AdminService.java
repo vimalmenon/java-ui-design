@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.vimalmenon.application.common.enums.Groups;
 import com.vimalmenon.application.common.exceptions.ApplicationErrorException;
 import com.vimalmenon.application.common.exceptions.ValidationError;
 import com.vimalmenon.application.data.group.Group;
@@ -17,13 +18,6 @@ import com.vimalmenon.application.model.response.Session;
 @Service
 public class AdminService {
 	
-	@SuppressWarnings("unused")
-	private static String NO_USER = "No User";
-	@SuppressWarnings("unused")
-	private static String Super_Admin = "Super Admin";
-	@SuppressWarnings("unused")
-	private static String Visitor = "Visitor";
-	
 	
 	@Autowired
 	private UserGroupAdminManager userGroupAdminManager;
@@ -33,7 +27,7 @@ public class AdminService {
 	
 	public GroupModel getDefaultGroup()
 	{
-		Optional<Group> groupOptional = userGroupAdminManager.getDefaultGroup(Super_Admin);
+		Optional<Group> groupOptional = userGroupAdminManager.getDefaultGroup(Groups.SUPER_ADMIN.name);
 		if (!groupOptional.isPresent()) {
 			throw new ApplicationErrorException();
 		}
