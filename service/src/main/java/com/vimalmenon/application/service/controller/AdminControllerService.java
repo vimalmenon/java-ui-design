@@ -10,10 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.vimalmenon.application.data.group.Group;
+import com.vimalmenon.application.data.navigation.NavigationEntitlement;
 import com.vimalmenon.application.data.userpreference.UserPreference;
 import com.vimalmenon.application.manager.UserGroupAdminManager;
+import com.vimalmenon.application.manager.database.NavigationManager;
 import com.vimalmenon.application.manager.database.PreferencesManager;
 import com.vimalmenon.application.model.group.SwitchableGroupModel;
+import com.vimalmenon.application.model.navigation.NavigationModel;
 import com.vimalmenon.application.model.response.Session;
 
 @Service
@@ -27,6 +30,9 @@ public class AdminControllerService {
 	
 	@Autowired
 	private UserGroupAdminManager userGroupAdminManager;
+	
+	@Autowired
+	private NavigationManager navigationManager;
 	
 	
 	public Map<String, Object> adminIndex () 
@@ -45,6 +51,15 @@ public class AdminControllerService {
 				groups.add(new SwitchableGroupModel(group));
 			});
 			data.put("groups", groups);
+		}
+		
+		Optional<List<NavigationEntitlement>> navigationOptional = navigationManager.getNavigation(session.getId());
+		if (navigationOptional.isPresent()) {
+			List<NavigationModel> navigations = new ArrayList<>();
+			navigationOptional.get().forEach((navigation) -> {
+				navigations.add(new NavigationModel(navigation));
+			});
+			data.put("navigations", navigations);
 		}
 		return data;
 	}

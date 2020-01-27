@@ -10,6 +10,7 @@ import com.vimalmenon.application.service.controller.GoogleDriveService;
 @RequestMapping("/api/google_drive")
 public class GoogleDriveController {
 
+	@SuppressWarnings("unused")
 	@Autowired
 	private GoogleDriveService googleDriveService;
 	
