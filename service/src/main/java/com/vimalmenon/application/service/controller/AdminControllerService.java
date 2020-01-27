@@ -40,8 +40,6 @@ public class AdminControllerService {
 	{
 		
 		Optional<User> userOptional = userGroupAdminManager.getUserById(session.getUserId());
-		
-		int sessionId = userOptional.get().getGroup().getId();
 		int priorityId = userOptional.get().getGroup().getPriority();
 		
 		Map<String, Object> data = new HashMap<String, Object>();
@@ -60,7 +58,7 @@ public class AdminControllerService {
 			data.put("groups", groups);
 		}
 		
-		Optional<List<NavigationEntitlement>> navigationOptional = navigationManager.getNavigation(sessionId);
+		Optional<List<NavigationEntitlement>> navigationOptional = navigationManager.getNavigation(session.getId());
 		if (navigationOptional.isPresent()) {
 			List<NavigationModel> navigations = new ArrayList<>();
 			navigationOptional.get().forEach((navigation) -> {
