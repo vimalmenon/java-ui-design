@@ -1,5 +1,6 @@
 package com.vimalmenon.application.controller.api;
 
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vimalmenon.application.model.account.SwitchAccountModel;
+import com.vimalmenon.application.model.navigation.NavigationModel;
 import com.vimalmenon.application.model.response.ApiResponseModel;
 import com.vimalmenon.application.model.response.Session;
 import com.vimalmenon.application.service.admin.AdminService;
@@ -40,7 +42,7 @@ public class AdminController {
 	@PostMapping("/log_out")
 	public ApiResponseModel<String> logOut() {
 		adminService.logOut();
-		return new ApiResponseModel<String>(session).setData("log-out");
+		return new ApiResponseModel<String>(session).setData("Success");
 	}
 	
 	@PostMapping("/switch_account")

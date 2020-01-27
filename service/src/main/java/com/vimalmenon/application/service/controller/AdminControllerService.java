@@ -66,6 +66,7 @@ public class AdminControllerService {
 
 
 	public void savePreferences(String preferences) {
-		preferencesManager.savePreferences(1, preferences);
+		preferencesManager.savePreferences(session.getUserId(), preferences);
 	}
+
 }

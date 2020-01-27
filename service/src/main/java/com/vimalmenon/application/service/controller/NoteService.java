@@ -23,7 +23,7 @@ public class NoteService {
 	private NoteManager noteManager;
 
 	public List<NoteModel> getNotes() {
-		 Optional<List<Note>> notesOptional = noteManager.getNotes(1);
+		 Optional<List<Note>> notesOptional = noteManager.getNotes(session.getUserId());
 		 List<NoteModel> notes = new ArrayList<>();
 		 if (notesOptional.isPresent()) {
 			 notesOptional.get().forEach((note) -> {
@@ -38,7 +38,7 @@ public class NoteService {
 		notesModel.forEach((NoteModel) -> {
 			Note note = new Note();
 			note.setId(NoteModel.getId());
-			note.setUserId(1);
+			note.setUserId(session.getUserId());
 			note.setNote(NoteModel.getNote());
 			note.setTitle(NoteModel.getTitle());
 			nodes.add(note);
@@ -52,7 +52,7 @@ public class NoteService {
 		notesModel.forEach((NoteModel) -> {
 			Note note = new Note();
 			note.setId(NoteModel.getId());
-			note.setUserId(1);
+			note.setUserId(session.getUserId());
 			note.setNote(NoteModel.getNote());
 			note.setTitle(NoteModel.getTitle());
 			nodes.add(note);
