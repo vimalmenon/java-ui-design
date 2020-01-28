@@ -16,6 +16,7 @@ import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
 import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
 import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
+import com.google.api.client.http.FileContent;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
@@ -68,19 +69,27 @@ public class GoogleDriveManager {
         //List<GoogleDriveListModel> fileNames = new ArrayList<>();
         // Print the names and IDs for up to 10 files.
         FileList result = service.files().list()
-                .setFields("nextPageToken, files(id, name, mimeType, parents)")
+                .setFields("nextPageToken, files(id, name, mimeType, parents, hasThumbnail, thumbnailLink)")
                 .execute();
         List<File> files = result.getFiles();
         if (files == null || files.isEmpty()) {
             System.out.println("No files found.");
         } else {
             for (File file : files) {
-                System.out.printf("%s (%s) (%s) (%s)\n", file.getName(), file.getId(), file.getMimeType(), file.getParents());
+                System.out.printf("%s (%s) (%s) (%s) (%s) (%s)\n", file.getName(), file.getId(), file.getMimeType(), file.getParents(), file.getHasThumbnail(), file.getThumbnailLink());
+                
             }
         }
 	}
-    public void putFile ()
+    public void putFile () throws IOException
     {
-    	
+    	File fileMetadata = new File();
+    	fileMetadata.setName("photo.jpg");
+    	java.io.File filePath = new java.io.File("files/photo.jpg");
+    	FileContent mediaContent = new FileContent("image/jpeg", filePath);
+    	File file = service.files().create(fileMetadata, mediaContent)
+    	    .setFields("id")
+    	    .execute();
+    	System.out.println("File ID: " + file.getId());
     }
 }
