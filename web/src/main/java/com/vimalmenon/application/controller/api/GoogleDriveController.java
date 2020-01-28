@@ -1,12 +1,16 @@
 package com.vimalmenon.application.controller.api;
 
-import java.io.IOException;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.vimalmenon.application.model.google.GoogleDriveFileModel;
+import com.vimalmenon.application.model.response.ApiResponseModel;
+import com.vimalmenon.application.model.response.Session;
 import com.vimalmenon.application.service.controller.GoogleDriveService;
 
 @RestController
@@ -14,17 +18,15 @@ import com.vimalmenon.application.service.controller.GoogleDriveService;
 public class GoogleDriveController {
 
 	@Autowired
+	private Session session;
+	
+	@Autowired
 	private GoogleDriveService googleDriveService;
 	
 	@GetMapping("")
-	public void listFile ()
+	public ApiResponseModel<List<GoogleDriveFileModel>> listFile ()
 	{
-		try {
-			googleDriveService.listFile();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		return new ApiResponseModel<List<GoogleDriveFileModel>>(session).setData(googleDriveService.listFile());
 	}
 	public void uploadDatabase ()
 	{

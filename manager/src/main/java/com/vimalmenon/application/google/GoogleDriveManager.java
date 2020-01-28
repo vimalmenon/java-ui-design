@@ -65,21 +65,22 @@ public class GoogleDriveManager {
         
     }
     
-    public void listFiles() throws IOException {
+    public List<File> listFiles() throws IOException {
         //List<GoogleDriveListModel> fileNames = new ArrayList<>();
         // Print the names and IDs for up to 10 files.
         FileList result = service.files().list()
                 .setFields("nextPageToken, files(id, name, mimeType, parents, hasThumbnail, thumbnailLink)")
                 .execute();
-        List<File> files = result.getFiles();
-        if (files == null || files.isEmpty()) {
+        List<File> files = result.getFiles(); 
+        return files;
+        /*if (files == null || files.isEmpty()) {
             System.out.println("No files found.");
         } else {
             for (File file : files) {
                 System.out.printf("%s (%s) (%s) (%s) (%s) (%s)\n", file.getName(), file.getId(), file.getMimeType(), file.getParents(), file.getHasThumbnail(), file.getThumbnailLink());
                 
             }
-        }
+        }*/
 	}
     public void putFile () throws IOException
     {

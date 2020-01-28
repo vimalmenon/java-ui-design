@@ -21,8 +21,6 @@ public class NoteController {
 	@Autowired
 	private Session session;
 	
-	
-	
 	@Autowired
 	private NoteService notesService;
 	
