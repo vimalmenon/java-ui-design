@@ -36,11 +36,6 @@ public class UserGroupAdminManager {
 	{
 		return userRepository.findById(userId);
 	}
-	@SuppressWarnings("unused")
-	private boolean verifyPassword () 
-	{
-		return false;
-	}
 
 	public Optional<List<Group>> getSwitchableGroups(int groupId) {
 		return groupRepository.findByPriorityGreaterThanEqual(groupId);

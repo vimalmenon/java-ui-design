@@ -42,3 +42,5 @@ build/
 /package-lock.json
 tokens/StoredCredential
 web/src/main/resources/credentials.json
+web/tokens/
+
