@@ -14,7 +14,7 @@ import com.vimalmenon.application.model.response.Session;
 import com.vimalmenon.application.service.controller.GoogleDriveService;
 
 @RestController
-@RequestMapping("/api/google_drive")
+@RequestMapping("/api/admin/google_drive")
 public class GoogleDriveController {
 
 	@Autowired

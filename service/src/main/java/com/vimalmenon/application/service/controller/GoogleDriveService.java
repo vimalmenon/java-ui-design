@@ -26,11 +26,13 @@ public class GoogleDriveService {
 			for (File file : files) {
 				GoogleDriveFileModel googleDrive = new GoogleDriveFileModel();
 				googleDrive.setName(file.getName());
+				googleDrive.setKind(file.getKind());
 				googleDrive.setId(file.getId());
 				googleDrive.setMimeType(file.getMimeType());
-				//googleDrive.setParents(file.getParents().get(0));
+				googleDrive.setParents(file.getParents());
 				googleDrive.setHasThumbnail(file.getHasThumbnail());
-				model.add(googleDrive);
+				googleDrive.setThumbnailLink(file.getThumbnailLink());
+				googleDrive.processData(model);
 	        }
 			return model;
 		} catch (IOException e) {

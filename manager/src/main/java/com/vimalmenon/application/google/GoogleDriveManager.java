@@ -69,7 +69,7 @@ public class GoogleDriveManager {
         //List<GoogleDriveListModel> fileNames = new ArrayList<>();
         // Print the names and IDs for up to 10 files.
         FileList result = service.files().list()
-                .setFields("nextPageToken, files(id, name, mimeType, parents, hasThumbnail, thumbnailLink)")
+                .setFields("nextPageToken, files(id, name, mimeType, parents, hasThumbnail, thumbnailLink, kind)")
                 .execute();
         List<File> files = result.getFiles(); 
         return files;
