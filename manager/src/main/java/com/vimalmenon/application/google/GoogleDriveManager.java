@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.security.GeneralSecurityException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -22,6 +23,7 @@ import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.store.FileDataStoreFactory;
 import com.google.api.services.drive.Drive;
+import com.google.api.services.drive.Drive.Files;
 import com.google.api.services.drive.DriveScopes;
 import com.google.api.services.drive.model.File;
 import com.google.api.services.drive.model.FileList;
@@ -66,21 +68,25 @@ public class GoogleDriveManager {
     }
     
     public List<File> listFiles() throws IOException {
-        //List<GoogleDriveListModel> fileNames = new ArrayList<>();
-        // Print the names and IDs for up to 10 files.
-        FileList result = service.files().list()
-                .setFields("nextPageToken, files(id, name, mimeType, parents, hasThumbnail, thumbnailLink, kind)")
-                .execute();
-        List<File> files = result.getFiles(); 
-        return files;
-        /*if (files == null || files.isEmpty()) {
-            System.out.println("No files found.");
-        } else {
-            for (File file : files) {
-                System.out.printf("%s (%s) (%s) (%s) (%s) (%s)\n", file.getName(), file.getId(), file.getMimeType(), file.getParents(), file.getHasThumbnail(), file.getThumbnailLink());
-                
-            }
-        }*/
+    	List<File> result = new ArrayList<File>();
+        Files.List request = service.files().list();
+
+        do {
+          try {
+            FileList files = request.execute();
+            
+            result.addAll(files.getFiles());
+            request.setPageToken(files.getNextPageToken());
+          } catch (IOException e) {
+            System.out.println("An error occurred: " + e);
+            request.setPageToken(null);
+          }
+        } while (request.getPageToken() != null &&
+                 request.getPageToken().length() > 0);
+
+        return result;
+        
+        
 	}
     public void putFile () throws IOException
     {

@@ -1,5 +1,7 @@
 package com.vimalmenon.application.controller.api;
 
+import java.security.Principal;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +48,11 @@ public class ApiController {
 	public ApiResponseModel<ComponentEntitlementModel> getComponentEntitlement(@RequestBody String name) 
 	{
 		return new ApiResponseModel<ComponentEntitlementModel>(session).setData(controllerService.getComponentEntitlement(name));
+	}
+	
+	@RequestMapping(value = "/user")
+	public Principal user(Principal principal) {
+		return principal;
 	}
 	
 	@RequestMapping(value = "**")

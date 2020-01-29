@@ -22,22 +22,27 @@ public class GoogleDriveService {
 	{
 		try {
 			List<File> files = googleDriveManager.listFiles();
-			List<GoogleDriveFileModel> model = new ArrayList<>();
-			for (File file : files) {
+			List<GoogleDriveFileModel>models = new ArrayList<>();
+		 	for (File file : files) {
+					 
 				GoogleDriveFileModel googleDrive = new GoogleDriveFileModel();
 				googleDrive.setName(file.getName());
 				googleDrive.setKind(file.getKind());
 				googleDrive.setId(file.getId());
 				googleDrive.setMimeType(file.getMimeType());
 				googleDrive.setParents(file.getParents());
-				googleDrive.setHasThumbnail(file.getHasThumbnail());
-				googleDrive.setThumbnailLink(file.getThumbnailLink());
-				googleDrive.processData(model);
-	        }
-			return model;
+				//googleDrive.processData(model);
+				models.add(googleDrive);
+			}
+			return models;
 		} catch (IOException e) {
 			System.out.println(e);
 			throw new GeneralException(e.getMessage());
 		}
+	}
+	
+	public void uploadFile()
+	{
+		
 	}
 }

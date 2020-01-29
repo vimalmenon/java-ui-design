@@ -10,8 +10,6 @@ public class GoogleDriveFileModel {
 	private String mimeType;
 	private String kind;
 	private List<String> parents;
-	private boolean hasThumbnail;
-	private String thumbnailLink;
 	private List<GoogleDriveFileModel> children = new ArrayList<>();
 	
 	
@@ -39,27 +37,13 @@ public class GoogleDriveFileModel {
 	public void setKind(String kind) {
 		this.kind = kind;
 	}
-	public String getThumbnailLink() {
-		return thumbnailLink;
-	}
 	public List<String> getParents() {
 		return parents;
 	}
 	public void setParents(List<String> parents) {
 		this.parents = parents;
 	}
-	public boolean isHasThumbnail() {
-		return hasThumbnail;
-	}
-	public void setHasThumbnail(boolean hasThumbnail) {
-		this.hasThumbnail = hasThumbnail;
-	}
-	public String isThumbnailLink() {
-		return thumbnailLink;
-	}
-	public void setThumbnailLink(String thumbnailLink) {
-		this.thumbnailLink = thumbnailLink;
-	}
+
 	
 	public List<GoogleDriveFileModel> getChildren() {
 		return children;
@@ -69,11 +53,10 @@ public class GoogleDriveFileModel {
 	}
 	public List<GoogleDriveFileModel> processData (List<GoogleDriveFileModel> models)
 	{
-		if (this.getParents()== null) {
+		if (this.parents == null) {
 			models.add(this);
 			return models;
-		}
-		if (!checkChildrenAndAdd(models, this)) {
+		}else if (!checkChildrenAndAdd(models, this)) {
 			models.add(this);
 		}
 		return models;
@@ -84,11 +67,15 @@ public class GoogleDriveFileModel {
 		ListIterator<GoogleDriveFileModel> items = models.listIterator();
 		while(items.hasNext()) {
 			GoogleDriveFileModel model = items.next();
-			for(String parent: children.parents) {
-				isAdded = checkChildrenAndAdd(model.children, this);
-				if (model.id.equals(parent)) {
-					isAdded = true;
-					model.children.add(children);
+			if (model.parents == null) {
+				isAdded = false;
+			} else {
+				for(String parent: model.parents) {
+					isAdded = checkChildrenAndAdd(model.children, this);
+					if (model.id.equals(parent)) {
+						isAdded = true;
+						model.children.add(children);
+					}
 				}
 			}
 		}
@@ -98,7 +85,7 @@ public class GoogleDriveFileModel {
 	@Override
 	public String toString() {
 		return "GoogleDriveFileModel [Id=" + id + ", Name=" + name + ", mimeType=" + mimeType + ", kind=" + kind
-				+ ", parents=" + parents + ", hasThumbnail=" + hasThumbnail + ", thumbnailLink=" + thumbnailLink + "]";
+				+ ", parents=" + parents + "]";
 	}
 
 }
