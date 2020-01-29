@@ -7,12 +7,14 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 import com.vimalmenon.application.data.group.Group;
 import com.vimalmenon.application.data.navigation.NavigationEntitlement;
 import com.vimalmenon.application.data.user.User;
-import com.vimalmenon.application.data.userpreference.UserPreference;
+import com.vimalmenon.application.data.user.UserPreference;
+import com.vimalmenon.application.database.DatabaseManager;
 import com.vimalmenon.application.manager.UserGroupAdminManager;
 import com.vimalmenon.application.manager.database.NavigationManager;
 import com.vimalmenon.application.manager.database.PreferencesManager;
@@ -34,6 +36,13 @@ public class AdminControllerService {
 	
 	@Autowired
 	private NavigationManager navigationManager;
+	
+	
+	@Autowired
+	private DatabaseManager databaseManager;
+	
+	@Autowired 
+	private ApplicationContext applicationContext;
 	
 	
 	public Map<String, Object> adminIndex () 
@@ -73,5 +82,10 @@ public class AdminControllerService {
 	public void savePreferences(String preferences) {
 		preferencesManager.savePreferences(session.getUserId(), preferences);
 	}
+	
+	public void uploadDatabase() {
+		applicationContext.getBean(databaseManager.getClass()).uploadDatabase();
+	}
+
 
 }

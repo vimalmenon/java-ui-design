@@ -1,4 +1,4 @@
-package com.vimalmenon.application.data.userpreference;
+package com.vimalmenon.application.data.user;
 
 import java.util.Optional;
 

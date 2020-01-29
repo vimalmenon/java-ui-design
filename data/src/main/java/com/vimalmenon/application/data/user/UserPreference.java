@@ -1,4 +1,4 @@
-package com.vimalmenon.application.data.userpreference;
+package com.vimalmenon.application.data.user;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

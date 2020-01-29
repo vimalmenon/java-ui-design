@@ -5,8 +5,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.vimalmenon.application.data.userpreference.UserPreference;
-import com.vimalmenon.application.data.userpreference.UserPreferenceRepository;
+import com.vimalmenon.application.data.user.UserPreference;
+import com.vimalmenon.application.data.user.UserPreferenceRepository;
 
 @Service
 public class PreferencesManager {

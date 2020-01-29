@@ -27,7 +27,7 @@ public class AdminController {
 	
 	@Autowired
 	private AdminService adminService;
-
+	
 	@Autowired
 	private Session session;
 	
@@ -54,6 +54,12 @@ public class AdminController {
 	public ApiResponseModel<String> savePreferences(@RequestBody String preferences) {
 		adminControllerService.savePreferences(preferences);
 		return new ApiResponseModel<String>(session).setData("Succcess");
+	}
+	
+	@GetMapping("/upload_database")
+	public void uploadDatabase () 
+	{
+		adminControllerService.uploadDatabase();
 	}
 	
 
