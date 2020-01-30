@@ -73,6 +73,7 @@
 		<module>model</module>
 		<module>service</module>
 		<module>data</module>
+		<module>common</module>
 		<module>manager</module>
 	</modules>
 </project>
