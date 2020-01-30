@@ -1,45 +1,45 @@
 package com.vimalmenon.application.database;
 
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
-import com.vimalmenon.application.data.group.GroupRepository;
-import com.vimalmenon.application.data.note.NoteRepository;
-import com.vimalmenon.application.data.url.UrlEntitlementRepository;
-import com.vimalmenon.application.data.url.UrlRepository;
-import com.vimalmenon.application.data.user.UserPreferenceRepository;
-import com.vimalmenon.application.data.user.UserRepository;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.vimalmenon.application.common.gson.JsonConverter;
+import com.vimalmenon.application.enums.Sql;
 
 @Service
 public class DatabaseManager {
 
-	@Autowired
-	private GroupRepository groupRepository;
+	@Autowired 
+	private ApplicationContext applicationContext;
 	
 	@Autowired
-	private UserRepository userRepository;
+	private JsonConverter jsonConverter;
 	
-	@Autowired
-	private UserPreferenceRepository userPreferenceRepository;
-	
-	@Autowired
-	private NoteRepository noteRepository;
-	
-	@Autowired
-	private UrlRepository urlRepository;
-	
-	@Autowired
-	private UrlEntitlementRepository urlEntitlementRepository;
-	
-	
-	
-	public void uploadDatabase() {
-		groupRepository.findAll();
-		userRepository.findAll();
-		userPreferenceRepository.findAll();
-		noteRepository.findAll();
-		urlRepository.findAll();
-		urlEntitlementRepository.findAll();
+	public Map<String, String> uploadDatabase() {
+		ObjectMapper mapper = new ObjectMapper();
+		Map<String, String> items = new HashMap<String, String>();
+		Sql.getSequence().forEach((file) -> {
+			//System.out.println(file.getSqlName());
+			try {
+				List result = ((JpaRepository) applicationContext.getBean(Class.forName(file.getClasses()))).findAll();
+				System.out.println(mapper.writeValueAsString(result));
+				items.put(file.getSqlName(), "test");
+			} catch (BeansException | ClassNotFoundException | JsonProcessingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		});
+		return items;
 		
 	}
 

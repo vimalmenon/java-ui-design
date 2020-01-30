@@ -18,39 +18,41 @@ import com.vimalmenon.application.data.user.UserRepository;
 
 public enum Sql {
 
-	GROUPS("Groups", GroupRepository.class),
-	USERS("Users", UserRepository.class),
-	USER_PREFERENCES("user_preferences", UserPreferenceRepository.class),
-	NOTES("notes", NoteRepository.class),
-	URLS("urls", UrlRepository.class),
-	URL_ENTITLEMENTS("url_entitlements", UrlEntitlementRepository.class),
-	COMPONENTS("components", ComponentRepository.class),
-	COMPONENT_ENTITLEMENTS("component_entitlements", ComponentEntitlementRepository.class),
-	NAVIGATIONS("navigations", NavigationRepository.class),
-	NAVIGATION_ENTITLEMENTS("navigation_entitlements", NavigationEntitlementRepository.class),
-	USER_PROFILES("user_profiles", UserProfileRepository.class);
+	GROUPS("Groups", GroupRepository.class.getName()),
+	USERS("Users", UserRepository.class.getName()),
+	USER_PREFERENCES("user_preferences", UserPreferenceRepository.class.getName()),
+	NOTES("notes", NoteRepository.class.getName()),
+	URLS("urls", UrlRepository.class.getName()),
+	URL_ENTITLEMENTS("url_entitlements", UrlEntitlementRepository.class.getName()),
+	COMPONENTS("components", ComponentRepository.class.getName()),
+	COMPONENT_ENTITLEMENTS("component_entitlements", ComponentEntitlementRepository.class.getName()),
+	NAVIGATIONS("navigations", NavigationRepository.class.getName()),
+	NAVIGATION_ENTITLEMENTS("navigation_entitlements", NavigationEntitlementRepository.class.getName()),
+	USER_PROFILES("user_profiles", UserProfileRepository.class.getName());
 	
 	
 	
-	public static List<Sql> sequence= Arrays.asList(
-				GROUPS, 
-				USERS, 
-				USER_PREFERENCES, 
-				NOTES, 
-				URLS, 
-				URL_ENTITLEMENTS,
-				COMPONENTS,
-				COMPONENT_ENTITLEMENTS,
-				NAVIGATIONS,
-				NAVIGATION_ENTITLEMENTS,
-				USER_PROFILES
+	private static List<Sql> sequence= Arrays.asList(
+		GROUPS, 
+		USERS, 
+		USER_PREFERENCES, 
+		NOTES, 
+		URLS, 
+		URL_ENTITLEMENTS,
+		COMPONENTS,
+		COMPONENT_ENTITLEMENTS,
+		NAVIGATIONS,
+		NAVIGATION_ENTITLEMENTS,
+		USER_PROFILES
 	);
 	
 	
 	private String sqlName;
-	private Class<?> classes;
+	private String classes;
 	
-	private Sql(String name, Class<?> classes) {
+	
+	
+	private Sql(String name, String classes) {
 		this.sqlName = name;
 		this.classes = classes;
 	}
@@ -63,13 +65,20 @@ public enum Sql {
 		this.sqlName = sqlName;
 	}
 
-	public Class<?> getClasses() {
+	public String getClasses() {
 		return classes;
 	}
 
-	public void setClasses(Class<?> classes) {
+	public void setClasses(String classes) {
 		this.classes = classes;
 	}
-	
+
+	public static List<Sql> getSequence() {
+		return sequence;
+	}
+
+	public static void setSequence(List<Sql> sequence) {
+		Sql.sequence = sequence;
+	}
 	
 }

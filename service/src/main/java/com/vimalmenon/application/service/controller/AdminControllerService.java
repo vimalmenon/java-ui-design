@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 import com.vimalmenon.application.data.group.Group;
@@ -40,9 +39,6 @@ public class AdminControllerService {
 	
 	@Autowired
 	private DatabaseManager databaseManager;
-	
-	@Autowired 
-	private ApplicationContext applicationContext;
 	
 	
 	public Map<String, Object> adminIndex () 
@@ -84,7 +80,7 @@ public class AdminControllerService {
 	}
 	
 	public void uploadDatabase() {
-		applicationContext.getBean(databaseManager.getClass()).uploadDatabase();
+		databaseManager.uploadDatabase();
 	}
 
 
