@@ -11,8 +11,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vimalmenon.application.common.gson.JsonConverter;
 import com.vimalmenon.application.enums.Sql;
 
@@ -26,15 +24,13 @@ public class DatabaseManager {
 	private JsonConverter jsonConverter;
 	
 	public Map<String, String> uploadDatabase() {
-		ObjectMapper mapper = new ObjectMapper();
 		Map<String, String> items = new HashMap<String, String>();
 		Sql.getSequence().forEach((file) -> {
 			//System.out.println(file.getSqlName());
 			try {
 				List result = ((JpaRepository) applicationContext.getBean(Class.forName(file.getClasses()))).findAll();
-				System.out.println(mapper.writeValueAsString(result));
 				items.put(file.getSqlName(), "test");
-			} catch (BeansException | ClassNotFoundException | JsonProcessingException e) {
+			} catch (BeansException | ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
