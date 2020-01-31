@@ -62,6 +62,12 @@ public class AdminController {
 		return new ApiResponseModel<UserProfileModel>(session).setData(adminService.getProfile());
 	}
 	
+	@PostMapping("/profile")
+	public ApiResponseModel<UserProfileModel> saveProfile (@RequestBody UserProfileModel profile)
+	{
+		return new ApiResponseModel<UserProfileModel>(session).setData(adminService.saveProfile(profile));
+	}
+	
 	@GetMapping("/upload_database")
 	public void uploadDatabase () 
 	{

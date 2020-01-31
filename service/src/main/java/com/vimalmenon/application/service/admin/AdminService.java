@@ -89,5 +89,17 @@ public class AdminService {
 		}
 		return profile;
 	}
+
+	public UserProfileModel saveProfile(UserProfileModel profile) {
+		
+		UserProfile userProfile = new UserProfile();
+		userProfile.setId(profile.getId());
+		userProfile.setName(profile.getName());
+		userProfile.setEmailAddress(profile.getEmailAddress());
+		userProfile.setLocation(profile.getLocation());
+		userProfile.setUserId(session.getUserId());
+		userGroupAdminManager.saveProfile(userProfile);
+		return getProfile();
+	}
 	
 }

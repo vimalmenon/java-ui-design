@@ -50,4 +50,8 @@ public class UserGroupAdminManager {
 		return userProfileRepository.findById(userId);
 	}
 
+	public void saveProfile(UserProfile userProfile) {
+		userProfileRepository.save(userProfile);
+	}
+
 }
