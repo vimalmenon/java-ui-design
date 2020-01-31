@@ -10,10 +10,12 @@ import com.vimalmenon.application.common.exceptions.ApplicationErrorException;
 import com.vimalmenon.application.common.exceptions.ValidationError;
 import com.vimalmenon.application.data.group.Group;
 import com.vimalmenon.application.data.user.User;
+import com.vimalmenon.application.data.user.UserProfile;
 import com.vimalmenon.application.manager.UserGroupAdminManager;
 import com.vimalmenon.application.model.account.SwitchAccountModel;
 import com.vimalmenon.application.model.admin.AdminLoginModel;
 import com.vimalmenon.application.model.group.GroupModel;
+import com.vimalmenon.application.model.profile.UserProfileModel;
 import com.vimalmenon.application.model.response.Session;
 
 @Service
@@ -77,6 +79,15 @@ public class AdminService {
 			return;
 		}
 		throw new ValidationError("Not a valid group");
+	}
+
+	public UserProfileModel getProfile() {
+		UserProfileModel profile = new UserProfileModel();
+		Optional<UserProfile> userProfileModel = userGroupAdminManager.getProfile(session.getUserId());
+		if (userProfileModel.isPresent()) {
+			profile = new UserProfileModel(userProfileModel.get());
+		}
+		return profile;
 	}
 	
 }

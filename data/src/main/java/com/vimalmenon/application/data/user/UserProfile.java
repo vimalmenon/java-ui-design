@@ -20,6 +20,12 @@ public class UserProfile {
 	
 	@Column(nullable = false, name = "email_address")
 	private String emailAddress;
+	
+	@Column(nullable = false, name = "location")
+	private String location;
+	
+	@Column(nullable = false, name = "user_id")
+	private Integer userId;
 
 	public int getId() {
 		return id;
@@ -43,5 +49,20 @@ public class UserProfile {
 
 	public void setEmailAddress(String emailAddress) {
 		this.emailAddress = emailAddress;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 }

@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import com.vimalmenon.application.data.group.Group;
 import com.vimalmenon.application.data.group.GroupRepository;
 import com.vimalmenon.application.data.user.User;
+import com.vimalmenon.application.data.user.UserProfile;
+import com.vimalmenon.application.data.user.UserProfileRepository;
 import com.vimalmenon.application.data.user.UserRepository;
 
 @Service
@@ -20,6 +22,9 @@ public class UserGroupAdminManager {
 	
 	@Autowired
 	private GroupRepository groupRepository;
+	
+	@Autowired
+	private UserProfileRepository userProfileRepository;
 	
 	
 	public Optional<User> login (String username) 
@@ -39,6 +44,10 @@ public class UserGroupAdminManager {
 
 	public Optional<List<Group>> getSwitchableGroups(int groupId) {
 		return groupRepository.findByPriorityGreaterThanEqual(groupId);
+	}
+
+	public Optional<UserProfile> getProfile(Integer userId) {
+		return userProfileRepository.findById(userId);
 	}
 
 }

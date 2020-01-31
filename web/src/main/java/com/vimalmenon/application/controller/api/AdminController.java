@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vimalmenon.application.model.account.SwitchAccountModel;
-
+import com.vimalmenon.application.model.profile.UserProfileModel;
 import com.vimalmenon.application.model.response.ApiResponseModel;
 import com.vimalmenon.application.model.response.Session;
 import com.vimalmenon.application.service.admin.AdminService;
@@ -54,6 +54,12 @@ public class AdminController {
 	public ApiResponseModel<String> savePreferences(@RequestBody String preferences) {
 		adminControllerService.savePreferences(preferences);
 		return new ApiResponseModel<String>(session).setData("Succcess");
+	}
+	
+	@GetMapping("/profile")
+	public ApiResponseModel<UserProfileModel> getProfile ()
+	{
+		return new ApiResponseModel<UserProfileModel>(session).setData(adminService.getProfile());
 	}
 	
 	@GetMapping("/upload_database")
