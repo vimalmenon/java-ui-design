@@ -28,8 +28,13 @@ public class GoogleDriveController {
 	{
 		return new ApiResponseModel<List<GoogleDriveFileModel>>(session).setData(googleDriveService.listFile());
 	}
-	public void uploadDatabase ()
+	
+	
+	@GetMapping("/upload_database")
+	public ApiResponseModel<String> uploadDatabase ()
 	{
+		googleDriveService.uploadDatabase();
+		return new ApiResponseModel<String>(session).setData("Success");
 		
 	}
 	

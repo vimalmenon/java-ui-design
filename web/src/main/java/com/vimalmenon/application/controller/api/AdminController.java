@@ -27,9 +27,6 @@ public class AdminController {
 	private AdminControllerService adminControllerService;
 	
 	@Autowired
-	private GoogleDriveService googleDriveService;
-	
-	@Autowired
 	private AdminService adminService;
 	
 	@Autowired
@@ -70,12 +67,6 @@ public class AdminController {
 	public ApiResponseModel<UserProfileModel> saveProfile (@RequestBody UserProfileModel profile)
 	{
 		return new ApiResponseModel<UserProfileModel>(session).setData(adminService.saveProfile(profile));
-	}
-	
-	@GetMapping("/upload_database")
-	public void uploadDatabase () 
-	{
-		googleDriveService.uploadDatabase();
 	}
 	
 

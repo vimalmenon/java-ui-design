@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.vimalmenon.application.common.zip.Zipper;
 import com.vimalmenon.application.enums.Sql;
 
 @Service
@@ -25,11 +26,9 @@ public class DatabaseManager {
 	public List<String> uploadDatabase() throws RuntimeException{
 		List<String> items = new ArrayList<String>();
 		ObjectMapper mapper = new ObjectMapper();
-
 		Sql.getSequence().forEach((file) -> {
 			try {
-				List result = ((JpaRepository) applicationContext.getBean(Class.forName(file.getClasses()))).findAll();
-				items.add(mapper.writeValueAsString(result));
+				items.add(mapper.writeValueAsString(((JpaRepository) applicationContext.getBean(Class.forName(file.getClasses()))).findAll()));
 			} catch (BeansException | ClassNotFoundException | JsonProcessingException e) {
 				throw new RuntimeException(e);
 			}			
