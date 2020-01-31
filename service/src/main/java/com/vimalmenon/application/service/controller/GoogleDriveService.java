@@ -1,14 +1,20 @@
 package com.vimalmenon.application.service.controller;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.ZipOutputStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.google.api.services.drive.model.File;
 import com.vimalmenon.application.common.exceptions.GeneralException;
+import com.vimalmenon.application.database.DatabaseManager;
+import com.vimalmenon.application.enums.Sql;
 import com.vimalmenon.application.google.GoogleDriveManager;
 import com.vimalmenon.application.model.google.GoogleDriveFileModel;
 
@@ -17,6 +23,9 @@ public class GoogleDriveService {
 
 	@Autowired
 	public GoogleDriveManager googleDriveManager;
+	
+	@Autowired
+	private DatabaseManager databaseManager;
 	
 	public List<GoogleDriveFileModel> listFile ()
 	{
@@ -41,8 +50,26 @@ public class GoogleDriveService {
 		}
 	}
 	
-	public void uploadFile()
-	{
+	public void uploadDatabase() {
+		try {
+			java.io.File dbPath = new java.io.File("//application/config//db");
+			List<Sql> sequence = Sql.getSequence();
+			if (!dbPath.exists()) {
+				dbPath.mkdir();
+			}
+			List<String> items = databaseManager.uploadDatabase();
+			FileOutputStream out = null;
+			for(int i = 0; i < items.size(); i++) {
+				out = new FileOutputStream(dbPath.getAbsoluteFile() + "//" + sequence.get(i).getSqlName());
+				out.write(items.get(i).getBytes());
+			}
+			out.close();
+			
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 }

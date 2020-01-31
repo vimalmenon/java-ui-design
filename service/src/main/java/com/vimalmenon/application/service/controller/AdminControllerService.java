@@ -37,10 +37,6 @@ public class AdminControllerService {
 	private NavigationManager navigationManager;
 	
 	
-	@Autowired
-	private DatabaseManager databaseManager;
-	
-	
 	public Map<String, Object> adminIndex () 
 	{
 		
@@ -77,10 +73,6 @@ public class AdminControllerService {
 
 	public void savePreferences(String preferences) {
 		preferencesManager.savePreferences(session.getUserId(), preferences);
-	}
-	
-	public void uploadDatabase() {
-		databaseManager.uploadDatabase();
 	}
 
 

@@ -1,9 +1,8 @@
 package com.vimalmenon.application.database;
 
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
-import com.vimalmenon.application.common.gson.JsonConverter;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vimalmenon.application.enums.Sql;
 
 @Service
@@ -20,20 +20,19 @@ public class DatabaseManager {
 	@Autowired 
 	private ApplicationContext applicationContext;
 	
-	@Autowired
-	private JsonConverter jsonConverter;
+
 	
-	public Map<String, String> uploadDatabase() {
-		Map<String, String> items = new HashMap<String, String>();
+	public List<String> uploadDatabase() throws RuntimeException{
+		List<String> items = new ArrayList<String>();
+		ObjectMapper mapper = new ObjectMapper();
+
 		Sql.getSequence().forEach((file) -> {
-			//System.out.println(file.getSqlName());
 			try {
 				List result = ((JpaRepository) applicationContext.getBean(Class.forName(file.getClasses()))).findAll();
-				items.put(file.getSqlName(), "test");
-			} catch (BeansException | ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+				items.add(mapper.writeValueAsString(result));
+			} catch (BeansException | ClassNotFoundException | JsonProcessingException e) {
+				throw new RuntimeException(e);
+			}			
 		});
 		return items;
 		

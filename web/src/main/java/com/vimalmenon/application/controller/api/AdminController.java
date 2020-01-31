@@ -17,6 +17,7 @@ import com.vimalmenon.application.model.response.ApiResponseModel;
 import com.vimalmenon.application.model.response.Session;
 import com.vimalmenon.application.service.admin.AdminService;
 import com.vimalmenon.application.service.controller.AdminControllerService;
+import com.vimalmenon.application.service.controller.GoogleDriveService;
 
 @RestController
 @RequestMapping("/api/admin")
@@ -24,6 +25,9 @@ public class AdminController {
 	
 	@Autowired
 	private AdminControllerService adminControllerService;
+	
+	@Autowired
+	private GoogleDriveService googleDriveService;
 	
 	@Autowired
 	private AdminService adminService;
@@ -71,7 +75,7 @@ public class AdminController {
 	@GetMapping("/upload_database")
 	public void uploadDatabase () 
 	{
-		adminControllerService.uploadDatabase();
+		googleDriveService.uploadDatabase();
 	}
 	
 
