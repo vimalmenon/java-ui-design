@@ -13,13 +13,13 @@ import com.vimalmenon.application.data.url.UrlEntitlementRepository;
 import com.vimalmenon.application.data.url.UrlRepository;
 import com.vimalmenon.application.data.user.UserPreferenceRepository;
 import com.vimalmenon.application.data.user.UserProfileRepository;
-import com.vimalmenon.application.data.user.UserRepository;
+import com.vimalmenon.application.data.database.repository.UserDatabaseRepository;
 
 
 public enum Sql {
 
 	GROUPS("Groups", GroupRepository.class.getName()),
-	USERS("Users", UserRepository.class.getName()),
+	USERS("Users", UserDatabaseRepository.class.getName()),
 	USER_PREFERENCES("user_preferences", UserPreferenceRepository.class.getName()),
 	NOTES("notes", NoteRepository.class.getName()),
 	URLS("urls", UrlRepository.class.getName()),
