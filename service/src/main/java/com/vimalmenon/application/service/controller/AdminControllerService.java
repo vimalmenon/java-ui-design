@@ -13,7 +13,6 @@ import com.vimalmenon.application.data.group.Group;
 import com.vimalmenon.application.data.navigation.NavigationEntitlement;
 import com.vimalmenon.application.data.user.User;
 import com.vimalmenon.application.data.user.UserPreference;
-import com.vimalmenon.application.database.DatabaseManager;
 import com.vimalmenon.application.manager.UserGroupAdminManager;
 import com.vimalmenon.application.manager.database.NavigationManager;
 import com.vimalmenon.application.manager.database.PreferencesManager;

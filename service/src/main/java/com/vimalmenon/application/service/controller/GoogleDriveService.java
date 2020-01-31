@@ -10,7 +10,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.google.api.client.http.FileContent;
 import com.google.api.services.drive.model.File;
 import com.vimalmenon.application.common.exceptions.GeneralException;
 import com.vimalmenon.application.common.zip.Zipper;
@@ -65,7 +64,7 @@ public class GoogleDriveService {
 			if (!dbPath.exists()) {
 				dbPath.mkdir();
 			}
-			/*List<String> items = databaseManager.uploadDatabase();
+			List<String> items = databaseManager.uploadDatabase();
 			FileOutputStream out = null;
 			for(int i = 0; i < items.size(); i++) {
 				out = new FileOutputStream(dbPath.getAbsolutePath() + "//" + sequence.get(i).getSqlName());
@@ -73,7 +72,7 @@ public class GoogleDriveService {
 				zip.writeToZipFile(dbPath.getAbsolutePath() + "/" +sequence.get(i).getSqlName(), sequence.get(i).getSqlName());
 			}
 			out.close();
-			zip.close();*/
+			zip.close();
 			
 			java.io.File filePath = new java.io.File(dbPath.getAbsoluteFile() + ".zip");
 			System.out.println(filePath.getAbsoluteFile());
@@ -83,6 +82,11 @@ public class GoogleDriveService {
 			log.error(e.getMessage());
 			throw new GeneralException(e.getMessage());
 		}
+		
+	}
+
+	public void restoreDatabase() {
+		// TODO Auto-generated method stub
 		
 	}
 }

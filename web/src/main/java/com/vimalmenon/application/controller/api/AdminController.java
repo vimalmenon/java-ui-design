@@ -17,7 +17,6 @@ import com.vimalmenon.application.model.response.ApiResponseModel;
 import com.vimalmenon.application.model.response.Session;
 import com.vimalmenon.application.service.admin.AdminService;
 import com.vimalmenon.application.service.controller.AdminControllerService;
-import com.vimalmenon.application.service.controller.GoogleDriveService;
 
 @RestController
 @RequestMapping("/api/admin")

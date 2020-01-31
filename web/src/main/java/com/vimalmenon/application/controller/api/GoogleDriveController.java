@@ -35,7 +35,11 @@ public class GoogleDriveController {
 	{
 		googleDriveService.uploadDatabase();
 		return new ApiResponseModel<String>(session).setData("Success");
-		
 	}
 	
+	@GetMapping("restore_database")
+	public void restoreDatabase ()
+	{
+		googleDriveService.restoreDatabase();
+	}
 }
