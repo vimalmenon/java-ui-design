@@ -88,12 +88,15 @@ public class GoogleDriveManager {
         
         
 	}
-    public void putFile () throws IOException
+    public void putFile (String fileName, String filePathName) throws IOException
     {
     	File fileMetadata = new File();
-    	fileMetadata.setName("photo.jpg");
-    	java.io.File filePath = new java.io.File("files/photo.jpg");
-    	FileContent mediaContent = new FileContent("image/jpeg", filePath);
+    	fileMetadata.setName(fileName);
+    	List<String> parents = new ArrayList<>();
+    	parents.add("0B5ps9nc-JhH-NmdQQUJpTkQ0MkE");
+    	fileMetadata.setParents(parents);
+    	java.io.File filePath = new java.io.File(filePathName);
+    	FileContent mediaContent = new FileContent("application/octet-stream", filePath);
     	File file = service.files().create(fileMetadata, mediaContent)
     	    .setFields("id")
     	    .execute();
