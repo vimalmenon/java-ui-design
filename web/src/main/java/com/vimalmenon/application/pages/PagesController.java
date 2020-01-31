@@ -14,7 +14,7 @@ public class PagesController {
 		return "index";
 
 	}
-	@RequestMapping(value = "**")
+	@RequestMapping(value = "{path:(?!static|error).*$}/**")
 	public String urlNotFound(HttpServletRequest request) 
 	{
 		return "index";
