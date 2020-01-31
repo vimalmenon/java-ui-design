@@ -74,7 +74,6 @@ public class AdminService {
 	public void switchAccount(SwitchAccountModel switchAccount) {
 		Optional<Group> groupOptional = userGroupAdminManager.getGroupByName(switchAccount.getName());
 		if (groupOptional.isPresent()) {
-			System.out.println(new GroupModel(groupOptional.get()));
 			setSessionGroup(new GroupModel(groupOptional.get()));
 			return;
 		}

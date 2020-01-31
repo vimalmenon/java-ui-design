@@ -9,8 +9,7 @@ public class NavigationModel {
 	
 	public NavigationModel(NavigationEntitlement navigation) 
 	{
-		//setName(navigation.getNavigation().get(arg0).getName());
-		setName(null);
+		setName(navigation.getNavigation().getName());
 		setAccess(navigation.getAccess() ==1 ? true: false);
 	}
 	
