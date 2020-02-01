@@ -3,8 +3,6 @@ package com.vimalmenon.application.data.user;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -17,7 +15,6 @@ import com.vimalmenon.application.data.group.Group;
 public class User {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	@Column(nullable = false, name = "username")
@@ -26,10 +23,18 @@ public class User {
 	@Column(nullable = false, name = "password")
 	private String password;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "group_id", referencedColumnName = "id")
 	private Group group;
 
+	public User() {
+	}
+	public User (int id, String username, String password, Group group) {
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.group = group;
+	}
 	public int getId() {
 		return id;
 	}

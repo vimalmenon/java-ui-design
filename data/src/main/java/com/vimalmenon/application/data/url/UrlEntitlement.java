@@ -3,8 +3,6 @@ package com.vimalmenon.application.data.url;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -15,10 +13,9 @@ import javax.persistence.Table;
 public class UrlEntitlement {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "url_id", referencedColumnName = "id")
 	private Url url;
 	
@@ -28,6 +25,8 @@ public class UrlEntitlement {
 	@Column(nullable = false, name = "access")
 	private int access;
 
+	public UrlEntitlement() {
+	}
 	public int getId() {
 		return id;
 	}

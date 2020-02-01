@@ -2,21 +2,21 @@ package com.vimalmenon.application.data.navigation;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "navigations")
 public class Navigation {
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	@Column(nullable = false, name = "name")
 	private String name;
-
+	
+	public Navigation() {
+	}
 	public int getId() {
 		return id;
 	}

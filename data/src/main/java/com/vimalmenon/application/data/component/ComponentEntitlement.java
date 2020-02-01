@@ -3,8 +3,6 @@ package com.vimalmenon.application.data.component;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -15,7 +13,6 @@ import javax.persistence.Table;
 public class ComponentEntitlement {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	@Column(nullable = false, name = "group_id")
@@ -26,7 +23,8 @@ public class ComponentEntitlement {
 	@JoinColumn(name = "component_id", referencedColumnName = "id")
 	private Component component;
 	
-
+	 public ComponentEntitlement() {
+	 }
 	@Column(nullable = false, name = "write_access")
 	private int writeAccess;
 

@@ -3,32 +3,43 @@ package com.vimalmenon.application.enums;
 import java.util.Arrays;
 import java.util.List;
 
+import com.vimalmenon.application.data.component.Component;
+import com.vimalmenon.application.data.component.ComponentEntitlement;
 import com.vimalmenon.application.data.component.ComponentEntitlementRepository;
 import com.vimalmenon.application.data.component.ComponentRepository;
+import com.vimalmenon.application.data.group.Group;
 import com.vimalmenon.application.data.group.GroupRepository;
+import com.vimalmenon.application.data.navigation.Navigation;
+import com.vimalmenon.application.data.navigation.NavigationEntitlement;
 import com.vimalmenon.application.data.navigation.NavigationEntitlementRepository;
 import com.vimalmenon.application.data.navigation.NavigationRepository;
+import com.vimalmenon.application.data.note.Note;
 import com.vimalmenon.application.data.note.NoteRepository;
+import com.vimalmenon.application.data.url.Url;
+import com.vimalmenon.application.data.url.UrlEntitlement;
 import com.vimalmenon.application.data.url.UrlEntitlementRepository;
 import com.vimalmenon.application.data.url.UrlRepository;
+import com.vimalmenon.application.data.user.User;
+import com.vimalmenon.application.data.user.UserPreference;
 import com.vimalmenon.application.data.user.UserPreferenceRepository;
+import com.vimalmenon.application.data.user.UserProfile;
 import com.vimalmenon.application.data.user.UserProfileRepository;
 import com.vimalmenon.application.data.user.UserRepository;
 
 
 public enum Sql {
 
-	GROUPS("Groups", GroupRepository.class.getName()),
-	USERS("Users", UserRepository.class.getName()),
-	USER_PREFERENCES("user_preferences", UserPreferenceRepository.class.getName()),
-	NOTES("notes", NoteRepository.class.getName()),
-	URLS("urls", UrlRepository.class.getName()),
-	URL_ENTITLEMENTS("url_entitlements", UrlEntitlementRepository.class.getName()),
-	COMPONENTS("components", ComponentRepository.class.getName()),
-	COMPONENT_ENTITLEMENTS("component_entitlements", ComponentEntitlementRepository.class.getName()),
-	NAVIGATIONS("navigations", NavigationRepository.class.getName()),
-	NAVIGATION_ENTITLEMENTS("navigation_entitlements", NavigationEntitlementRepository.class.getName()),
-	USER_PROFILES("user_profiles", UserProfileRepository.class.getName());
+	GROUPS("Groups", GroupRepository.class, Group.class),
+	USERS("Users", UserRepository.class, User.class),
+	USER_PREFERENCES("user_preferences", UserPreferenceRepository.class, UserPreference.class),
+	NOTES("notes", NoteRepository.class, Note.class),
+	URLS("urls", UrlRepository.class, Url.class),
+	URL_ENTITLEMENTS("url_entitlements", UrlEntitlementRepository.class, UrlEntitlement.class),
+	COMPONENTS("components", ComponentRepository.class, Component.class),
+	COMPONENT_ENTITLEMENTS("component_entitlements", ComponentEntitlementRepository.class, ComponentEntitlement.class),
+	NAVIGATIONS("navigations", NavigationRepository.class, Navigation.class),
+	NAVIGATION_ENTITLEMENTS("navigation_entitlements", NavigationEntitlementRepository.class, NavigationEntitlement.class),
+	USER_PROFILES("user_profiles", UserProfileRepository.class, UserProfile.class);
 	
 	
 	
@@ -48,12 +59,19 @@ public enum Sql {
 	
 	
 	private String sqlName;
-	private String classes;
+	@SuppressWarnings("rawtypes")
+	private Class classes;
+	@SuppressWarnings("rawtypes")
+	private Class entityName;
 	
-	private Sql(String name, String classes) {
+	@SuppressWarnings("rawtypes")
+	private Sql(String name, Class classes, Class entityName) {
 		this.sqlName = name;
 		this.classes = classes;
+		this.entityName = entityName;
 	}
+	
+	
 	
 	public String getSqlName() {
 		return sqlName;
@@ -63,11 +81,13 @@ public enum Sql {
 		this.sqlName = sqlName;
 	}
 
-	public String getClasses() {
+	@SuppressWarnings("rawtypes")
+	public Class getClasses() {
 		return classes;
 	}
 
-	public void setClasses(String classes) {
+	@SuppressWarnings("rawtypes")
+	public void setClasses(Class classes) {
 		this.classes = classes;
 	}
 
@@ -77,6 +97,14 @@ public enum Sql {
 
 	public static void setSequence(List<Sql> sequence) {
 		Sql.sequence = sequence;
+	}
+	@SuppressWarnings("rawtypes")
+	public Class getEntityName() {
+		return entityName;
+	}
+	@SuppressWarnings("rawtypes")
+	public void setEntityName(Class entityName) {
+		this.entityName = entityName;
 	}
 	
 }

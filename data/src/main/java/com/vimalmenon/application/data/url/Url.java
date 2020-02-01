@@ -2,8 +2,6 @@ package com.vimalmenon.application.data.url;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,7 +10,6 @@ import javax.persistence.Table;
 public class Url {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	@Column(nullable = false, name = "url")
@@ -20,6 +17,9 @@ public class Url {
 
 	@Column(nullable = false, name = "method")
 	private String method;
+	
+	public Url() {
+	}
 
 	public int getId() {
 		return id;

@@ -1,12 +1,15 @@
 package com.vimalmenon.application.service.controller;
 
+import java.io.BufferedReader;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -86,7 +89,27 @@ public class GoogleDriveService {
 	}
 
 	public void restoreDatabase() {
-		// TODO Auto-generated method stub
+		String zipFilePath = "//application/config//db.zip";
+		String destDir = "//application/config//database";
+		zip.unzip(zipFilePath, destDir);
+		List<Sql> sequence = Sql.getSequence();
+		
+		databaseManager.unset();
+		sequence.forEach((item) -> {
+			try {
+				String st;
+				java.io.File dbPath = new java.io.File("//application/config//database//"+item.getSqlName());
+				BufferedReader br = new BufferedReader(new FileReader(dbPath));
+				StringBuilder builder = new StringBuilder();
+				while ((st = br.readLine()) != null) {
+					builder.append(st);
+				}
+				br.close();
+				databaseManager.restoreDatabase(item, builder.toString());
+			} catch (BeansException | IOException e) {
+				log.error("Exception for : ", e);
+			}
+		});
 		
 	}
 }

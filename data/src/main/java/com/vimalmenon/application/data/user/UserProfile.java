@@ -2,8 +2,6 @@ package com.vimalmenon.application.data.user;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,7 +10,6 @@ import javax.persistence.Table;
 public class UserProfile {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	@Column(nullable = false, name = "name")
@@ -27,6 +24,8 @@ public class UserProfile {
 	@Column(nullable = false, name = "user_id")
 	private Integer userId;
 
+	public UserProfile() {
+	}
 	public int getId() {
 		return id;
 	}
