@@ -31,11 +31,11 @@ import com.google.api.services.drive.model.FileList;
 @Service
 public class GoogleDriveManager {
 
-	private static final String APPLICATION_NAME = "Google Drive API Java Quickstart";
+	private static final String APPLICATION_NAME = "vimalmenon";
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
     private static final String TOKENS_DIRECTORY_PATH = "tokens";
 
-    private static final List<String> SCOPES = Collections.singletonList(DriveScopes.DRIVE_METADATA_READONLY);
+    private static final List<String> SCOPES = Collections.singletonList(DriveScopes.DRIVE);
     
     private static final String CREDENTIALS_FILE_PATH = "/credentials.json";
     
@@ -48,6 +48,7 @@ public class GoogleDriveManager {
             throw new FileNotFoundException("Resource not found: " + CREDENTIALS_FILE_PATH);
         }
         GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
+        System.out.println(clientSecrets);
 
         // Build flow and trigger user authorization request.
         GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(HTTP_TRANSPORT, JSON_FACTORY,
@@ -92,11 +93,13 @@ public class GoogleDriveManager {
     {
     	File fileMetadata = new File();
     	fileMetadata.setName(fileName);
-    	List<String> parents = new ArrayList<>();
-    	parents.add("0B5ps9nc-JhH-NmdQQUJpTkQ0MkE");
-    	fileMetadata.setParents(parents);
+    	//List<String> parents = new ArrayList<>();
+    	//parents.add("0B5ps9nc-JhH-NmdQQUJpTkQ0MkE");
+    	//fileMetadata.setParents(parents);
     	java.io.File filePath = new java.io.File(filePathName);
-    	FileContent mediaContent = new FileContent("application/octet-stream", filePath);
+    	System.out.println(filePath);
+    	System.out.println(filePath.isFile());
+    	FileContent mediaContent = new FileContent("application/zip", filePath);
     	File file = service.files().create(fileMetadata, mediaContent)
     	    .setFields("id")
     	    .execute();
