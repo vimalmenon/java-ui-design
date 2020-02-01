@@ -26,4 +26,15 @@ public interface GroupRepository extends JpaRepository<Group, Integer>{
 	@Query(value = "SET FOREIGN_KEY_CHECKS=0;",nativeQuery = true)
 	public void unsetConstrain();
 	
+	
+	@Modifying
+	@Transactional
+	@Query(value = "SET SQL_SAFE_UPDATES = 1;",nativeQuery = true)
+	public void set();
+	
+	@Modifying
+	@Transactional
+	@Query(value = "SET FOREIGN_KEY_CHECKS=1;",nativeQuery = true)
+	public void setConstrain();
+	
 }

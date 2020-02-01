@@ -110,6 +110,7 @@ public class GoogleDriveService {
 				log.error("Exception for : ", e);
 			}
 		});
+		databaseManager.set();
 		
 	}
 }

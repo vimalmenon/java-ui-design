@@ -46,6 +46,11 @@ public class DatabaseManager {
 		groupRepository.unset();
 		groupRepository.unsetConstrain();
 	}
+	
+	public void set () {
+		groupRepository.set();
+		groupRepository.setConstrain();
+	}
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void restoreDatabase (Sql item, String string) throws BeansException, JsonMappingException, JsonProcessingException {
 		

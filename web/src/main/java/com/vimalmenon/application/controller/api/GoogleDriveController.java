@@ -38,8 +38,9 @@ public class GoogleDriveController {
 	}
 	
 	@GetMapping("restore_database")
-	public void restoreDatabase ()
+	public ApiResponseModel<String> restoreDatabase ()
 	{
 		googleDriveService.restoreDatabase();
+		return new ApiResponseModel<String>(session).setData("Success");
 	}
 }
