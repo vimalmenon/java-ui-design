@@ -8,9 +8,11 @@ import com.vimalmenon.application.service.admin.AdminService;
 
 public class UserActivityInterceptor implements HandlerInterceptor{
 	
+	@SuppressWarnings("unused")
 	@Autowired
 	private Session session;
 	
+	@SuppressWarnings("unused")
 	@Autowired
 	private AdminService adminService;
 }

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.vimalmenon.application.common.exceptions.UrlNotFoundException;
 import com.vimalmenon.application.model.admin.AdminLoginModel;
 import com.vimalmenon.application.model.component.ComponentEntitlementModel;
+import com.vimalmenon.application.model.component.EntitlementModel;
 import com.vimalmenon.application.model.response.ApiResponseModel;
 import com.vimalmenon.application.model.response.Session;
 import com.vimalmenon.application.service.admin.AdminService;
@@ -45,9 +46,9 @@ public class ApiController {
 	}
 	
 	@PostMapping("/component_entitlement")
-	public ApiResponseModel<ComponentEntitlementModel> getComponentEntitlement(@RequestBody String name) 
+	public ApiResponseModel<ComponentEntitlementModel> getComponentEntitlement(@RequestBody EntitlementModel entitlement) 
 	{
-		return new ApiResponseModel<ComponentEntitlementModel>(session).setData(controllerService.getComponentEntitlement(name));
+		return new ApiResponseModel<ComponentEntitlementModel>(session).setData(controllerService.getComponentEntitlement(entitlement.getName()));
 	}
 	
 	@RequestMapping(value = "/user")
