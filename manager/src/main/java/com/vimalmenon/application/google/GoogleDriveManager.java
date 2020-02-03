@@ -87,8 +87,6 @@ public class GoogleDriveManager {
     	//parents.add("0B5ps9nc-JhH-NmdQQUJpTkQ0MkE");
     	//fileMetadata.setParents(parents);
     	java.io.File filePath = new java.io.File(filePathName);
-    	System.out.println(filePath);
-    	System.out.println(filePath.isFile());
     	FileContent mediaContent = new FileContent("application/zip", filePath);
     	File file = service.files().create(fileMetadata, mediaContent)
     	    .setFields("id")
