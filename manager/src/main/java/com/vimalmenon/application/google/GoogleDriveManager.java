@@ -66,30 +66,18 @@ public class GoogleDriveManager {
         service = new Drive.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
                 .setApplicationName(APPLICATION_NAME)
                 .build();
-
-        
     }
     
     public List<File> listFiles() throws IOException {
     	List<File> result = new ArrayList<File>();
         Files.List request = service.files().list();
-
         do {
-          try {
             FileList files = request.execute();
-            
             result.addAll(files.getFiles());
             request.setPageToken(files.getNextPageToken());
-          } catch (IOException e) {
-            System.out.println("An error occurred: " + e);
-            request.setPageToken(null);
-          }
         } while (request.getPageToken() != null &&
                  request.getPageToken().length() > 0);
-
         return result;
-        
-        
 	}
     public void putFile (String fileName, String filePathName) throws IOException
     {
@@ -109,18 +97,10 @@ public class GoogleDriveManager {
     }
 
 	public FileList getDatabaseFiles() throws IOException {
-		 return service.files().list().setQ("parents='1r43e9alIO3bdm4vzqDaVnYZ5wmhMN5fr'").execute();
+		return service.files().list().setQ("parents='1r43e9alIO3bdm4vzqDaVnYZ5wmhMN5fr'").execute();
 	}
-	public InputStream downloadFile(File file) {
-        try {
-          HttpResponse resp =
-              service.getRequestFactory().buildGetRequest(new GenericUrl("location"))
-                  .execute();
-          return resp.getContent();
-        } catch (IOException e) {
-          // An error occurred.
-          e.printStackTrace();
-          return null;
-        }
+	public InputStream downloadFile(File file) throws IOException {
+		HttpResponse resp = service.getRequestFactory().buildGetRequest(new GenericUrl("location")).execute();
+		return resp.getContent();
 	}
 }
