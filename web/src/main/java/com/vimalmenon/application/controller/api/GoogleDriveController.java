@@ -44,10 +44,9 @@ public class GoogleDriveController {
 		return new ApiResponseModel<String>(session).setData("Success");
 	}
 	
-	@GetMapping("/database_files")
-	public ApiResponseModel<List<GoogleDriveFileModel>> databaseFiles ()
+	@GetMapping("/list_databases")
+	public ApiResponseModel<List<GoogleDriveFileModel>> listDatabases ()
 	{
-		return new ApiResponseModel<List<GoogleDriveFileModel>>(session).setData(googleDriveService.databaseFiles());
-		
+		return new ApiResponseModel<List<GoogleDriveFileModel>>(session).setData(googleDriveService.listDatabases());
 	}
 }
