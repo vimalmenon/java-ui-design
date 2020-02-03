@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -88,7 +89,7 @@ public class GoogleDriveService {
 		
 	}
 
-	public void restoreDatabase() {
+	public void restoreDatabase(GoogleDriveFileModel model) {
 		String zipFilePath = "//application/config//db.zip";
 		String destDir = "//application/config//database";
 		zip.unzip(zipFilePath, destDir);

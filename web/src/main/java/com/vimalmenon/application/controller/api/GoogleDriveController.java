@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -37,10 +39,10 @@ public class GoogleDriveController {
 		return new ApiResponseModel<String>(session).setData("Success");
 	}
 	
-	@GetMapping("/restore_database")
-	public ApiResponseModel<String> restoreDatabase ()
+	@PostMapping("/restore_database")
+	public ApiResponseModel<String> restoreDatabase (@RequestBody GoogleDriveFileModel model)
 	{
-		googleDriveService.restoreDatabase();
+		googleDriveService.restoreDatabase(model);
 		return new ApiResponseModel<String>(session).setData("Success");
 	}
 	
