@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.google.api.services.drive.model.File;
+import com.google.api.services.drive.model.FileList;
 import com.vimalmenon.application.common.exceptions.GeneralException;
 import com.vimalmenon.application.common.zip.Zipper;
 import com.vimalmenon.application.database.DatabaseManager;
@@ -112,5 +113,25 @@ public class GoogleDriveService {
 		});
 		databaseManager.set();
 		
+	}
+
+	public List<GoogleDriveFileModel> databaseFiles() {
+		List<GoogleDriveFileModel> models = new ArrayList<>();
+		try {
+			List<File> files = googleDriveManager.getDatabaseFiles().getFiles();
+			for (File file : files) {
+				GoogleDriveFileModel googleDrive = new GoogleDriveFileModel();
+				googleDrive.setName(file.getName());
+				googleDrive.setKind(file.getKind());
+				googleDrive.setId(file.getId());
+				googleDrive.setMimeType(file.getMimeType());
+				googleDrive.setParents(file.getParents());
+				models.add(googleDrive);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return models;
 	}
 }

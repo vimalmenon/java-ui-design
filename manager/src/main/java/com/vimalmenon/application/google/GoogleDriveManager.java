@@ -105,4 +105,8 @@ public class GoogleDriveManager {
     	    .execute();
     	System.out.println("File ID: " + file.getId());
     }
+
+	public FileList getDatabaseFiles() throws IOException {
+		 return service.files().list().setQ("parents='1r43e9alIO3bdm4vzqDaVnYZ5wmhMN5fr'").execute();
+	}
 }
