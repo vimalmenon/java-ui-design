@@ -26,7 +26,7 @@ select id,
 (select id from groups where name="No User"),
 1,
 1 
-from components where name = "AdminLogin";
+from components where name = "Login";
 
 
 insert into component_entitlements
@@ -40,8 +40,7 @@ select id,
 (select id from groups where name="Super Admin"),
 0,
 0 
-from components where name = "AdminLogin";
-
+from components where name = "Login";
 
 
 insert into component_entitlements
@@ -55,8 +54,10 @@ select id,
 (select id from groups where name="Visitor"),
 0,
 0 
-from components where name = "AdminLogin";
+from components where name = "Login";
 
+
+-----------------------------------------------------------------------------------------------
 
 
 insert into component_entitlements
@@ -70,7 +71,7 @@ select id,
 (select id from groups where name="No User"),
 0,
 0 
-from components where name = "AdminPage";
+from components where name = "Dashboard";
 
 
 insert into component_entitlements
@@ -84,7 +85,7 @@ select id,
 (select id from groups where name="Super Admin"),
 1,
 1 
-from components where name = "AdminPage";
+from components where name = "Dashboard";
 
 
 
@@ -99,9 +100,53 @@ select id,
 (select id from groups where name="Visitor"),
 1,
 1 
-from components where name = "AdminPage";
+from components where name = "Dashboard";
 
 
 
+-----------------------------------------------------------------------------------------------
+
+
+insert into component_entitlements
+(
+	component_id,
+	group_id,
+	write_access,
+	read_access
+)
+select id,
+(select id from groups where name="No User"),
+0,
+0 
+from components where name = "Admin";
+
+
+insert into component_entitlements
+(
+	component_id,
+	group_id,
+	write_access,
+	read_access
+)
+select id,
+(select id from groups where name="Super Admin"),
+1,
+1 
+from components where name = "Admin";
+
+
+
+insert into component_entitlements
+(
+	component_id,
+	group_id,
+	write_access,
+	read_access
+)
+select id,
+(select id from groups where name="Visitor"),
+0,
+0 
+from components where name = "Admin";
 
 

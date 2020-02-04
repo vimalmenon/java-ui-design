@@ -12,7 +12,7 @@ insert into components
 )
 values 
 (
-	"AdminLogin"
+	"Login"
 );
 
 insert into components
@@ -21,5 +21,16 @@ insert into components
 )
 values 
 (
-	"AdminPage"
+	"Dashboard"
 );
+
+insert into components
+(
+	name
+)
+values 
+(
+	"Admin"
+);
+
+
