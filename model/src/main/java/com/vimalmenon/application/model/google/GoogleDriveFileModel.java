@@ -98,6 +98,7 @@ public class GoogleDriveFileModel {
 	public static void sync () 
 	{
 		updateModel(topElement);
+		parentMap = new HashMap<>();
 	}
 	private static void updateModel (GoogleDriveFileModel model)
 	{

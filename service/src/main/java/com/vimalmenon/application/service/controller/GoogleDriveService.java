@@ -35,11 +35,10 @@ public class GoogleDriveService {
 	
 	Logger log = LoggerFactory.getLogger(GoogleDriveService.class);
 	
-	public List<GoogleDriveFileModel> listFile ()
+	public GoogleDriveFileModel listFile ()
 	{
 		try {
 			List<File> files = googleDriveManager.listFiles();
-			List<GoogleDriveFileModel>models = new ArrayList<>();
 		 	for (File file : files) {
 		 		if(file.getOwnedByMe()) {
 		 			GoogleDriveFileModel googleDrive = new GoogleDriveFileModel("0AJps9nc-JhH-Uk9PVA");
@@ -53,11 +52,8 @@ public class GoogleDriveService {
 		 		}
 			}
 		 	GoogleDriveFileModel.sync();
-		 	models = new ArrayList<>();
-		 	models.add(GoogleDriveFileModel.topElement);
-			return models;
+		 	return GoogleDriveFileModel.topElement;
 		} catch (IOException e) {
-			System.out.println(e);
 			throw new GeneralException(e.getMessage());
 		}
 	}
@@ -123,21 +119,21 @@ public class GoogleDriveService {
 		List<GoogleDriveFileModel> models = new ArrayList<>();
 		try {
 			List<File> files = googleDriveManager.getDatabaseFiles().getFiles();
+			List<GoogleDriveFileModel> Models = new ArrayList<>();
 			for (File file : files) {
 				GoogleDriveFileModel googleDrive = new GoogleDriveFileModel();
-				googleDrive.setName(file.getName());
+	 			googleDrive.setName(file.getName());
 				googleDrive.setCreatedDate(file.getCreatedTime().toString());
+				googleDrive.setOwnedByMe(file.getOwnedByMe());
 				googleDrive.setId(file.getId());
 				googleDrive.setMimeType(file.getMimeType());
 				googleDrive.setParents(file.getParents());
-				googleDrive.processData();
+				Models.add(googleDrive);
 			}
-			GoogleDriveFileModel.sync();
-			System.out.println(GoogleDriveFileModel.parentMap);
+			return models;
 		} catch (IOException e) {
 			log.error("Exception for : ", e);
 			throw new GeneralException(e.getMessage());
 		}
-		return models;
 	}
 }

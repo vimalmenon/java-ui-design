@@ -26,9 +26,9 @@ public class GoogleDriveController {
 	private GoogleDriveService googleDriveService;
 	
 	@GetMapping("")
-	public ApiResponseModel<List<GoogleDriveFileModel>> listFile ()
+	public ApiResponseModel<GoogleDriveFileModel> listFile ()
 	{
-		return new ApiResponseModel<List<GoogleDriveFileModel>>(session).setData(googleDriveService.listFile());
+		return new ApiResponseModel<GoogleDriveFileModel>(session).setData(googleDriveService.listFile());
 	}
 	
 	
