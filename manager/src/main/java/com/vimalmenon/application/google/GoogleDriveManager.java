@@ -50,7 +50,6 @@ public class GoogleDriveManager {
             throw new FileNotFoundException("Resource not found: " + CREDENTIALS_FILE_PATH);
         }
         GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
-        System.out.println(clientSecrets);
 
         // Build flow and trigger user authorization request.
         GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(HTTP_TRANSPORT, JSON_FACTORY,

@@ -25,6 +25,7 @@ public class AdminService {
 	@Autowired
 	private UserGroupAdminManager userGroupAdminManager;
 	
+	
 	@Autowired
 	private Session session;
 	

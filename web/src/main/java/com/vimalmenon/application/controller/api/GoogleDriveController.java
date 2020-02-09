@@ -51,4 +51,10 @@ public class GoogleDriveController {
 	{
 		return new ApiResponseModel<List<GoogleDriveFileModel>>(session).setData(googleDriveService.listDatabases());
 	}
+	
+	@GetMapping("/testing")
+	public void testing()
+	{
+		googleDriveService.getDetails();
+	}
 }

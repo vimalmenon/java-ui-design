@@ -27,6 +27,10 @@ public class GoogleDriveService {
 	@Autowired
 	public GoogleDriveManager googleDriveManager;
 	
+	
+	/*@Autowired
+	private GoogleAuthManager googleAuthManager;
+	*/
 	@Autowired
 	private DatabaseManager databaseManager;
 	
@@ -135,5 +139,9 @@ public class GoogleDriveService {
 			log.error("Exception for : ", e);
 			throw new GeneralException(e.getMessage());
 		}
+	}
+	
+	public void getDetails() {
+		//googleAuthManager.calling();
 	}
 }
