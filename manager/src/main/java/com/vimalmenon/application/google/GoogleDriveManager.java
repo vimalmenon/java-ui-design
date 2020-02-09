@@ -70,7 +70,8 @@ public class GoogleDriveManager {
     
     public List<File> listFiles() throws IOException {
     	List<File> result = new ArrayList<File>();
-        Files.List request = service.files().list();
+        Files.List request = service.files().list().setFields("nextPageToken, files(id, name, parents, createdTime, mimeType, ownedByMe)");
+        //.setQ("ownedByMe=true")
         do {
             FileList files = request.execute();
             result.addAll(files.getFiles());

@@ -41,16 +41,20 @@ public class GoogleDriveService {
 			List<File> files = googleDriveManager.listFiles();
 			List<GoogleDriveFileModel>models = new ArrayList<>();
 		 	for (File file : files) {
-					 
-				GoogleDriveFileModel googleDrive = new GoogleDriveFileModel();
-				googleDrive.setName(file.getName());
-				googleDrive.setKind(file.getKind());
-				googleDrive.setId(file.getId());
-				googleDrive.setMimeType(file.getMimeType());
-				googleDrive.setParents(file.getParents());
-				//googleDrive.processData(model);
-				models.add(googleDrive);
+		 		if(file.getOwnedByMe()) {
+		 			GoogleDriveFileModel googleDrive = new GoogleDriveFileModel("0AJps9nc-JhH-Uk9PVA");
+		 			googleDrive.setName(file.getName());
+					googleDrive.setCreatedDate(file.getCreatedTime().toString());
+					googleDrive.setOwnedByMe(file.getOwnedByMe());
+					googleDrive.setId(file.getId());
+					googleDrive.setMimeType(file.getMimeType());
+					googleDrive.setParents(file.getParents());
+					googleDrive.processData();	
+		 		}
 			}
+		 	GoogleDriveFileModel.sync();
+		 	models = new ArrayList<>();
+		 	models.add(GoogleDriveFileModel.topElement);
 			return models;
 		} catch (IOException e) {
 			System.out.println(e);
@@ -122,12 +126,14 @@ public class GoogleDriveService {
 			for (File file : files) {
 				GoogleDriveFileModel googleDrive = new GoogleDriveFileModel();
 				googleDrive.setName(file.getName());
-				googleDrive.setKind(file.getKind());
+				googleDrive.setCreatedDate(file.getCreatedTime().toString());
 				googleDrive.setId(file.getId());
 				googleDrive.setMimeType(file.getMimeType());
 				googleDrive.setParents(file.getParents());
-				models.add(googleDrive);
+				googleDrive.processData();
 			}
+			GoogleDriveFileModel.sync();
+			System.out.println(GoogleDriveFileModel.parentMap);
 		} catch (IOException e) {
 			log.error("Exception for : ", e);
 			throw new GeneralException(e.getMessage());

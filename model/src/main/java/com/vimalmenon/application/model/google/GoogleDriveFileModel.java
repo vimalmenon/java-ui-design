@@ -1,17 +1,36 @@
 package com.vimalmenon.application.model.google;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.ListIterator;
+import java.util.Map;
 
 public class GoogleDriveFileModel {
 	private String id;
 	private String name;
 	private String mimeType;
-	private String kind;
+	private String createdDate;
 	private List<String> parents;
+	private Boolean ownedByMe;
 	private List<GoogleDriveFileModel> children = new ArrayList<>();
+	public static Map<String, List<GoogleDriveFileModel>> parentMap = new HashMap<>();
+	public static GoogleDriveFileModel topElement = null;
 	
+	
+	public GoogleDriveFileModel() {
+	}
+	
+	public GoogleDriveFileModel(String parentId) {
+		if (topElement == null) {
+			GoogleDriveFileModel model = new GoogleDriveFileModel();
+			model.setName("Personal Drive");
+			model.setMimeType("application/vnd.google-apps.folder");
+			model.setParents(new ArrayList<>());
+			model.setOwnedByMe(true);
+			model.setId(parentId);
+			topElement = model;
+		}
+	}
 	
 	public String getId() {
 		return id;
@@ -31,12 +50,6 @@ public class GoogleDriveFileModel {
 	public void setMimeType(String mimeType) {
 		this.mimeType = mimeType;
 	}
-	public String getKind() {
-		return kind;
-	}
-	public void setKind(String kind) {
-		this.kind = kind;
-	}
 	public List<String> getParents() {
 		return parents;
 	}
@@ -51,41 +64,55 @@ public class GoogleDriveFileModel {
 	public void setChildren(List<GoogleDriveFileModel> children) {
 		this.children = children;
 	}
-	public List<GoogleDriveFileModel> processData (List<GoogleDriveFileModel> models)
-	{
-		if (this.parents == null) {
-			models.add(this);
-			return models;
-		}else if (!checkChildrenAndAdd(models, this)) {
-			models.add(this);
-		}
-		return models;
+	
+	public String getCreatedDate() {
+		return createdDate;
 	}
-	public boolean checkChildrenAndAdd(List<GoogleDriveFileModel> models, GoogleDriveFileModel children)
+	public void setCreatedDate(String createdDate) {
+		this.createdDate = createdDate;
+	}
+	public Boolean getOwnedByMe() {
+		return ownedByMe;
+	}
+	public void setOwnedByMe(Boolean ownedByMe) {
+		this.ownedByMe = ownedByMe;
+	}
+	public static Map<String, List<GoogleDriveFileModel>> getParentMap() {
+		return parentMap;
+	}
+	public static void setParentMap(Map<String, List<GoogleDriveFileModel>> parentMap) {
+		GoogleDriveFileModel.parentMap = parentMap;
+	}
+	public void processData ()
 	{
-		boolean isAdded = false;
-		ListIterator<GoogleDriveFileModel> items = models.listIterator();
-		while(items.hasNext()) {
-			GoogleDriveFileModel model = items.next();
-			if (model.parents == null) {
-				isAdded = false;
-			} else {
-				for(String parent: model.parents) {
-					isAdded = checkChildrenAndAdd(model.children, this);
-					if (model.id.equals(parent)) {
-						isAdded = true;
-						model.children.add(children);
-					}
-				}
+		for(String parent: parents) {
+			List<GoogleDriveFileModel> items = parentMap.get(parent);
+			if (items == null) {
+				items = new ArrayList<>();
 			}
+			items.add(this);
+			parentMap.put(parent, items);
 		}
-		return isAdded;
 	}
 	
+	public static void sync () 
+	{
+		updateModel(topElement);
+	}
+	private static void updateModel (GoogleDriveFileModel model)
+	{
+		List<GoogleDriveFileModel> items = parentMap.get(model.id);
+		if (items != null) {
+			model.children.addAll(items);
+		}
+		for (GoogleDriveFileModel child:model.children) {
+			updateModel(child);
+		}
+	}
 	@Override
 	public String toString() {
-		return "GoogleDriveFileModel [Id=" + id + ", Name=" + name + ", mimeType=" + mimeType + ", kind=" + kind
-				+ ", parents=" + parents + "]";
+		return "GoogleDriveFileModel [id=" + id + ", name=" + name + ", mimeType=" + mimeType + ", createdDate="
+				+ createdDate + ", parents=" + parents + ", ownedByMe=" + ownedByMe + ", children=" + children + "]";
 	}
 
 }
