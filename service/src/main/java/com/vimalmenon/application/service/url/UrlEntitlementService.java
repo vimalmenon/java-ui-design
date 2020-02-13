@@ -1,5 +1,7 @@
 package com.vimalmenon.application.service.url;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import com.vimalmenon.application.data.url.UrlEntitlement;
 import com.vimalmenon.application.manager.database.UrlManager;
 import com.vimalmenon.application.model.response.Session;
 import com.vimalmenon.application.model.url.UrlEntitlementModel;
+import com.vimalmenon.application.model.url.UrlModel;
 
 @Service
 public class UrlEntitlementService {
@@ -27,6 +30,14 @@ public class UrlEntitlementService {
 			return new UrlEntitlementModel(urlEntitlementOptional.get()).isAccess();
 		}
 		return false;
+	}
+
+	public List<UrlModel> getUrls() {
+		List<UrlModel> items = new ArrayList<>();
+		urlManager.getUrls().forEach((url) -> {
+			items.add(new UrlModel(url));
+		});
+		return items;
 	}
 	
 }

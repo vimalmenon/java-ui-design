@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.vimalmenon.application.data.component.ComponentEntitlement;
 import com.vimalmenon.application.manager.database.ComponentManager;
 import com.vimalmenon.application.model.component.ComponentModel;
 
