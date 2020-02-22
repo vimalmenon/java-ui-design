@@ -1,1 +1,1 @@
-# ui-material-design
+# React with Java and Material UI Dashboard Design
