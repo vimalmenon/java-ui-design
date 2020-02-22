@@ -44,3 +44,7 @@ tokens/StoredCredential
 web/src/main/resources/credentials.json
 web/tokens/
 
+
+node_modules
+/public/*
+package-lock.json

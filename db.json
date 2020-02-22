@@ -1,0 +1,10 @@
+{
+	"AdminLogin" : {
+		"write": false, 
+		"read": false
+	},
+	"AdminPage" : {
+		"write": true, 
+		"read": true
+	}
+}

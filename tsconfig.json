@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "noImplicitAny": false,
+        "module": "commonjs",
+        "target": "es6",
+        "jsx": "react",
+        "strict": true,
+        "baseUrl": "./",
+        "typeRoots" : ["assets/scripts/typings"],
+        "paths": {
+            "utility": ["assets/scripts/utility"],
+            "store": ["assets/scripts/redux"],
+            "const" : ["assets/scripts/constants"],
+            "actions": ["assets/scripts/state/actions"],
+            "dumb-components" : ["assets/scripts/dumb-components"],
+        }
+    }
+}

@@ -1,0 +1,25 @@
+$fa-font-path: "~font-awesome/fonts/";
+@import '~font-awesome/scss/font-awesome';
+
+@import '~react-redux-spinner/dist/react-redux-spinner.css';
+
+@import '~react-grid-layout/css/styles.css';
+@import '~react-resizable/css/styles.css';
+
+html, body, #main {
+    height: 100%;
+}
+
+#nprogress .bar {
+    background-color: #f4590a;
+    z-index: 5000;
+}
+   
+#nprogress .spinner-icon {
+    border-top-color: #f4590a;
+    border-left-color: #f4590a;
+}
+   
+#nprogress .peg {
+    box-shadow: 0 0 10px #f4590a, 0 0 5px #f4590a;
+}
