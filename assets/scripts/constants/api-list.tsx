@@ -109,7 +109,23 @@ class UploadDatabase extends Api {
 		super("uploadDatabase", GET, "/api/admin/google_drive/upload_database");
 	}
 }
-
+class GetYoutubeScript extends Api {
+	constructor () {
+		super("getYoutubeScript", GET, "/api/admin/youtube_script");
+	}
+}
+class SaveYoutubeScript extends Api {
+	constructor (data) {
+		super("saveYoutubeScript", POST, "/api/admin/youtube_script");
+		this.setApiData(data);
+	}
+}
+class DeleteYoutubeScript extends Api {
+	constructor (data) {
+		super("deleteYoutubeScript", DELETE, "/api/admin/youtube_script");
+		this.setApiData(data);
+	}
+}
 
 export default {
 	SavePreferences,
@@ -127,5 +143,8 @@ export default {
 	ListDatabases,
 	GetComponents,
 	GetGroups,
-	GetUrls
+	GetUrls,
+	GetYoutubeScript,
+	SaveYoutubeScript,
+	DeleteYoutubeScript
 };
