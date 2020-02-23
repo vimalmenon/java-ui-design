@@ -17,6 +17,7 @@ import {Entitlement} from "dumb-components";
 
 import AdminHome from "./admin";
 import GoogleDrive from "./google-drive";
+import YoutubeScript from "./youtube-script";
 
 
 const Admin = (props) => {
@@ -47,6 +48,7 @@ const Admin = (props) => {
             return (
                 <Switch>
 		            <Route path={`${url}/google-drive`} component={GoogleDrive} />
+                <Route path={`${url}/youtube-script`} component={YoutubeScript} />
 		            <Route path={`${url}`} component={AdminHome} />
         		</Switch>
             )}} 

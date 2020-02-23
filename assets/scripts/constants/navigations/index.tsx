@@ -7,6 +7,7 @@ import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import ReportProblemIcon from '@material-ui/icons/ReportProblem';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import CloudIcon from '@material-ui/icons/Cloud';
+import YouTubeIcon from '@material-ui/icons/YouTube';
 
 
 let {pathname} = location;
@@ -69,6 +70,25 @@ const googleDrive = {
         }
     ]
 }
+const YoutubeScript = {
+    name : "Youtube Script",
+    Icon : YouTubeIcon,
+    link : "/admin/youtube-script",
+    title : "Google Drive | Admin | Youtube Script",
+    checkEntitlement: true,
+    breadcrumbs : [
+        dashboard,
+        {
+            name : "Admin",
+            Icon : SupervisorAccountIcon,
+            link : "/admin",
+        },
+        {
+            name : "Youtube Script",
+            Icon : YouTubeIcon,
+        }
+    ]
+}
 const admin = {
     name : "Admin",
     Icon : SupervisorAccountIcon,
@@ -77,7 +97,8 @@ const admin = {
     open : pathname.startsWith("/admin"),
     checkEntitlement: true,
     navigations : [
-        googleDrive
+        googleDrive,
+        YoutubeScript
     ],
     breadcrumbs : [
         dashboard,
@@ -181,7 +202,8 @@ const urlMapper = {
     "/notes" : notes,
     "/calendar" : calendar,
     "/expenses" : expenses,
-    "/admin/google-drive": googleDrive
+    "/admin/google-drive": googleDrive,
+    "/admin/youtube-script" : YoutubeScript
 };
 
 const navigationByName = {
@@ -195,6 +217,7 @@ const navigationByName = {
     expenses,
     googleDrive,
     pageNotFound,
-    unauthorised
+    unauthorised,
+    YoutubeScript
 }
 export {navigations, urlMapper, navigationByName};
