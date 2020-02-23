@@ -8,12 +8,14 @@ import Dialog from "./dialog";
 import Tab from "./tab";
 import Menu from "./menu";
 import Layout from "./layout";
+import Loader from "./loader";
 
 export default {
     CustomColorPicker,
     Unauthorised,
     ColorPicker,
     Entitlement,
+    Loader,
     Layout,
     Dialog,
     Tabs,
@@ -28,6 +30,7 @@ export {
     ColorPicker,
     Entitlement,
     Layout,
+    Loader,
     Dialog,
     Tabs,
     Card,

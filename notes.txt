@@ -3,4 +3,9 @@ https://developers.google.com/identity/sign-in/web/server-side-flow
 https://github.com/STRML/react-grid-layout#installation
 
 user activiy to be create
-Need to work in production build
+Need to work on lazy loading
+working on front page 
+need to work on server Side rendering
+Need to work on docker
+Need to work on loading page
+Need to work on home page

@@ -6,36 +6,15 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const config = require("./webpack/config");
 
-console.log(config);
-
-
 module.exports = {
     watch: false,
     mode: "production",
     entry: {
         main : config.main
     },
-    output: {
-        path: path.resolve(__dirname, './web/src/main/resources/static/static'),
-        filename: "main.js"
-    },
-    devtool: "source-map",
-     module: {
+    output: config.output,
+    module: {
         rules: [
-            {
-                test: /\.ts(x?)$/,
-                enforce: 'pre',
-                use: [
-                  {
-                    options: {
-                      eslintPath: require.resolve('eslint'),
-            
-                    },
-                    loader: require.resolve('eslint-loader'),
-                  },
-                ],
-                exclude: /node_modules/,
-            },
             {
                 test: /\.worker\.ts(x?)$/,
 				use : {
@@ -46,7 +25,7 @@ module.exports = {
 				}
             },
             {
-                test: /\.(woff(2)?|ttf|eot|svg|jpe?g|png|gif|svg|jpg)(\?v=\d+\.\d+\.\d+)?$/,
+                test: config.fileExpression,
                 use: [
                     {
                         loader: 'file-loader',
@@ -58,7 +37,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.scss$/,
+                test: config.scssExpression,
                 use: [
                     MiniCssExtractPlugin.loader,
                     'css-loader',
@@ -66,7 +45,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.ts(x?)$/,
+                test: config.tsxExpression,
                 exclude: /node_modules/,
                 use: [
                     { 
@@ -76,11 +55,6 @@ module.exports = {
                         loader: "ts-loader",
                     }
                 ]
-            },
-            {
-                enforce: "pre",
-                test: /\.js$/,
-                loader: "source-map-loader"
             }
         ]  
     },
@@ -104,7 +78,7 @@ module.exports = {
             ReactDOM: 'react-dom'
         }),
         new CleanWebpackPlugin({
-            dry: true,
+            dry: false,
             verbose: true,
             protectWebpackAssets: false,
             cleanOnceBeforeBuildPatterns: ['**/*']
