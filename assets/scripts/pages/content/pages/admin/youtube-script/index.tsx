@@ -9,13 +9,38 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 
-import "ace-builds/src-noconflict/mode-markdown";
+import "ace-builds/src-noconflict/mode-text";
 import "ace-builds/src-noconflict/theme-monokai";
 
 import {ApiCaller} from "utility";
 import {apiList} from "const";
 
+import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
+
 const {GetYoutubeScript, SaveYoutubeScript, DeleteYoutubeScript} = apiList;
+
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    fullWidth: {
+        display: "flex"
+    },
+    items : {
+        display: "flex",
+        flexDirection: "column"
+    },
+    item : {
+        display: "flex"
+    },
+    heading: {
+        flex: "1 1 auto",
+    },
+    action : {
+        flex : "0 0 100px"
+    }
+  }),
+);
+
 
 interface IScripts {
     id ?:number,
@@ -37,7 +62,8 @@ const YoutubeScript = () => {
         .success((data) => {
             setScripts(data);
         });
-    }
+    };
+    const classes = useStyles();
     return (
         <div>
             {value ? 
@@ -46,13 +72,14 @@ const YoutubeScript = () => {
                         title={
                             <TextField 
                                 label="Heading"
+                                className={classes.fullWidth}
                                 value={value.heading}
                                 onChange={(e: any) => setValue({...value, heading: e.target.value})} />
                         } />
                     <CardContent>
                         <AceEditor
                             placeholder="Note"
-                            mode="markdown"
+                            mode="text"
                             theme="monokai"
                             style={{width: "100%"}}
                             fontSize={14}
@@ -62,10 +89,12 @@ const YoutubeScript = () => {
                             highlightActiveLine={true}
                             value={value.note}
                             setOptions={{
+                                wrap: true,
                                 enableBasicAutocompletion: true,
                                 enableSnippets: false,
                                 showLineNumbers: true,
-                                tabSize: 2,
+                                tabSize: 4,
+                                useSoftTabs: false,
                             }}/>
                     </CardContent>
                     <CardActions>
@@ -82,12 +111,16 @@ const YoutubeScript = () => {
                     <div>
                         <button onClick={() => {setValue({heading: "", note: ""})}}>Create</button>
                     </div>
-                    <div>
+                    <div className={classes.items}>
                         {scripts.map((script: IScripts, key) => {
                             return (
-                                <div key={key}>
-                                    {script.heading}
-                                    <button onClick={() => {setValue(script)}}>Edit</button>
+                                <div key={key} className={classes.item}>
+                                    <div className={classes.heading}>
+                                        {script.heading}
+                                    </div>
+                                    <div className={classes.action}>
+                                        <button onClick={() => {setValue(script)}}>Edit</button>
+                                    </div>
                                 </div>
                             )
                         })}
