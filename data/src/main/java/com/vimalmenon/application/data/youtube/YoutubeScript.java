@@ -18,6 +18,8 @@ public class YoutubeScript {
     @Column(nullable = false, name = "note")
     private String note;
 
+    @Column(nullable = true, name = "sequence")
+    private Integer sequence;
 
     public int getId() {
         return id;
@@ -38,5 +40,11 @@ public class YoutubeScript {
     public void setNote(String note) {
         this.note = note;
     }
+	public Integer getSequence() {
+		return sequence;
+	}
+	public void setSequence(Integer sequence) {
+		this.sequence = sequence;
+	}
 
 }

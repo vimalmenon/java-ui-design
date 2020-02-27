@@ -63,6 +63,12 @@ const YoutubeScript = () => {
             setScripts(data);
         });
     };
+    const onDelete = (script) => {
+        new ApiCaller(new DeleteYoutubeScript(script))
+        .success((data) => {
+            setScripts(data);
+        });
+    };
     const classes = useStyles();
     return (
         <div>
@@ -120,12 +126,13 @@ const YoutubeScript = () => {
                                     </div>
                                     <div className={classes.action}>
                                         <button onClick={() => {setValue(script)}}>Edit</button>
+                                        <button onClick={() => {onDelete(script)}}>Delete</button>
                                     </div>
                                 </div>
                             )
                         })}
                     </div>
-            </div>
+                </div>
             }
         </div>
     );

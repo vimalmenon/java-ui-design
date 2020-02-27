@@ -6,6 +6,7 @@ public class YoutubeScriptModel {
     private int id;
     private String heading;
     private String note;
+    private Integer sequence;
     
 	public int getId() {
 		return id;
@@ -24,6 +25,12 @@ public class YoutubeScriptModel {
 	}
 	public void setNote(String note) {
 		this.note = note;
+	}
+	public Integer getSequence() {
+		return sequence;
+	}
+	public void setSequence(Integer sequence) {
+		this.sequence = sequence;
 	}
 
 

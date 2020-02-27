@@ -24,6 +24,7 @@ public class YoutubeSciptService {
 			data.setId(script.getId());
 			data.setHeading(script.getHeading());
 			data.setNote(script.getNote());
+			data.setSequence(script.getSequence());
 			items.add(data);
 		}
 		return items;
@@ -36,6 +37,7 @@ public class YoutubeSciptService {
 			data.setId(script.getId());
 			data.setHeading(script.getHeading());
 			data.setNote(script.getNote());
+			data.setSequence(script.getSequence());
 			items.add(data);
 		}
 		youTubeScriptManager.SaveScripts(items);
@@ -47,6 +49,7 @@ public class YoutubeSciptService {
 		data.setId(youtubeScript.getId());
 		data.setHeading(youtubeScript.getHeading());
 		data.setNote(youtubeScript.getNote());
+		data.setSequence(youtubeScript.getSequence());
 		youTubeScriptManager.deleteScript(data);
 		return getScripts();
 	}
