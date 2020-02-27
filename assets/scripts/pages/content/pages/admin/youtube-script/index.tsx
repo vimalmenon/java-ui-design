@@ -1,7 +1,6 @@
 import * as React from "react";
 import AceEditor from "react-ace";
 
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
 import Card from '@material-ui/core/Card';
@@ -17,26 +16,42 @@ import {apiList} from "const";
 
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 
+import {TextField} from "dumb-components";
+
 const {GetYoutubeScript, SaveYoutubeScript, DeleteYoutubeScript} = apiList;
 
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    fullWidth: {
+    cardHeading : {
         display: "flex"
+    },
+    fullWidth: {
+        display: "flex",
+        flex: "1 1 auto",
+        marginRight: "5px"
+    },
+    sequence : {
+        display: "flex",
+        flex: "0 0 100px"
     },
     items : {
         display: "flex",
         flexDirection: "column"
     },
     item : {
-        display: "flex"
+        display: "flex",
+        margin: "5px 0"
     },
     heading: {
         flex: "1 1 auto",
+        lineHeight: "28px"
     },
     action : {
-        flex : "0 0 100px"
+        flex : "0 0 200px",
+        "& button" : {
+            margin: "0 5px"
+        }
     }
   }),
 );
@@ -45,7 +60,8 @@ const useStyles = makeStyles((theme: Theme) =>
 interface IScripts {
     id ?:number,
     heading: string,
-    note: string
+    note: string,
+    sequence ?: number
 }
 
 const YoutubeScript = () => {
@@ -76,11 +92,18 @@ const YoutubeScript = () => {
                 <Card variant="outlined">
                     <CardHeader
                         title={
-                            <TextField 
-                                label="Heading"
-                                className={classes.fullWidth}
-                                value={value.heading}
-                                onChange={(e: any) => setValue({...value, heading: e.target.value})} />
+                            <div className={classes.cardHeading}>
+                                <TextField 
+                                    label="Heading"
+                                    className={classes.fullWidth}
+                                    value={value.heading}
+                                    onChange={(e: any) => setValue({...value, heading: e.target.value})} />
+                                <TextField 
+                                    label="Sequence"
+                                    className={classes.sequence}
+                                    value={value.sequence ||""}
+                                    onChange={(e: any) => setValue({...value, sequence: e.target.value})} />
+                            </div>
                         } />
                     <CardContent>
                         <AceEditor
@@ -115,7 +138,7 @@ const YoutubeScript = () => {
                 :
                 <div>
                     <div>
-                        <button onClick={() => {setValue({heading: "", note: ""})}}>Create</button>
+                        <Button variant="contained" color="primary" onClick={() => {setValue({heading: "", note: ""})}}>Create</Button>
                     </div>
                     <div className={classes.items}>
                         {scripts.map((script: IScripts, key) => {
@@ -125,8 +148,8 @@ const YoutubeScript = () => {
                                         {script.heading}
                                     </div>
                                     <div className={classes.action}>
-                                        <button onClick={() => {setValue(script)}}>Edit</button>
-                                        <button onClick={() => {onDelete(script)}}>Delete</button>
+                                        <Button variant="contained" color="primary" onClick={() => {setValue(script)}}>Edit</Button>
+                                        <Button variant="contained" color="primary" onClick={() => {onDelete(script)}}>Delete</Button>
                                     </div>
                                 </div>
                             )

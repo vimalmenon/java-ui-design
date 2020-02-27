@@ -9,12 +9,14 @@ import Tab from "./tab";
 import Menu from "./menu";
 import Layout from "./layout";
 import Loader from "./loader";
+import TextField from "./text-field";
 
 export default {
     CustomColorPicker,
     Unauthorised,
     ColorPicker,
     Entitlement,
+    TextField,
     Loader,
     Layout,
     Dialog,
@@ -29,6 +31,7 @@ export {
     Unauthorised,
     ColorPicker,
     Entitlement,
+    TextField,
     Layout,
     Loader,
     Dialog,
