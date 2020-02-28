@@ -25,6 +25,8 @@ import com.vimalmenon.application.data.user.UserPreferenceRepository;
 import com.vimalmenon.application.data.user.UserProfile;
 import com.vimalmenon.application.data.user.UserProfileRepository;
 import com.vimalmenon.application.data.user.UserRepository;
+import com.vimalmenon.application.data.youtube.YoutubeScript;
+import com.vimalmenon.application.data.youtube.YoutubeScriptRepository;
 
 
 public enum Sql {
@@ -39,7 +41,8 @@ public enum Sql {
 	COMPONENT_ENTITLEMENTS("component_entitlements", ComponentEntitlementRepository.class, ComponentEntitlement.class),
 	NAVIGATIONS("navigations", NavigationRepository.class, Navigation.class),
 	NAVIGATION_ENTITLEMENTS("navigation_entitlements", NavigationEntitlementRepository.class, NavigationEntitlement.class),
-	USER_PROFILES("user_profiles", UserProfileRepository.class, UserProfile.class);
+	USER_PROFILES("user_profiles", UserProfileRepository.class, UserProfile.class),
+	YOUTUBE_SCRIPTS("youtube_scripts", YoutubeScriptRepository.class, YoutubeScript.class);
 	
 	
 	

@@ -3,11 +3,6 @@ import AceEditor from "react-ace";
 
 import Button from '@material-ui/core/Button';
 
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
-
 import "ace-builds/src-noconflict/mode-text";
 import "ace-builds/src-noconflict/theme-monokai";
 
@@ -16,7 +11,7 @@ import {apiList} from "const";
 
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 
-import {TextField} from "dumb-components";
+import {TextField, Card} from "dumb-components";
 
 const {GetYoutubeScript, SaveYoutubeScript, DeleteYoutubeScript} = apiList;
 
@@ -90,7 +85,7 @@ const YoutubeScript = () => {
         <div>
             {value ? 
                 <Card variant="outlined">
-                    <CardHeader
+                    <Card.Header
                         title={
                             <div className={classes.cardHeading}>
                                 <TextField 
@@ -105,7 +100,7 @@ const YoutubeScript = () => {
                                     onChange={(e: any) => setValue({...value, sequence: e.target.value})} />
                             </div>
                         } />
-                    <CardContent>
+                    <Card.Body>
                         <AceEditor
                             placeholder="Note"
                             mode="text"
@@ -125,15 +120,15 @@ const YoutubeScript = () => {
                                 tabSize: 4,
                                 useSoftTabs: false,
                             }}/>
-                    </CardContent>
-                    <CardActions>
+                    </Card.Body>
+                    <Card.Footer>
                         <Button variant="contained" color="primary" onClick={onSave}>
                            Save
                         </Button>
                         <Button variant="contained" color="primary" onClick={() => setValue(null)}>
                            Cancel
                         </Button>
-                    </CardActions>
+                    </Card.Footer>
                 </Card>
                 :
                 <div>
