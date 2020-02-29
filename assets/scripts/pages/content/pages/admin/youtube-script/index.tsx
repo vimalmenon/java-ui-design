@@ -71,7 +71,12 @@ const YoutubeScript = () => {
     const onSave = () => {
         new ApiCaller(new SaveYoutubeScript([value]))
         .success((data) => {
-            setScripts(data);
+            if (value && value.id) {
+                setScripts(data);    
+            } else {
+                setValue(null);
+                setScripts(data);
+            }
         });
     };
     const onDelete = (script) => {

@@ -31,7 +31,8 @@
     "react-resizable": "^1.10.1",
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "three": "^0.113.2"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
