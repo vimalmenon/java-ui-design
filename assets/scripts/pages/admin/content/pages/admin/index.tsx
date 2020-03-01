@@ -33,7 +33,7 @@ const Admin = (props) => {
     React.useEffect(() => {
     	let {navigationEntitlement, history, commonActions} = props;
     	let {pathname} = history.location;
-    	if (pathname.startsWith("/admin") && navigationEntitlement["Admin"]) {
+    	if (pathname.startsWith("/admin/admin") && navigationEntitlement["Admin"]) {
     		document.title = urlMapper[pathname].title;
 			if (pathname) {
 				commonActions.setSelectedNavigation(urlMapper[pathname]);

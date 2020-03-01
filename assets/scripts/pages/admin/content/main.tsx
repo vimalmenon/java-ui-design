@@ -53,6 +53,8 @@ const useStyles = makeStyles((theme: Theme) => {
 
 function MainComponent (props: any) {    
     const classes = useStyles();
+    const {match} = props;
+    const {url} = match;
     return (
         <main className={classes.main}>
             <div className={classes.toolbar} />
@@ -61,13 +63,13 @@ function MainComponent (props: any) {
             </div>
             <div className={classes.content}>
                 <Switch>
-                    <Route exact path="/expenses" component={Expenses} />
-                    <Route path="/calendar" component={Calendar} />
-                    <Route path="/preference" component={Preference} />
-                    <Route path="/notes" component={Notes} />
-                    <Route path="/profile" component={Profile} />
-                    <Route path="/admin" component={Admin} />
-                    <Route exact path="/" component={Home} />
+                    <Route exact path={`${url}/expenses`} component={Expenses} />
+                    <Route path={`${url}/calendar`} component={Calendar} />
+                    <Route path={`${url}/preference`} component={Preference} />
+                    <Route path={`${url}/notes`} component={Notes} />
+                    <Route path={`${url}/profile`} component={Profile} />
+                    <Route path={`${url}/admin`} component={Admin} />
+                    <Route exact path={`${url}`} component={Home} />
                     <Route path="*" component={PageNotFound} />
                 </Switch>            
             </div>
