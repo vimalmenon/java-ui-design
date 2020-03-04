@@ -15,7 +15,7 @@ let {pathname} = location;
 const signIn = {
     name : "Sign In",
     Icon : HomeIcon,
-    link : "/",
+    link : "/admin",
     title : "Sign In | Vimal Menon",
     breadcrumbs : [
         {
@@ -28,7 +28,7 @@ const signIn = {
 const dashboard = {
     name : "Home",
     Icon : HomeIcon,
-    link : "/",
+    link : "/admin",
     title : "Dashboard | Vimal Menon",
     breadcrumbs : [
         {
@@ -54,7 +54,7 @@ const pageNotFound = {
 const googleDrive = {
     name : "Google Drive",
     Icon : CloudIcon,
-    link : "/admin/google-drive",
+    link : "/admin/admin/google-drive",
     title : "Google Drive | Admin | Vimal Menon",
     checkEntitlement: true,
     breadcrumbs : [
@@ -73,8 +73,8 @@ const googleDrive = {
 const YoutubeScript = {
     name : "Youtube Script",
     Icon : YouTubeIcon,
-    link : "/admin/youtube-script",
-    title : "Google Drive | Admin | Youtube Script",
+    link : "/admin/admin/youtube-script",
+    title : "Youtube Script | Admin | Vimal Menon",
     checkEntitlement: true,
     breadcrumbs : [
         dashboard,
@@ -92,7 +92,7 @@ const YoutubeScript = {
 const admin = {
     name : "Admin",
     Icon : SupervisorAccountIcon,
-    link : "/admin",
+    link : "/admin/admin",
     title : "Admin | Vimal Menon",
     open : pathname.startsWith("/admin"),
     checkEntitlement: true,
@@ -111,7 +111,7 @@ const admin = {
 const preference = {
     name : "Preference",
     Icon : SettingsIcon,
-    link : "/preference",
+    link : "/admin/preference",
     title : "Preference | Vimal Menon",
     breadcrumbs : [
         dashboard,
@@ -124,7 +124,7 @@ const preference = {
 const profile = {
     name : "Profile",
     Icon : AccountCircleIcon,
-    link : "/profile",
+    link : "/admin/profile",
     title : "Profile | Vimal Menon",
     breadcrumbs : [
         dashboard,
@@ -137,7 +137,7 @@ const profile = {
 const notes = {
     name : "Notes",
     Icon : NoteIcon,
-    link : "/notes",
+    link : "/admin/notes",
     title : "Notes | Vimal Menon",
     breadcrumbs : [
         dashboard,
@@ -150,7 +150,7 @@ const notes = {
 const calendar = {
     name : "Calendar",
     Icon : CalendarTodayIcon,
-    link : "/calendar",
+    link : "/admin/calendar",
     title : "Calendar | Vimal Menon",
     breadcrumbs : [
         dashboard,
@@ -163,7 +163,7 @@ const calendar = {
 const expenses = {
     name : "Expenses",
     Icon : AttachMoneyIcon,
-    link : "/expenses",
+    link : "/admin/expenses",
     title : "Expenses | Vimal Menon",
     breadcrumbs : [
         dashboard,
@@ -195,15 +195,15 @@ const navigations = [
 ];
 
 const urlMapper = {
-    "/": dashboard,
-    "/admin" : admin,
-    "/profile" : profile,
-    "/preference" : preference,
-    "/notes" : notes,
-    "/calendar" : calendar,
-    "/expenses" : expenses,
-    "/admin/google-drive": googleDrive,
-    "/admin/youtube-script" : YoutubeScript
+    "/admin": dashboard,
+    "/admin/admin" : admin,
+    "/admin/profile" : profile,
+    "/admin/preference" : preference,
+    "/admin/notes" : notes,
+    "/admin/calendar" : calendar,
+    "/admin/expenses" : expenses,
+    "/admin/admin/google-drive": googleDrive,
+    "/admin/admin/youtube-script" : YoutubeScript
 };
 
 const navigationByName = {

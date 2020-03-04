@@ -1,6 +1,8 @@
 https://fontawesome.com/icons?d=gallery&q=plus
 https://developers.google.com/identity/sign-in/web/server-side-flow
 https://github.com/STRML/react-grid-layout#installation
+https://www.electronjs.org/docs
+https://github.com/hakimel/reveal.js
 
 user activiy to be create
 Need to work on lazy loading
