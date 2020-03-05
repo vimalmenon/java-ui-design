@@ -18,6 +18,7 @@ import ReplayIcon from '@material-ui/icons/Replay';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import Button from '@material-ui/core/Button';
+import ShareIcon from '@material-ui/icons/Share';
 
 const useStyles = makeStyles(() => {
     return createStyles({
@@ -314,7 +315,7 @@ const introduction = () => {
 			</div>
 			<div className={classes.button}>
 				<ReplayIcon onClick={() => setCheck(0)} />
-				<PlayArrowIcon onClick={() => setCheck(1)}/>
+				<PlayArrowIcon onClick={() => setCheck(check+1)}/>
 			</div>
 			<div className={classes.body}>
 				<ul>

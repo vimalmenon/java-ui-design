@@ -10,18 +10,22 @@ import Introduction from "./topic/introduction";
 
 
 const Index = (props) => {
-	const {match} = props;
+	const {match, history} = props;
     const {url} = match;
+    console.log(props)
+    const onClick = (url) => {
+    	history.push(url)
+    }
 	return (
 		<Switch>
 			<Route path={`${url}/introduction`} component={Introduction} />
 			<Route exact path={`${url}`}>
 				<div>
-					this is presenation page
+					<div onClick={() => onClick("presentation/introduction")}>0 - Introduction</div>
 				</div>
 			</Route>
 		</Switch>
 	);
 };
 
-export default Index;
+export default withRouter(Index);
