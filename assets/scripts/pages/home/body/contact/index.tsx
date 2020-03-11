@@ -6,7 +6,6 @@ import {
   makeStyles,
 } from "@material-ui/core/styles";
 
-import Contact from "./contact";
 
 const useStyles = makeStyles((theme) => {
     return createStyles({
@@ -17,13 +16,12 @@ const useStyles = makeStyles((theme) => {
 });
 
 
-const Body =() => {
+const Contact = () => {
 	const classes = useStyles();
 	return (
 		<section className={classes.root}>
-			this is body
 		</section>
-	)
+	);
 };
 
-export default Body;
+export default Contact;
