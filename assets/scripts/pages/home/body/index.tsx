@@ -17,9 +17,8 @@ import {MainUrlMapper} from "const";
 import About from "./about";
 import Contact from "./contact";
 import Tutorials from "./tutorials";
+import Home from "./home";
 
-
-console.log(MainUrlMapper);
 const useStyles = makeStyles((theme) => {
     return createStyles({
       root: {
@@ -40,7 +39,8 @@ const Body =(props) => {
 	});
 	return (
 		<section className={classes.root}>
-			<Route exact path={`/`} component={About} />
+			<Route exact path={`/`} component={Home} />
+			<Route path={`/about`} component={About} />
 			<Route path={`/contact`} component={Contact} />
 			<Route path={`/tutorials`} component={Tutorials} />
 		</section>

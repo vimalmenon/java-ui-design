@@ -18,7 +18,7 @@ const About = () => {
 	const classes = useStyles();
 	return (
 		<section>
-			this is about
+			this is About
 		</section>
 	);
 };

@@ -25,8 +25,8 @@ const About = {
 export const MainNavigation = [
 	Home,
 	About,
+	Tutorials,
 	Contact,
-	Tutorials
 ];
 
 export const MainUrlMapper = {
