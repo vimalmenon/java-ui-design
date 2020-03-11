@@ -6,7 +6,10 @@ import {
   makeStyles,
 } from "@material-ui/core/styles";
 
+
+import About from "./about";
 import Contact from "./contact";
+
 
 const useStyles = makeStyles((theme) => {
     return createStyles({
@@ -22,6 +25,8 @@ const Body =() => {
 	return (
 		<section className={classes.root}>
 			this is body
+			<About />
+			<Contact />
 		</section>
 	)
 };

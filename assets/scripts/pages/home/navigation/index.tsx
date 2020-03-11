@@ -7,6 +7,7 @@ import {
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link";
+import {MainNavigation} from "const";
 
 
 const useStyles = makeStyles((theme) => {
@@ -30,14 +31,23 @@ const Navigation = () => {
 	return (
 		<nav className={classes.root}>
 			<Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
-				<Link
-		            color="inherit"
-		            noWrap
-		            variant="body2"
-		            href={"./tutorial"}
-		            className={classes.toolbarLink}>
-	            		Home
-          		</Link>
+				{MainNavigation.map((navigation, key) => {
+					if (navigation.isShown) {
+						console.log(navigation);
+						return (
+							<Link
+								key={key}
+					            color="inherit"
+					            noWrap
+					            variant="body2"
+					            href={navigation.link}
+					            className={classes.toolbarLink}>
+				            		{navigation.name}
+			          		</Link>
+						);
+					}
+				})}
+				
 			</Toolbar>
 		</nav>
 	);

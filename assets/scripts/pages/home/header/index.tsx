@@ -5,10 +5,15 @@ import {
   makeStyles,
 } from "@material-ui/core/styles";
 
+import {
+  Link
+} from "react-router-dom";
+
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
 import Typography from "@material-ui/core/Typography";
 import Toolbar from "@material-ui/core/Toolbar";
+//import Link from "@material-ui/core/Link";
 
 
 const useStyles = makeStyles((theme) => {
@@ -40,7 +45,10 @@ const Header = () => {
 	          align="center"
 	          noWrap
 	          className={classes.toolbarTitle}>
-	          	Vimal Menon
+	          	<Link
+		            to={"/"}>
+	            		Vimal Menon
+          		</Link>
 	        </Typography>
 	        <IconButton>
 	          <SearchIcon />
