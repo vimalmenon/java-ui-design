@@ -20,6 +20,7 @@ const Contact = () => {
 	const classes = useStyles();
 	return (
 		<section className={classes.root}>
+			This is contact
 		</section>
 	);
 };

@@ -1,10 +1,14 @@
 import * as React from "react";
 
-
 import {
   createStyles,
   makeStyles,
 } from "@material-ui/core/styles";
+
+import { 
+    Switch,
+    Route, 
+} from "react-router-dom";
 
 
 import About from "./about";
@@ -24,9 +28,8 @@ const Body =() => {
 	const classes = useStyles();
 	return (
 		<section className={classes.root}>
-			this is body
-			<About />
-			<Contact />
+			<Route path={`/`} component={About} />
+			<Route path={`/contact`} component={Contact} />
 		</section>
 	)
 };

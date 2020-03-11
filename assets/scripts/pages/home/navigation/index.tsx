@@ -33,7 +33,6 @@ const Navigation = () => {
 			<Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
 				{MainNavigation.map((navigation, key) => {
 					if (navigation.isShown) {
-						console.log(navigation);
 						return (
 							<Link
 								key={key}

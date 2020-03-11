@@ -10,12 +10,20 @@ const Contact = {
     link : "/contact",
     title : "Contact | Vimal Menon",
 };
+const Tutorials = {
+	isShown : true,
+	name : "Tutorials",
+    link : "/tutorials",
+    title : "Tutorials | Vimal Menon",	
+}
 export const MainNavigation = [
 	Home,
-	Contact
+	Contact,
+	Tutorials
 ];
 
 export const MainUrlMapper = {
 	"/" : Home,
-	"/contact" : Contact
+	"/contact" : Contact,
+	"/tutorials" : Tutorials
 }
