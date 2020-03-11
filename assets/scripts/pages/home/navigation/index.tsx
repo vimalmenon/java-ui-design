@@ -6,9 +6,11 @@ import {
 } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
-import Link from "@material-ui/core/Link";
 import {MainNavigation} from "const";
 
+import {
+  Link
+} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => {
     return createStyles({
@@ -36,10 +38,7 @@ const Navigation = () => {
 						return (
 							<Link
 								key={key}
-					            color="inherit"
-					            noWrap
-					            variant="body2"
-					            href={navigation.link}
+					            to={navigation.link}
 					            className={classes.toolbarLink}>
 				            		{navigation.name}
 			          		</Link>

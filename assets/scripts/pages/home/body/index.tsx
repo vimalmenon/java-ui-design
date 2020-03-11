@@ -13,6 +13,7 @@ import {
 
 import About from "./about";
 import Contact from "./contact";
+import Tutorials from "./tutorials";
 
 
 const useStyles = makeStyles((theme) => {
@@ -30,6 +31,7 @@ const Body =() => {
 		<section className={classes.root}>
 			<Route path={`/`} component={About} />
 			<Route path={`/contact`} component={Contact} />
+			<Route path={`/tutorials`} component={Tutorials} />
 		</section>
 	)
 };
