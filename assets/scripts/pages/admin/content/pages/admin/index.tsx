@@ -8,6 +8,8 @@ import { bindActionCreators } from "redux";
 import {urlMapper} from "const";
 import * as actions from "actions";
 
+import {replaceUrlBackslashAtEnd} from "utility";
+
 import {
   Switch,
   Route
@@ -34,9 +36,9 @@ const Admin = (props) => {
     	let {navigationEntitlement, history, commonActions} = props;
     	let {pathname} = history.location;
     	if (pathname.startsWith("/admin/admin") && navigationEntitlement["Admin"]) {
-    		document.title = urlMapper[pathname].title;
+    		document.title = urlMapper[replaceUrlBackslashAtEnd(pathname)].title;
 			if (pathname) {
-				commonActions.setSelectedNavigation(urlMapper[pathname]);
+				commonActions.setSelectedNavigation(urlMapper[replaceUrlBackslashAtEnd(pathname)]);
 			}
     	}
     });

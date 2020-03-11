@@ -2,7 +2,7 @@ import apiList from "./api-list";
 import colors from "./color";
 import {navigations, urlMapper, navigationByName} from "./navigations";
 
-import {MainNavigation} from "./navigations/main";
+import {MainNavigation, MainUrlMapper} from "./navigations/main";
 
 import urlList from "./url-list";
 
@@ -23,7 +23,8 @@ const constants = {
   navigations,
   urlMapper,
   navigationByName,
-  MainNavigation
+  MainNavigation,
+  MainUrlMapper
 };
 
 
@@ -37,7 +38,8 @@ export {
   navigations,
   urlMapper,
   navigationByName,
-  MainNavigation
+  MainNavigation,
+  MainUrlMapper
 };
 
 export default constants;

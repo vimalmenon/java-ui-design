@@ -1,11 +1,26 @@
 import * as React from "react";
 
+import {
+  createStyles,
+  makeStyles,
+} from "@material-ui/core/styles";
+
+
+const useStyles = makeStyles((theme) => {
+    return createStyles({
+      root: {
+        display: "flex",
+      }
+	});
+});
+
 
 const Tutorials = () => {
+	const classes = useStyles();
 	return (
-		<div>
-			This is tutorial
-		</div>
+		<section className={classes.root}>
+			This is Tutorial
+		</section>
 	);
 };
 

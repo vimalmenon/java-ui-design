@@ -5,10 +5,13 @@ import {
   makeStyles,
 } from "@material-ui/core/styles";
 
-import { 
+import {
     Switch,
     Route, 
+    withRouter
 } from "react-router-dom";
+import {replaceUrlBackslashAtEnd} from "utility";
+import {MainUrlMapper} from "const";
 
 
 import About from "./about";
@@ -16,6 +19,7 @@ import Contact from "./contact";
 import Tutorials from "./tutorials";
 
 
+console.log(MainUrlMapper);
 const useStyles = makeStyles((theme) => {
     return createStyles({
       root: {
@@ -25,15 +29,22 @@ const useStyles = makeStyles((theme) => {
 });
 
 
-const Body =() => {
+const Body =(props) => {
 	const classes = useStyles();
+	let {location} = props;
+	React.useEffect(() => {
+		let {pathname} = location;
+		if (MainUrlMapper[replaceUrlBackslashAtEnd(pathname)]) {
+			document.title = MainUrlMapper[replaceUrlBackslashAtEnd(pathname)].title;
+		}
+	});
 	return (
 		<section className={classes.root}>
-			<Route path={`/`} component={About} />
+			<Route exact path={`/`} component={About} />
 			<Route path={`/contact`} component={Contact} />
 			<Route path={`/tutorials`} component={Tutorials} />
 		</section>
 	)
 };
 
-export default Body;
+export default withRouter(Body);

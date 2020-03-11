@@ -18,6 +18,7 @@ const About = () => {
 	const classes = useStyles();
 	return (
 		<section>
+			this is about
 		</section>
 	);
 };
