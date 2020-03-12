@@ -14,6 +14,14 @@ import SearchIcon from "@material-ui/icons/Search";
 import Typography from "@material-ui/core/Typography";
 import Toolbar from "@material-ui/core/Toolbar";
 
+import Paper from '@material-ui/core/Paper';
+import InputBase from '@material-ui/core/InputBase';
+import Divider from '@material-ui/core/Divider';
+import MenuIcon from '@material-ui/icons/Menu';
+import DirectionsIcon from '@material-ui/icons/Directions';
+
+import {MainNavigation} from "const";
+
 
 const useStyles = makeStyles((theme) => {
     return createStyles({
@@ -28,6 +36,13 @@ const useStyles = makeStyles((theme) => {
 		toolbarTitle: {
 			flex: 1,
   		},
+  		input: {
+	      marginLeft: theme.spacing(1),
+	      flex: 1,
+	    },
+	    iconButton: {
+	      padding: 10,
+	    }
 	});
 });
 
@@ -49,9 +64,27 @@ const Header = () => {
 	            		Vimal Menon
           		</Link>
 	        </Typography>
-	        <IconButton>
-	          <SearchIcon />
-	        </IconButton>
+	        {MainNavigation.map((navigation, key) => {
+	        	if (navigation.isShown) {
+		        	return(
+						<Link
+							key={key}
+				            to={navigation.link}
+				            className={classes.toolbarLink}>
+			            		{navigation.name}
+		          		</Link>
+		        	);
+	        	}
+	        })}
+	        <Paper component="form" className={classes.root}>
+				<IconButton className={classes.iconButton} aria-label="search">
+					<SearchIcon />
+				</IconButton>
+				<InputBase
+			        className={classes.input}
+			        placeholder="Search" />
+		      
+		    </Paper>
 		</Toolbar>
 	);
 };

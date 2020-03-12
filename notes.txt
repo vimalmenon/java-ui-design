@@ -4,10 +4,11 @@ https://github.com/STRML/react-grid-layout#installation
 https://www.electronjs.org/docs
 https://github.com/hakimel/reveal.js
 
-user activiy to be create
+*User activiy to be create
+
 Need to work on lazy loading
-working on front page 
-need to work on server Side rendering
+Working on front page 
+Need to work on server Side rendering
 Need to work on docker
 Need to work on loading page
 Need to work on home page

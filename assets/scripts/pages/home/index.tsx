@@ -12,7 +12,6 @@ import {
 
 
 import Header from "./header";
-import Navigation from "./navigation";
 import Body from "./body";
 import Footer from "./footer";
 
@@ -33,7 +32,6 @@ const Home = () => {
 			<CssBaseline />
 			<Container maxWidth="lg">
 				<Header />
-				<Navigation />
 				<Body />
 				<Footer />
 			</Container>
