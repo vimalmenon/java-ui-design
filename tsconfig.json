@@ -2,10 +2,13 @@
     "compilerOptions": {
         "sourceMap": true,
         "noImplicitAny": false,
-        "module": "commonjs",
+        "module": "esnext",
         "target": "es6",
         "jsx": "react",
         "strict": true,
+        "removeComments": false,
+        "moduleResolution": "node",
+        "preserveConstEnums": true,
         "baseUrl": "./",
         "typeRoots" : ["assets/scripts/typings"],
         "paths": {
@@ -13,7 +16,7 @@
             "store": ["assets/scripts/redux"],
             "const" : ["assets/scripts/constants"],
             "actions": ["assets/scripts/state/actions"],
-            "dumb-components" : ["assets/scripts/dumb-components"],
+            "dumb-components" : ["assets/scripts/dumb-components"]
         }
     }
 }

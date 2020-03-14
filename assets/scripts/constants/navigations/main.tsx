@@ -22,8 +22,13 @@ const About = {
     link : "/about",
     title : "About | Vimal Menon",	
 };
+const PrivacyPolicy = {
+	isShown : false,
+	name :"Privacy Policy",
+	link : "/privacy-policy",
+    title : "Privacy Policy | Vimal Menon",	
+}
 export const MainNavigation = [
-	Home,
 	About,
 	Tutorials,
 	Contact,
@@ -33,5 +38,6 @@ export const MainUrlMapper = {
 	"/" : Home,
 	"/about": About,
 	"/contact" : Contact,
-	"/tutorials" : Tutorials
+	"/tutorials" : Tutorials,
+	"/privacy-policy" : PrivacyPolicy
 };

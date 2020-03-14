@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme) => {
 		},
 		toolbarTitle: {
 			flex: 1,
+			fontSize: "1rem"
   		},
   		input: {
 	      marginLeft: theme.spacing(1),
@@ -42,6 +43,9 @@ const useStyles = makeStyles((theme) => {
 	    },
 	    iconButton: {
 	      padding: 10,
+	    },
+	    search : {
+	    	display: "flex"
 	    }
 	});
 });
@@ -53,8 +57,6 @@ const Header = () => {
 		
 		<Toolbar className={classes.root}>
 	        <Typography
-	          component="h2"
-	          variant="h5"
 	          color="inherit"
 	          align="center"
 	          noWrap
@@ -65,18 +67,16 @@ const Header = () => {
           		</Link>
 	        </Typography>
 	        {MainNavigation.map((navigation, key) => {
-	        	if (navigation.isShown) {
-		        	return(
-						<Link
-							key={key}
-				            to={navigation.link}
-				            className={classes.toolbarLink}>
-			            		{navigation.name}
-		          		</Link>
-		        	);
-	        	}
+	        	return(
+					<Link
+						key={key}
+			            to={navigation.link}
+			            className={classes.toolbarLink}>
+		            		{navigation.name}
+	          		</Link>
+	        	);
 	        })}
-	        <Paper component="form" className={classes.root}>
+	        <Paper component="form" className={classes.search}>
 				<IconButton className={classes.iconButton} aria-label="search">
 					<SearchIcon />
 				</IconButton>

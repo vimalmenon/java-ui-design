@@ -10,12 +10,14 @@ import Menu from "./menu";
 import Layout from "./layout";
 import Loader from "./loader";
 import TextField from "./text-field";
+import LazyLoading from "./lazy-loading";
 
 export default {
     CustomColorPicker,
     Unauthorised,
     ColorPicker,
     Entitlement,
+    LazyLoading,
     TextField,
     Loader,
     Layout,
@@ -31,6 +33,7 @@ export {
     Unauthorised,
     ColorPicker,
     Entitlement,
+    LazyLoading,
     TextField,
     Layout,
     Loader,
