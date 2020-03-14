@@ -6,24 +6,19 @@ import {
 } from "react-router-dom";
 
 import loadable from '@loadable/component'
-import {LazyLoading} from "dumb-components";
 import Home from "./home";
 
 
-const Admin = loadable(() => import( /* webpackChunkName: "admin" */ /* webpackMode: "lazy" */ "./admin"))
+const Admin = loadable(() => import( /* webpackChunkName: "admin" */ /* webpackMode: "lazy" */ "./admin"));
+const Presentation = loadable(() => import( /* webpackChunkName: "presentation" */ /* webpackMode: "lazy" */ "./presentation"))
 
 
 const Pages = () => {
 	return (
 		<Switch>
-			<Route path="/presentation">
-				<LazyLoading 
-					path={() => import(/* webpackChunkName: "presentation" */ "./presentation")}/>
-			</Route>
-			<Route path="/admin">
-				<Admin />
-			</Route>
-			<Route path="/" component={Home} />
+			<Route path="/presentation" component={Presentation} />
+			<Route path="/admin" component={Admin} />
+			<Route path="/"  />
 		</Switch>
 	);
 };
