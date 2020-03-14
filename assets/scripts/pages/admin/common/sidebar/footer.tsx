@@ -5,7 +5,7 @@ import {
     createStyles
   } from '@material-ui/core/styles';
 
-  import {version} from "const";
+import {version} from "const";
 
 const useStyles = makeStyles((theme: Theme) => {
     return createStyles({

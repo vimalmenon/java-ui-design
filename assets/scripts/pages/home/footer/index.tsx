@@ -9,6 +9,8 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 
+import {version} from "const";
+
 const useStyles = makeStyles((theme) => {
     return createStyles({
       footer: {
@@ -29,6 +31,7 @@ const Footer = () => {
 		      </Link>{' '}
 		      {new Date().getFullYear()}
 		      {'.'}
+		      version : {version}
 		    </Typography>
     	</footer>
 	);

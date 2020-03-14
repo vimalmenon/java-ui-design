@@ -128,6 +128,7 @@ module.exports = {
             protectWebpackAssets: false,
             cleanOnceBeforeBuildPatterns: ['**/*']
         }),
+        new webpack.DefinePlugin(config.definePlugin)
     ],
     resolve: {
         extensions: config.extensions,

@@ -1,3 +1,5 @@
+declare var VERSION:string;
+
 import apiList from "./api-list";
 import colors from "./color";
 import {navigations, urlMapper, navigationByName} from "./navigations";
@@ -11,7 +13,7 @@ import methods from "./methods";
 
 const drawerWidth = 240 ;
 
-const version = "0.0.0";
+const version = VERSION;
 
 const constants = {
   urlList,
