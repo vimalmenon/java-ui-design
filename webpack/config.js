@@ -1,7 +1,7 @@
 const path = require("path");
 
 const output = {
-    path : path.resolve(__dirname, './web/src/main/resources/static/static'),
+    path : path.resolve(__dirname, '../web/src/main/resources/static/static'),
     filename: "main.js"
 };
 const alias = {

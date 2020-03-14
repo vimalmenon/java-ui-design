@@ -18,7 +18,7 @@ const Pages = () => {
 		<Switch>
 			<Route path="/presentation" component={Presentation} />
 			<Route path="/admin" component={Admin} />
-			<Route path="/"  />
+			<Route path="/" component={Home} />
 		</Switch>
 	);
 };
