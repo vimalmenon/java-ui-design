@@ -14,9 +14,9 @@ public class Helper {
 		}
 		return url;
 	}
-	public static boolean verifyPassword (String orginalPassword, String passwordToVerify) 
+	public static boolean verifyPassword (String candidate, String passwordToVerify) 
 	{
-		return BCrypt.checkpw(orginalPassword, passwordToVerify);
+		return BCrypt.checkpw(candidate, passwordToVerify);
 	}
 	public static String createPassword (String password) 
 	{

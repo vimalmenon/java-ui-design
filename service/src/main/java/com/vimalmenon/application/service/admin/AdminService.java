@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.vimalmenon.application.common.enums.Groups;
 import com.vimalmenon.application.common.exceptions.ApplicationErrorException;
 import com.vimalmenon.application.common.exceptions.ValidationError;
+import com.vimalmenon.application.common.helper.Helper;
 import com.vimalmenon.application.data.group.Group;
 import com.vimalmenon.application.data.user.User;
 import com.vimalmenon.application.data.user.UserProfile;
@@ -46,10 +47,13 @@ public class AdminService {
 		}
 		Optional<User> userOptional = userGroupAdminManager.login(loginModel.getUsername());
 		if (userOptional.isPresent()) {
-			setSessionGroup(new GroupModel(userOptional.get().getGroup()));
-			session.setUser(userOptional.get().getUsername());
-			session.setUserId(userOptional.get().getId());
-			return session;
+			User user = userOptional.get();
+			if (user.getUsername().equals(loginModel.getUsername()) && Helper.verifyPassword(loginModel.getPassword(), user.getPassword())) {
+				setSessionGroup(new GroupModel(user.getGroup()));
+				session.setUser(userOptional.get().getUsername());
+				session.setUserId(userOptional.get().getId());
+				return session;
+			}
 		}
 		throw new ValidationError("Invalid Username or password");
 	}
