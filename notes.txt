@@ -3,12 +3,21 @@ https://developers.google.com/identity/sign-in/web/server-side-flow
 https://github.com/STRML/react-grid-layout#installation
 https://www.electronjs.org/docs
 https://github.com/hakimel/reveal.js
+https://www.thortful.com/legal/cookie-policy
+
 
 *User activiy to be create
+*Need to work on lazy loading
 
-Need to work on lazy loading
+
 Working on front page 
+Need to work on service worker
 Need to work on server Side rendering
 Need to work on docker
 Need to work on loading page
-Need to work on home page
+Need to work on hosting to the linux box
+Need to work on admin password
+Upload database to google Drive
+Download database from google Drive
+Update Database from the downloaded file from database
+Need to find favicon

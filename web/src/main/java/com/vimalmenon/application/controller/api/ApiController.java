@@ -51,6 +51,12 @@ public class ApiController {
 		return new ApiResponseModel<ComponentEntitlementModel>(session).setData(controllerService.getComponentEntitlement(entitlement.getName()));
 	}
 	
+	@GetMapping("/save_contact")
+	public void saveContact () 
+	{
+		
+	}
+	
 	@RequestMapping(value = "/user")
 	public Principal user(Principal principal) {
 		return principal;
