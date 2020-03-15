@@ -15,8 +15,8 @@ insert into users
    group_id
 )
 select
-   'vimalmenon',
-   '$2a$12$J/KPmEjhwgXg/CB8XRoNl.y2OYqVWXDjan32RRfFvie/uygSBaJLS',
+   'VimalMenon',
+   '$2a$12$cAW7XOYb/IA7Hph/jiJ2A.tsZ7DOEPoYd0sKTDhwXFjLNjEAr/RZi',
    id
 from
    groups
@@ -29,7 +29,7 @@ insert into users
    group_id
 )
 select
-   'visitor',
+   'Visitor',
    '$2a$12$ofHocPvI6HqqUknFAxlTAOv/1r7L160uyeKfbafydCJi0kVw6.eQm',
    id
 from

@@ -6,17 +6,16 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vimalmenon.application.common.exceptions.UrlNotFoundException;
-import com.vimalmenon.application.common.helper.Helper;
 import com.vimalmenon.application.model.admin.AdminLoginModel;
 import com.vimalmenon.application.model.component.ComponentEntitlementModel;
 import com.vimalmenon.application.model.component.EntitlementModel;
+import com.vimalmenon.application.model.contact.ContactModel;
 import com.vimalmenon.application.model.response.ApiResponseModel;
 import com.vimalmenon.application.model.response.Session;
 import com.vimalmenon.application.service.admin.AdminService;
@@ -53,10 +52,10 @@ public class ApiController {
 		return new ApiResponseModel<ComponentEntitlementModel>(session).setData(controllerService.getComponentEntitlement(entitlement.getName()));
 	}
 	
-	@GetMapping("/save_contact")
-	public void saveContact () 
+	@PostMapping("/save_contact")
+	public void saveContact (@RequestBody ContactModel contact) 
 	{
-		
+		controllerService.saveContact(contact);
 	}
 	
 	@RequestMapping(value = "/user")

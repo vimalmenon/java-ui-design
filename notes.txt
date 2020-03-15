@@ -6,7 +6,6 @@ https://github.com/hakimel/reveal.js
 https://www.thortful.com/legal/cookie-policy
 
 
-*User activiy to be create
 *Need to work on lazy loading
 
 
