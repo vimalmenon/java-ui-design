@@ -65,17 +65,18 @@ const Header = () => {
 		            to={"/"}>
 	            		Vimal Menon
           		</Link>
+          		{MainNavigation.map((navigation, key) => {
+		        	return(
+						<Link
+							key={key}
+				            to={navigation.link}
+				            className={classes.toolbarLink}>
+			            		{navigation.name}
+		          		</Link>
+		        	);
+	        	})}
 	        </Typography>
-	        {MainNavigation.map((navigation, key) => {
-	        	return(
-					<Link
-						key={key}
-			            to={navigation.link}
-			            className={classes.toolbarLink}>
-		            		{navigation.name}
-	          		</Link>
-	        	);
-	        })}
+	        
 	        <Paper component="form" className={classes.search}>
 				<IconButton className={classes.iconButton} aria-label="search">
 					<SearchIcon />

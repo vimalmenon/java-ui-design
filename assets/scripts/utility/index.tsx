@@ -4,6 +4,7 @@ import spinner from "./spinner";
 import ApiCaller from "./api";
 import localization from "./localization";
 import {dispatch} from "./dispatch";
+import notification from "./notification";
 
 export default {
     ApiCaller,
@@ -11,6 +12,7 @@ export default {
     spinner,
     rgbToNumbers,
     localization,
+    notification,
     dispatch,
     replaceUrlBackslashAtEnd
 };
@@ -21,6 +23,7 @@ export {
     spinner,
     rgbToNumbers,
     localization,
+    notification,
     dispatch,
     replaceUrlBackslashAtEnd
 };

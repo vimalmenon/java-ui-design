@@ -5,10 +5,21 @@ import { bindActionCreators } from "redux";
 
 import { withRouter } from "react-router-dom";
 
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import Input from '@material-ui/core/Input';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import IconButton from '@material-ui/core/IconButton';
+
+import InputBase from '@material-ui/core/InputBase';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+
 
 import Typography from '@material-ui/core/Typography';
 
@@ -17,7 +28,7 @@ import {
     makeStyles,
 } from '@material-ui/core/styles';
 
-import {ApiCaller} from "utility";
+import {ApiCaller, notification} from "utility";
 import {navigationByName, apiList} from "const";
 
 const {Login} = apiList;
@@ -52,11 +63,18 @@ function LoginPage (props) {
     });
     const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
+    const [showPassword, setShowPassword] = React.useState(false);
     const onLogin = (username, password) => {
         new ApiCaller(new Login({
             username,
             password
-        }));
+        }))
+        .failure((data) => {
+            notification.notify({
+                title: "Error",
+                text: "Invalid username password"
+            });
+        });
     }
     return (
         <div className={classes.root}>
@@ -75,18 +93,28 @@ function LoginPage (props) {
                         label="Username" 
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
-                        placeholder="Username"/>
+                        placeholder="Username"
+                        autoComplete="off"/>
                 </Grid>
                 <Grid item xs={12}>
-                    <TextField 
-                        className={classes.fullWidth}
-                        required 
-                        id="password" 
-                        label="Password" 
+                    <FormControl className={classes.fullWidth}>
+                        <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
+                        <Input
+                        id="standard-adornment-password"
+                        type={showPassword ? 'text' : 'password'}
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Password"
-                        type="password" />
+                        endAdornment={
+                          <InputAdornment position="end">
+                            <IconButton
+                              aria-label="toggle password visibility"
+                              onClick={() => setShowPassword(!showPassword)}>
+                              {showPassword ? <Visibility /> : <VisibilityOff />}
+                            </IconButton>
+                          </InputAdornment>
+                        }
+                        />
+                    </FormControl>
                 </Grid>
                 <Grid item xs={12}>
                     <Button 

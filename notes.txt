@@ -4,6 +4,7 @@ https://github.com/STRML/react-grid-layout#installation
 https://www.electronjs.org/docs
 https://github.com/hakimel/reveal.js
 https://www.thortful.com/legal/cookie-policy
+https://tradenba.com/
 
 
 *Need to work on lazy loading
@@ -20,3 +21,4 @@ Upload database to google Drive
 Download database from google Drive
 Update Database from the downloaded file from database
 Need to find favicon
+Need to work on linting

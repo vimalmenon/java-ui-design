@@ -5,6 +5,9 @@ import {
   Route
 } from "react-router-dom";
 import {Spinner} from "react-redux-spinner";
+import { ToastProvider } from 'react-toast-notifications'
+
+
 
 import store from "./redux";
 import Pages from "./pages";
@@ -13,10 +16,14 @@ class Main extends React.Component {
   render () {
     return (
       <Provider store={store}>
-        <Switch>
-          <Pages />
-        </Switch>
-        <Spinner config={{}}/>
+        <ToastProvider
+          autoDismiss
+          autoDismissTimeout={3000}>
+          <Switch>
+            <Pages />
+          </Switch>
+          <Spinner config={{}}/>
+        </ToastProvider>
     </Provider>
     )
   }

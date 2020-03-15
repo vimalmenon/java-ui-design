@@ -5,7 +5,10 @@ import {
     Route, 
 } from "react-router-dom";
 
-import loadable from '@loadable/component'
+import loadable from '@loadable/component';
+import { useToasts } from 'react-toast-notifications';
+import {notification} from "utility";
+
 import Home from "./home";
 
 
@@ -14,6 +17,8 @@ const Presentation = loadable(() => import( /* webpackChunkName: "presentation" 
 
 
 const Pages = () => {
+    const { addToast } = useToasts();
+    notification.setNotification(addToast);
 	return (
 		<Switch>
 			<Route path="/presentation" component={Presentation} />

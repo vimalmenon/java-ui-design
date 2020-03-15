@@ -2,7 +2,7 @@ import {apiList, methods} from "const";
 import {startSpinner, stopSpinner} from "../spinner";
 
 import * as actions from "actions";
-import {dispatch} from "utility";
+import {dispatch, notification} from "utility";
 
 
 const {GET, PUT, POST, DELETE} = methods;
@@ -64,7 +64,7 @@ class ApiCaller {
 		return this;
 	}
 	public failure (failureCallback) {
-		this.promise = this.promise.then(failureCallback);
+		this.promise = this.promise.catch(failureCallback);
 		return this;
 	}
 	public abort () {
