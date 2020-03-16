@@ -120,10 +120,9 @@ public class GoogleDriveService {
 	}
 
 	public List<GoogleDriveFileModel> listDatabases() {
-		List<GoogleDriveFileModel> models = new ArrayList<>();
 		try {
 			List<File> files = googleDriveManager.getDatabaseFiles().getFiles();
-			List<GoogleDriveFileModel> Models = new ArrayList<>();
+			List<GoogleDriveFileModel> models = new ArrayList<>();
 			for (File file : files) {
 				GoogleDriveFileModel googleDrive = new GoogleDriveFileModel();
 	 			googleDrive.setName(file.getName());
@@ -131,8 +130,7 @@ public class GoogleDriveService {
 				googleDrive.setOwnedByMe(file.getOwnedByMe());
 				googleDrive.setId(file.getId());
 				googleDrive.setMimeType(file.getMimeType());
-				googleDrive.setParents(file.getParents());
-				Models.add(googleDrive);
+				models.add(googleDrive);
 			}
 			return models;
 		} catch (IOException e) {

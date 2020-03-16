@@ -83,9 +83,9 @@ public class GoogleDriveManager {
     {
     	File fileMetadata = new File();
     	fileMetadata.setName(fileName);
-    	//List<String> parents = new ArrayList<>();
-    	//parents.add("0B5ps9nc-JhH-NmdQQUJpTkQ0MkE");
-    	//fileMetadata.setParents(parents);
+    	List<String> parents = new ArrayList<>();
+    	parents.add("1r43e9alIO3bdm4vzqDaVnYZ5wmhMN5fr");
+    	fileMetadata.setParents(parents);
     	java.io.File filePath = new java.io.File(filePathName);
     	FileContent mediaContent = new FileContent("application/zip", filePath);
     	File file = service.files().create(fileMetadata, mediaContent)
@@ -95,7 +95,7 @@ public class GoogleDriveManager {
     }
 
 	public FileList getDatabaseFiles() throws IOException {
-		return service.files().list().setQ("parents='1r43e9alIO3bdm4vzqDaVnYZ5wmhMN5fr'").execute();
+		return service.files().list().setFields("nextPageToken, files(id, name, parents, createdTime, mimeType, ownedByMe)").setQ("parents='1r43e9alIO3bdm4vzqDaVnYZ5wmhMN5fr'").execute();
 	}
 	public InputStream downloadFile(File file) throws IOException {
 		HttpResponse resp = service.getRequestFactory().buildGetRequest(new GenericUrl("location")).execute();
