@@ -5,9 +5,7 @@ import {
   Route
 } from "react-router-dom";
 import {Spinner} from "react-redux-spinner";
-import { ToastProvider } from 'react-toast-notifications'
-
-
+import { ToastProvider } from "react-toast-notifications";
 
 import store from "./redux";
 import Pages from "./pages";

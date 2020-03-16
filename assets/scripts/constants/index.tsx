@@ -1,19 +1,18 @@
 declare var VERSION:string;
 
+import {DeviceUUID} from "device-uuid";
+
 import apiList from "./api-list";
 import colors from "./color";
 import {navigations, urlMapper, navigationByName} from "./navigations";
-
 import {MainNavigation, MainUrlMapper} from "./navigations/main";
-
 import urlList from "./url-list";
-
 import methods from "./methods";
 
 
-const drawerWidth = 240 ;
-
+const drawerWidth = 240;
 const version = VERSION;
+const deviceId = new DeviceUUID().get();
 
 const constants = {
   urlList,
@@ -26,7 +25,8 @@ const constants = {
   urlMapper,
   navigationByName,
   MainNavigation,
-  MainUrlMapper
+  MainUrlMapper,
+  deviceId
 };
 
 
@@ -41,7 +41,8 @@ export {
   urlMapper,
   navigationByName,
   MainNavigation,
-  MainUrlMapper
+  MainUrlMapper,
+  deviceId
 };
 
 export default constants;

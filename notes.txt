@@ -8,7 +8,7 @@ https://tradenba.com/
 
 
 *Need to work on lazy loading
-
+*Need to work on admin password
 
 Working on front page 
 Need to work on service worker
@@ -16,7 +16,6 @@ Need to work on server Side rendering
 Need to work on docker
 Need to work on loading page
 Need to work on hosting to the linux box
-Need to work on admin password
 Upload database to google Drive
 Download database from google Drive
 Update Database from the downloaded file from database
