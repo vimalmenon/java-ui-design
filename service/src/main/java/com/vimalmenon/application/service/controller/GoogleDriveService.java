@@ -142,4 +142,12 @@ public class GoogleDriveService {
 	public void getDetails() {
 		//googleAuthManager.calling();
 	}
+	public void getDownload () {
+		try {
+			System.out.println(googleDriveManager.downloadFile("13lu53JkYLCm0suiJBHz6gkDDO0hqbd6G"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

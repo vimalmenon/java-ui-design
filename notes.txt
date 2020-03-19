@@ -7,10 +7,6 @@ https://www.thortful.com/legal/cookie-policy
 https://tradenba.com/
 
 
-*Need to work on lazy loading
-*Need to work on admin password
-*Upload database to google Drive
-*Pressing on enter on login should login in to user
 
 Working on front page 
 Need to work on service worker
@@ -23,3 +19,4 @@ Update Database from the downloaded file from database
 Need to work on favicon
 Need to work on linting
 Need to work on exception messages
+Need to work on service workers

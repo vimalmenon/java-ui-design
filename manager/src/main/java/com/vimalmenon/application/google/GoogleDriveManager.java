@@ -1,9 +1,11 @@
 package com.vimalmenon.application.google;
 
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,8 +20,6 @@ import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
 import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.http.FileContent;
-import com.google.api.client.http.GenericUrl;
-import com.google.api.client.http.HttpResponse;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
@@ -97,8 +97,10 @@ public class GoogleDriveManager {
 	public FileList getDatabaseFiles() throws IOException {
 		return service.files().list().setFields("nextPageToken, files(id, name, parents, createdTime, mimeType, ownedByMe)").setQ("parents='1r43e9alIO3bdm4vzqDaVnYZ5wmhMN5fr'").execute();
 	}
-	public InputStream downloadFile(File file) throws IOException {
-		HttpResponse resp = service.getRequestFactory().buildGetRequest(new GenericUrl("location")).execute();
-		return resp.getContent();
+	public OutputStream downloadFile(String fileId) throws IOException {
+		OutputStream outputStream = new FileOutputStream("testing.zip");
+		service.files().get(fileId)
+		    .executeMediaAndDownloadTo(outputStream);
+		return outputStream;
 	}
 }
