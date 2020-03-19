@@ -64,68 +64,73 @@ function LoginPage (props) {
     const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
     const [showPassword, setShowPassword] = React.useState(false);
-    const onLogin = (username, password) => {
-        new ApiCaller(new Login({
-            username,
-            password
-        }))
-        .failure((data) => {
-            notification.notify({
-                title: "Error",
-                text: "Invalid username password"
+    const onLogin = (username, password, event) => {
+        if (username && password) {
+            new ApiCaller(new Login({
+                username,
+                password
+            }))
+            .failure((data) => {
+                notification.notify({
+                    title: "Error",
+                    text: "Invalid username password"
+                });
             });
-        });
-    }
+        } else {
+            event.preventDefault();
+        }
+    };
     return (
         <div className={classes.root}>
             <CssBaseline />
-            <Grid container spacing={3} className={classes.signInContainer}>
-                <Grid item xs={12}>
-                    <Typography variant="h4" align="center">
-                        Sign In
-                    </Typography>
+            <form onSubmit={(e) => e.preventDefault()} autoComplete="off">
+                <Grid container spacing={3} className={classes.signInContainer}>
+                    <Grid item xs={12}>
+                        <Typography variant="h4" align="center">
+                            Sign In
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <TextField 
+                            className={classes.fullWidth}
+                            required 
+                            id="username" 
+                            label="Username" 
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            placeholder="Username"/>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <FormControl className={classes.fullWidth}>
+                            <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
+                            <Input
+                            id="standard-adornment-password"
+                            type={showPassword ? 'text' : 'password'}
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            endAdornment={
+                              <InputAdornment position="end">
+                                <IconButton
+                                  aria-label="toggle password visibility"
+                                  onClick={() => setShowPassword(!showPassword)}>
+                                  {showPassword ? <Visibility /> : <VisibilityOff />}
+                                </IconButton>
+                              </InputAdornment>
+                            } />
+                        </FormControl>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Button 
+                            type="submit"
+                            className={classes.fullWidth}
+                            variant="contained" 
+                            color="primary"
+                            onClick={(event) => onLogin(username, password, event)}>
+                            Login
+                        </Button>
+                    </Grid>
                 </Grid>
-                <Grid item xs={12}>
-                    <TextField 
-                        className={classes.fullWidth}
-                        required 
-                        id="username" 
-                        label="Username" 
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        placeholder="Username"
-                        autoComplete="off"/>
-                </Grid>
-                <Grid item xs={12}>
-                    <FormControl className={classes.fullWidth}>
-                        <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
-                        <Input
-                        id="standard-adornment-password"
-                        type={showPassword ? 'text' : 'password'}
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        endAdornment={
-                          <InputAdornment position="end">
-                            <IconButton
-                              aria-label="toggle password visibility"
-                              onClick={() => setShowPassword(!showPassword)}>
-                              {showPassword ? <Visibility /> : <VisibilityOff />}
-                            </IconButton>
-                          </InputAdornment>
-                        }
-                        />
-                    </FormControl>
-                </Grid>
-                <Grid item xs={12}>
-                    <Button 
-                        className={classes.fullWidth}
-                        variant="contained" 
-                        color="primary"
-                        onClick={() => onLogin(username, password)}>
-                        Login
-                    </Button>
-                </Grid>
-            </Grid>
+            </form>
         </div>
     )
 }
