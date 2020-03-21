@@ -97,8 +97,8 @@ public class GoogleDriveManager {
 	public FileList getDatabaseFiles() throws IOException {
 		return service.files().list().setFields("nextPageToken, files(id, name, parents, createdTime, mimeType, ownedByMe)").setQ("parents='1r43e9alIO3bdm4vzqDaVnYZ5wmhMN5fr'").execute();
 	}
-	public OutputStream downloadFile(String fileId) throws IOException {
-		OutputStream outputStream = new FileOutputStream("testing.zip");
+	public OutputStream downloadFile(java.io.File dbPath, String fileId) throws IOException {
+		OutputStream outputStream = new FileOutputStream(dbPath);
 		service.files().get(fileId)
 		    .executeMediaAndDownloadTo(outputStream);
 		return outputStream;

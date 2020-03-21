@@ -126,6 +126,12 @@ class DeleteYoutubeScript extends Api {
 		this.setApiData(data);
 	}
 }
+class RestoreDatabase extends Api {
+	constructor (data) {
+		super("restoreDatabase", POST, "/api/admin/google_drive/restore_database");
+		this.setApiData(data);
+	}
+}
 
 export default {
 	SavePreferences,
@@ -144,6 +150,7 @@ export default {
 	GetComponents,
 	GetGroups,
 	GetUrls,
+	RestoreDatabase,
 	GetYoutubeScript,
 	SaveYoutubeScript,
 	DeleteYoutubeScript

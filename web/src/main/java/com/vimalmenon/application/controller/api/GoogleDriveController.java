@@ -31,7 +31,6 @@ public class GoogleDriveController {
 		return new ApiResponseModel<GoogleDriveFileModel>(session).setData(googleDriveService.listFile());
 	}
 	
-	
 	@GetMapping("/upload_database")
 	public ApiResponseModel<String> uploadDatabase ()
 	{
@@ -51,16 +50,5 @@ public class GoogleDriveController {
 	{
 		return new ApiResponseModel<List<GoogleDriveFileModel>>(session).setData(googleDriveService.listDatabases());
 	}
-	
-	@GetMapping("/download_database")
-	public void downloadDatabase ()
-	{
-		googleDriveService.getDownload();
-	}
-	
-	@GetMapping("/testing")
-	public void testing()
-	{
-		googleDriveService.getDetails();
-	}
+
 }

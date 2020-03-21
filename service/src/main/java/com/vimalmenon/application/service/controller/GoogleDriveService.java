@@ -95,27 +95,34 @@ public class GoogleDriveService {
 	public void restoreDatabase(GoogleDriveFileModel model) {
 		String zipFilePath = "//application/config//db.zip";
 		String destDir = "//application/config//database";
-		zip.unzip(zipFilePath, destDir);
-		List<Sql> sequence = Sql.getSequence();
-		
-		databaseManager.unset();
-		sequence.forEach((item) -> {
-			try {
-				String st;
-				java.io.File dbPath = new java.io.File("//application/config//database//"+item.getSqlName());
-				BufferedReader br = new BufferedReader(new FileReader(dbPath));
-				StringBuilder builder = new StringBuilder();
-				while ((st = br.readLine()) != null) {
-					builder.append(st);
+		java.io.File fileName = new java.io.File(zipFilePath);
+		try {
+			googleDriveManager.downloadFile(fileName, model.getId());
+			zip.unzip(zipFilePath, destDir);
+			List<Sql> sequence = Sql.getSequence();
+			
+			databaseManager.unset();
+			sequence.forEach((item) -> {
+				try {
+					String st;
+					java.io.File dbPath = new java.io.File("//application/config//database//"+item.getSqlName());
+					BufferedReader br = new BufferedReader(new FileReader(dbPath));
+					StringBuilder builder = new StringBuilder();
+					while ((st = br.readLine()) != null) {
+						builder.append(st);
+					}
+					br.close();
+					databaseManager.restoreDatabase(item, builder.toString());
+				} catch (BeansException | IOException e) {
+					log.error("Exception for : ", e);
+					throw new GeneralException(e.getMessage());
 				}
-				br.close();
-				databaseManager.restoreDatabase(item, builder.toString());
-			} catch (BeansException | IOException e) {
-				log.error("Exception for : ", e);
-				throw new GeneralException(e.getMessage());
-			}
-		});
-		databaseManager.set();
+			});
+			databaseManager.set();
+		} catch (IOException e1) {
+			log.error("Exception for : ", e1);
+			e1.printStackTrace();
+		}
 		
 	}
 
@@ -139,15 +146,4 @@ public class GoogleDriveService {
 		}
 	}
 	
-	public void getDetails() {
-		//googleAuthManager.calling();
-	}
-	public void getDownload () {
-		try {
-			System.out.println(googleDriveManager.downloadFile("13lu53JkYLCm0suiJBHz6gkDDO0hqbd6G"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 }

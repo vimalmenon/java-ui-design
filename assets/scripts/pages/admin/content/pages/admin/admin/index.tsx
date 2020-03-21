@@ -13,7 +13,7 @@ import Component from "./component";
 import Group from "./group";
 import ShowDialog from "./show-dialog";
 
-const {UploadDatabase, ListDatabases, GetGroups} = apiList;
+const {UploadDatabase, ListDatabases, GetGroups, RestoreDatabase} = apiList;
 
 
 const AdminHome = () => {
@@ -45,6 +45,10 @@ const AdminHome = () => {
 			setDatabaseList(data);
 		});
 	}
+	const onShowDialogSelect = (selectedDatabase) => {
+		new ApiCaller(new RestoreDatabase(selectedDatabase));
+		console.log(showDialog);
+	};
 	return (
 		<Slide direction="right" in={slide} mountOnEnter unmountOnExit>
 			<div>
@@ -70,6 +74,7 @@ const AdminHome = () => {
 				<ShowDialog 
 					showDialog={showDialog}
 					setShowDialog={setShowDialog}
+					onShowDialogSelect={onShowDialogSelect}
 					databaseList={databaseList} />
 			    <div>
 			    	<Url />
