@@ -7,6 +7,8 @@ import com.vimalmenon.application.data.component.Component;
 import com.vimalmenon.application.data.component.ComponentEntitlement;
 import com.vimalmenon.application.data.component.ComponentEntitlementRepository;
 import com.vimalmenon.application.data.component.ComponentRepository;
+import com.vimalmenon.application.data.contacts.Contact;
+import com.vimalmenon.application.data.contacts.ContactRepository;
 import com.vimalmenon.application.data.group.Group;
 import com.vimalmenon.application.data.group.GroupRepository;
 import com.vimalmenon.application.data.navigation.Navigation;
@@ -42,7 +44,8 @@ public enum Sql {
 	NAVIGATIONS("navigations", NavigationRepository.class, Navigation.class),
 	NAVIGATION_ENTITLEMENTS("navigation_entitlements", NavigationEntitlementRepository.class, NavigationEntitlement.class),
 	USER_PROFILES("user_profiles", UserProfileRepository.class, UserProfile.class),
-	YOUTUBE_SCRIPTS("youtube_scripts", YoutubeScriptRepository.class, YoutubeScript.class);
+	YOUTUBE_SCRIPTS("youtube_scripts", YoutubeScriptRepository.class, YoutubeScript.class),
+	CONTACTS("contacts", ContactRepository.class, Contact.class);
 	
 	
 	
@@ -57,9 +60,9 @@ public enum Sql {
 		COMPONENT_ENTITLEMENTS,
 		NAVIGATIONS,
 		NAVIGATION_ENTITLEMENTS,
-		USER_PROFILES
+		USER_PROFILES,
+		CONTACTS
 	);
-	
 	
 	private String sqlName;
 	@SuppressWarnings("rawtypes")

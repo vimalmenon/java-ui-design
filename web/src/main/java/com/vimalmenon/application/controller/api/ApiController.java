@@ -57,9 +57,9 @@ public class ApiController {
 	}
 	
 	@PostMapping("/save_contact")
-	public ApiResponseModel<String> saveContact (@RequestBody ContactModel contact) 
+	public ApiResponseModel<String> saveContact (@RequestBody ContactModel contact, HttpServletRequest request) 
 	{
-		contactService.saveUserContact(contact);
+		contactService.saveUserContact(contact, request);
 		return new ApiResponseModel<String>(session).setData("Success");
 	}
 	

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,18 +27,21 @@ public class ContactService {
 			data.setId(contact.getId());
 			data.setName(contact.getName());
 			data.setEmailAddress(contact.getEmail());
+			data.setIpAddress(contact.getIpAddress());
 			data.setSubject(contact.getSubject());
 			data.setMessage(contact.getMessage());
 			data.setTimeDate(contact.getTimeDate());
+			data.setRead((contact.getRead() ==1) ? true : false);
 			items.add(data);
 		});
 		return items;
 	}
 	
-	public void saveUserContact (ContactModel contact) {
+	public void saveUserContact (ContactModel contact, HttpServletRequest request) {
 		Contact contactData = new Contact();
 		contactData.setName(contact.getName());
 		contactData.setEmail(contact.getEmailAddress());
+		contactData.setIpAddress(request.getRemoteAddr());
 		contactData.setSubject(contact.getSubject());
 		contactData.setMessage(contact.getMessage());
 		contactData.setTimeDate(new Date());
@@ -50,9 +55,11 @@ public class ContactService {
 			data.setId(contact.getId());
 			data.setName(contact.getName());
 			data.setEmail(contact.getEmailAddress());
+			data.setIpAddress(contact.getIpAddress());
 			data.setSubject(contact.getSubject());
 			data.setMessage(contact.getMessage());
 			data.setTimeDate(contact.getTimeDate());
+			data.setRead(contact.getRead() ? 1 : 0);
 			items.add(data);
 		});
 		contactManager.saveAllContact(items);
@@ -66,9 +73,11 @@ public class ContactService {
 			data.setId(contact.getId());
 			data.setName(contact.getName());
 			data.setEmail(contact.getEmailAddress());
+			data.setIpAddress(contact.getIpAddress());
 			data.setSubject(contact.getSubject());
 			data.setMessage(contact.getMessage());
 			data.setTimeDate(contact.getTimeDate());
+			data.setRead(contact.getRead()? 1 : 0);
 			items.add(data);
 		});
 		contactManager.deleteContact(items);

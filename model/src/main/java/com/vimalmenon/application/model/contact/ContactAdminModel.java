@@ -7,9 +7,11 @@ public class ContactAdminModel {
 	private int id;
 	private String name;
 	private String emailAddress;
+	private String ipAddress;
 	private String subject;
 	private String message;
 	private Date timeDate;
+	private Boolean read;
 	
 	public int getId() {
 		return id;
@@ -29,6 +31,12 @@ public class ContactAdminModel {
 	public void setEmailAddress(String emailAddress) {
 		this.emailAddress = emailAddress;
 	}
+	public String getIpAddress() {
+		return ipAddress;
+	}
+	public void setIpAddress(String ipAddress) {
+		this.ipAddress = ipAddress;
+	}
 	public String getSubject() {
 		return subject;
 	}
@@ -47,4 +55,11 @@ public class ContactAdminModel {
 	public void setTimeDate(Date timeDate) {
 		this.timeDate = timeDate;
 	}
+	public Boolean getRead() {
+		return read;
+	}
+	public void setRead(Boolean read) {
+		this.read = read;
+	}
+	
 }

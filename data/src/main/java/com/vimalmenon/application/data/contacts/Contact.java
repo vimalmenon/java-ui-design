@@ -23,12 +23,17 @@ public class Contact {
 	@Column(nullable = false, name = "subject")
 	private String subject;
 	
+	@Column(nullable = false, name = "ip_address")
+	private String ipAddress;
 	
 	@Column(nullable = false, name = "message")
 	private String message;
 	    
 	@Column(nullable = false, name = "time")
 	private Date timeDate;
+	
+	@Column(nullable = false, name = "checked")
+	private int read;
 
 	public int getId() {
 		return id;
@@ -54,6 +59,14 @@ public class Contact {
 		this.email = email;
 	}
 
+	public String getIpAddress() {
+		return ipAddress;
+	}
+
+	public void setIpAddress(String ipAddress) {
+		this.ipAddress = ipAddress;
+	}
+
 	public String getSubject() {
 		return subject;
 	}
@@ -76,6 +89,14 @@ public class Contact {
 
 	public void setTimeDate(Date timeDate) {
 		this.timeDate = timeDate;
+	}
+
+	public int getRead() {
+		return read;
+	}
+
+	public void setRead(int read) {
+		this.read = read;
 	}
 
 }
