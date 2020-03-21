@@ -73,7 +73,7 @@ function LoginPage (props) {
             .failure((data) => {
                 notification.notify({
                     title: "Error",
-                    text: "Invalid username password"
+                    text: data.message
                 });
             });
         } else {

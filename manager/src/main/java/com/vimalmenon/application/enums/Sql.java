@@ -48,7 +48,6 @@ public enum Sql {
 	CONTACTS("contacts", ContactRepository.class, Contact.class);
 	
 	
-	
 	private static List<Sql> sequence= Arrays.asList(
 		GROUPS, 
 		USERS, 

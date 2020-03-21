@@ -9,13 +9,20 @@ public class ValidationError extends RuntimeException{
 	
 	private static ResponseCode response = ResponseCode.VALIDATION_ERROR;
 	private final static int code = response.code;
-	
+	private String message;
 	public ValidationError(String msg) {
 		super(msg);
+		message = msg;
 	}
 	public int getCode ()
 	{
 		return code;
+	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 }

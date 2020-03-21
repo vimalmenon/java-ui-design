@@ -63,8 +63,8 @@ public class ApiControllerAdvice {
 	}
 	@ExceptionHandler(value = ValidationError.class)
 	public ApiResponseModel<String> validationError(final ValidationError exception, HttpServletResponse httpResponse) {
-		log.error(exception.getMessage());
-		return new ApiResponseModel<String>(session).setMessage(exception.toString())
+		log.error("Validation Error : ", exception);
+		return new ApiResponseModel<String>(session).setMessage(exception.getMessage())
 				.setCode(exception.getCode());
 	}
 	 
