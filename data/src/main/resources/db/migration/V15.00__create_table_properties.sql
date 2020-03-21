@@ -1,0 +1,7 @@
+CREATE TABLE properties
+(
+   id INT NOT NULL AUTO_INCREMENT,
+   property VARCHAR (250) NOT NULL,
+   value VARCHAR (250) NOT NULL,
+   PRIMARY KEY (id)
+);

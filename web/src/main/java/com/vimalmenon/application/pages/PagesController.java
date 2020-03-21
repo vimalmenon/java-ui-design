@@ -21,7 +21,7 @@ public class PagesController {
 		return "index";
 	}
 	@GetMapping(value = "/sw")
-	public ResponseEntity<FileSystemResource> getImage(HttpServletResponse response) {
+	public ResponseEntity<FileSystemResource> getSw(HttpServletResponse response) {
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.set("Content-Type","application/javascript; charset=UTF-8");
 		String fileName = "static/static/sw.js";

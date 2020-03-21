@@ -42,6 +42,7 @@ public class ContactService {
 		contactData.setName(contact.getName());
 		contactData.setEmail(contact.getEmailAddress());
 		contactData.setIpAddress(request.getRemoteAddr());
+		//request.getHeader("X-FORWARDED-FOR")
 		contactData.setSubject(contact.getSubject());
 		contactData.setMessage(contact.getMessage());
 		contactData.setTimeDate(new Date());

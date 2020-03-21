@@ -17,6 +17,8 @@ import com.vimalmenon.application.data.navigation.NavigationEntitlementRepositor
 import com.vimalmenon.application.data.navigation.NavigationRepository;
 import com.vimalmenon.application.data.note.Note;
 import com.vimalmenon.application.data.note.NoteRepository;
+import com.vimalmenon.application.data.properties.Property;
+import com.vimalmenon.application.data.properties.PropertyRepository;
 import com.vimalmenon.application.data.url.Url;
 import com.vimalmenon.application.data.url.UrlEntitlement;
 import com.vimalmenon.application.data.url.UrlEntitlementRepository;
@@ -45,7 +47,8 @@ public enum Sql {
 	NAVIGATION_ENTITLEMENTS("navigation_entitlements", NavigationEntitlementRepository.class, NavigationEntitlement.class),
 	USER_PROFILES("user_profiles", UserProfileRepository.class, UserProfile.class),
 	YOUTUBE_SCRIPTS("youtube_scripts", YoutubeScriptRepository.class, YoutubeScript.class),
-	CONTACTS("contacts", ContactRepository.class, Contact.class);
+	CONTACTS("contacts", ContactRepository.class, Contact.class),
+	PROPERTIES("properties", PropertyRepository.class ,Property.class);
 	
 	
 	private static List<Sql> sequence= Arrays.asList(
@@ -61,7 +64,8 @@ public enum Sql {
 		NAVIGATION_ENTITLEMENTS,
 		USER_PROFILES,
 		YOUTUBE_SCRIPTS,
-		CONTACTS
+		CONTACTS,
+		PROPERTIES
 	);
 	
 	private String sqlName;
@@ -76,8 +80,6 @@ public enum Sql {
 		this.classes = classes;
 		this.entityName = entityName;
 	}
-	
-	
 	
 	public String getSqlName() {
 		return sqlName;
