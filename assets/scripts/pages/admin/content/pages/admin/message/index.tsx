@@ -11,8 +11,12 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import DeleteIcon from '@material-ui/icons/Delete';
+
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 
 const {GetAdminContact, SaveAdminContact, DeleteAdminContact} = apiList;
 
@@ -60,8 +64,9 @@ const Message = () => {
 			              <TableCell>{contact.subject}</TableCell>
 			              <TableCell>{contact.timeDate}</TableCell>
 			              <TableCell>
+			              	<span onClick={() => {}}>{(contact.read) ? <VisibilityIcon />: <VisibilityOffIcon />}</span>
 			              	<span onClick={() => onDelete(contact)}><DeleteIcon /></span> 
-			              	<span onClick={() => onExpand(key)}>{(selected ===key) ? <KeyboardArrowRightIcon /> : <KeyboardArrowDownIcon />}</span>
+			              	<span onClick={() => onExpand(key)}>{(selected ===key) ? <KeyboardArrowDownIcon />: <KeyboardArrowRightIcon />}</span>
 			              </TableCell>
 			            </TableRow>
 			            {(selected === key) ? 
