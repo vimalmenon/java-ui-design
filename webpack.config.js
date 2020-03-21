@@ -10,7 +10,8 @@ module.exports = {
     watch: true,
     mode: "development",
     entry: {
-        main : config.main
+        main : config.main,
+        sw : config.sw
     },
     output: config.output,
     devtool: "source-map",

@@ -11,5 +11,16 @@
     <body>
         <main id="main"></main>
     	<script type="text/javascript" src="main.js"></script>
+        <script type="text/javascript">
+            if ('serviceWorker' in navigator) {
+              window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw').then(function(registration) {
+                  console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(err) {
+                  console.log('ServiceWorker registration failed: ', err);
+                });
+              });
+            }
+        </script>
    	</body>
 </html>

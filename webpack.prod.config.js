@@ -10,7 +10,8 @@ module.exports = {
     watch: false,
     mode: "production",
     entry: {
-        main : config.main
+        main : config.main,
+        sw : config.sw
     },
     output: config.output,
     module: {
@@ -83,6 +84,7 @@ module.exports = {
             protectWebpackAssets: false,
             cleanOnceBeforeBuildPatterns: ['**/*']
         }),
+        new webpack.DefinePlugin(config.definePlugin)
     ],
     resolve: {
         extensions: config.extensions,
