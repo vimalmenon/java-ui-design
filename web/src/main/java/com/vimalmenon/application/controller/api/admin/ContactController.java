@@ -36,12 +36,12 @@ public class ContactController {
 	@PostMapping("")
 	public ApiResponseModel<List<ContactAdminModel>> saveContact (@RequestBody List<ContactAdminModel> contacts) 
 	{
-		return null;
+		return new ApiResponseModel<List<ContactAdminModel>>(session).setData(contactService.saveContact(contacts));
 	}
 	@DeleteMapping("")
-	public ApiResponseModel<List<ContactAdminModel>> deleteContact () 
+	public ApiResponseModel<List<ContactAdminModel>> deleteContact (@RequestBody List<ContactAdminModel> contacts) 
 	{
-		return null;
+		return new ApiResponseModel<List<ContactAdminModel>>(session).setData(contactService.deleteContact(contacts));
 	}
 
 }

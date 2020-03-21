@@ -42,4 +42,36 @@ public class ContactService {
 		contactData.setTimeDate(new Date());
 		contactManager.saveContact(contactData);
 	}
+
+	public List<ContactAdminModel> saveContact(List<ContactAdminModel> contacts) {
+		List<Contact> items = new ArrayList<>();
+		contacts.forEach((contact) -> {
+			Contact data = new Contact();
+			data.setId(contact.getId());
+			data.setName(contact.getName());
+			data.setEmail(contact.getEmailAddress());
+			data.setSubject(contact.getSubject());
+			data.setMessage(contact.getMessage());
+			data.setTimeDate(contact.getTimeDate());
+			items.add(data);
+		});
+		contactManager.saveAllContact(items);
+		return getContact();
+	}
+
+	public List<ContactAdminModel> deleteContact(List<ContactAdminModel> contacts) {
+		List<Contact> items = new ArrayList<>();
+		contacts.forEach((contact) -> {
+			Contact data = new Contact();
+			data.setId(contact.getId());
+			data.setName(contact.getName());
+			data.setEmail(contact.getEmailAddress());
+			data.setSubject(contact.getSubject());
+			data.setMessage(contact.getMessage());
+			data.setTimeDate(contact.getTimeDate());
+			items.add(data);
+		});
+		contactManager.deleteContact(items);
+		return getContact();
+	}
 }
