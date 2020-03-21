@@ -33,8 +33,8 @@ import com.vimalmenon.application.data.youtube.YoutubeScriptRepository;
 
 public enum Sql {
 
-	GROUPS("Groups", GroupRepository.class, Group.class),
-	USERS("Users", UserRepository.class, User.class),
+	GROUPS("groups", GroupRepository.class, Group.class),
+	USERS("users", UserRepository.class, User.class),
 	USER_PREFERENCES("user_preferences", UserPreferenceRepository.class, UserPreference.class),
 	NOTES("notes", NoteRepository.class, Note.class),
 	URLS("urls", UrlRepository.class, Url.class),
@@ -61,6 +61,7 @@ public enum Sql {
 		NAVIGATIONS,
 		NAVIGATION_ENTITLEMENTS,
 		USER_PROFILES,
+		YOUTUBE_SCRIPTS,
 		CONTACTS
 	);
 	
