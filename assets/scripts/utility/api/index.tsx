@@ -42,18 +42,24 @@ class ApiCaller {
 					return data.text();
 				}
 			});
-			promise.then((data) => {
+			promise.then((value) => {
 				if (isNotFormatted) {
-					resolve(data);
+					resolve(value);
 					return;
 				} else {
-					if (data.session) {
-						dispatch(actions.user.setSession(data.session));
+					if (value.session) {
+						dispatch(actions.user.setSession(value.session));
 					}
-					if (data.code === 0) {
-						resolve(data.data);
+					if (value.code === 0) {
+						resolve(value.data);
 					} else {
-						reject(data)
+						if(data.failureMessage) {
+							notification.notify({
+			                    title: "Error",
+			                    text: value.message
+			                });
+						}
+						reject(value)
 					}
 				}
 			});

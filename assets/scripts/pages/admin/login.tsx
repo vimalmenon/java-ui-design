@@ -69,13 +69,7 @@ function LoginPage (props) {
             new ApiCaller(new Login({
                 username,
                 password
-            }))
-            .failure((data) => {
-                notification.notify({
-                    title: "Error",
-                    text: data.message
-                });
-            });
+            }));
         } else {
             event.preventDefault();
         }

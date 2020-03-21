@@ -11,13 +11,23 @@ class Api implements IApi{
 	public method;
 	public url;
 	public data;
+	public failureMessage;
+	public successMessage;
 	constructor (name, method, url) {
 		this.name = name;
 		this.method = method;
 		this.url = url;
+		this.failureMessage = false;
+		this.successMessage = false;
 	}
 	public setApiData (data) {
 		this.data = JSON.stringify(data);
+	}
+	public setFailureMessage (failureMessage) {
+		this.failureMessage = failureMessage
+	}
+	public setSuccessMessage (successMessage) {
+		this.successMessage = successMessage;
 	}
 	
 }
@@ -43,6 +53,7 @@ class Login extends Api {
 	constructor (data) {
 		super("login", POST, "/api/log_in");
 		this.setApiData(data);
+		this.setFailureMessage(true);
 	}
 }
 class GetUrls extends Api {
