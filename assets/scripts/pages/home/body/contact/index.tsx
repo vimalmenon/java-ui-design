@@ -9,6 +9,11 @@ import {
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
+import {ApiCaller} from "utility";
+import {apiList} from "const";
+
+const {ApiSaveContact} = apiList;
+
 const useStyles = makeStyles((theme) => {
     return createStyles({
       root: {
@@ -24,7 +29,7 @@ const Contact = () => {
 	const [contact, setContact] = React.useState({});
 	const [error, setError] = React.useState(null);
 	const onSave = () => {
-		console.log(contact);
+		new ApiCaller(new ApiSaveContact(contact));
 	};
 	const onUpdate = (e) => {
 		const {name, value} = e.target;

@@ -8,6 +8,7 @@ import ReportProblemIcon from '@material-ui/icons/ReportProblem';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import CloudIcon from '@material-ui/icons/Cloud';
 import YouTubeIcon from '@material-ui/icons/YouTube';
+import EmailIcon from '@material-ui/icons/Email';
 
 
 let {pathname} = location;
@@ -89,6 +90,25 @@ const YoutubeScript = {
         }
     ]
 }
+const message = {
+    name : "Message",
+    Icon : EmailIcon,
+    link : "/admin/admin/message",
+    title : "Message | Admin | Vimal Menon",
+    checkEntitlement: true,
+    breadcrumbs : [
+        dashboard,
+        {
+            name : "Admin",
+            Icon : SupervisorAccountIcon,
+            link : "/admin",
+        },
+        {
+            name : "Message",
+            Icon : EmailIcon,
+        }
+    ]
+};
 const admin = {
     name : "Admin",
     Icon : SupervisorAccountIcon,
@@ -98,7 +118,8 @@ const admin = {
     checkEntitlement: true,
     navigations : [
         googleDrive,
-        YoutubeScript
+        YoutubeScript,
+        message
     ],
     breadcrumbs : [
         dashboard,
@@ -203,7 +224,8 @@ const urlMapper = {
     "/admin/calendar" : calendar,
     "/admin/expenses" : expenses,
     "/admin/admin/google-drive": googleDrive,
-    "/admin/admin/youtube-script" : YoutubeScript
+    "/admin/admin/youtube-script" : YoutubeScript,
+    "/admin/admin/message" : message
 };
 
 const navigationByName = {
@@ -218,6 +240,7 @@ const navigationByName = {
     googleDrive,
     pageNotFound,
     unauthorised,
-    YoutubeScript
+    YoutubeScript,
+    message
 }
 export {navigations, urlMapper, navigationByName};

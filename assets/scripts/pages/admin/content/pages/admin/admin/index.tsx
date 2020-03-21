@@ -46,8 +46,11 @@ const AdminHome = () => {
 		});
 	}
 	const onShowDialogSelect = (selectedDatabase) => {
-		new ApiCaller(new RestoreDatabase(selectedDatabase));
-		console.log(showDialog);
+		new ApiCaller(new RestoreDatabase(selectedDatabase))
+		.success(() => {
+			setShowDialog(false);
+		});
+		
 	};
 	return (
 		<Slide direction="right" in={slide} mountOnEnter unmountOnExit>

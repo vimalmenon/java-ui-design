@@ -132,12 +132,40 @@ class RestoreDatabase extends Api {
 		this.setApiData(data);
 	}
 }
+class ApiSaveContact extends Api {
+	constructor(data) {
+		super("saveContact", POST, "/api/save_contact");
+		this.setApiData(data);
+	}
+}
+
+class GetAdminContact extends Api {
+	constructor () {
+		super("getAdminContact", GET, "/api/admin/contact")
+	}
+}
+
+class SaveAdminContact extends Api {
+	constructor(data) {
+		super("saveAdminContact", POST, "/api/admin/contact");
+		this.setApiData(data);
+	}
+}
+class DeleteAdminContact extends Api {
+	constructor(data) {
+		super("deleteAdminContact", DELETE, "/api/admin/contact");
+		this.setApiData(data);
+	}
+}
 
 export default {
 	SavePreferences,
 	Admin,
 	Login,
 	ComponentEntitlement,
+	GetAdminContact,
+	SaveAdminContact,
+	DeleteAdminContact,
 	LogOut,
 	SwitchAccount,
 	GetNotes,
@@ -148,6 +176,7 @@ export default {
 	UploadDatabase,
 	ListDatabases,
 	GetComponents,
+	ApiSaveContact,
 	GetGroups,
 	GetUrls,
 	RestoreDatabase,

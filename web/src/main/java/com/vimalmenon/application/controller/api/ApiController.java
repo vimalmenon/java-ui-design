@@ -19,6 +19,7 @@ import com.vimalmenon.application.model.contact.ContactModel;
 import com.vimalmenon.application.model.response.ApiResponseModel;
 import com.vimalmenon.application.model.response.Session;
 import com.vimalmenon.application.service.admin.AdminService;
+import com.vimalmenon.application.service.controller.ContactService;
 import com.vimalmenon.application.service.controller.ControllerService;
 
 @RestController
@@ -33,6 +34,9 @@ public class ApiController {
 	
 	@Autowired
 	private AdminService adminService;
+	
+	@Autowired
+	private ContactService contactService;
 	
 	@GetMapping("")
 	public ApiResponseModel<String> index() 
@@ -53,9 +57,10 @@ public class ApiController {
 	}
 	
 	@PostMapping("/save_contact")
-	public void saveContact (@RequestBody ContactModel contact) 
+	public ApiResponseModel<String> saveContact (@RequestBody ContactModel contact) 
 	{
-		controllerService.saveContact(contact);
+		contactService.saveUserContact(contact);
+		return new ApiResponseModel<String>(session).setData("Success");
 	}
 	
 	@RequestMapping(value = "/user")
