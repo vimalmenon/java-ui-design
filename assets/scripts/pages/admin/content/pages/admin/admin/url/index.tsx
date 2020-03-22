@@ -34,6 +34,11 @@ const Url = () => {
                       <Table>
                         <TableHead>
                           <TableRow>
+                            <TableCell colSpan={2}>Url</TableCell>
+                          </TableRow>
+                        </TableHead>
+                        <TableHead>
+                          <TableRow>
                             <TableCell>Name</TableCell>
                             <TableCell>Method</TableCell>
                           </TableRow>
