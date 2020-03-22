@@ -63,6 +63,11 @@ public class ApiController {
 		return new ApiResponseModel<String>(session).setData("Success");
 	}
 	
+	@GetMapping("/download_resume")
+	public void downloadResume () {
+		
+	}
+	
 	@RequestMapping(value = "/user")
 	public Principal user(Principal principal) {
 		return principal;

@@ -12,6 +12,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
 const {GetUrls} = apiList;
 
@@ -27,15 +28,9 @@ const Url = () => {
         }
 	}, []);
 	return (
-		<Card classes={{}}>
-    		<Card.Header showAction={false}>
-    			<div>
-    				Url
-    			</div>
-    		</Card.Header>
-    		<Card.Body>
-    			<div>
-                    <TableContainer component={Paper}>
+        <Grid container spacing={3}>
+            <Grid item xs={12} sm={6}>
+                <TableContainer component={Paper}>
                       <Table>
                         <TableHead>
                           <TableRow>
@@ -56,10 +51,9 @@ const Url = () => {
                           ))}
                         </TableBody>
                       </Table>
-                    </TableContainer>
-    			</div>
-    		</Card.Body>
-    	</Card>
+                </TableContainer>
+            </Grid>
+        </Grid>
 	);
 };
 

@@ -19,3 +19,6 @@ Need to work on linting
 Need to work on exception messages
 Need to work on handling api error and success
 Need to work on properties
+Need to use Web Worker effectively
+Need to work on loading indicator
+Need to work on download resume
