@@ -168,7 +168,23 @@ class DeleteAdminContact extends Api {
 		this.setApiData(data);
 	}
 }
-
+class GetProperties extends Api {
+	constructor () {
+		super("getProperties", GET, "/api/admin/property");
+	}
+}
+class SaveProperties extends Api {
+	constructor(data) {
+		super("saveProperties", POST, "/api/admin/property");
+		this.setApiData(data);
+	}
+}
+class DeleteProperties extends Api {
+	constructor(data) {
+		super("deleteProperties", DELETE, "/api/admin/property");
+		this.setApiData(data);
+	}
+}
 export default {
 	SavePreferences,
 	Admin,
@@ -193,5 +209,8 @@ export default {
 	RestoreDatabase,
 	GetYoutubeScript,
 	SaveYoutubeScript,
-	DeleteYoutubeScript
+	DeleteYoutubeScript,
+	GetProperties,
+	SaveProperties,
+	DeleteProperties
 };

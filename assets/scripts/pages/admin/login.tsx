@@ -96,21 +96,21 @@ function LoginPage (props) {
                     </Grid>
                     <Grid item xs={12}>
                         <FormControl className={classes.fullWidth}>
-                            <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
+                            <InputLabel htmlFor="standard-adornment-password">Password *</InputLabel>
                             <Input
-                            id="standard-adornment-password"
-                            type={showPassword ? 'text' : 'password'}
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            endAdornment={
-                              <InputAdornment position="end">
-                                <IconButton
-                                  aria-label="toggle password visibility"
-                                  onClick={() => setShowPassword(!showPassword)}>
-                                  {showPassword ? <Visibility /> : <VisibilityOff />}
-                                </IconButton>
-                              </InputAdornment>
-                            } />
+                                id="standard-adornment-password"
+                                type={showPassword ? 'text' : 'password'}
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                endAdornment={
+                                  <InputAdornment position="end">
+                                    <IconButton
+                                      aria-label="toggle password visibility"
+                                      onClick={() => setShowPassword(!showPassword)}>
+                                      {showPassword ? <Visibility /> : <VisibilityOff />}
+                                    </IconButton>
+                                  </InputAdornment>
+                                } />
                         </FormControl>
                     </Grid>
                     <Grid item xs={12}>
