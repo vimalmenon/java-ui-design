@@ -5,7 +5,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import {
 	BrowserRouter as Router
-  } from "react-router-dom";
+} from "react-router-dom";
 
 import Main from "./scripts";
 
