@@ -1,8 +1,5 @@
 import * as React from "react";
 
-
-import {Card} from "dumb-components";
-
 import {apiList} from "const";
 import {ApiCaller} from "utility";
 
@@ -32,7 +29,7 @@ const Properties = () => {
                     <Table>
                       	<TableHead>
 	                      <TableRow>
-	                        <TableCell colSpan={5}>Properties</TableCell>
+	                        <TableCell colSpan={2}>Property</TableCell>
 	                      </TableRow>
 	                    </TableHead>
                         <TableHead>

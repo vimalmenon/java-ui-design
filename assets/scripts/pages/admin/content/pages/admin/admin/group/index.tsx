@@ -20,7 +20,7 @@ const Group = (props: any) => {
                   <Table>
                     <TableHead>
                       <TableRow>
-                        <TableCell colSpan={5}>Groups</TableCell>
+                        <TableCell colSpan={2}>Group</TableCell>
                       </TableRow>
                     </TableHead>
                     <TableHead>
@@ -46,7 +46,7 @@ const Group = (props: any) => {
             </Grid>
             <Grid item xs={12} sm={6}>
               <Paper>
-                
+
               </Paper>
             </Grid>
         </Grid>

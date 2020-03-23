@@ -13,6 +13,7 @@ import Component from "./component";
 import Group from "./group";
 import Properties from "./properties";
 import Database from "./database";
+import Preference from "./preference";
 
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -83,12 +84,21 @@ const AdminHome = () => {
 				        		onChange={onCheckbox} 
 				        		name="properties" />}
 				        label="Properties"/>
+    				  <FormControlLabel
+				        control={
+				        	<Checkbox 
+				        		checked={component === "preference"} 
+				        		onChange={onCheckbox} 
+				        		name="preference" />}
+				        label="Preference"/>
 				    </FormGroup>
+
 				    {(component === "database") ? <Database />: null}
 					{(component === "url") ? <Url />: null}
 					{(component === "component") ? <Component />: null}
-					{(component === "group") ? <Group groups={groups}/>: null}
-					{(component === "properties") ? <Properties/>: null}
+					{(component === "group") ? <Group groups={groups} />: null}
+					{(component === "properties") ? <Properties />: null}
+					{(component === "preference") ? <Preference />: null}
 				</div>
 		    </div>
 		</Slide>

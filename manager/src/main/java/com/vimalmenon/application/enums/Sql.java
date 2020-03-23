@@ -9,6 +9,8 @@ import com.vimalmenon.application.data.component.ComponentEntitlementRepository;
 import com.vimalmenon.application.data.component.ComponentRepository;
 import com.vimalmenon.application.data.contacts.Contact;
 import com.vimalmenon.application.data.contacts.ContactRepository;
+import com.vimalmenon.application.data.device.DevicePreference;
+import com.vimalmenon.application.data.device.DevicePreferenceRepository;
 import com.vimalmenon.application.data.group.Group;
 import com.vimalmenon.application.data.group.GroupRepository;
 import com.vimalmenon.application.data.navigation.Navigation;
@@ -48,7 +50,8 @@ public enum Sql {
 	USER_PROFILES("user_profiles", UserProfileRepository.class, UserProfile.class),
 	YOUTUBE_SCRIPTS("youtube_scripts", YoutubeScriptRepository.class, YoutubeScript.class),
 	CONTACTS("contacts", ContactRepository.class, Contact.class),
-	PROPERTIES("properties", PropertyRepository.class ,Property.class);
+	PROPERTIES("properties", PropertyRepository.class ,Property.class),
+	DEVICE_PREFERENCE("device_preferences", DevicePreferenceRepository.class, DevicePreference.class);
 	
 	
 	private static List<Sql> sequence= Arrays.asList(
@@ -65,7 +68,8 @@ public enum Sql {
 		USER_PROFILES,
 		YOUTUBE_SCRIPTS,
 		CONTACTS,
-		PROPERTIES
+		PROPERTIES,
+		DEVICE_PREFERENCE
 	);
 	
 	private String sqlName;

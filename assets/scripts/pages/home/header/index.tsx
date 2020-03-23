@@ -21,7 +21,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import DirectionsIcon from '@material-ui/icons/Directions';
 
 import {MainNavigation} from "const";
-
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const useStyles = makeStyles((theme) => {
     return createStyles({
@@ -76,16 +76,7 @@ const Header = () => {
 		        	);
 	        	})}
 	        </Typography>
-	        
-	        <Paper component="form" className={classes.search}>
-				<IconButton className={classes.iconButton} aria-label="search">
-					<SearchIcon />
-				</IconButton>
-				<InputBase
-			        className={classes.input}
-			        placeholder="Search" />
-		      
-		    </Paper>
+		    <MoreVertIcon className={classes.search}/>
 		</Toolbar>
 	);
 };
