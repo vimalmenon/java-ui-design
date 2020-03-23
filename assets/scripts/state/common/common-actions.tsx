@@ -5,15 +5,15 @@ import {navigationByName} from "const";
 const {admin} = navigationByName;
 
 const setSelectedNavigation = (selectedNavigation: any) => {
-    return {
-        type : SET_SELECTED_NAVIGATION,
-        selectedNavigation
-    }
+	return {
+		type : SET_SELECTED_NAVIGATION,
+		selectedNavigation
+	}
 }
 const setGroups = (groups) => {
 	return {
 		type : SET_GROUPS,
-        groups
+		groups
 	}
 }
 const setNavigationEntitlement = (navigationList) => {
@@ -26,11 +26,11 @@ const setNavigationEntitlement = (navigationList) => {
 	});
 	return {
 		type : SET_NAVIGATION_ENTITLEMENT,
-        navigationEntitlement
+		navigationEntitlement
 	};
 }
 export default {
-    setSelectedNavigation,
-    setNavigationEntitlement,
-    setGroups
+	setSelectedNavigation,
+	setNavigationEntitlement,
+	setGroups
 }

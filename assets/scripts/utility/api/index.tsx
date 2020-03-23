@@ -1,14 +1,11 @@
-import {apiList, methods} from "const";
+import {methods} from "const";
 import {startSpinner, stopSpinner} from "../spinner";
 
 import * as actions from "actions";
 import {dispatch, notification} from "utility";
 
 
-const {GET, PUT, POST, DELETE} = methods;
-
-const controller = new AbortController()
-const signal = controller.signal
+const {GET} = methods;
 
 const headers = {
 	'Content-Type': 'application/json',
@@ -55,9 +52,9 @@ class ApiCaller {
 					} else {
 						if(data.failureMessage) {
 							notification.notify({
-			                    title: "Error",
-			                    text: value.message
-			                });
+								title: "Error",
+								text: value.message
+							});
 						}
 						reject(value)
 					}

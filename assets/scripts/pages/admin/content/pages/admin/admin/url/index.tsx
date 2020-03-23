@@ -1,7 +1,5 @@
 import * as React from "react";
 
-import {Card} from "dumb-components";
-
 import {apiList} from "const";
 import {ApiCaller} from "utility";
 
@@ -20,45 +18,45 @@ const Url = () => {
 	const [urls, setUrls] = React.useState([]);
 	React.useEffect(() => {
 		let caller = new ApiCaller(new GetUrls())
-		.success((urls: any) => {
-			setUrls(urls)
-		});
-        return () => {
-            caller.abort();
-        }
+			.success((urls: any) => {
+				setUrls(urls)
+			});
+		return () => {
+			caller.abort();
+		}
 	}, []);
 	return (
-        <Grid container spacing={3}>
-            <Grid item xs={12} sm={6}>
-                <TableContainer component={Paper}>
-                      <Table>
-                        <TableHead>
-                          <TableRow>
-                            <TableCell colSpan={2}>Url</TableCell>
-                          </TableRow>
-                        </TableHead>
-                        <TableHead>
-                          <TableRow>
-                            <TableCell>Name</TableCell>
-                            <TableCell>Method</TableCell>
-                          </TableRow>
-                        </TableHead>
-                        <TableBody>
-                          {urls.map((url: any, key) => (
-                            <TableRow key={key}>
-                              <TableCell>
-                                {url.url}
-                              </TableCell>
-                              <TableCell>
-                                {url.method}
-                              </TableCell>
-                            </TableRow>
-                          ))}
-                        </TableBody>
-                      </Table>
-                </TableContainer>
-            </Grid>
-        </Grid>
+		<Grid container spacing={3}>
+			<Grid item xs={12} sm={6}>
+				<TableContainer component={Paper}>
+					<Table>
+						<TableHead>
+							<TableRow>
+								<TableCell colSpan={2}>Url</TableCell>
+							</TableRow>
+						</TableHead>
+						<TableHead>
+							<TableRow>
+								<TableCell>Name</TableCell>
+								<TableCell>Method</TableCell>
+							</TableRow>
+						</TableHead>
+						<TableBody>
+							{urls.map((url: any, key) => (
+								<TableRow key={key}>
+									<TableCell>
+										{url.url}
+									</TableCell>
+									<TableCell>
+										{url.method}
+									</TableCell>
+								</TableRow>
+							))}
+						</TableBody>
+					</Table>
+				</TableContainer>
+			</Grid>
+		</Grid>
 	);
 };
 

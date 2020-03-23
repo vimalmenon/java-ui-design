@@ -28,50 +28,50 @@ const ShowDialog = (props) => {
 	const classes = useStyles();
 	return (
 		<Dialog
-	        open={showDialog}
-	        maxWidth={"xl"}
-	        fullWidth={false}
-	        onClose={() => {setShowDialog(false)}}>
-	        <Dialog.Header>
-	        	Select a database to restore
-        	</Dialog.Header>
-	        <Dialog.Body>
-	        	<TableContainer component={Paper}>
-			      <Table aria-label="simple table">
-			        <TableHead>
-			          <TableRow>
-			            <TableCell>Id</TableCell>
-			            <TableCell>Name</TableCell>
-			            <TableCell>Date</TableCell>
-			          </TableRow>
-			        </TableHead>
-			        <TableBody>
-			          {databaseList.map(data => (
-			            <TableRow key={data.id} onClick={() => setDbSelected(data)} className={(dbSelected && data.id === dbSelected.id) ? classes.dbSelected: ""}>
-			            	<TableCell component="th" scope="row">
-				                {data.id}
-							</TableCell>
-							<TableCell component="th" scope="row">
-								{data.name}
-							</TableCell>
-							<TableCell component="th" scope="row">
-								{data.createdDate}
-							</TableCell>
-			            </TableRow>
-			          ))}
-			        </TableBody>
-			      </Table>
-			    </TableContainer>
-	        </Dialog.Body>
-	        <Dialog.Footer>
-	    		<Button variant="contained" onClick={() => {onShowDialogSelect(dbSelected)}} color="primary" disabled={dbSelected ? false: true}>
-	        		Select
-	      		</Button>
+			open={showDialog}
+			maxWidth={"xl"}
+			fullWidth={false}
+			onClose={() => {setShowDialog(false)}}>
+			<Dialog.Header>
+				Select a database to restore
+			</Dialog.Header>
+			<Dialog.Body>
+				<TableContainer component={Paper}>
+					<Table aria-label="simple table">
+						<TableHead>
+							<TableRow>
+								<TableCell>Id</TableCell>
+								<TableCell>Name</TableCell>
+								<TableCell>Date</TableCell>
+							</TableRow>
+						</TableHead>
+						<TableBody>
+							{databaseList.map(data => (
+								<TableRow key={data.id} onClick={() => setDbSelected(data)} className={(dbSelected && data.id === dbSelected.id) ? classes.dbSelected: ""}>
+									<TableCell component="th" scope="row">
+										{data.id}
+									</TableCell>
+									<TableCell component="th" scope="row">
+										{data.name}
+									</TableCell>
+									<TableCell component="th" scope="row">
+										{data.createdDate}
+									</TableCell>
+								</TableRow>
+							))}
+						</TableBody>
+					</Table>
+				</TableContainer>
+			</Dialog.Body>
+			<Dialog.Footer>
+				<Button variant="contained" onClick={() => {onShowDialogSelect(dbSelected)}} color="primary" disabled={dbSelected ? false: true}>
+					Select
+				</Button>
 				<Button variant="contained" onClick={() => {setShowDialog(false)}} color="primary">
 					Cancel
 				</Button>
-	        </Dialog.Footer>
-  		</Dialog>
+			</Dialog.Footer>
+		</Dialog>
 	);
 };
 

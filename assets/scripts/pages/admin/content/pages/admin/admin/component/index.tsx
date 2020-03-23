@@ -1,6 +1,5 @@
 import * as React from "react";
 
-import {Card} from "dumb-components";
 import {apiList} from "const";
 import {ApiCaller} from "utility";
 
@@ -19,41 +18,41 @@ const Component = () => {
 	const [components, setComponents] = React.useState([]);
 	React.useEffect(() => {
 		let caller = new ApiCaller(new GetComponents())
-		.success((components: any) => {
-			setComponents(components)
-		});
-        return () => {
-            caller.abort();
-        };
+			.success((components: any) => {
+				setComponents(components)
+			});
+		return () => {
+			caller.abort();
+		};
 	}, []);
 	return (
-        <Grid container spacing={3}>
-            <Grid item xs={12} sm={6}>
-                <TableContainer component={Paper}>
-                    <Table>
-                        <TableHead>
-                          <TableRow>
-                            <TableCell colSpan={2}>Component</TableCell>
-                          </TableRow>
-                        </TableHead>
-                        <TableHead>
-                            <TableRow>
-                              <TableCell>Name</TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                          {components.map((compoent: any, key) => (
-                            <TableRow key={key}>
-                              <TableCell>
-                                {compoent.name}
-                              </TableCell>
-                            </TableRow>
-                          ))}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-            </Grid>
-        </Grid>
+		<Grid container spacing={3}>
+			<Grid item xs={12} sm={6}>
+				<TableContainer component={Paper}>
+					<Table>
+						<TableHead>
+							<TableRow>
+								<TableCell colSpan={2}>Component</TableCell>
+							</TableRow>
+						</TableHead>
+						<TableHead>
+							<TableRow>
+								<TableCell>Name</TableCell>
+							</TableRow>
+						</TableHead>
+						<TableBody>
+							{components.map((compoent: any, key) => (
+								<TableRow key={key}>
+									<TableCell>
+										{compoent.name}
+									</TableCell>
+								</TableRow>
+							))}
+						</TableBody>
+					</Table>
+				</TableContainer>
+			</Grid>
+		</Grid>
 	);
 };
 

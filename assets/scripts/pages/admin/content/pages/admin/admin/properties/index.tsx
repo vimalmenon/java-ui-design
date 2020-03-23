@@ -18,42 +18,42 @@ const Properties = () => {
 	const [properties, setProperties] = React.useState([]);
 	React.useEffect(() => {
 		new ApiCaller(new GetProperties())
-		.success((data) => {
-			setProperties(data);
-		});
+			.success((data) => {
+				setProperties(data);
+			});
 	}, []);
 	return (
 		<Grid container spacing={3}>
-            <Grid item xs={12} sm={6}>
-            	<TableContainer component={Paper}>
-                    <Table>
-                      	<TableHead>
-	                      <TableRow>
-	                        <TableCell colSpan={2}>Property</TableCell>
-	                      </TableRow>
-	                    </TableHead>
-                        <TableHead>
-                          <TableRow>
-                            <TableCell>Property</TableCell>
-                            <TableCell>Value</TableCell>
-                          </TableRow>
-                        </TableHead>
-                        <TableBody>
-                          {properties.map((property: any, key) => (
-                            <TableRow key={key}>
-                              <TableCell>
-                                {property.property}
-                              </TableCell>
-                              <TableCell>
-                                {property.value}
-                              </TableCell>
-                            </TableRow>
-                          ))}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-            </Grid>
-        </Grid>
+			<Grid item xs={12} sm={6}>
+				<TableContainer component={Paper}>
+					<Table>
+						<TableHead>
+							<TableRow>
+								<TableCell colSpan={2}>Property</TableCell>
+							</TableRow>
+						</TableHead>
+						<TableHead>
+							<TableRow>
+								<TableCell>Property</TableCell>
+								<TableCell>Value</TableCell>
+							</TableRow>
+						</TableHead>
+						<TableBody>
+							{properties.map((property: any, key) => (
+								<TableRow key={key}>
+									<TableCell>
+										{property.property}
+									</TableCell>
+									<TableCell>
+										{property.value}
+									</TableCell>
+								</TableRow>
+							))}
+						</TableBody>
+					</Table>
+				</TableContainer>
+			</Grid>
+		</Grid>
 	);
 };
 

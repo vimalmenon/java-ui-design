@@ -1,9 +1,8 @@
 import * as React from "react";
 
-
 import {
-  createStyles,
-  makeStyles,
+	createStyles,
+	makeStyles
 } from "@material-ui/core/styles";
 
 import TextField from '@material-ui/core/TextField';
@@ -14,12 +13,12 @@ import {apiList} from "const";
 
 const {ApiSaveContact} = apiList;
 
-const useStyles = makeStyles((theme) => {
-    return createStyles({
-      root: {
-        display: "flex",
-        flexDirection: "column"
-      }
+const useStyles = makeStyles(() => {
+	return createStyles({
+		root: {
+			display: "flex",
+			flexDirection: "column"
+		}
 	});
 });
 
@@ -65,16 +64,16 @@ const Contact = () => {
 				<TextField 
 					required 
 					label="Message"
-				    multiline
-	          		rows="4"
-	          		name="message"
-	          		onChange={onUpdate} />
-      		</div>
-      		<div>
+					multiline
+					rows="4"
+					name="message"
+					onChange={onUpdate} />
+			</div>
+			<div>
 				<Button variant="contained" color="primary" onClick={onSave}>
-		        	Save
-		      	</Button>
-	      	</div>
+					Save
+				</Button>
+			</div>
 		</section>
 	);
 };

@@ -7,23 +7,23 @@ import {dispatch} from "./dispatch";
 import notification from "./notification";
 
 export default {
-    ApiCaller,
-    worker,
-    spinner,
-    rgbToNumbers,
-    localization,
-    notification,
-    dispatch,
-    replaceUrlBackslashAtEnd
+	ApiCaller,
+	worker,
+	spinner,
+	rgbToNumbers,
+	localization,
+	notification,
+	dispatch,
+	replaceUrlBackslashAtEnd
 };
 
 export {
-    ApiCaller,
-    worker,
-    spinner,
-    rgbToNumbers,
-    localization,
-    notification,
-    dispatch,
-    replaceUrlBackslashAtEnd
+	ApiCaller,
+	worker,
+	spinner,
+	rgbToNumbers,
+	localization,
+	notification,
+	dispatch,
+	replaceUrlBackslashAtEnd
 };

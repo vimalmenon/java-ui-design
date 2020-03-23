@@ -1,3 +1,3 @@
 declare var VERSION:string;
 
-//console.log(VERSION);
+console.log(VERSION);

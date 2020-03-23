@@ -14,42 +14,37 @@ import Grid from '@material-ui/core/Grid';
 const Group = (props: any) => {
 	const {groups} = props;
 	return (
-         <Grid container spacing={3}>
-            <Grid item xs={12} sm={6}>
-                <TableContainer component={Paper}>
-                  <Table>
-                    <TableHead>
-                      <TableRow>
-                        <TableCell colSpan={2}>Group</TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableHead>
-                      <TableRow>
-                        <TableCell>Name</TableCell>
-                        <TableCell>Priority</TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {groups.map((group: any, key) => (
-                        <TableRow key={key}>
-                          <TableCell>
-                            {group.name}
-                          </TableCell>
-                          <TableCell>
-                            {group.priority}
-                          </TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </TableContainer>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Paper>
-
-              </Paper>
-            </Grid>
-        </Grid>
+		<Grid container spacing={3}>
+			<Grid item xs={12} sm={6}>
+				<TableContainer component={Paper}>
+					<Table>
+						<TableHead>
+							<TableRow>
+								<TableCell colSpan={2}>Group</TableCell>
+							</TableRow>
+						</TableHead>
+						<TableHead>
+							<TableRow>
+								<TableCell>Name</TableCell>
+								<TableCell>Priority</TableCell>
+							</TableRow>
+						</TableHead>
+						<TableBody>
+							{groups.map((group: any, key) => (
+								<TableRow key={key}>
+									<TableCell>
+										{group.name}
+									</TableCell>
+									<TableCell>
+										{group.priority}
+									</TableCell>
+								</TableRow>
+							))}
+						</TableBody>
+					</Table>
+				</TableContainer>
+			</Grid>
+		</Grid>
 		
 	);
 };

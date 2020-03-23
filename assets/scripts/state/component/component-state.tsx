@@ -1,6 +1,6 @@
 export default {
-    component : {
-    },
-    entitlement : {
-    }
+	component : {
+	},
+	entitlement : {
+	}
 }

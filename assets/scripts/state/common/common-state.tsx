@@ -1,7 +1,7 @@
 const  common = {
-    selectedNavigation : {},
-    navigationEntitlement: {},
-    groups: []
+	selectedNavigation : {},
+	navigationEntitlement: {},
+	groups: []
 };
 
 export default common;

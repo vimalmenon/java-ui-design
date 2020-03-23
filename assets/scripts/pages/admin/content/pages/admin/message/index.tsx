@@ -18,7 +18,7 @@ import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 
-const {GetAdminContact, SaveAdminContact, DeleteAdminContact} = apiList;
+const {GetAdminContact, DeleteAdminContact} = apiList;
 
 const Message = () => {
 	const [contacts, setContacts] = React.useState([]);
@@ -32,52 +32,53 @@ const Message = () => {
 	};
 	const onDelete = (contact) => {
 		new ApiCaller(new DeleteAdminContact([contact]))
-		.success((data) => {
-			setContacts(data);
-		});
+			.success((data) => {
+				setContacts(data);
+			});
 	};
 	React.useEffect(() => {
 		new ApiCaller(new GetAdminContact())
-		.success((data) => {
-			setContacts(data);
-		});
+			.success((data) => {
+				setContacts(data);
+			});
 	}, []);
 	return (
 		<div>
 			<TableContainer component={Paper}>
-		      <Table>
-		        <TableHead>
-		          <TableRow>
-		            <TableCell>Name</TableCell>
-		            <TableCell>Email Address</TableCell>
-		            <TableCell>Subject</TableCell>
-		            <TableCell>Date</TableCell>
-		            <TableCell>Action</TableCell>
-		          </TableRow>
-		        </TableHead>
-		        <TableBody>
-		          {contacts.map((contact:any, key) => (
-		          	<React.Fragment key={key}>
-			            <TableRow>
-			              <TableCell>{contact.name}</TableCell>
-			              <TableCell>{contact.emailAddress}</TableCell>
-			              <TableCell>{contact.subject}</TableCell>
-			              <TableCell>{contact.timeDate}</TableCell>
-			              <TableCell>
-			              	<span onClick={() => {}}>{(contact.read) ? <VisibilityIcon />: <VisibilityOffIcon />}</span>
-			              	<span onClick={() => onDelete(contact)}><DeleteIcon /></span> 
-			              	<span onClick={() => onExpand(key)}>{(selected ===key) ? <KeyboardArrowDownIcon />: <KeyboardArrowRightIcon />}</span>
-			              </TableCell>
-			            </TableRow>
-			            {(selected === key) ? 
-			            <TableRow>
-			            	<TableCell colSpan={5}>{contact.message}</TableCell>
-			            </TableRow> : null}
-		            </React.Fragment>
-		          ))}
-		        </TableBody>
-		      </Table>
-		    </TableContainer>
+				<Table>
+					<TableHead>
+						<TableRow>
+							<TableCell>Name</TableCell>
+							<TableCell>Email Address</TableCell>
+							<TableCell>Subject</TableCell>
+							<TableCell>Date</TableCell>
+							<TableCell>Action</TableCell>
+						</TableRow>
+					</TableHead>
+					<TableBody>
+						{contacts.map((contact:any, key) => (
+							<React.Fragment key={key}>
+								<TableRow>
+									<TableCell>{contact.name}</TableCell>
+									<TableCell>{contact.emailAddress}</TableCell>
+									<TableCell>{contact.subject}</TableCell>
+									<TableCell>{contact.timeDate}</TableCell>
+									<TableCell>
+										<span onClick={() => {}}>{(contact.read) ? <VisibilityIcon />: <VisibilityOffIcon />}</span>
+										<span onClick={() => onDelete(contact)}><DeleteIcon /></span> 
+										<span onClick={() => onExpand(key)}>{(selected ===key) ? <KeyboardArrowDownIcon />: <KeyboardArrowRightIcon />}</span>
+									</TableCell>
+								</TableRow>
+								{(selected === key) ? 
+									<TableRow>
+										<TableCell colSpan={5}>{contact.message}</TableCell>
+									</TableRow> : null
+								}
+							</React.Fragment>
+						))}
+					</TableBody>
+				</Table>
+			</TableContainer>
 		</div>
 	);
 };

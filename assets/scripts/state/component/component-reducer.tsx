@@ -1,3 +1,4 @@
 export default function (oldState:any, action : any) {
-    return oldState;
+	console.log(action);
+	return oldState;
 }

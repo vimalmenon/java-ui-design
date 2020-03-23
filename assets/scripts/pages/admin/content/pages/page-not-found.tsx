@@ -15,24 +15,24 @@ const PageNotFoundPage = (props) => {
 		document.title = pageNotFound.title;
 		commonActions.setSelectedNavigation(pageNotFound);
 	});
-    return (
-        <div>
-            Page not found
-        </div>
-    )
+	return (
+		<div>
+			Page not found
+		</div>
+	)
 }
 
-const mapStateToProps = (state : any) => {
-    return {
-    }
+const mapStateToProps = () => {
+	return {
+	}
 }
 function mapDispatchToProps(dispatch: any) {
-  return {
-    commonActions : bindActionCreators({...actions.common}, dispatch)    
-  };
-};
+	return {
+		commonActions : bindActionCreators({...actions.common}, dispatch)    
+	};
+}
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+	mapStateToProps,
+	mapDispatchToProps
 )(PageNotFoundPage);

@@ -6,8 +6,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 
 import {
-  createStyles,
-  makeStyles,
+	createStyles,
+	makeStyles,
 } from "@material-ui/core/styles";
 
 
@@ -15,13 +15,12 @@ import Header from "./header";
 import Body from "./body";
 import Footer from "./footer";
 
-
 const useStyles = makeStyles(() => {
-    return createStyles({
-      root: {
-        display: "flex",
-        flexDirection: "column"
-      }
+	return createStyles({
+		root: {
+			display: "flex",
+			flexDirection: "column"
+		}
 	});
 });
 

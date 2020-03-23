@@ -1,14 +1,14 @@
 import * as React from "react";
 
 import {
-  createStyles,
-  makeStyles,
+	createStyles,
+	makeStyles,
 } from "@material-ui/core/styles";
 
 import {
-    Switch,
-    Route, 
-    withRouter
+	Switch,
+	Route, 
+	withRouter
 } from "react-router-dom";
 import {replaceUrlBackslashAtEnd} from "utility";
 import {MainUrlMapper} from "const";
@@ -19,11 +19,11 @@ import Contact from "./contact";
 import Tutorials from "./tutorials";
 import Home from "./home";
 
-const useStyles = makeStyles((theme) => {
-    return createStyles({
-      root: {
-        display: "flex",
-      }
+const useStyles = makeStyles(() => {
+	return createStyles({
+		root: {
+			display: "flex",
+		}
 	});
 });
 
@@ -39,10 +39,12 @@ const Body =(props) => {
 	});
 	return (
 		<section className={classes.root}>
-			<Route exact path={`/`} component={Home} />
-			<Route path={`/about`} component={About} />
-			<Route path={`/contact`} component={Contact} />
-			<Route path={`/tutorials`} component={Tutorials} />
+			<Switch>
+				<Route exact path={`/`} component={Home} />
+				<Route path={`/about`} component={About} />
+				<Route path={`/contact`} component={Contact} />
+				<Route path={`/tutorials`} component={Tutorials} />
+			</Switch>
 		</section>
 	)
 };

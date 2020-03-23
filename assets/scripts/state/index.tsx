@@ -4,10 +4,10 @@ import component from "./component/component-state";
 import user from "./user/user-state";
 
 const state = {
-    common,
-    component,
-    preferences,
-    user
+	common,
+	component,
+	preferences,
+	user
 };
 
 
