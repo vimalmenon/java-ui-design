@@ -18,18 +18,18 @@ const MobileMenu = (props: any) => {
 	const Item = Menu["Item"];
 	return (
 		<div className={className}>
-            <IconButton
-              ref={(reference: any) => {setElement(reference)}}
-              onClick={(event: any) => {setOpen(!open)}}
-              color="inherit">
-              <MoreIcon />
-            </IconButton>
-            <Menu
-            	open={open}
-            	onClose={() => setOpen(!open)}
-            	element={element}>
-            	<Menu.Item onClick={() => preferencesActions.toggleMode(mode)}>
-            	   {mode=== "dark" ? 
+			<IconButton
+				ref={(reference: any) => {setElement(reference)}}
+				onClick={(event: any) => {setOpen(!open)}}
+				color="inherit">
+				<MoreIcon />
+			</IconButton>
+			<Menu
+				open={open}
+				onClose={() => setOpen(!open)}
+				element={element}>
+				<Menu.Item onClick={() => preferencesActions.toggleMode(mode)}>
+					{mode=== "dark" ? 
 						<IconButton aria-label="show 17 new notifications" color="inherit">
 							<Brightness7Icon />
 						</IconButton>
@@ -39,26 +39,26 @@ const MobileMenu = (props: any) => {
 						</IconButton>
 					}
 					<p>Mode</p>
-            	</Menu.Item>
-            	{groups.length > 1 ?
-            	  <Menu.Item onClick={() => setModel(true)}> 
-		              <IconButton
-		                aria-label="Switch group"
-		                color="inherit">
-		                <SwapHorizIcon />
-	              	   </IconButton>
-	              	   <p>Switch Group</p>
-	              </Menu.Item>
-	              : 
-	              <span />
-            	}
-            	<Menu.Item onClick={onLogOut}>
-            		<IconButton>
-		                <ExitToAppIcon />
-		            </IconButton>
-		            <p>Log Out</p>
-            	</Menu.Item>
-            </Menu>
+				</Menu.Item>
+				{groups.length > 1 ?
+					<Menu.Item onClick={() => setModel(true)}> 
+						<IconButton
+							aria-label="Switch group"
+							color="inherit">
+							<SwapHorizIcon />
+						</IconButton>
+						<p>Switch Group</p>
+					</Menu.Item>
+					: 
+					<span />
+				}
+				<Menu.Item onClick={onLogOut}>
+					<IconButton>
+						<ExitToAppIcon />
+					</IconButton>
+					<p>Log Out</p>
+				</Menu.Item>
+			</Menu>
 		</div>
 		
 	);

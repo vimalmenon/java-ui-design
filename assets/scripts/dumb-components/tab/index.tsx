@@ -7,10 +7,10 @@ import Tab from '@material-ui/core/Tab';
 import Panel from "./panel";
 
 function a11yProps(index: any, ariaLabel: string) {
-    return {
-      id: `${ariaLabel}-tab-${index}`,
-      'aria-controls': `${ariaLabel}-tabpanel-${index}`,
-    };
+	return {
+		id: `${ariaLabel}-tab-${index}`,
+		'aria-controls': `${ariaLabel}-tabpanel-${index}`,
+	};
 }
 const TabComponent = (props: any) => {
 	const {children, ariaLabel, items} = props;
@@ -21,12 +21,12 @@ const TabComponent = (props: any) => {
 	return (
 		<React.Fragment>
 			<AppBar position="static">
-                <Tabs value={selectedTab} onChange={(event, value) => setSelectedTab(value)} aria-label={ariaLabel} centered>
-                    {items.map((item: any, key: number) => {
-                        return (<Tab label={item.label} {...a11yProps(key, item.ariaLabel)} key={key}/>);
-                    })}
-                </Tabs>
-            </AppBar>
+				<Tabs value={selectedTab} onChange={(event, value) => setSelectedTab(value)} aria-label={ariaLabel} centered>
+					{items.map((item: any, key: number) => {
+						return (<Tab label={item.label} {...a11yProps(key, item.ariaLabel)} key={key}/>);
+					})}
+				</Tabs>
+			</AppBar>
 			{tab}
 		</React.Fragment>
 	);

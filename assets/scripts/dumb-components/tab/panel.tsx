@@ -9,13 +9,13 @@ const Panel = (props: any) => {
 	});
 	return (
 		<Typography
-	        component="div"
-	        role="tabpanel"
-	        hidden={index !== selectedTab}
-	        id={`${ariaLabel}-tabpanel-${index}`}
-	        aria-labelledby={`${ariaLabel}-tab-${index}`}
-	        {...rest}>
-				{panel}
+			component="div"
+			role="tabpanel"
+			hidden={index !== selectedTab}
+			id={`${ariaLabel}-tabpanel-${index}`}
+			aria-labelledby={`${ariaLabel}-tab-${index}`}
+			{...rest}>
+			{panel}
 		</Typography>
 	);
 	

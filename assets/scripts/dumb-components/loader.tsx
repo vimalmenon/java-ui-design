@@ -2,14 +2,14 @@ import * as React from "react";
 
 
 interface ILoader {
-    loading: boolean
+	loading: boolean
 }
 const Loader = (props: ILoader) => {
-    const {loading} = props;
-    return (
-        <div>
-        </div>
-    )
+	const {loading} = props;
+	return (
+		<div>
+		</div>
+	)
 };
 
 

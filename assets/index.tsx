@@ -4,16 +4,15 @@ import "@babel/polyfill";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import {
-    BrowserRouter as Router
+	BrowserRouter as Router
   } from "react-router-dom";
 
 import Main from "./scripts";
 
 
 ReactDOM.render(
-    <Router>
-        <Main />
-    </Router>,
-    document.getElementById("main"),
+	<Router>
+		<Main />
+	</Router>,
+	document.getElementById("main"),
 );
-

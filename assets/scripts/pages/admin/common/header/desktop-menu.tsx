@@ -12,32 +12,32 @@ const DesktopMenu = (props: any) => {
 	const {className, mode, preferencesActions, onLogOut, setModel, groups} = props;
 	return (
 		<div className={className}>
-            {mode=== "dark" ? 
-              <IconButton aria-label="show 17 new notifications" color="inherit" onClick={() => preferencesActions.toggleMode(mode)}>
-                  <Brightness7Icon />
-              </IconButton>
-              :
-              <IconButton aria-label="show 4 new mails" color="inherit" onClick={() => preferencesActions.toggleMode(mode)}>
-              <Brightness4Icon />
-          </IconButton>
-            }
-            {groups.length > 1 ? 
-              <IconButton
-                aria-label="account of current user"
-                color="inherit"
-                onClick={() => setModel(true)}>
-                <SwapHorizIcon />
-              </IconButton>
-              : 
-              null
-            }
-            <IconButton
-              aria-label="account of current user"
-              color="inherit"
-              onClick={onLogOut}>
-                <ExitToAppIcon />
-            </IconButton>
-        </div>
+			{mode=== "dark" ? 
+				<IconButton aria-label="show 17 new notifications" color="inherit" onClick={() => preferencesActions.toggleMode(mode)}>
+					<Brightness7Icon />
+				</IconButton>
+				:
+				<IconButton aria-label="show 4 new mails" color="inherit" onClick={() => preferencesActions.toggleMode(mode)}>
+					<Brightness4Icon />
+				</IconButton>
+			}
+			{groups.length > 1 ? 
+				<IconButton
+					aria-label="account of current user"
+					color="inherit"
+					onClick={() => setModel(true)}>
+					<SwapHorizIcon />
+				</IconButton>
+				: 
+				null
+			}
+			<IconButton
+				aria-label="account of current user"
+				color="inherit"
+				onClick={onLogOut}>
+				<ExitToAppIcon />
+			</IconButton>
+		</div>
 	);
 };
 

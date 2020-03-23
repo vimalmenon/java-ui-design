@@ -12,31 +12,31 @@ import Loader from "./loader";
 import TextField from "./text-field";
 
 export default {
-    CustomColorPicker,
-    Unauthorised,
-    ColorPicker,
-    Entitlement,
-    TextField,
-    Loader,
-    Layout,
-    Dialog,
-    Tabs,
-    Card,
-    Menu,
-    Tab
+	CustomColorPicker,
+	Unauthorised,
+	ColorPicker,
+	Entitlement,
+	TextField,
+	Loader,
+	Layout,
+	Dialog,
+	Tabs,
+	Card,
+	Menu,
+	Tab
 };
 
 export {
-    CustomColorPicker,
-    Unauthorised,
-    ColorPicker,
-    Entitlement,
-    TextField,
-    Layout,
-    Loader,
-    Dialog,
-    Tabs,
-    Card,
-    Menu,
-    Tab
+	CustomColorPicker,
+	Unauthorised,
+	ColorPicker,
+	Entitlement,
+	TextField,
+	Layout,
+	Loader,
+	Dialog,
+	Tabs,
+	Card,
+	Menu,
+	Tab
 };

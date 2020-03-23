@@ -6,28 +6,26 @@ import {colors} from "const";
 const {lightBlue} = colors;
 
 import {
-  createStyles,
-  Theme,
-  withStyles,
-  makeStyles,
-  createMuiTheme,
+	createStyles,
+	Theme,
+	withStyles,
 } from '@material-ui/core/styles';
 
 
 const Input = withStyles((theme: Theme) => {
 	return createStyles({
-	  	root: {
-		    '& label.Mui-focused': {
-		      color: lightBlue[500],
-		    },
-		    '& .MuiInput-underline:after': {
-		      borderBottomColor: lightBlue[500],
-		    },
-		    '& input:focus' : {
-		    	color: lightBlue[500],
-		    }
-  		}
-  	});
+		root: {
+			'& label.Mui-focused': {
+				color: lightBlue[500],
+			},
+			'& .MuiInput-underline:after': {
+				borderBottomColor: lightBlue[500],
+			},
+			'& input:focus' : {
+				color: lightBlue[500],
+			}
+		}
+	});
 })(TextField);
 
 

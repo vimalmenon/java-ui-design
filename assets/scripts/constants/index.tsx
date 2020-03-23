@@ -15,34 +15,34 @@ const version = VERSION;
 const deviceId = new DeviceUUID().get();
 
 const constants = {
-  urlList,
-  methods,
-  drawerWidth,
-  version,
-  colors,
-  apiList,
-  navigations,
-  urlMapper,
-  navigationByName,
-  MainNavigation,
-  MainUrlMapper,
-  deviceId
+	urlList,
+	methods,
+	drawerWidth,
+	version,
+	colors,
+	apiList,
+	navigations,
+	urlMapper,
+	navigationByName,
+	MainNavigation,
+	MainUrlMapper,
+	deviceId
 };
 
 
 export {
-  urlList,
-  methods,
-  drawerWidth, 
-  colors, 
-  version, 
-  apiList,
-  navigations,
-  urlMapper,
-  navigationByName,
-  MainNavigation,
-  MainUrlMapper,
-  deviceId
+	urlList,
+	methods,
+	drawerWidth, 
+	colors, 
+	version, 
+	apiList,
+	navigations,
+	urlMapper,
+	navigationByName,
+	MainNavigation,
+	MainUrlMapper,
+	deviceId
 };
 
 export default constants;

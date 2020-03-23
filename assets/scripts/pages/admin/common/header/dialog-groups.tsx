@@ -10,15 +10,15 @@ const DialogGroups = (props: any) => {
 	const {onClose, open, groups, onSwitchAccount, session} = props;
 	return (
 		<Dialog onClose={onClose} open={open}>
-        <Dialog.Header>Switch Account</Dialog.Header>
-        <List>
-          {groups.map((group, key) => (
-            <ListItem button onClick={() => {onClose(); onSwitchAccount(group)}} key={key} selected={session.group === group.name}>
-              <ListItemText primary={group.name} />
-            </ListItem>
-          ))}
-        </List>
-      </Dialog>
+			<Dialog.Header>Switch Account</Dialog.Header>
+			<List>
+				{groups.map((group, key) => (
+					<ListItem button onClick={() => {onClose(); onSwitchAccount(group)}} key={key} selected={session.group === group.name}>
+						<ListItemText primary={group.name} />
+					</ListItem>
+				))}
+			</List>
+		</Dialog>
 	);
 };
 

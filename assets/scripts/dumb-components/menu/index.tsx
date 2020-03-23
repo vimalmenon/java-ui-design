@@ -16,16 +16,16 @@ const MenuComponent = (props:any) => {
 	};
 	return (
 		<Menu
-	      anchorEl={element}
-	      anchorOrigin={transformOrigin}
-	      keepMounted
-	      transformOrigin={transformOrigin}
-	      open={open}
-	      {...rest}>
-	      <div>
-	      	{menu}
-	      </div>
-	    </Menu>
+			anchorEl={element}
+			anchorOrigin={transformOrigin}
+			keepMounted
+			transformOrigin={transformOrigin}
+			open={open}
+			{...rest}>
+			<div>
+				{menu}
+			</div>
+		</Menu>
 	);
 };
 

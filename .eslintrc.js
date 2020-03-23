@@ -19,7 +19,8 @@ module.exports =  {
         "Promise" : "readonly",
         "fetch" : "readonly",
         "AbortController" : "readonly",
-        "document" : "readonly"
+        "document" : "readonly",
+        "location" : "readonly"
     },
     rules:  {
       "indent": [2, "tab"],

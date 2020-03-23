@@ -11,10 +11,10 @@ const Header = (props: any) => {
 	const {children, showAction, ...rest} = props;
 	const actions = showAction ? (<IconButton aria-label="actions"><MoreVertIcon /></IconButton>) : null;
 	return (
-      <CardHeader
-        action={actions}
-        title={children}
-        {...rest}/>
+		<CardHeader
+			action={actions}
+			title={children}
+			{...rest}/>
 	)
 };
 

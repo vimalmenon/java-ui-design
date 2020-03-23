@@ -13,7 +13,7 @@ const CardComponent = (props: any) => {
 	});
 	return (
 		<Card {...rest}>
-	      {cards}
+			{cards}
 		</Card>
 	)
 };
