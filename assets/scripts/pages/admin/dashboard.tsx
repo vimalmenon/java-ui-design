@@ -82,12 +82,12 @@ const mapStateToProps = (state : any) => {
 		session: state.user.session
 	};
 };
-function mapDispatchToProps(dispatch: any) {
+const mapDispatchToProps = (dispatch: any) => {
 	return {
 		commonActions : bindActionCreators({...actions.common}, dispatch),
 		preferencesActions : bindActionCreators({...actions.preferences}, dispatch)
 	};
-}
+};
 
 export default connect(
 	mapStateToProps,

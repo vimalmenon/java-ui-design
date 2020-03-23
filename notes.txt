@@ -15,10 +15,10 @@ Need to work on docker
 Need to work on loading page
 Need to work on hosting to the linux box
 Need to work on favicon
-Need to work on linting
 Need to work on exception messages
 Need to work on handling api error and success
 Need to work on properties
 Need to use Web Worker effectively
 Need to work on loading indicator
 Need to work on download resume
+Need to remove db folder after download and upload

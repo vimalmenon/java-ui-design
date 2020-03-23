@@ -60,15 +60,11 @@ function LoginPage (props) {
 		document.title = signIn.title;
 		props.commonActions.setSelectedNavigation(signIn);
 	});
-	const [username, setUsername] = React.useState("");
-	const [password, setPassword] = React.useState("");
+	const [credential, setCredential] = React.useState<any>({});
 	const [showPassword, setShowPassword] = React.useState(false);
-	const onLogin = (username, password, event) => {
-		if (username && password) {
-			new ApiCaller(new Login({
-				username,
-				password
-			}));
+	const onLogin = (event) => {
+		if (credential.username && credential.password) {
+			new ApiCaller(new Login(credential));
 		} else {
 			event.preventDefault();
 		}
@@ -89,8 +85,8 @@ function LoginPage (props) {
 							required 
 							id="username" 
 							label="Username" 
-							value={username}
-							onChange={(e) => setUsername(e.target.value)}
+							value={credential.username || ""}
+							onChange={(e) => setCredential({...credential,"username": e.target.value})}
 							placeholder="Username"/>
 					</Grid>
 					<Grid item xs={12}>
@@ -99,8 +95,8 @@ function LoginPage (props) {
 							<Input
 								id="standard-adornment-password"
 								type={showPassword ? "text" : "password"}
-								value={password}
-								onChange={(e) => setPassword(e.target.value)}
+								value={credential.password || ""}
+								onChange={(e) => setCredential({...credential,"password": e.target.value})}
 								endAdornment={
 									<InputAdornment position="end">
 										<IconButton
@@ -118,7 +114,7 @@ function LoginPage (props) {
 							className={classes.fullWidth}
 							variant="contained" 
 							color="primary"
-							onClick={(event) => onLogin(username, password, event)}>
+							onClick={(event) => onLogin(event)}>
 							Login
 						</Button>
 					</Grid>
@@ -133,13 +129,13 @@ const mapStateToProps = (state : any) => {
 	return {
 	};
 };
-  
-function mapDispatchToProps(dispatch: any) {
+
+const mapDispatchToProps = (dispatch: any) => {
 	return {
 		commonActions : bindActionCreators({...actions.common}, dispatch)
 	};
-}
-  
+};
+
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps

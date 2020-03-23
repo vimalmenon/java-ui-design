@@ -18,7 +18,7 @@ class ApiCaller {
 	private promise;
 	private isSpinning;
 
-	constructor (data: IApi, isNotFormatted?: boolean) {
+	constructor (data: IApi) {
 		this.controller = new AbortController();
 		this.signal = this.controller.signal;
 		this.promise = new Promise((resolve, reject) => {
@@ -40,24 +40,19 @@ class ApiCaller {
 				}
 			});
 			promise.then((value) => {
-				if (isNotFormatted) {
-					resolve(value);
-					return;
+				if (value.session) {
+					dispatch(actions.user.setSession(value.session));
+				}
+				if (value.code === 0) {
+					resolve(value.data);
 				} else {
-					if (value.session) {
-						dispatch(actions.user.setSession(value.session));
+					if(data.failureMessage) {
+						notification.notify({
+							title: "Error",
+							text: value.message
+						});
 					}
-					if (value.code === 0) {
-						resolve(value.data);
-					} else {
-						if(data.failureMessage) {
-							notification.notify({
-								title: "Error",
-								text: value.message
-							});
-						}
-						reject(value);
-					}
+					reject(value);
 				}
 			});
 		});	

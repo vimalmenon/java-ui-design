@@ -117,7 +117,7 @@ const admin = {
 	open : pathname.startsWith("/admin"),
 	checkEntitlement: true,
 	navigations : [
-		googleDrive,
+		//googleDrive,
 		YoutubeScript,
 		message
 	],
