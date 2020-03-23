@@ -1,14 +1,14 @@
-import HomeIcon from '@material-ui/icons/Home';
-import SettingsIcon from '@material-ui/icons/Settings';
-import NoteIcon from '@material-ui/icons/Note';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
-import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
-import ReportProblemIcon from '@material-ui/icons/ReportProblem';
-import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
-import CloudIcon from '@material-ui/icons/Cloud';
-import YouTubeIcon from '@material-ui/icons/YouTube';
-import EmailIcon from '@material-ui/icons/Email';
+import HomeIcon from "@material-ui/icons/Home";
+import SettingsIcon from "@material-ui/icons/Settings";
+import NoteIcon from "@material-ui/icons/Note";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
+import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
+import ReportProblemIcon from "@material-ui/icons/ReportProblem";
+import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
+import CloudIcon from "@material-ui/icons/Cloud";
+import YouTubeIcon from "@material-ui/icons/YouTube";
+import EmailIcon from "@material-ui/icons/Email";
 
 
 let {pathname} = location;
@@ -70,7 +70,7 @@ const googleDrive = {
 			Icon : CloudIcon,
 		}
 	]
-}
+};
 const YoutubeScript = {
 	name : "Youtube Script",
 	Icon : YouTubeIcon,
@@ -89,7 +89,7 @@ const YoutubeScript = {
 			Icon : YouTubeIcon,
 		}
 	]
-}
+};
 const message = {
 	name : "Message",
 	Icon : EmailIcon,
@@ -205,7 +205,7 @@ const unauthorised = {
 			Icon : ReportProblemIcon,
 		}
 	]
-}
+};
 const navigations = [
 	dashboard,
 	profile,
@@ -242,5 +242,5 @@ const navigationByName = {
 	unauthorised,
 	YoutubeScript,
 	message
-}
+};
 export {navigations, urlMapper, navigationByName};

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 import { connect } from "react-redux";
 
@@ -26,13 +26,6 @@ import Message from "./message";
 const Admin = (props) => {
 	const {match} = props;
 	const {url} = match;
-	const [slide, setSlide] = React.useState(true);
-	React.useEffect(() => {
-		setSlide(true);
-		return () => {
-			setSlide(false);
-		}
-	}, []);
 	React.useEffect(() => {
 		let {navigationEntitlement, history, commonActions} = props;
 		let {pathname} = history.location;
@@ -47,7 +40,7 @@ const Admin = (props) => {
 		<Entitlement 
 			name="Admin"
 			showUnauthorizied={true} 
-			render={({write}) => {
+			render={() => {
 				return (
 					<Switch>
 						<Route path={`${url}/message`} component={Message} />
@@ -55,21 +48,21 @@ const Admin = (props) => {
 						<Route path={`${url}/youtube-script`} component={YoutubeScript} />
 						<Route path={`${url}`} component={AdminHome} />
 					</Switch>
-				)}}/>
-	)
-}
-
+				);
+			}}/>
+	);
+};
 
 const mapStateToProps = (state : any) => {
 	return {
 		navigationEntitlement: state.common.navigationEntitlement
-	}
-}
-function mapDispatchToProps(dispatch: any) {
+	};
+};
+const mapDispatchToProps = (dispatch: any) => {
 	return {
 		commonActions : bindActionCreators({...actions.common}, dispatch)
 	};
-}
+};
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps

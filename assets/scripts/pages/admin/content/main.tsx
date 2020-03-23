@@ -1,9 +1,9 @@
-import * as React from 'react';
+import * as React from "react";
 import {
 	Theme,
 	makeStyles,
 	createStyles
-} from '@material-ui/core/styles';
+} from "@material-ui/core/styles";
 
 
 import { connect } from "react-redux";
@@ -14,23 +14,26 @@ import {
 	Route, 
 } from "react-router-dom";
 
+
 import Breadcrumbs from "../common/dashboard-breadcrumbs";
+
 
 import Home from "./pages/home";
 import Notes from "./pages/notes";
+import Admin from "./pages/admin";
 import Profile from "./pages/profile";
-import Preference from "./pages/preference";
-import Admin from "./pages/admin"
-import Calendar from "./pages/calendar";
 import Expenses from "./pages/expenses";
+import Calendar from "./pages/calendar";
+import Preference from "./pages/preference";
 import PageNotFound from "./pages/page-not-found";
+
 
 const useStyles = makeStyles((theme: Theme) => {
 	return createStyles({
 		toolbar: {
-			display: 'flex',
-			alignItems: 'center',
-			justifyContent: 'flex-end',
+			display: "flex",
+			alignItems: "center",
+			justifyContent: "flex-end",
 			padding: theme.spacing(0, 1),
 			...theme.mixins.toolbar,
 		},
@@ -48,10 +51,10 @@ const useStyles = makeStyles((theme: Theme) => {
 		content : {
 			flex: "1 1 auto"
 		}
-	}) 
+	});
 });
 
-function MainComponent (props: any) {    
+const MainComponent = (props: any) => {    
 	const classes = useStyles();
 	const {match} = props;
 	const {url} = match;
@@ -75,18 +78,17 @@ function MainComponent (props: any) {
 			</div>
 		</main>
 	);
-}
+};
 
 const mapStateToProps = (state : any) => {
 	return {
 	};
-}
-  
-function mapDispatchToProps(dispatch: any) {
+};
+const mapDispatchToProps = (dispatch: any) => {
 	return {
 		actions : bindActionCreators({}, dispatch)
 	};
-}
+};
   
 export default connect(
 	mapStateToProps,

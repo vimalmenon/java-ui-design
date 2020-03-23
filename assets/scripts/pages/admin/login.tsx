@@ -5,27 +5,27 @@ import { bindActionCreators } from "redux";
 
 import { withRouter } from "react-router-dom";
 
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
-import Input from '@material-ui/core/Input';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import IconButton from '@material-ui/core/IconButton';
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import Input from "@material-ui/core/Input";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import IconButton from "@material-ui/core/IconButton";
 
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
 
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
 
 
-import Typography from '@material-ui/core/Typography';
+import Typography from "@material-ui/core/Typography";
 
 import {
 	createStyles,
 	makeStyles,
-} from '@material-ui/core/styles';
+} from "@material-ui/core/styles";
 
 import {ApiCaller} from "utility";
 import {navigationByName, apiList} from "const";
@@ -98,7 +98,7 @@ function LoginPage (props) {
 							<InputLabel htmlFor="standard-adornment-password">Password *</InputLabel>
 							<Input
 								id="standard-adornment-password"
-								type={showPassword ? 'text' : 'password'}
+								type={showPassword ? "text" : "password"}
 								value={password}
 								onChange={(e) => setPassword(e.target.value)}
 								endAdornment={
@@ -125,7 +125,7 @@ function LoginPage (props) {
 				</Grid>
 			</form>
 		</div>
-	)
+	);
 }
 
 

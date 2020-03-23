@@ -4,13 +4,13 @@ import store from "store";
 
 export const startSpinner = () => {
 	store.dispatch({
-		type: 'START_SPINNER',
+		type: "START_SPINNER",
 		[pendingTask]: begin
 	});
 };
 export const stopSpinner = () => {
 	store.dispatch({
-		type: 'STOP_SPINNER',
+		type: "STOP_SPINNER",
 		[pendingTask]: end
 	});
 };

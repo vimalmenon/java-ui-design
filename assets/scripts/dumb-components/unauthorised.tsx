@@ -7,17 +7,16 @@ import * as Actions from "actions";
 const {unauthorised} = navigationByName;
 
 
-
 const Unauthorised = (props: any) => {
 	React.useEffect(() => {
 		document.title = unauthorised.title;
-		dispatch(Actions.common.setSelectedNavigation(unauthorised))
+		dispatch(Actions.common.setSelectedNavigation(unauthorised));
 	});
 	return (
 		<div>
 			this is unauthorized
 		</div>
-	)
+	);
 };
 
 export default Unauthorised;

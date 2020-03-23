@@ -7,7 +7,6 @@ import Card from "./card";
 import Dialog from "./dialog";
 import Tab from "./tab";
 import Menu from "./menu";
-import Layout from "./layout";
 import Loader from "./loader";
 import TextField from "./text-field";
 
@@ -18,7 +17,6 @@ export default {
 	Entitlement,
 	TextField,
 	Loader,
-	Layout,
 	Dialog,
 	Tabs,
 	Card,
@@ -32,7 +30,6 @@ export {
 	ColorPicker,
 	Entitlement,
 	TextField,
-	Layout,
 	Loader,
 	Dialog,
 	Tabs,

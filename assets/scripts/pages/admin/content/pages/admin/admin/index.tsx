@@ -1,20 +1,19 @@
-import * as React from 'react';
-
-import Slide from '@material-ui/core/Slide';
+import * as React from "react";
 
 import {apiList} from "const";
 import {ApiCaller} from "utility";
 
 import Url from "./url";
-import Component from "./component";
 import Group from "./group";
-import Properties from "./properties";
 import Database from "./database";
+import Component from "./component";
+import Properties from "./properties";
 import Preference from "./preference";
 
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+import Slide from "@material-ui/core/Slide";
+import FormGroup from "@material-ui/core/FormGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
 
 
 const {GetGroups} = apiList;
@@ -33,7 +32,7 @@ const AdminHome = () => {
 		return () => {
 			caller.abort();
 			setSlide(false);
-		}
+		};
 	}, []);
 	const onCheckbox = (e) => {
 		const {name, checked} = e.target;

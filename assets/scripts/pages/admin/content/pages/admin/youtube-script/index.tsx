@@ -1,7 +1,7 @@
 import * as React from "react";
 import AceEditor from "react-ace";
 
-import Button from '@material-ui/core/Button';
+import Button from "@material-ui/core/Button";
 
 import "ace-builds/src-noconflict/mode-text";
 import "ace-builds/src-noconflict/theme-monokai";
@@ -9,7 +9,7 @@ import "ace-builds/src-noconflict/theme-monokai";
 import {ApiCaller} from "utility";
 import {apiList} from "const";
 
-import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
+import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 
 import {TextField, Card} from "dumb-components";
 
@@ -112,7 +112,7 @@ const YoutubeScript = () => {
 							theme="monokai"
 							style={{width: "100%"}}
 							fontSize={14}
-							onChange={(note) => {setValue({...value, note})}}
+							onChange={(note) => setValue({...value, note})}
 							showPrintMargin={true}
 							showGutter={true}
 							highlightActiveLine={true}
@@ -138,7 +138,7 @@ const YoutubeScript = () => {
 				:
 				<div>
 					<div>
-						<Button variant="contained" color="primary" onClick={() => {setValue({heading: "", note: ""})}}>Create</Button>
+						<Button variant="contained" color="primary" onClick={() => setValue({heading: "", note: ""})}>Create</Button>
 					</div>
 					<div className={classes.items}>
 						{scripts.map((script: IScripts, key) => {
@@ -148,11 +148,11 @@ const YoutubeScript = () => {
 										{script.heading}
 									</div>
 									<div className={classes.action}>
-										<Button variant="contained" color="primary" onClick={() => {setValue(script)}}>Edit</Button>
-										<Button variant="contained" color="primary" onClick={() => {onDelete(script)}}>Delete</Button>
+										<Button variant="contained" color="primary" onClick={() => setValue(script)}>Edit</Button>
+										<Button variant="contained" color="primary" onClick={() => onDelete(script)}>Delete</Button>
 									</div>
 								</div>
-							)
+							);
 						})}
 					</div>
 				</div>

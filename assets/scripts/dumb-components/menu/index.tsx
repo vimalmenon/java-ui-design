@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import Menu from '@material-ui/core/Menu';
+import Menu from "@material-ui/core/Menu";
 
 import Item from "./item";
 
@@ -11,8 +11,8 @@ const MenuComponent = (props:any) => {
 		return React.cloneElement(child);
 	});
 	const transformOrigin = {
-		vertical: 'top', 
-		horizontal: 'right'
+		vertical: "top", 
+		horizontal: "right"
 	};
 	return (
 		<Menu

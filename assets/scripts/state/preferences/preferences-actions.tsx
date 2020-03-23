@@ -1,4 +1,4 @@
-import {ApiCaller} from 'utility';
+import {ApiCaller} from "utility";
 import {apiList} from "const";
 
 const {SavePreferences} = apiList;
@@ -13,38 +13,38 @@ const toggleMode = (mode: any) => {
 		});
 		const state = getState();
 		new ApiCaller(new SavePreferences(state.preferences));
-	}
+	};
 };
 const toggleDrawer = (drawer: boolean) => {
 	return {
 		type : TOGGLE_DRAWER,
 		drawer : !drawer 
-	}
-}
+	};
+};
 
 const setPaletteColor = (props: any) => {
 	return {
 		type : SET_PALETTE_COLOR,
 		...props 
-	}
-}
+	};
+};
 const setPalette = (props: any) => {
 	return {
 		type : SET_PALETTE,
 		palette : props
-	}
-}
+	};
+};
 
 const setPreferences = (preferences) => {
 	return {
 		type: SET_PREFERENCES,
 		preferences
-	}
-}
+	};
+};
 export default {
 	setPaletteColor,
 	toggleDrawer,
 	toggleMode,
 	setPreferences,
 	setPalette
-}
+};

@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import CardActions from '@material-ui/core/CardActions';
+import CardActions from "@material-ui/core/CardActions";
 
 const Footer = (props: any) => {
 	const {children, ...rest} = props;
@@ -11,7 +11,7 @@ const Footer = (props: any) => {
 		<CardActions {...rest}>
 			{footer}
 		</CardActions>
-	)
+	);
 };
 
 

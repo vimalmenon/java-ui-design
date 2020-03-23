@@ -14,7 +14,7 @@ function reducer (oldState, action) {
 		component : componentReducer(oldState.component, action),
 		pendingTasks : pendingTasks(oldState.pendingTasks, action),
 		user: userReducer(oldState.user, action)
-	}
+	};
 }
 
 export default reducer;

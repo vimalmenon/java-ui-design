@@ -3,13 +3,13 @@ import {
 	Theme,
 	makeStyles,
 	createStyles,
-} from '@material-ui/core/styles';
-import Slider from '@material-ui/core/Slider';
-import { hexToRgb } from '@material-ui/core/styles';
+} from "@material-ui/core/styles";
+import Slider from "@material-ui/core/Slider";
+import { hexToRgb } from "@material-ui/core/styles";
 import {rgbToNumbers} from "../utility";
 import Button from "@material-ui/core/Button";
-import CheckIcon from '@material-ui/icons/Check';
-import ClearIcon from '@material-ui/icons/Clear';
+import CheckIcon from "@material-ui/icons/Check";
+import ClearIcon from "@material-ui/icons/Clear";
 
 const useStyles = makeStyles((theme: Theme) => {
 	return createStyles({
@@ -23,9 +23,7 @@ const useStyles = makeStyles((theme: Theme) => {
 			textAlign: "center",
 		}
 	});
-})
-
-
+});
 
 export default function CustomColorPicker (props: any) {
 	const classes = useStyles();
@@ -37,7 +35,7 @@ export default function CustomColorPicker (props: any) {
 	const [blue, setBlue] = React.useState(parseInt(b));
 	let onChange = (setState:any, value: number | number[]) => {
 		setState(value);
-	}
+	};
 	return (
 		<div>
 			<div className={classes.root}>
@@ -47,7 +45,7 @@ export default function CustomColorPicker (props: any) {
 					orientation="vertical"
 					value={red}
 					color={theme}
-					onChange={(event, value) => {onChange(setRed, value)}}
+					onChange={(event, value) => onChange(setRed, value)}
 					aria-labelledby="vertical-slider"/>
 				<Slider
 					min={0}
@@ -55,7 +53,7 @@ export default function CustomColorPicker (props: any) {
 					orientation="vertical"
 					value={green}
 					color={theme}
-					onChange={(event, value) => {onChange(setGreen, value)}}
+					onChange={(event, value) => onChange(setGreen, value)}
 					aria-labelledby="vertical-slider"/>
 				<Slider
 					min={0}
@@ -63,7 +61,7 @@ export default function CustomColorPicker (props: any) {
 					orientation="vertical"
 					value={blue}
 					color={theme}
-					onChange={(event, value) => {onChange(setBlue, value)}}
+					onChange={(event, value) => onChange(setBlue, value)}
 					aria-labelledby="vertical-slider"/>
 			</div>
 			<div style={{"background": `rgb(${red} ${green} ${blue})`, color: text}} className={classes.colorPicker} onClick={() => setText(((text === "black") ? "white": "black"))}>
@@ -76,5 +74,5 @@ export default function CustomColorPicker (props: any) {
 				<ClearIcon />
 			</Button>
 		</div>
-	)
+	);
 }

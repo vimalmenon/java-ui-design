@@ -5,8 +5,8 @@ import {
 	makeStyles,
 } from "@material-ui/core/styles";
 
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
+import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
 
 import {version} from "const";
 
@@ -24,12 +24,12 @@ const Footer = () => {
 	return (
 		<footer className={classes.footer}>
 			<Typography variant="body2" color="textSecondary" align="center">
-				{'Copyright © '}
+				{"Copyright © "}
 				<Link color="inherit" href="https://vimalmenon.com/">
 					VimalMenon.com
-				</Link>{' '}
+				</Link>{" "}
 				{new Date().getFullYear()}
-				{'.'}
+				{"."}
 				version : {version}
 			</Typography>
 		</footer>

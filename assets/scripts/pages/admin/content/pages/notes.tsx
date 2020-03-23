@@ -1,15 +1,15 @@
-import * as React from 'react';
+import * as React from "react";
 
-import Slide from '@material-ui/core/Slide';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
-import Button from '@material-ui/core/Button';
-import { createStyles, makeStyles } from '@material-ui/core/styles';
-import Icon from '@material-ui/core/Icon';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
+import Slide from "@material-ui/core/Slide";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardHeader from "@material-ui/core/CardHeader";
+import Button from "@material-ui/core/Button";
+import { createStyles, makeStyles } from "@material-ui/core/styles";
+import Icon from "@material-ui/core/Icon";
+import Grid from "@material-ui/core/Grid";
+import TextField from "@material-ui/core/TextField";
 
 
 import {ApiCaller} from "utility";
@@ -39,7 +39,7 @@ const Note = (props) => {
 					multiline
 					rows="5"
 					className={classes.fullWidth}
-					onChange={(e) => {setNote(e.target.value)}}
+					onChange={(e) => setNote(e.target.value)}
 					defaultValue={note}/>
 			</CardContent>
 			<CardActions className={classes.buttonGroup}>
@@ -48,7 +48,7 @@ const Note = (props) => {
 			</CardActions>
 		</Card>
 	);
-}
+};
 const useStyles = makeStyles(() =>
 	createStyles({
 		note : {
@@ -68,7 +68,7 @@ const useStyles = makeStyles(() =>
 		buttonGroup : {
 			justifyContent: "space-between"
 		}
-	}),
+	})
 );
 
 export default function Notes () {
@@ -78,7 +78,7 @@ export default function Notes () {
 		setSlide(true);
 		return () => {
 			setSlide(false);
-		}
+		};
 	});
 	React.useEffect(() => {
 		new ApiCaller(new GetNotes())
@@ -94,8 +94,8 @@ export default function Notes () {
 	};
 	const onDeleteNotes = (data) => {
 		new ApiCaller(new DeleteNotes([data]))
-			.success((data: any)=> {
-				setNotes(data)
+			.success((data: any) => {
+				setNotes(data);
 			});
 	};
 	const onAddNote = () => {
@@ -128,5 +128,5 @@ export default function Notes () {
 				</Grid>
 			</Grid>
 		</Slide>
-	)
+	);
 }

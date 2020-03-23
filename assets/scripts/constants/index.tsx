@@ -6,7 +6,6 @@ import apiList from "./api-list";
 import colors from "./color";
 import {navigations, urlMapper, navigationByName} from "./navigations";
 import {MainNavigation, MainUrlMapper} from "./navigations/main";
-import urlList from "./url-list";
 import methods from "./methods";
 
 
@@ -15,7 +14,6 @@ const version = VERSION;
 const deviceId = new DeviceUUID().get();
 
 const constants = {
-	urlList,
 	methods,
 	drawerWidth,
 	version,
@@ -31,7 +29,6 @@ const constants = {
 
 
 export {
-	urlList,
 	methods,
 	drawerWidth, 
 	colors, 

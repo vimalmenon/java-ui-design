@@ -3,23 +3,23 @@ import * as React from "react";
 
 import {Dialog} from "dumb-components";
 
-import Button from '@material-ui/core/Button';
-import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
+import Paper from "@material-ui/core/Paper";
+import Table from "@material-ui/core/Table";
+import Button from "@material-ui/core/Button";
+import TableRow from "@material-ui/core/TableRow";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableHead from "@material-ui/core/TableHead";
+import TableContainer from "@material-ui/core/TableContainer";
 
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme: Theme) =>{
 	return createStyles({
 		dbSelected : {
 			background: theme.palette.background.default
 		}
-	})
+	});
 });
 
 const ShowDialog = (props) => {
@@ -31,7 +31,7 @@ const ShowDialog = (props) => {
 			open={showDialog}
 			maxWidth={"xl"}
 			fullWidth={false}
-			onClose={() => {setShowDialog(false)}}>
+			onClose={() => setShowDialog(false)}>
 			<Dialog.Header>
 				Select a database to restore
 			</Dialog.Header>
@@ -64,10 +64,10 @@ const ShowDialog = (props) => {
 				</TableContainer>
 			</Dialog.Body>
 			<Dialog.Footer>
-				<Button variant="contained" onClick={() => {onShowDialogSelect(dbSelected)}} color="primary" disabled={dbSelected ? false: true}>
+				<Button variant="contained" onClick={() => onShowDialogSelect(dbSelected)} color="primary" disabled={dbSelected ? false: true}>
 					Select
 				</Button>
-				<Button variant="contained" onClick={() => {setShowDialog(false)}} color="primary">
+				<Button variant="contained" onClick={() => setShowDialog(false)} color="primary">
 					Cancel
 				</Button>
 			</Dialog.Footer>

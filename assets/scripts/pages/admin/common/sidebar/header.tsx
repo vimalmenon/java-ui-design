@@ -1,9 +1,9 @@
 import * as React from "react";
 
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 
 const Header = (props) => {
 	const {theme, actions, drawer, classes} = props;
@@ -13,7 +13,7 @@ const Header = (props) => {
 				VimalMenon
 			</Typography>
 			<IconButton onClick={() => actions.toggleDrawer(drawer)}>
-				{theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+				{theme.direction === "rtl" ? <ChevronRightIcon /> : <ChevronLeftIcon />}
 			</IconButton>
 		</div>
 	);

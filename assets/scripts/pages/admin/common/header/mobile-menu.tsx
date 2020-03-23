@@ -2,25 +2,26 @@ import * as React from "react";
 
 import {Menu} from "dumb-components";
 
-import IconButton from '@material-ui/core/IconButton';
-import MoreIcon from '@material-ui/icons/MoreVert';
+import SwapHorizIcon from "@material-ui/icons/SwapHoriz";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
-import Brightness7Icon from '@material-ui/icons/Brightness7';
-import Brightness4Icon from '@material-ui/icons/Brightness4';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import SwapHorizIcon from '@material-ui/icons/SwapHoriz';
+import IconButton from "@material-ui/core/IconButton";
+import MoreIcon from "@material-ui/icons/MoreVert";
+
+
+import Brightness7Icon from "@material-ui/icons/Brightness7";
+import Brightness4Icon from "@material-ui/icons/Brightness4";
 
 
 const MobileMenu = (props: any) => {
 	const {className, mode, onLogOut, groups, setModel, preferencesActions} = props;
 	const [element, setElement] = React.useState<any>(null);
 	const [open, setOpen] = React.useState(false);
-	const Item = Menu["Item"];
 	return (
 		<div className={className}>
 			<IconButton
-				ref={(reference: any) => {setElement(reference)}}
-				onClick={(event: any) => {setOpen(!open)}}
+				ref={(reference: any) => setElement(reference)}
+				onClick={(event: any) => setOpen(!open)}
 				color="inherit">
 				<MoreIcon />
 			</IconButton>

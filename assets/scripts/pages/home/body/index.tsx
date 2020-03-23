@@ -46,7 +46,7 @@ const Body =(props) => {
 				<Route path={`/tutorials`} component={Tutorials} />
 			</Switch>
 		</section>
-	)
+	);
 };
 
 export default withRouter(Body);

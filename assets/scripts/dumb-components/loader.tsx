@@ -1,15 +1,15 @@
 import * as React from "react";
 
-
 interface ILoader {
 	loading: boolean
 }
+
 const Loader = (props: ILoader) => {
-	const {loading} = props;
+	//const {loading} = props;
 	return (
 		<div>
 		</div>
-	)
+	);
 };
 
 

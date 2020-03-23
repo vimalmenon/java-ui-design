@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import Slide from '@material-ui/core/Slide';
+import Slide from "@material-ui/core/Slide";
 
 
 const GoogleDrive = () => {
@@ -10,7 +10,7 @@ const GoogleDrive = () => {
 		setSlide(true);
 		return () => {
 			setSlide(false);
-		}
+		};
 	}, []);
 	return (
 		<Slide direction="right" in={slide} mountOnEnter unmountOnExit>
@@ -20,11 +20,11 @@ const GoogleDrive = () => {
 						<div key={key}>
 							{child.name}
 						</div>
-					)
+					);
 				})}
 			</div>
 		</Slide>
-	)
+	);
 };
 
 export default GoogleDrive;

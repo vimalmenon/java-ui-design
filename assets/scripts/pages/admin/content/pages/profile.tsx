@@ -1,12 +1,12 @@
-import * as React from 'react';
+import * as React from "react";
 import {ApiCaller} from "utility";
 
 
-import Slide from '@material-ui/core/Slide';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import Paper from '@material-ui/core/Paper';
+import Slide from "@material-ui/core/Slide";
+import Grid from "@material-ui/core/Grid";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import Paper from "@material-ui/core/Paper";
 
 import {
 	Theme,
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) => {
 			flex: 1,
 			background: theme.palette.background.default
 		}
-	}) 
+	});
 });
 
 
@@ -48,14 +48,14 @@ export default function Profile () {
 			});
 		return () => {
 			setSlide(false);
-		}
+		};
 	},[]);
 	const onSave = () => {
 		new ApiCaller(new SaveProfile(profile))
 			.success((data: any) => {
 				setProfile(data);
 			});
-	}
+	};
 	return (
 		<Slide direction="right" in={slide} mountOnEnter unmountOnExit>
 			<Grid container spacing={2}>
@@ -95,5 +95,5 @@ export default function Profile () {
 				</Grid>
 			</Grid>
 		</Slide>
-	)
+	);
 }

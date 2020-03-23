@@ -3,14 +3,14 @@ import {
 	Theme,
 	makeStyles,
 	createStyles
-} from '@material-ui/core/styles';
+} from "@material-ui/core/styles";
 
 import {version} from "const";
 
-const useStyles = makeStyles((theme: Theme) => {
+const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
 		footer: {
-			display: (value: boolean) => { return value ? "flex": "none"},
+			display: (value: boolean) => value ? "flex": "none",
 			flex: "0 0 3.5rem",
 			background: theme.palette.background.default,
 			padding: theme.spacing(2),
@@ -21,10 +21,10 @@ const useStyles = makeStyles((theme: Theme) => {
 			fontSize: "0.9em",
 			marginTop: "2px"
 		}
-	})
+	});
 });
 
-export default function Footer (props: any) {
+const Footer = (props: any) => {
 	const {drawer} = props;
 	const classes = useStyles(drawer);
 	return (
@@ -33,4 +33,7 @@ export default function Footer (props: any) {
 			<small className={classes.section}><strong>Version :</strong> {version}</small>
 		</footer>
 	);
-}
+};
+
+
+export default Footer;

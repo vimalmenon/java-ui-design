@@ -27,7 +27,7 @@ const PrivacyPolicy = {
 	name :"Privacy Policy",
 	link : "/privacy-policy",
 	title : "Privacy Policy | Vimal Menon",	
-}
+};
 export const MainNavigation = [
 	About,
 	Tutorials,

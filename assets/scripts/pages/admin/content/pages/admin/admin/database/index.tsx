@@ -2,11 +2,12 @@ import * as React from "react";
 
 import {Card} from "dumb-components";
 
-import Button from '@material-ui/core/Button';
-
 import {apiList} from "const";
 import {ApiCaller} from "utility";
 import ShowDialog from "./show-dialog";
+
+
+import Button from "@material-ui/core/Button";
 
 const {UploadDatabase, ListDatabases, RestoreDatabase} = apiList;
 
@@ -15,21 +16,20 @@ const Database = () => {
 	const [showDialog, setShowDialog] = React.useState(false);
 	const [databaseList, setDatabaseList] = React.useState([]);
 	const onUploadDatabase = () => {
-		new ApiCaller(new UploadDatabase())
-	}
+		new ApiCaller(new UploadDatabase());
+	};
 	const onRestoreDatabase = () => {
 		new ApiCaller(new ListDatabases())
 			.success((data: any) => {
 				setShowDialog(true);
 				setDatabaseList(data);
 			});
-	}
+	};
 	const onShowDialogSelect = (selectedDatabase) => {
 		new ApiCaller(new RestoreDatabase(selectedDatabase))
 			.success(() => {
 				setShowDialog(false);
 			});
-		
 	};
 	return (
 		<div>

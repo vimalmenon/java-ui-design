@@ -1,11 +1,11 @@
 import * as React from "react";
 
-import IconButton from '@material-ui/core/IconButton';
+import IconButton from "@material-ui/core/IconButton";
 
-import Brightness7Icon from '@material-ui/icons/Brightness7';
-import Brightness4Icon from '@material-ui/icons/Brightness4';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import SwapHorizIcon from '@material-ui/icons/SwapHoriz';
+import Brightness7Icon from "@material-ui/icons/Brightness7";
+import Brightness4Icon from "@material-ui/icons/Brightness4";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import SwapHorizIcon from "@material-ui/icons/SwapHoriz";
 
 const DesktopMenu = (props: any) => {
 	const {className, mode, preferencesActions, onLogOut, setModel, groups} = props;

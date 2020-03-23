@@ -5,11 +5,11 @@ import * as React from "react";
 
 const Preference = () => {
 	React.useEffect(() => {
-	}, [])
+	}, []);
 	return (
 		<div>
 		</div>
-	)
+	);
 };
 
-export default Preference
+export default Preference;

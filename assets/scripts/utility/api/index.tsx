@@ -8,7 +8,7 @@ import {dispatch, notification} from "utility";
 const {GET} = methods;
 
 const headers = {
-	'Content-Type': 'application/json',
+	"Content-Type": "application/json",
 };
 
 class ApiCaller {
@@ -26,9 +26,9 @@ class ApiCaller {
 			startSpinner();
 			let promise;
 			if (data.method === GET) {
-				promise = fetch(data.url, {method: data.method, signal: this.signal, headers })
+				promise = fetch(data.url, {method: data.method, signal: this.signal, headers });
 			} else {
-				promise = fetch(data.url, {method: data.method, signal: this.signal, body: data.data, headers })
+				promise = fetch(data.url, {method: data.method, signal: this.signal, body: data.data, headers });
 			}
 			promise = promise.then((data) => {
 				stopSpinner();
@@ -56,7 +56,7 @@ class ApiCaller {
 								text: value.message
 							});
 						}
-						reject(value)
+						reject(value);
 					}
 				}
 			});

@@ -1,9 +1,5 @@
-import * as React from 'react';
-import { Provider } from 'react-redux';
-import {
-	Switch,
-	Route
-} from "react-router-dom";
+import * as React from "react";
+import { Provider } from "react-redux";
 import {Spinner} from "react-redux-spinner";
 import { ToastProvider } from "react-toast-notifications";
 
@@ -17,13 +13,11 @@ class Main extends React.Component {
 				<ToastProvider
 					autoDismiss
 					autoDismissTimeout={3000}>
-					<Switch>
-						<Pages />
-					</Switch>
+					<Pages />
 					<Spinner config={{}}/>
 				</ToastProvider>
 			</Provider>
-		)
+		);
 	}
 }
 export default Main;

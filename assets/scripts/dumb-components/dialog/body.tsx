@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import DialogContent from '@material-ui/core/DialogContent';
+import DialogContent from "@material-ui/core/DialogContent";
 
 const Body = (props: any) => {
 	const {children, ...rest} = props;
@@ -11,7 +11,7 @@ const Body = (props: any) => {
 		<DialogContent {...rest}>
 			{body}
 		</DialogContent>
-	)
+	);
 };
 
 export default Body;

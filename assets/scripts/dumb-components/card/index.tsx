@@ -15,7 +15,7 @@ const CardComponent = (props: any) => {
 		<Card {...rest}>
 			{cards}
 		</Card>
-	)
+	);
 };
 
 CardComponent.Header = Header;

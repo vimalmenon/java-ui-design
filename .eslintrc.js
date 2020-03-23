@@ -24,11 +24,13 @@ module.exports =  {
     },
     rules:  {
       "indent": [2, "tab"],
-      "no-unused-vars": [1, { "vars": "all", "args": "after-used"}],
+      "no-unused-vars": [1, { "vars": "local", "args": "none", "ignoreRestSiblings": true, "varsIgnorePattern": "Theme" }],
       "react/prop-types": [0, { ignore: ["location"]}],
-      "react/display-name": [0]
-      // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
-      // e.g. '@typescript-eslint/explicit-function-return-type': 'off',
+      "react/display-name": [0],
+      "jsx-quotes": [1, "prefer-double"],
+      "quotes": [1, "double", {"allowTemplateLiterals": true}],
+      "semi": [1, "always"],
+      "prefer-arrow-callback": [1, { "allowUnboundThis": false } ]
     },
     settings:  {
       react:  {

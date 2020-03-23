@@ -7,7 +7,7 @@ import {
 	Theme,
 	makeStyles,
 	createStyles
-} from '@material-ui/core/styles';
+} from "@material-ui/core/styles";
 
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -15,7 +15,7 @@ import { withRouter } from "react-router-dom";
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		link: {
-			display: 'flex',
+			display: "flex",
 		},
 		icon: {
 			marginRight: theme.spacing(0.5),
@@ -42,17 +42,17 @@ const DashboardBreadcrumbs = (props) => {
 						<Icon className={classes.icon}/>
 						{breadcrumb.name}
 					</Link>
-				)
+				);
 			})}
 		</Breadcrumbs>
 	);
-}
+};
 
 const mapStateToProps = (state : any) => {
 	return {      
 		common : state.common
-	}
-}
+	};
+};
 
 export default connect(
 	mapStateToProps

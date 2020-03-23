@@ -1,10 +1,10 @@
 import * as React from "react";
 
 
-import CardHeader from '@material-ui/core/CardHeader';
+import CardHeader from "@material-ui/core/CardHeader";
 
-import IconButton from '@material-ui/core/IconButton';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import IconButton from "@material-ui/core/IconButton";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 
 const Header = (props: any) => {
@@ -15,7 +15,7 @@ const Header = (props: any) => {
 			action={actions}
 			title={children}
 			{...rest}/>
-	)
+	);
 };
 
 

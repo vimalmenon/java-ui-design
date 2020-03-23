@@ -6,8 +6,8 @@ const setSession = (session) => {
 			type : SET_SESSION,
 			session
 		});
-	}
+	};
 };
 export default {
 	setSession
-}
+};

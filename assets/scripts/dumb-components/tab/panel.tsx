@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import Typography from '@material-ui/core/Typography';
+import Typography from "@material-ui/core/Typography";
 
 const Panel = (props: any) => {
 	const {children, index, selectedTab, ariaLabel, ...rest} = props;

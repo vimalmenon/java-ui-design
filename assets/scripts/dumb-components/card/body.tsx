@@ -1,7 +1,7 @@
 import * as React from "react";
 
 
-import CardContent from '@material-ui/core/CardContent';
+import CardContent from "@material-ui/core/CardContent";
 
 const Body = (props: any) => {
 	const {children, ...rest} = props;
@@ -12,7 +12,7 @@ const Body = (props: any) => {
 		<CardContent {...rest}>
 			{body}
 		</CardContent>
-	)
+	);
 };
 
 

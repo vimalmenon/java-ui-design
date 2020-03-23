@@ -19,13 +19,13 @@ const PageNotFoundPage = (props) => {
 		<div>
 			Page not found
 		</div>
-	)
-}
+	);
+};
 
 const mapStateToProps = () => {
 	return {
-	}
-}
+	};
+};
 function mapDispatchToProps(dispatch: any) {
 	return {
 		commonActions : bindActionCreators({...actions.common}, dispatch)    

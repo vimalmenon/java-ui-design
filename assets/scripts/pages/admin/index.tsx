@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import Dashboard from "./dashboard";
-import Login from "./login"
+import Login from "./login";
 
 import {Entitlement} from "dumb-components";
 
@@ -16,18 +16,18 @@ class Pages extends React.Component {
 			<React.Fragment>
 				<Entitlement 
 					name="Dashboard" 
-					render={({write, read}) => {
+					render={({read}) => {
 						return (
 							<Dashboard read={read}/>
-						)}} />
+						);}} />
 				<Entitlement
 					name="Login"
-					render={({write}) => {
+					render={() => {
 						return (
 							<Login />
-						)}} />
+						);}} />
 			</React.Fragment>
-		)
+		);
 	}
 }
 

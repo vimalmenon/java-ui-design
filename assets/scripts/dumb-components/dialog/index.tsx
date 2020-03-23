@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import Dialog from '@material-ui/core/Dialog';
+import Dialog from "@material-ui/core/Dialog";
 
 import Header from "./header";
 import Body from "./body";

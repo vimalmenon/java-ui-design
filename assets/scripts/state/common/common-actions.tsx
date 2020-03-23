@@ -8,14 +8,14 @@ const setSelectedNavigation = (selectedNavigation: any) => {
 	return {
 		type : SET_SELECTED_NAVIGATION,
 		selectedNavigation
-	}
-}
+	};
+};
 const setGroups = (groups) => {
 	return {
 		type : SET_GROUPS,
 		groups
-	}
-}
+	};
+};
 const setNavigationEntitlement = (navigationList) => {
 	const navigationEntitlement = {};
 	navigationList.map((navigation: any) => {
@@ -28,9 +28,9 @@ const setNavigationEntitlement = (navigationList) => {
 		type : SET_NAVIGATION_ENTITLEMENT,
 		navigationEntitlement
 	};
-}
+};
 export default {
 	setSelectedNavigation,
 	setNavigationEntitlement,
 	setGroups
-}
+};

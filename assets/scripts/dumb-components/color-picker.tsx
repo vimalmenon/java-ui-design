@@ -3,8 +3,8 @@ import {
 	Theme,
 	makeStyles,
 	createStyles
-} from '@material-ui/core/styles';
-import clsx from 'clsx';
+} from "@material-ui/core/styles";
+import clsx from "clsx";
 import {
 	red, 
 	pink, 
@@ -25,10 +25,10 @@ import {
 	brown, 
 	grey, 
 	blueGrey
-} from '@material-ui/core/colors';
-import SettingsIcon from '@material-ui/icons/Settings';
+} from "@material-ui/core/colors";
+import SettingsIcon from "@material-ui/icons/Settings";
 import Button from "@material-ui/core/Button";
-import Tooltip from '@material-ui/core/Tooltip';
+import Tooltip from "@material-ui/core/Tooltip";
 
 import CustomColorPicker from "./custom-color-picker";
 
@@ -69,7 +69,7 @@ const useStyles = makeStyles((theme: Theme) => {
 			flexDirection: "column"
 		},
 		color: {
-			display: 'inline-block',
+			display: "inline-block",
 			height: "3.1em",
 			width : "3.1rem",
 			margin: "0.2em",
@@ -87,14 +87,14 @@ const useStyles = makeStyles((theme: Theme) => {
 		icon : {
 			color:"black",
 		}
-	}) 
+	});
 });
 export default function ColorPicker (props: any) {
 	const classes = useStyles();
 	const {color, onColorChange, code, theme} = props;
 	const checkCode = (value: any) => {
 		return value[code];
-	}
+	};
 	const [customize, setCustomize] = React.useState(false);
 	const [selectedColor, setSelectedColor] = React.useState(color);
 	return (
@@ -141,8 +141,8 @@ export default function ColorPicker (props: any) {
 					theme={theme}
 					hexColor={selectedColor["main"]}
 					onCancel={() => setCustomize(false)}
-					onApply={(background:string, color:string) =>{setSelectedColor({"main": background}); setCustomize(false)}} />
+					onApply={(background:string, color:string) =>{setSelectedColor({"main": background}); setCustomize(false);}} />
 			}
 		</div>
-	)
+	);
 }

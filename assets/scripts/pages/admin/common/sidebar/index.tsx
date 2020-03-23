@@ -1,15 +1,15 @@
 import * as React from "react";
-import clsx from 'clsx';
-import Drawer from '@material-ui/core/Drawer';
-import Hidden from '@material-ui/core/Hidden';
-import { Scrollbars } from 'react-custom-scrollbars';
+import clsx from "clsx";
+import Drawer from "@material-ui/core/Drawer";
+import Hidden from "@material-ui/core/Hidden";
+import { Scrollbars } from "react-custom-scrollbars";
 
 import {
 	Theme,
 	useTheme,
 	makeStyles,
 	createStyles
-} from '@material-ui/core/styles';
+} from "@material-ui/core/styles";
 
 
 import { connect } from "react-redux";
@@ -29,33 +29,33 @@ const useStyles = makeStyles((theme: Theme) => {
 		drawer: {
 			width: drawerWidth,
 			flexShrink: 0,
-			whiteSpace: 'nowrap',
+			whiteSpace: "nowrap",
 			backgroundColor: theme.palette.primary.main,
 			flexDirection : "column",
 			display: "flex"
 		},
 		drawerOpen: {
 			width: drawerWidth,      
-			transition: theme.transitions.create('width', {
+			transition: theme.transitions.create("width", {
 				easing: theme.transitions.easing.sharp,
 				duration: theme.transitions.duration.enteringScreen,
 			}),
 		},
 		drawerClose: {
-			transition: theme.transitions.create('width', {
+			transition: theme.transitions.create("width", {
 				easing: theme.transitions.easing.sharp,
 				duration: theme.transitions.duration.leavingScreen,
 			}),
-			overflowX: 'hidden',
+			overflowX: "hidden",
 			width: theme.spacing(7) + 1,
-			[theme.breakpoints.up('sm')]: {
+			[theme.breakpoints.up("sm")]: {
 				width: theme.spacing(8) + 1,
 			},
 		},
 		toolbar: {
-			display: 'flex',
-			alignItems: 'center',
-			justifyContent: 'flex-end',
+			display: "flex",
+			alignItems: "center",
+			justifyContent: "flex-end",
 			padding: theme.spacing(0, 1),
 			backgroundColor: theme.palette.primary.main,
 			color: theme.palette.primary.contrastText,
@@ -67,9 +67,9 @@ const useStyles = makeStyles((theme: Theme) => {
 			width: drawerWidth,
 		},
 		mobileSidebar : {
-			display: 'flex',
-			[theme.breakpoints.up('md')]: {
-				display: 'none',    
+			display: "flex",
+			[theme.breakpoints.up("md")]: {
+				display: "none",    
 			}
 		},
 		navigation : {
@@ -82,7 +82,7 @@ const useStyles = makeStyles((theme: Theme) => {
 				flexDirection : "column"
 			}
 		}
-	}) 
+	});
 });
 
 
@@ -118,7 +118,7 @@ function DashboardSidebar (props: any) {
 			<Hidden smUp implementation="css">
 				<Drawer
 					variant="temporary"
-					anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+					anchor={theme.direction === "rtl" ? "right" : "left"}
 					open={!drawer}
 					onClose={() => preferencesActions.toggleDrawer(drawer)}
 					className={classes.mobileSidebar}
@@ -142,14 +142,14 @@ const mapStateToProps = (state : any) => {
 	return {
 		preferences: state.preferences,
 		common : state.common
-	}
-}
+	};
+};
 
-function mapDispatchToProps(dispatch: any) {
+const mapDispatchToProps = (dispatch: any) => {
 	return {
 		preferencesActions : bindActionCreators({...actions.preferences}, dispatch),
 	};
-}
+};
 
 export default connect(
 	mapStateToProps,

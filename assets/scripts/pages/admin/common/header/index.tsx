@@ -1,16 +1,16 @@
 import * as React from "react";
-import clsx from 'clsx';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import clsx from "clsx";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
 
 import {
 	Theme,
 	makeStyles,
 	createStyles,
 	useTheme
-} from '@material-ui/core/styles';
+} from "@material-ui/core/styles";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -36,31 +36,31 @@ const useStyles = makeStyles((theme: Theme) => {
 		appBar: {
 			//backgroundColor: theme.palette.background.default,
 			zIndex: theme.zIndex.drawer + 1,
-			transition: theme.transitions.create(['width', 'margin'], {
+			transition: theme.transitions.create(["width", "margin"], {
 				easing: theme.transitions.easing.sharp,
 				duration: theme.transitions.duration.leavingScreen,
 			}),
 		},
 		appBarShift: {
-			[theme.breakpoints.up('md')]: {
+			[theme.breakpoints.up("md")]: {
 				marginLeft: drawerWidth,
 				width: `calc(100% - ${drawerWidth}px)`,
-				transition: theme.transitions.create(['width', 'margin'], {
+				transition: theme.transitions.create(["width", "margin"], {
 					easing: theme.transitions.easing.sharp,
 					duration: theme.transitions.duration.enteringScreen,
 				}),
 			}
 		},
 		sectionDesktop: {
-			display: 'none',
-			[theme.breakpoints.up('md')]: {
-				display: 'flex',
+			display: "none",
+			[theme.breakpoints.up("md")]: {
+				display: "flex",
 			},
 		},
 		sectionMobile: {
-			display: 'flex',
-			[theme.breakpoints.up('md')]: {
-				display: 'none',
+			display: "flex",
+			[theme.breakpoints.up("md")]: {
+				display: "none",
 			},
 		},
 		menuButton: {
@@ -68,8 +68,8 @@ const useStyles = makeStyles((theme: Theme) => {
 			marginRight: 16,
 		},
 		hide: {
-			[theme.breakpoints.up('md')]: {
-				display: 'none',
+			[theme.breakpoints.up("md")]: {
+				display: "none",
 			}
 		},
 	});
@@ -81,14 +81,12 @@ const DashboardHeader = (props) => {
 	const [model, setModel] = React.useState(false);
 	const {palette, drawer} = preferences;
 	const classes = useStyles();
-	const theme = useTheme();
-	const mobileMenuId = 'primary-search-account-menu-mobile';
 	const onSwitchAccount = (group) => {
 		new ApiCaller(new SwitchAccount(group));
-	}
+	};
 	const onLogOut = () => {
 		new ApiCaller(new LogOut());
-	}
+	};
 	return (
 		<AppBar
 			className={clsx(classes.appBar, {[classes.appBarShift]: drawer,})}>
@@ -99,9 +97,6 @@ const DashboardHeader = (props) => {
 				groups={groups}
 				onSwitchAccount={onSwitchAccount} />
 			<Toolbar>
-				{/*<IconButton onClick={() => preferencesActions.toggleDrawer(drawer)}>
-					{theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-				</IconButton>*/}
 				<IconButton
 					color="primary"
 					aria-label="open drawer"
@@ -130,20 +125,20 @@ const DashboardHeader = (props) => {
 			</Toolbar>
 		</AppBar>
 	);
-}
+};
 const mapStateToProps = (state) => {
 	return {
 		preferences: state.preferences,
 		common : state.common,
 		session: state.user.session
-	}
-}
+	};
+};
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
 	return {
 		preferencesActions : bindActionCreators({...actions.preferences}, dispatch)
 	};
-}
+};
 
 export default connect(
 	mapStateToProps,

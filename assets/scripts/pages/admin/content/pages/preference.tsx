@@ -1,22 +1,22 @@
-import * as React from 'react';
+import * as React from "react";
 import {
 	Theme,
 	makeStyles,
 	createStyles
 } from "@material-ui/core/styles";
 
-import Box from '@material-ui/core/Box';
+import Box from "@material-ui/core/Box";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { withRouter } from "react-router-dom";
 import {Tabs, ColorPicker} from "dumb-components";
 import * as actions from "actions";
-import { useTheme } from '@material-ui/core/styles';
-import Slide from '@material-ui/core/Slide';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+import { useTheme } from "@material-ui/core/styles";
+import Slide from "@material-ui/core/Slide";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
 
-const useStyles = makeStyles((theme: Theme) => {
+const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
 		section: {
 			flex: 1,
@@ -28,23 +28,20 @@ const useStyles = makeStyles((theme: Theme) => {
 		darkColor : {
 			background: theme.palette.background.default
 		}
-	}) 
+	});
 });
 function Setting (props: any) {
 	const {preferencesActions} = props;
 	const theme = useTheme();
-	const {primary, secondary, error} = theme.palette;
-	const [slide, setSlide] = React.useState(true)
-	const [value, setValue] = React.useState(0)
-	const [primaryColor, setPrimary] = React.useState(primary);
-	const [secondaryColor, setSecondary] = React.useState(secondary);
-	const [errorColor, setError] = React.useState(error.main);
+	const {primary, secondary} = theme.palette;
+	const [slide, setSlide] = React.useState(true);
+	const [value, setValue] = React.useState(0);
 	const classes = useStyles();
 	React.useEffect(() => {
 		setSlide(true);
 		return () => {
 			setSlide(false);
-		}
+		};
 	},[]);
 	const items = [{
 		label: "Primary",
@@ -55,11 +52,11 @@ function Setting (props: any) {
 						<ColorPicker 
 							color={primary} 
 							code={"500"}
-							onColorChange={(value) => {setPrimary(value); preferencesActions.setPaletteColor({props: "primary", value})}}
+							onColorChange={(value) => preferencesActions.setPaletteColor({props: "primary", value})}
 							theme="primary" />
 					</div>
 				</Box>
-			)
+			);
 		}
 	},
 	{
@@ -71,11 +68,11 @@ function Setting (props: any) {
 						<ColorPicker 
 							code={"A400"} 
 							color={secondary} 
-							onColorChange={(value) => {setSecondary(value); preferencesActions.setPaletteColor({props: "secondary", value})}}
+							onColorChange={(value) => preferencesActions.setPaletteColor({props: "secondary", value})}
 							theme="secondary"/>
 					</div>
 				</Box>
-			)
+			);
 		}
 	}];
 	return (
@@ -94,8 +91,8 @@ function Setting (props: any) {
 const mapStateToProps = (state : any) => {
 	return {
 		preferences: state.preferences
-	}
-}
+	};
+};
   
 function mapDispatchToProps(dispatch: any) {
 	return {

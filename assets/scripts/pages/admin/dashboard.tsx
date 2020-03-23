@@ -1,11 +1,11 @@
-import * as React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import * as React from "react";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import {
 	createStyles,
 	makeStyles,
 	ThemeProvider,
 	createMuiTheme,
-} from '@material-ui/core/styles';
+} from "@material-ui/core/styles";
 
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -74,14 +74,14 @@ function Dashboard (props) {
 			</ThemeProvider>
 		</div>
 	);
-}''
+}
 
 const mapStateToProps = (state : any) => {
 	return {
 		preferences: state.preferences,
 		session: state.user.session
-	}
-}
+	};
+};
 function mapDispatchToProps(dispatch: any) {
 	return {
 		commonActions : bindActionCreators({...actions.common}, dispatch),

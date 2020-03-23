@@ -19,7 +19,7 @@ import {
 	brown, 
 	grey, 
 	blueGrey
-} from '@material-ui/core/colors';
+} from "@material-ui/core/colors";
 
 const colors = {
 	red, 

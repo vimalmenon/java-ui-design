@@ -24,7 +24,7 @@ class Api implements IApi{
 		this.data = JSON.stringify(data);
 	}
 	public setFailureMessage (failureMessage) {
-		this.failureMessage = failureMessage
+		this.failureMessage = failureMessage;
 	}
 	public setSuccessMessage (successMessage) {
 		this.successMessage = successMessage;
@@ -152,7 +152,7 @@ class ApiSaveContact extends Api {
 
 class GetAdminContact extends Api {
 	constructor () {
-		super("getAdminContact", GET, "/api/admin/contact")
+		super("getAdminContact", GET, "/api/admin/contact");
 	}
 }
 

@@ -8,7 +8,7 @@ export default {
 	component,
 	preferences,
 	user
-}
+};
 
 export {
 	common,
