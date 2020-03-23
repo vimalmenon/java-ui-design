@@ -24,7 +24,7 @@ import Message from "./message";
 
 
 const Admin = (props) => {
-	const {match, navigationEntitlement} = props;
+	const {match} = props;
 	const {url} = match;
 	const [slide, setSlide] = React.useState(true);
 	React.useEffect(() => {

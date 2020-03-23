@@ -1,6 +1,5 @@
 import * as React from "react";
-import { 
-	withRouter,
+import {
 	Switch,
 	Route, 
 } from "react-router-dom";

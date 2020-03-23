@@ -98,24 +98,6 @@ export default function Notes () {
 				setNotes(data)
 			});
 	};
-	const onTitleUpdate = (title, index) => {
-		let note:any = notes[index];
-		const newNote = {
-			...note,
-			title
-		};
-		(notes as any).splice(index, 1, {...newNote})
-		setNotes([...notes]);
-	};
-	const onNoteUpdate = (title, index) => {
-		let note:any = notes[index];
-		const newNote = {
-			...note,
-			note:title
-		};
-		(notes as any).splice(index, 1, {...newNote})
-		setNotes([...notes]);
-	};
 	const onAddNote = () => {
 		let newNotes: any = [...notes];
 		newNotes.push({title: "",note:""});

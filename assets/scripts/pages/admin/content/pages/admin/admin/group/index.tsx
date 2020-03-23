@@ -1,7 +1,5 @@
 import * as React from "react";
 
-import {Card} from "dumb-components";
-
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';

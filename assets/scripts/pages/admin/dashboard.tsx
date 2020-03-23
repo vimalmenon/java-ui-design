@@ -17,7 +17,7 @@ import Sidebar from "./common/sidebar";
 
 import * as actions from "actions";
 
-import {urlMapper, navigationByName, apiList} from "const";
+import {urlMapper, apiList} from "const";
 
 import {replaceUrlBackslashAtEnd, ApiCaller} from "utility";
 

@@ -26,7 +26,7 @@ const useStyles = makeStyles(() => {
 const Contact = () => {
 	const classes = useStyles();
 	const [contact, setContact] = React.useState({});
-	const [error, setError] = React.useState(null);
+	//const [error, setError] = React.useState(null);
 	const onSave = () => {
 		new ApiCaller(new ApiSaveContact(contact));
 	};

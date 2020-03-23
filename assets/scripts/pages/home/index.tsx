@@ -1,7 +1,5 @@
 import * as React from "react";
 
-import Divider from "@material-ui/core/Divider";
-import Grid from "@material-ui/core/Grid";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 

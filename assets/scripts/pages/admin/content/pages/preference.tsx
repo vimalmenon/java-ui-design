@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme: Theme) => {
 	}) 
 });
 function Setting (props: any) {
-	const {preferencesActions, preferences} = props;
+	const {preferencesActions} = props;
 	const theme = useTheme();
 	const {primary, secondary, error} = theme.palette;
 	const [slide, setSlide] = React.useState(true)
