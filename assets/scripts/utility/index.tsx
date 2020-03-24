@@ -5,8 +5,10 @@ import ApiCaller from "./api";
 import localization from "./localization";
 import {dispatch} from "./dispatch";
 import notification from "./notification";
+import used from "./used";
 
 export default {
+	used,
 	ApiCaller,
 	worker,
 	spinner,
@@ -18,6 +20,7 @@ export default {
 };
 
 export {
+	used,
 	ApiCaller,
 	worker,
 	spinner,
