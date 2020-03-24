@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.vimalmenon.application.model.contact.ContactAdminModel;
-import com.vimalmenon.application.model.group.GroupModel;
 import com.vimalmenon.application.model.property.PropertyModel;
 import com.vimalmenon.application.model.response.ApiResponseModel;
 import com.vimalmenon.application.model.response.Session;

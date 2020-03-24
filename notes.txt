@@ -22,3 +22,4 @@ Need to use Web Worker effectively
 Need to work on loading indicator
 Need to work on download resume
 Need to remove db folder after download and upload
+Need to check if database file exits
