@@ -5,9 +5,6 @@ import {
 	createStyles
 } from "@material-ui/core/styles";
 
-
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
 import { 
 	withRouter,
 	Switch,
@@ -79,18 +76,5 @@ const MainComponent = (props: any) => {
 		</main>
 	);
 };
-
-const mapStateToProps = (state : any) => {
-	return {
-	};
-};
-const mapDispatchToProps = (dispatch: any) => {
-	return {
-		actions : bindActionCreators({}, dispatch)
-	};
-};
   
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(withRouter(MainComponent));
+export default withRouter(MainComponent);
