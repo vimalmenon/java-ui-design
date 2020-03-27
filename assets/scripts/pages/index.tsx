@@ -6,7 +6,7 @@ import {
 
 import loadable from "@loadable/component";
 import { useToasts } from "react-toast-notifications";
-import {notification} from "utility";
+import { notification } from "utility";
 
 import Home from "./home";
 
