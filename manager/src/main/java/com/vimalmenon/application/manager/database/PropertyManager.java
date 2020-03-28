@@ -17,4 +17,12 @@ public class PropertyManager {
 	public List<Property> getProperties() {
 		return propertyRepository.findAll();
 	}
+
+	public void saveProperties(List<Property> items) {
+		propertyRepository.saveAll(items);
+	}
+
+	public void deleteProperties(List<Property> items) {
+		propertyRepository.deleteAll(items);
+	}
 }

@@ -9,6 +9,7 @@ import Tab from "./tab";
 import Menu from "./menu";
 import Loader from "./loader";
 import TextField from "./text-field";
+import Table from "./table";
 
 export default {
 	CustomColorPicker,
@@ -18,6 +19,7 @@ export default {
 	TextField,
 	Loader,
 	Dialog,
+	Table,
 	Tabs,
 	Card,
 	Menu,
@@ -32,6 +34,7 @@ export {
 	TextField,
 	Loader,
 	Dialog,
+	Table,
 	Tabs,
 	Card,
 	Menu,

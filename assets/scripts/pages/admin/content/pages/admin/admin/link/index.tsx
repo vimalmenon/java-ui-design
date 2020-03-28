@@ -101,7 +101,10 @@ const Link = () => {
 						name="link"
 						value={link.link || ""}
 						onChange={onChange} />
-					<Button variant="contained" color="primary" onClick={onSave}>
+					<Button 
+						variant="contained" 
+						color="primary" 
+						onClick={onSave}>
 						Save
 					</Button>
 				</div>

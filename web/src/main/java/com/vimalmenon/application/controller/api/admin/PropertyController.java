@@ -24,20 +24,20 @@ public class PropertyController {
 	
 	
 	@Autowired
-	private PropertyService properties;
+	private PropertyService propertiesService;
 	
 	@GetMapping("")
 	private ApiResponseModel<List<PropertyModel>> getProperties() {
-		return new ApiResponseModel<List<PropertyModel>>(session).setData(properties.getProperties());
+		return new ApiResponseModel<List<PropertyModel>>(session).setData(propertiesService.getProperties());
 	}
 	
 	@PostMapping("")
-	private ApiResponseModel<String> saveProperties (@RequestBody List<PropertyModel> properties) {
-		return null;
+	private ApiResponseModel<List<PropertyModel>> saveProperties (@RequestBody List<PropertyModel> properties) {
+		return new ApiResponseModel<List<PropertyModel>>(session).setData(propertiesService.saveProperties(properties));
 	}
 	
 	@DeleteMapping("")
-	private ApiResponseModel<String> deleteProperties (@RequestBody List<PropertyModel> properties) {
-		return null;
+	private ApiResponseModel<List<PropertyModel>> deleteProperties (@RequestBody List<PropertyModel> properties) {
+		return new ApiResponseModel<List<PropertyModel>>(session).setData(propertiesService.deleteProperties(properties));
 	}
 }
