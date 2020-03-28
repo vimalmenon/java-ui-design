@@ -1,5 +1,7 @@
 package com.vimalmenon.application.data.user;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,14 +17,14 @@ public class UserActivity {
 	@Column(nullable = false, name = "user_id")
 	private Integer userId;
 	
-	@Column(nullable = false, name = "ip_address")
-	private String ipAddress;
-	
 	@Column(nullable = false, name = "detail")
 	private String detail;
 	
-	@Column(nullable = false, name = "time_stamp")
-	private String timeStamp;
+	@Column(nullable = true, name = "payload")
+	private String payload;
+	
+	@Column(nullable = false, name = "time")
+	private Date timeStamp;
 
 	public UserActivity() {
 	}
@@ -41,28 +43,24 @@ public class UserActivity {
 	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
-
-	public String getIpAddress() {
-		return ipAddress;
-	}
-
-	public void setIpAddress(String ipAddress) {
-		this.ipAddress = ipAddress;
-	}
-
+	
 	public String getDetail() {
 		return detail;
 	}
-
 	public void setDetail(String detail) {
 		this.detail = detail;
 	}
-
-	public String getTimeStamp() {
+	public String getPayload() {
+		return payload;
+	}
+	public void setPayload(String payload) {
+		this.payload = payload;
+	}
+	public Date getTimeStamp() {
 		return timeStamp;
 	}
 
-	public void setTimeStamp(String timeStamp) {
+	public void setTimeStamp(Date timeStamp) {
 		this.timeStamp = timeStamp;
 	}
 	

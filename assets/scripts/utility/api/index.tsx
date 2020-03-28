@@ -24,7 +24,7 @@ class ApiCaller {
 		this.promise = new Promise((resolve, reject) => {
 			this.isSpinning = true;
 			startSpinner();
-			let promise;
+			let promise: Promise<any>;
 			if (data.method === GET) {
 				promise = fetch(data.url, {method: data.method, signal: this.signal, headers });
 			} else {
@@ -39,11 +39,17 @@ class ApiCaller {
 					return data.text();
 				}
 			});
-			promise.then((value) => {
+			promise.then((value: IResponse) => {
 				if (value.session) {
 					dispatch(actions.user.setSession(value.session));
 				}
 				if (value.code === 0) {
+					if (data.successMessage) {
+						notification.notify({
+							title: "Success",
+							text: value.message
+						});
+					}
 					resolve(value.data);
 				} else {
 					if(data.failureMessage) {
@@ -57,11 +63,11 @@ class ApiCaller {
 			});
 		});	
 	}
-	public success(successCallback) {
+	public success(successCallback:Function) {
 		this.promise = this.promise.then(successCallback);
 		return this;
 	}
-	public failure (failureCallback) {
+	public failure (failureCallback:Function) {
 		this.promise = this.promise.catch(failureCallback);
 		return this;
 	}

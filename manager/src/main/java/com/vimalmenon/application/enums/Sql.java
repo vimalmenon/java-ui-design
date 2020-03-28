@@ -13,6 +13,8 @@ import com.vimalmenon.application.data.device.DevicePreference;
 import com.vimalmenon.application.data.device.DevicePreferenceRepository;
 import com.vimalmenon.application.data.group.Group;
 import com.vimalmenon.application.data.group.GroupRepository;
+import com.vimalmenon.application.data.link.Link;
+import com.vimalmenon.application.data.link.LinkRepository;
 import com.vimalmenon.application.data.navigation.Navigation;
 import com.vimalmenon.application.data.navigation.NavigationEntitlement;
 import com.vimalmenon.application.data.navigation.NavigationEntitlementRepository;
@@ -51,7 +53,8 @@ public enum Sql {
 	YOUTUBE_SCRIPTS("youtube_scripts", YoutubeScriptRepository.class, YoutubeScript.class),
 	CONTACTS("contacts", ContactRepository.class, Contact.class),
 	PROPERTIES("properties", PropertyRepository.class ,Property.class),
-	DEVICE_PREFERENCE("device_preferences", DevicePreferenceRepository.class, DevicePreference.class);
+	DEVICE_PREFERENCE("device_preferences", DevicePreferenceRepository.class, DevicePreference.class),
+	LINKS("links", LinkRepository.class, Link.class);
 	
 	
 	private static List<Sql> sequence= Arrays.asList(
@@ -69,7 +72,8 @@ public enum Sql {
 		YOUTUBE_SCRIPTS,
 		CONTACTS,
 		PROPERTIES,
-		DEVICE_PREFERENCE
+		DEVICE_PREFERENCE,
+		LINKS
 	);
 	
 	private String sqlName;
@@ -88,7 +92,7 @@ public enum Sql {
 	public String getSqlName() {
 		return sqlName;
 	}
-
+	
 	public void setSqlName(String sqlName) {
 		this.sqlName = sqlName;
 	}

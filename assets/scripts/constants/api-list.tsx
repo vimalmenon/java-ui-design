@@ -14,7 +14,7 @@ class Api implements IApi{
 	public data;
 	public failureMessage;
 	public successMessage;
-	constructor (name, method, url) {
+	constructor (name: string, method:string, url:string) {
 		this.name = name;
 		this.method = method;
 		this.url = url;
@@ -25,10 +25,10 @@ class Api implements IApi{
 	public setApiData (data) {
 		this.data = JSON.stringify(data);
 	}
-	public setFailureMessage (failureMessage) {
+	public setFailureMessage (failureMessage: boolean) {
 		this.failureMessage = failureMessage;
 	}
-	public setSuccessMessage (successMessage) {
+	public setSuccessMessage (successMessage: boolean) {
 		this.successMessage = successMessage;
 	}
 	
@@ -48,7 +48,7 @@ class ComponentEntitlement extends Api {
 }
 class Admin extends Api {
 	constructor () {
-		super("s", GET, "/api/admin");
+		super("admin", GET, "/api/admin");
 	}
 }
 class Login extends Api {
@@ -120,6 +120,8 @@ class ListDatabases extends Api {
 class UploadDatabase extends Api {
 	constructor () {
 		super("uploadDatabase", GET, "/api/admin/google_drive/upload_database");
+		this.setSuccessMessage(true);
+		this.setFailureMessage(true);
 	}
 }
 class GetYoutubeScript extends Api {
@@ -143,6 +145,8 @@ class RestoreDatabase extends Api {
 	constructor (data) {
 		super("restoreDatabase", POST, "/api/admin/google_drive/restore_database");
 		this.setApiData(data);
+		this.setSuccessMessage(true);
+		this.setFailureMessage(true);
 	}
 }
 class ApiSaveContact extends Api {
@@ -187,6 +191,23 @@ class DeleteProperties extends Api {
 		this.setApiData(data);
 	}
 }
+class GetLinks extends Api {
+	constructor() {
+		super("getLink", GET, "/api/admin/link");
+	}
+}
+class PostLinks extends Api {
+	constructor(data) {
+		super("postLink", POST, "/api/admin/link");
+		this.setApiData(data);
+	}
+}
+class DeleteLinks extends Api {
+	constructor(data) {
+		super("deleteLinks", DELETE, "/api/admin/link");
+		this.setApiData(data);
+	}
+}
 export default {
 	SavePreferences,
 	Admin,
@@ -214,5 +235,8 @@ export default {
 	DeleteYoutubeScript,
 	GetProperties,
 	SaveProperties,
-	DeleteProperties
+	DeleteProperties,
+	GetLinks,
+	PostLinks,
+	DeleteLinks
 };

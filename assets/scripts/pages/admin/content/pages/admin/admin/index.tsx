@@ -9,6 +9,7 @@ import Database from "./database";
 import Component from "./component";
 import Properties from "./properties";
 import Preference from "./preference";
+import Link from "./link";
 
 import Slide from "@material-ui/core/Slide";
 import FormGroup from "@material-ui/core/FormGroup";
@@ -87,6 +88,13 @@ const AdminHome = () => {
 									onChange={onCheckbox} 
 									name="preference" />}
 							label="Preference"/>
+						<FormControlLabel
+							control={
+								<Checkbox 
+									checked={component === "link"} 
+									onChange={onCheckbox} 
+									name="link" />}
+							label="Link"/>
 					</FormGroup>
 
 					{(component === "database") ? <Database />: null}
@@ -95,6 +103,7 @@ const AdminHome = () => {
 					{(component === "group") ? <Group groups={groups} />: null}
 					{(component === "properties") ? <Properties />: null}
 					{(component === "preference") ? <Preference />: null}
+					{(component === "link") ? <Link />: null}
 				</div>
 			</div>
 		</Slide>
