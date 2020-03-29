@@ -1,5 +1,4 @@
 interface INotification {
-	title: String;
 	text : String;
 }
 let notification;
@@ -7,12 +6,22 @@ let notification;
 const setNotification = (toast) => {
 	notification = toast;
 };
-const notify = (message:INotification) => {
+const notifySuccess = (message:INotification) => {
+	notification(message.text, { appearance: "success" });
+};
+const notifyError = (message:INotification) => {
 	notification(message.text, { appearance: "error" });
 };
-
-
+const notifyInfo = (message:INotification) => {
+	notification(message.text, { appearance: "info" });
+};
+const notifyWarning = (message:INotification) => {
+	notification(message.text, { appearance: "warning" });
+};
 export default {
 	setNotification,
-	notify
+	notifySuccess,
+	notifyWarning,
+	notifyError,
+	notifyInfo
 };

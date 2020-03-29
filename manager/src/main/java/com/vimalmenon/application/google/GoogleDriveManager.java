@@ -79,7 +79,7 @@ public class GoogleDriveManager {
                  request.getPageToken().length() > 0);
         return result;
 	}
-    public void putFile (String fileName, String filePathName) throws IOException
+    public String putFile (String fileName, String filePathName) throws IOException
     {
     	File fileMetadata = new File();
     	fileMetadata.setName(fileName);
@@ -91,7 +91,7 @@ public class GoogleDriveManager {
     	File file = service.files().create(fileMetadata, mediaContent)
     	    .setFields("id")
     	    .execute();
-    	System.out.println("File ID: " + file.getId());
+    	return file.getId();
     }
 
 	public FileList getDatabaseFiles() throws IOException {

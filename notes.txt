@@ -24,3 +24,6 @@ Need to work on download resume
 Need to remove db folder after download and upload
 Need to check if database file exits
 Accessiblity of the pages
+Need to work on reset password
+Need to work on inactive users
+Need to work on sending email

@@ -17,11 +17,17 @@ public class UserActivity {
 	@Column(nullable = false, name = "user_id")
 	private Integer userId;
 	
+	@Column(nullable = false, name = "context")
+	private String context;
+	
 	@Column(nullable = false, name = "detail")
 	private String detail;
 	
 	@Column(nullable = true, name = "payload")
 	private String payload;
+	
+	@Column(nullable = false, name = "verify")
+	private int verify;
 	
 	@Column(nullable = false, name = "time")
 	private Date timeStamp;
@@ -43,7 +49,12 @@ public class UserActivity {
 	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
-	
+	public String getContext() {
+		return context;
+	}
+	public void setContext(String context) {
+		this.context = context;
+	}
 	public String getDetail() {
 		return detail;
 	}
@@ -59,9 +70,14 @@ public class UserActivity {
 	public Date getTimeStamp() {
 		return timeStamp;
 	}
-
 	public void setTimeStamp(Date timeStamp) {
 		this.timeStamp = timeStamp;
+	}
+	public int getVerify() {
+		return verify;
+	}
+	public void setVerify(int verify) {
+		this.verify = verify;
 	}
 	
 }

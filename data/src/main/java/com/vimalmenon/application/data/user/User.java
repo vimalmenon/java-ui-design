@@ -26,14 +26,11 @@ public class User {
 	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "group_id", referencedColumnName = "id")
 	private Group group;
+	
+	@Column(nullable = false, name = "is_active")
+	private int isActive;
 
 	public User() {
-	}
-	public User (int id, String username, String password, Group group) {
-		this.id = id;
-		this.username = username;
-		this.password = password;
-		this.group = group;
 	}
 	public int getId() {
 		return id;
@@ -65,6 +62,12 @@ public class User {
 
 	public void setGroup(Group group) {
 		this.group = group;
+	}
+	public int getIsActive() {
+		return isActive;
+	}
+	public void setIsActive(int isActive) {
+		this.isActive = isActive;
 	}
 
 }

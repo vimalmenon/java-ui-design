@@ -28,6 +28,8 @@ import com.vimalmenon.application.data.url.UrlEntitlement;
 import com.vimalmenon.application.data.url.UrlEntitlementRepository;
 import com.vimalmenon.application.data.url.UrlRepository;
 import com.vimalmenon.application.data.user.User;
+import com.vimalmenon.application.data.user.UserActivity;
+import com.vimalmenon.application.data.user.UserActivityRepository;
 import com.vimalmenon.application.data.user.UserPreference;
 import com.vimalmenon.application.data.user.UserPreferenceRepository;
 import com.vimalmenon.application.data.user.UserProfile;
@@ -51,6 +53,7 @@ public enum Sql {
 	NAVIGATION_ENTITLEMENTS("navigation_entitlements", NavigationEntitlementRepository.class, NavigationEntitlement.class),
 	USER_PROFILES("user_profiles", UserProfileRepository.class, UserProfile.class),
 	YOUTUBE_SCRIPTS("youtube_scripts", YoutubeScriptRepository.class, YoutubeScript.class),
+	USER_ACTIVITIES("user_activities", UserActivityRepository.class, UserActivity.class),
 	CONTACTS("contacts", ContactRepository.class, Contact.class),
 	PROPERTIES("properties", PropertyRepository.class ,Property.class),
 	DEVICE_PREFERENCE("device_preferences", DevicePreferenceRepository.class, DevicePreference.class),
@@ -70,6 +73,7 @@ public enum Sql {
 		NAVIGATION_ENTITLEMENTS,
 		USER_PROFILES,
 		YOUTUBE_SCRIPTS,
+		USER_ACTIVITIES,
 		CONTACTS,
 		PROPERTIES,
 		DEVICE_PREFERENCE,
@@ -88,7 +92,6 @@ public enum Sql {
 		this.classes = classes;
 		this.entityName = entityName;
 	}
-	
 	public String getSqlName() {
 		return sqlName;
 	}

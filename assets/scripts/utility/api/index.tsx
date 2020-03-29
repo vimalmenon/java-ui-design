@@ -45,16 +45,14 @@ class ApiCaller {
 				}
 				if (value.code === 0) {
 					if (data.successMessage) {
-						notification.notify({
-							title: "Success",
+						notification.notifySuccess({
 							text: value.message
 						});
 					}
 					resolve(value.data);
 				} else {
 					if(data.failureMessage) {
-						notification.notify({
-							title: "Error",
+						notification.notifyError({
 							text: value.message
 						});
 					}

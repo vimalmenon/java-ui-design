@@ -44,6 +44,11 @@ public class ApiController {
 		return new ApiResponseModel<String>(session).setData("testing");
 	}
 	
+	@PostMapping("")
+	public ApiResponseModel<String> getIndex () {
+		return null;
+	}
+	
 	@PostMapping("/log_in")
 	public ApiResponseModel<String> login(@RequestBody AdminLoginModel loginModel) 
 	{

@@ -17,4 +17,7 @@ public class UnauthorizedAccessException extends RuntimeException {
 	{
 		return code;
 	}
+	public String getMessage () {
+		return msg;
+	}
 }
