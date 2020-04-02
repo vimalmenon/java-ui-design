@@ -5,7 +5,7 @@ https://www.electronjs.org/docs
 https://github.com/hakimel/reveal.js
 https://www.thortful.com/legal/cookie-policy
 https://tradenba.com/
-
+https://amigoscode.com/courses
 
 
 Working on front page 
