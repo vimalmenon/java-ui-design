@@ -22,6 +22,10 @@
       <scope>runtime</scope>
       <optional>true</optional>
     </dependency>
+    	<dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
   	<dependency>
 		<groupId>com.vimalmenon.application.service</groupId>
 		<artifactId>service</artifactId>
@@ -32,10 +36,6 @@
   	  <artifactId>common</artifactId>
   	  <version>${application.version}</version>
 	</dependency>
-	<dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-security</artifactId>
-    </dependency>
   </dependencies>
   <build>
 		<plugins>
