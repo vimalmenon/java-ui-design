@@ -50,7 +50,7 @@ flush privileges;
 
 react links			https://github.com/brillout/awesome-react-components#table--data-grid
 flexbox css  		https://cssauthor.com/css-flexbox/#Frameworks
-|   6 | react router                               | https://reacttraining.com/react-router/web/example/basic                                                                                  |
+react router        https://reacttraining.com/react-router/web/example/basic
 icons/                                                                                                                |
 |   8 | material color guideline                   | https://material.io/guidelines/style/color.html#                                                                                          |
 |   9 | React Notification System                  | http://igorprado.com/react-notification-system/                                                                                           |
@@ -109,5 +109,4 @@ icons/                                                                          
 | 116 | webpack hot loader                         | https://github.com/webpack-contrib/webpack-hot-middleware/tree/master/example                                                             |
 | 117 | SSR                                        | https://github.com/spatie/laravel-server-side-rendering-examples                                                                          |
 | 118 | SSR                                        | https://github.com/spatie/laravel-server-side-rendering-examples                                                                          |
-| 119 | admin dashboard with material design       | https://gurayyarar.github.io/AdminBSBMaterialDesign/                                                                                      |
-| 120 | react weboack typescript starter           | https://github.com/vikpe/react-webpack-typescript-starter         
+admin dashboard with material design       | https://gurayyarar.github.io/AdminBSBMaterialDesign/                                                                                      |
