@@ -52,61 +52,55 @@ react links			https://github.com/brillout/awesome-react-components#table--data-g
 flexbox css  		https://cssauthor.com/css-flexbox/#Frameworks
 react router        https://reacttraining.com/react-router/web/example/basic
 icons/                                                                                                                |
-|   8 | material color guideline                   | https://material.io/guidelines/style/color.html#                                                                                          |
-|   9 | React Notification System                  | http://igorprado.com/react-notification-system/                                                                                           |
-|  10 | API refrence for react-notification-system | https://github.com/igorprado/react-notification-system                                                                                    |
-|  11 | react table                                | https://react-table.js.org/#/story/readme                                                                                                 |
-|  12 | awesome middlware                          | https://github.com/brillout/awesome-redux                                                                                                 |
-|  13 | react spinner                              | https://github.com/Storytel/react-redux-spinner                                                                                           |
-|  14 | React spinner                              | https://github.com/Storytel/react-redux-spinner                                                                                           |
-|  15 | Google drive Set up                        | https://gist.github.com/ivanvermeyen/cc7c59c185daad9d4e7cb8c661d7b89b                                                                     |
-|  16 | Laravel google drive library               | https://github.com/nao-pon/flysystem-google-drive                                                                                         |
-|  17 | awesome react component                    | https://github.com/brillout/awesome-react-components                                                                                      |
-|  18 | react data grid                            | http://adazzle.github.io/react-data-grid/examples.html#/grid-events                                                                       |
-|  19 | react loading indicator for component      | http://kyleamathews.github.io/react-spinkit/                                                                                              |
-|  20 | Prop types reference                       | https://facebook.github.io/react/docs/typechecking-with-proptypes.html                                                                    |
-|  21 | spinkit                                    | https://github.com/maxs15/react-native-spinkit                                                                                            |
-|  22 | spinkit                                    | http://tobiasahlin.com/spinkit/                                                                                                           |
-|  23 | html template to check                     | http://www.free-css.com/free-css-templates                                                                                                |
-|  24 | theme hunt                                 | https://themehunt.com/                                                                                                                    |
-|  25 | Reference to migrate                       | file:///E:/template/ceevee-1.0/index.html & file:///E:/template/AdminLTE-2.4.2/index.html &file:///C:/Users/Vimal/Desktop/mogo/index.html |
-|  26 | data camp                                  | https://campus.datacamp.com/courses/intro-to-python-for-data-science/chapter-1-python-basics?ex=1                                         |
-|  27 | Images                                     | https://www.pexels.com/                                                                                                                   |
-|  28 | pixabay                                    | https://pixabay.com/                                                                                                                      |
-|  29 | unsplash                                   | https://unsplash.com/                                                                                                                     |
-|  30 | loading screen                             | https://ihatetomatoes.net/create-custom-preloading-screen                                                                                 |
-|  31 | loading indicators                         | https://www.jqueryscript.net/loading/                                                                                                     |
-|  33 | link                                       | https://cssauthor.com/bootstrap-admin-templates/                                                                                          |
-|  34 | loading button                             | https://loading.io/button/                                                                                                                |
-|  35 | LinkedIn                                   | https://www.linkedin.com/in/vimal-menon-72ab931a/                                                                                         |
-|  36 | github                                     | https://github.com/vimalmenon                                                                                                             |
-|  37 | google authentication                      | https://www.codexworld.com/login-with-google-api-using-php/                                                                               |
-|  38 | google auth library                        | https://github.com/google/google-auth-library-php                                                                                         |
-|  92 | Error with mysql                           | https://stackoverflow.com/questions/3029321/troubleshooting-illegal-mix-of-collations-error-in-mysql/21061305                             |
-|  93 | appcache                                   | https://www.html5rocks.com/en/tutorials/appcache/beginner/                                                                                |
-|  94 | chrome config                              | chrome://appcache-internals/#                                                                                                             |
-|  95 | React Widgets                              | https://jquense.github.io/react-widgets/                                                                                                  |
-|  96 | Single line if statement                   | https://stackoverflow.com/questions/29404932/using-multiple-conditions-in-a-single-line-of-case-when-statement-in-mysql                   |
-|  97 | Logo creator                               | https://www.logaster.com/                                                                                                                 |
-|  98 | vimalmenon.com                             | http://159.65.154.73                                                                                                                      |
-|  99 | show cpu and moemry                        | https://askubuntu.com/questions/941949/one-liner-to-show-cpu-ram-and-hdd-usage                                                            |
-| 100 | timestamp                                  | https://unix.stackexchange.com/questions/45926/display-time-stamp-in-dd-mm-yyyy-hhmmssms-in-unix-or-linux                                 |
-| 101 | alias with space                           | https://unix.stackexchange.com/questions/247119/bash-alias-with-a-space-as-a-part-of-the-command                                          |
-| 102 | Track location                             | http://ipinfo.io/190.94.149.26/json                                                                                                       |
-| 103 | Track location stack overflow              | https://stackoverflow.com/questions/409999/getting-the-location-from-an-ip-address                                                        |
-| 104 | zoho mail                                  | https://www.zoho.com/mail/help/email-hosting-with-zoho.html                                                                               |
-| 105 | email set up                               | https://www.digitalocean.com/community/tutorials/how-to-set-up-zoho-mail-with-a-custom-domain-managed-by-digitalocean-dns                 |
-| 106 | file-manager                               | http://www.prepbootstrap.com/bootstrap-template/file-manager                                                                              |
-| 107 | react drag and drop                        | https://react.rocks/tag/Drag_Drop                                                                                                         |
-| 108 | SSL certificate                            | https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04                                   |
-| 109 | React Sortable                             | http://clauderic.github.io/react-sortable-hoc/#/basic-configuration/drag-handle?_k=t66na5                                                 |
-| 110 | typescript                                 | https://github.com/Microsoft/TypeScript-Babel-Starter                                                                                     |
-| 111 | react-google-charts                        | https://react-google-charts.com/                                                                                                          |
-| 112 | server side rendering                      | https://github.com/spatie/server-side-rendering#rendering-options                                                                         |
-| 113 | nginx location tester                      | https://nginx.viraptor.info/                                                                                                              |
-| 114 | regex                                      | https://regex101.com/                                                                                                                     |
-| 115 | certbot                                    | https://certbot.eff.org/docs/using.html#where-are-my-certificates                                                                         |
-| 116 | webpack hot loader                         | https://github.com/webpack-contrib/webpack-hot-middleware/tree/master/example                                                             |
-| 117 | SSR                                        | https://github.com/spatie/laravel-server-side-rendering-examples                                                                          |
-| 118 | SSR                                        | https://github.com/spatie/laravel-server-side-rendering-examples                                                                          |
-admin dashboard with material design       | https://gurayyarar.github.io/AdminBSBMaterialDesign/                                                                                      |
+material color guideline                   | https://material.io/guidelines/style/color.html#                                                                                          |
+React Notification System                  | http://igorprado.com/react-notification-system/                                                                                           |
+API refrence for react-notification-system | https://github.com/igorprado/react-notification-system                                                                                    |
+react table                                | https://react-table.js.org/#/story/readme                                                                                                 |
+awesome middlware                          | https://github.com/brillout/awesome-redux                                                                                                 |
+react spinner                              | https://github.com/Storytel/react-redux-spinner                                                                                           |
+React spinner                              | https://github.com/Storytel/react-redux-spinner                                                                                           |
+Google drive Set up                        | https://gist.github.com/ivanvermeyen/cc7c59c185daad9d4e7cb8c661d7b89b                                                                     |
+Laravel google drive library               | https://github.com/nao-pon/flysystem-google-drive                                                                                         |
+awesome react component                    | https://github.com/brillout/awesome-react-components                                                                                      |
+react data grid                            | http://adazzle.github.io/react-data-grid/examples.html#/grid-events                                                                       |
+react loading indicator for component      | http://kyleamathews.github.io/react-spinkit/                                                                                              |
+Prop types reference                       | https://facebook.github.io/react/docs/typechecking-with-proptypes.html                                                                    |
+spinkit                                    | http://tobiasahlin.com/spinkit/                                                                                                           |
+html template to check                     | http://www.free-css.com/free-css-templates                                                                                                |
+theme hunt                                 | https://themehunt.com/                                                                                                                    |
+Reference to migrate                       | file:///E:/template/ceevee-1.0/index.html & file:///E:/template/AdminLTE-2.4.2/index.html &file:///C:/Users/Vimal/Desktop/mogo/index.html |
+data camp                                  | https://campus.datacamp.com/courses/intro-to-python-for-data-science/chapter-1-python-basics?ex=1                                         |
+Images                                     | https://www.pexels.com/                                                                                                                   |
+pixabay                                    | https://pixabay.com/                                                                                                                      |
+unsplash                                   | https://unsplash.com/                                                                                                                     |
+loading screen                             | https://ihatetomatoes.net/create-custom-preloading-screen                                                                                 |
+loading indicators                         | https://www.jqueryscript.net/loading/                                                                                                     |
+link                                       | https://cssauthor.com/bootstrap-admin-templates/                                                                                          |
+loading button                             | https://loading.io/button/                                                                                                                |        |
+google auth library                        | https://github.com/google/google-auth-library-php                                                                                         |
+Error with mysql                        :   https://stackoverflow.com/questions/3029321/troubleshooting-illegal-mix-of-collations-error-in-mysql/21061305                             |
+appcache                                :   https://www.html5rocks.com/en/tutorials/appcache/beginner/                                                                                |
+chrome config                           :   chrome://appcache-internals/#                                                                                                             |
+React Widgets                           :   https://jquense.github.io/react-widgets/                                                                                                  |
+Single line if statement                :   https://stackoverflow.com/questions/29404932/using-multiple-conditions-in-a-single-line-of-case-when-statement-in-mysql                   |
+Logo creator                            :   https://www.logaster.com/                                                                                                                 |
+vimalmenon.com                          :   http://159.65.154.73                                                                                                                      |
+show cpu and moemry                     :   https://askubuntu.com/questions/941949/one-liner-to-show-cpu-ram-and-hdd-usage                                                            |
+timestamp                               :   https://unix.stackexchange.com/questions/45926/display-time-stamp-in-dd-mm-yyyy-hhmmssms-in-unix-or-linux                                 |
+alias with space                        :   https://unix.stackexchange.com/questions/247119/bash-alias-with-a-space-as-a-part-of-the-command                                          |
+Track location                          :   http://ipinfo.io/190.94.149.26/json                                                                                                       |
+Track location stack overflow           :   https://stackoverflow.com/questions/409999/getting-the-location-from-an-ip-address                                                        |
+zoho mail                               :   https://www.zoho.com/mail/help/email-hosting-with-zoho.html                                                                               |
+email set up                            :   https://www.digitalocean.com/community/tutorials/how-to-set-up-zoho-mail-with-a-custom-domain-managed-by-digitalocean-dns
+file-manager                            :   http://www.prepbootstrap.com/bootstrap-template/file-manager
+react drag and drop                     :   https://react.rocks/tag/Drag_Drop
+SSL certificate                         :   https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04
+React Sortable                          :   http://clauderic.github.io/react-sortable-hoc/#/basic-configuration/drag-handle?_k=t66na5                                                 |
+typescript                              :   https://github.com/Microsoft/TypeScript-Babel-Starter                                                                                     |
+react-google-charts                     :   https://react-google-charts.com/                                                                                                          |
+server side rendering                   :   https://github.com/spatie/server-side-rendering#rendering-options                                                                         |
+nginx location tester                   :   https://nginx.viraptor.info/                                                                                                              |
+regex                                   :   https://regex101.com/
+certbot                                 :   https://certbot.eff.org/docs/using.html#where-are-my-certificates
+SSR                                     :   https://github.com/spatie/laravel-server-side-rendering-examples
+admin dashboard with material design    :   https://gurayyarar.github.io/AdminBSBMaterialDesign/
