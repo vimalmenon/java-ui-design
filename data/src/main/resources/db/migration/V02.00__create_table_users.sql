@@ -6,7 +6,7 @@ CREATE TABLE users
    group_id INT SIGNED NOT NULL,
    is_active TINYINT (1) NOT NULL,
    PRIMARY KEY (id),
-   FOREIGN KEY (group_id) REFERENCES `groups` (id),
+   FOREIGN KEY (group_id) REFERENCES grps (id),
    CONSTRAINT UN_USER_USERNAME UNIQUE (username)
 );
 insert into users
@@ -22,7 +22,7 @@ select
    id,
    1
 from
-   `groups`
+   grps
 where
    priority = 0;
 insert into users
@@ -38,6 +38,6 @@ select
    id,
    1
 from
-   `groups`
+   grps
 where
    priority = 1;

@@ -1,4 +1,4 @@
-CREATE TABLE `groups` (
+CREATE TABLE grps (
    id INT NOT NULL AUTO_INCREMENT,
    name VARCHAR (100) NOT NULL,
    priority int signed,
@@ -6,7 +6,7 @@ CREATE TABLE `groups` (
    CONSTRAINT UN_GROUP_NAME UNIQUE (name)
 );
 
-insert into `groups`
+insert into grps
 (
    name,
    priority
@@ -16,7 +16,7 @@ values
    'No User',
    null
 );
-insert into `groups`
+insert into grps
 (
    name,
    priority
@@ -26,7 +26,7 @@ values
    'Super Admin',
    0
 );
-insert into `groups`
+insert into grps
 (
    name,
    priority
