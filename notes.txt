@@ -9,6 +9,7 @@ https://amigoscode.com/courses
 https://www.figma.com/
 https://www.algoexpert.io/product
 https://uxdesign.cc/lets-talk-neumorphism-and-accessibility-44a48a6ace72 
+https://nextjs.org/
 
 
 Working on front page 
