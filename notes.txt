@@ -30,7 +30,7 @@ Accessiblity of the pages
 Need to work on reset password
 Need to work on inactive users
 Need to work on sending email
-Need to work on google authencitation
+Need to work on google authentication 
 Need to work on spring security
 
 
