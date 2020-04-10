@@ -33,6 +33,8 @@ Need to work on inactive users
 Need to work on sending email
 Need to work on google authentication 
 Need to work on spring security
+need to create login attempt database
+https://medium.com/@gustavo.ponce.ch/spring-boot-spring-mvc-spring-security-mysql-a5d8545d837d
 
 
 Need to know how to set up mysql
