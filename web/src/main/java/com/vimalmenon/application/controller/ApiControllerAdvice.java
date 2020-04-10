@@ -35,9 +35,9 @@ public class ApiControllerAdvice {
 	
 	@ExceptionHandler(value = GeneralException.class)
 	public ApiResponseModel<String> generalException(final GeneralException exception, HttpServletResponse httpResponse) {
-		log.error(exception.getMessage());
+		log.error("General Error : ", exception);
 		httpResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-		return new ApiResponseModel<String>(session).setMessage(exception.toString())
+		return new ApiResponseModel<String>(session).setMessage(exception.getMessage())
 				.setCode(exception.getCode());
 	}
 	@ExceptionHandler(value = DatabaseException.class)

@@ -8,6 +8,7 @@ public class GeneralException extends RuntimeException{
 	
 	private static ResponseCode response = ResponseCode.EXCEPTION;
 	private final static int code = response.code;
+	private final String msg = "Error while processing request";
 	
 	public GeneralException(String msg) {
 		super(msg);
@@ -17,5 +18,7 @@ public class GeneralException extends RuntimeException{
 	{
 		return code;
 	}
-	
+	public String getMessage () {
+		return msg;
+	}
 }
