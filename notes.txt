@@ -25,8 +25,6 @@ Need to work on properties
 Need to use Web Worker effectively
 Need to work on loading indicator
 Need to work on download resume
-Need to remove db folder after download and upload
-Need to check if database file exits
 Accessiblity of the pages
 Need to work on reset password
 Need to work on inactive users
