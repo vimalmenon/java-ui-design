@@ -42,7 +42,7 @@ public class GoogleDriveController {
 	public ApiResponseModel<String> restoreDatabase (@RequestBody GoogleDriveFileModel model)
 	{
 		googleDriveService.restoreDatabase(model);
-		return new ApiResponseModel<String>(session).setData("Success");
+		return new ApiResponseModel<String>(session).setData("Success uploaded the database");
 	}
 	
 	@GetMapping("/list_databases")

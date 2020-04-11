@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,12 +35,30 @@ public class GoogleDriveService {
 	*/
 	@Autowired
 	private DatabaseManager databaseManager;
+
+	private final String fileName = "database";  
 	
 	@Autowired
 	private Zipper zip;
 	
 	Logger log = LoggerFactory.getLogger(GoogleDriveService.class);
 	
+	private String getFileLocation () 
+	{
+		Path currentRelativePath = Paths.get(fileName);
+		String absolutePath = currentRelativePath.toAbsolutePath().toString();
+		return absolutePath;
+	}
+	public boolean deleteDirectory (java.io.File file)
+	{
+		java.io.File[] contents = file.listFiles();
+		if (contents != null) {
+			for (java.io.File f : contents) {
+				deleteDirectory(f);
+			}
+		}
+		return file.delete();
+	}
 	public GoogleDriveFileModel listFile ()
 	{
 		try {
@@ -64,7 +84,7 @@ public class GoogleDriveService {
 	
 	public void uploadDatabase() {
 		try {
-			java.io.File dbPath = new java.io.File("//application/config//db");
+			java.io.File dbPath = new java.io.File(getFileLocation());
 			
 			zip.setFile(dbPath);
 			List<Sql> sequence = Sql.getSequence();
@@ -83,8 +103,9 @@ public class GoogleDriveService {
 			
 			java.io.File filePath = new java.io.File(dbPath.getAbsoluteFile() + ".zip");
 			System.out.println(filePath.getAbsoluteFile());
-			
 			googleDriveManager.putFile("db.zip", filePath.getAbsolutePath());
+			deleteDirectory(dbPath);
+			filePath.delete();
 		} catch (IOException e) {
 			log.error(e.getMessage());
 			throw new GeneralException(e.getMessage());
