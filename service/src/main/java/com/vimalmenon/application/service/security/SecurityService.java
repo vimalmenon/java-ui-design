@@ -13,7 +13,6 @@ import com.vimalmenon.application.model.security.UrlEntitlementSecurity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
-import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -42,11 +41,10 @@ public class SecurityService {
         urlManager.getUrlEntitlementRepository().forEach((urlEntitlement) -> {
             urlEntitlements.add(new UrlEntitlementSecurity(urlEntitlement.getUrl().getUrl(), urlEntitlement.getUrl().getMethod(), groupMap.get(urlEntitlement.getGroupId())));
         });
-        urlEntitlements.add(new UrlEntitlementSecurity("/api/admin/*", "ALL", Groups.SUPER_ADMIN.name));
         return urlEntitlements;
     }
 
-    public void configureRoute(HttpSecurity http, AccessDeniedHandler authenticationFailureHandler) throws Exception {
+    public void configureRoute(HttpSecurity http) throws Exception {
         List<UrlEntitlementSecurity> urlEntitlements = getUrlEntitlementList();
 
         System.out.println(urlEntitlements);

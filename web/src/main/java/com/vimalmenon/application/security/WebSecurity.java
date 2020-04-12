@@ -29,13 +29,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     }
     @Override
     protected void configure(HttpSecurity http) throws Exception {     
-        securityService.configureRoute(http, authenticationFailureHandler());
-    }
-
-    @Bean
-    public AccessDeniedHandler authenticationFailureHandler()
-    {
-        return new RestAuthenticationFailureHandler();
+        securityService.configureRoute(http);
     }
 
     
