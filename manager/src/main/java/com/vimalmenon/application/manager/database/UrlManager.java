@@ -29,4 +29,8 @@ public class UrlManager {
 		return urlRepository.findAll();
 	}
 
+	public List<UrlEntitlement> getUrlEntitlementRepository() {
+		return urlEntitlementRepository.findAll();
+	}
+
 }
