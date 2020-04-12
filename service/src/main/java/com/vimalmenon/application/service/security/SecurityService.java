@@ -11,7 +11,6 @@ import com.vimalmenon.application.manager.database.UrlManager;
 import com.vimalmenon.application.model.security.UrlEntitlementSecurity;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.security.web.access.AccessDeniedHandler;
