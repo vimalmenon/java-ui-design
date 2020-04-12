@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.vimalmenon.application.common.enums.Groups;
 import com.vimalmenon.application.manager.database.GroupManager;
 import com.vimalmenon.application.manager.database.UrlManager;
 import com.vimalmenon.application.model.security.UrlEntitlementSecurity;
