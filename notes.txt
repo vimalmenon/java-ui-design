@@ -10,6 +10,7 @@ https://www.figma.com/
 https://www.algoexpert.io/product
 https://uxdesign.cc/lets-talk-neumorphism-and-accessibility-44a48a6ace72 
 https://nextjs.org/
+https://colorsinspo.com/color-tools/color-wheel
 
 
 Working on front page 
@@ -31,6 +32,7 @@ Need to work on inactive users
 Need to work on sending email
 Need to work on google authentication 
 Need to work on spring security
+Need to start working on JWT
 https://medium.com/@gustavo.ponce.ch/spring-boot-spring-mvc-spring-security-mysql-a5d8545d837d
 
 
