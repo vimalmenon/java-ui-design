@@ -12,6 +12,8 @@ import com.vimalmenon.application.model.security.UrlEntitlementSecurity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
+import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -43,24 +45,24 @@ public class SecurityService {
         return urlEntitlements;
     }
 
-    public void configureRoute(HttpSecurity http) throws Exception {
+    public void configureRoute(HttpSecurity http, AccessDeniedHandler accessDeniedHandler, AuthenticationEntryPoint authenticationEntryPoint) throws Exception {
         List<UrlEntitlementSecurity> urlEntitlements = getUrlEntitlementList();
 
-        System.out.println(urlEntitlements);
         ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry authorize = http.authorizeRequests();
 
-        /*for(UrlEntitlementSecurity urlEntitlement: urlEntitlements) {
+        for(UrlEntitlementSecurity urlEntitlement: urlEntitlements) {
             if (urlEntitlement.getMethod().equals("ALL")) {
                 authorize = authorize.antMatchers(urlEntitlement.getUrl()).hasAuthority(urlEntitlement.getRole());
             } else {
-                authorize = authorize.antMatchers(HttpMethod.valueOf(urlEntitlement.getMethod()), urlEntitlement.getUrl()).hasAnyRole(urlEntitlement.getRole());
+                authorize = authorize.antMatchers(urlEntitlement.getMethod(), urlEntitlement.getUrl()).hasAnyRole(urlEntitlement.getRole());
             }
-        }*/
+        }
         authorize
             .anyRequest().permitAll()
             .and()
             .csrf().disable()
             .formLogin().disable()
-            .httpBasic().disable();
+            .httpBasic().disable()
+            .exceptionHandling().accessDeniedHandler(accessDeniedHandler).authenticationEntryPoint(authenticationEntryPoint);
 	}
 }

@@ -57,7 +57,6 @@ public class ApiControllerAdvice {
 	@ExceptionHandler(value = UnauthorizedAccessException.class)
 	public ApiResponseModel<String> unauthorizedAccessException(final UnauthorizedAccessException exception, HttpServletResponse httpResponse) {
 		log.error("Unauthorized Access : ", exception);
-		httpResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 		return new ApiResponseModel<String>(session).setMessage(exception.getMessage())
 				.setCode(exception.getCode());
 	}

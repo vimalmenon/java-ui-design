@@ -31,13 +31,22 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     }
     @Override
     protected void configure(HttpSecurity http) throws Exception {     
-        securityService.configureRoute(http);
+        securityService.configureRoute(http, accessDeniedHandler(), authenticationEntryPoint());
     }
 
     @Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
+    @Bean
+	public RestAuthenticationFailureHandler accessDeniedHandler() {
+		return new RestAuthenticationFailureHandler();
+    }
     
+
+	@Bean
+	public RestAuthenticationEntryPoint authenticationEntryPoint() {
+		return new RestAuthenticationEntryPoint();
+	}
 }
 
