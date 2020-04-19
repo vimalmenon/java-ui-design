@@ -33,6 +33,9 @@ Need to work on sending email
 Need to work on google authentication 
 Need to work on spring security
 Need to start working on JWT
+Setting of session from JWT
+Need to work on filters
+
 https://medium.com/@gustavo.ponce.ch/spring-boot-spring-mvc-spring-security-mysql-a5d8545d837d
 
 
