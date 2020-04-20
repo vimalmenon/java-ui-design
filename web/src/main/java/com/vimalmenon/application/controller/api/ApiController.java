@@ -3,6 +3,7 @@ package com.vimalmenon.application.controller.api;
 import java.security.Principal;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,9 +51,9 @@ public class ApiController {
 	}
 	
 	@PostMapping("/log_in")
-	public ApiResponseModel<String> login(@RequestBody AdminLoginModel loginModel) 
+	public ApiResponseModel<String> login(@RequestBody AdminLoginModel loginModel, HttpServletResponse response) 
 	{
-		return new ApiResponseModel<String>(adminService.logIn(loginModel)).setData("Success");
+		return new ApiResponseModel<String>(adminService.logIn(loginModel, response)).setData("Success");
 	}
 	
 	@PostMapping("/component_entitlement")

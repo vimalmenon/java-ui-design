@@ -2,6 +2,8 @@ package com.vimalmenon.application.service.admin;
 
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -51,7 +53,7 @@ public class AdminService {
 		return new GroupModel(groupOptional.get());
 	}
 
-	public Session logIn(AdminLoginModel loginModel) {
+	public Session logIn(AdminLoginModel loginModel, HttpServletResponse response) {
 		Optional<Integer> userIdOptional = Optional.ofNullable(session.getUserId());
 		if (userIdOptional.isPresent()) {
 			throw new ValidationError("User already login");
@@ -70,7 +72,7 @@ public class AdminService {
 						new UsernamePasswordAuthenticationToken(loginModel.getUsername(), loginModel.getPassword()));
 				UserDetails userDetails = myUserDetailsService.loadUserByUsername(loginModel.getUsername());
 				String token = jwtUtility.generateToken(userDetails);
-				System.out.println(token);
+				response.setHeader("Authorization", "Bearer " + token);
 				return session;
 			}
 		}
