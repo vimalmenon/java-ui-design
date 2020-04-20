@@ -22,4 +22,10 @@ public class Helper {
 		return encoder.encode(password);
 		//return BCrypt.hashpw(password, salt);
 	}
+	public static String converSpaceToDashAndLowercase (String value, String prefix) {
+		if (prefix == null) {
+
+		}
+		return value;
+	}
 }
