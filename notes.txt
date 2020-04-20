@@ -36,6 +36,8 @@ Need to work on spring security
 Need to start working on JWT
 Setting of session from JWT
 Need to work on filters
+Need to work on setting up response based on filter on JWT
+
 
 https://medium.com/@gustavo.ponce.ch/spring-boot-spring-mvc-spring-security-mysql-a5d8545d837d
 
