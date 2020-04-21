@@ -1,14 +1,15 @@
 declare var VERSION:string;
 declare var caches:CacheStorage;
- var cacheList = ["/"];
- var cacheVersion = `v${VERSION}`;
+ 
+var cacheList = ["/"];
+var cacheVersion = `v${VERSION}`;
 
 self.addEventListener("install", (event: any) => {
 	event.waitUntil(
 		caches.open(cacheVersion).then((cache) => {
 			return cache.addAll(cacheList);
 		})
-	  );
+	);
 });
 
 self.addEventListener("activate", (event: any) => {
