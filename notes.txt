@@ -45,6 +45,7 @@ https://medium.com/@gustavo.ponce.ch/spring-boot-spring-mvc-spring-security-mysq
 Need to know how to set up mysql
 UPDATE mysql.user SET authentication_string = PASSWORD('Nitya@123') WHERE User = 'root';
 update user set plugin="mysql_native_password" where User='root';
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'Nitya@123';
 SELECT User, Host, authentication_string, plugin FROM mysql.user;
 flush privileges;
 
