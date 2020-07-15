@@ -21,7 +21,6 @@ public class MyUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> user = userGroupAdminManager.login(username);
-        System.out.println(username);
         if (user.isPresent()) {
             return new CustomUserDetails(user.get());
         } else {

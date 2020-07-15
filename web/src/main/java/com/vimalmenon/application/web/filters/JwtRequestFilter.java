@@ -7,6 +7,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.vimalmenon.application.model.group.GroupModel;
+import com.vimalmenon.application.model.response.Session;
+import com.vimalmenon.application.service.admin.AdminService;
 import com.vimalmenon.application.service.security.JWTUtility;
 import com.vimalmenon.application.service.security.MyUserDetailsService;
 
@@ -24,14 +27,37 @@ import io.jsonwebtoken.ExpiredJwtException;
 public class JwtRequestFilter extends OncePerRequestFilter {
 
     @Autowired
+    private Session session;
+    
+    @Autowired
+    private AdminService adminService;
+    
+    @Autowired
     private JWTUtility jwtUtility;
 
     @Autowired
     private MyUserDetailsService myUserDetailsService;
 
+    private void setDefaultSession () 
+    {
+        GroupModel groupModel = adminService.getDefaultGroup();
+        session.setId(groupModel.getId());
+        session.setGroup(groupModel.getName());
+        session.setPriority(groupModel.getPriority());
+        session.setSession(true);
+    }
+
+    private void setSessionByUserName (String username) 
+    {
+        if (!adminService.setSessionForUsername(username)) {
+            setDefaultSession();
+        }
+    }
+
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
-            throws ServletException, IOException {
+            throws ServletException, IOException 
+    {
         
         final String requestTokenHeader = request.getHeader("Authorization");
         String username = null;
@@ -42,11 +68,12 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             try {
                 username = jwtUtility.getUsernameFromToken(jwtToken);
             } catch (IllegalArgumentException e) {
-                System.out.println("Unable to get JWT Token");
+                logger.error("Unable to get JWT Token");
             } catch (ExpiredJwtException e) {
-                System.out.println("JWT Token has expired");
+                logger.error("JWT Token has expired");
             }
         } else {
+            setDefaultSession();
             logger.warn("JWT Token does not begin with Bearer String");
         }
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
@@ -55,8 +82,13 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                 usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
-
+                setSessionByUserName(userDetails.getUsername());
+            } else {
+                setDefaultSession();
             }
+            
+        } else {
+            setDefaultSession();
         }
         filterChain.doFilter(request, response);
     }

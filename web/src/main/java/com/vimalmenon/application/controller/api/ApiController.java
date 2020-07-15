@@ -46,7 +46,8 @@ public class ApiController {
 	}
 	
 	@PostMapping("")
-	public ApiResponseModel<String> getIndex () {
+	public ApiResponseModel<String> getIndex () 
+	{
 		return null;
 	}
 	
