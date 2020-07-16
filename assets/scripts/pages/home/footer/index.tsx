@@ -14,20 +14,32 @@ import {version} from "const";
 
 const useStyles = makeStyles((theme) => {
 	return createStyles({
-		footer: {
+		footer:{
 			display:"flex",
 			backgroundColor: theme.palette.background.paper,
-			padding: theme.spacing(3, 0),
-			//background:"#1A1A1A",
+			padding: theme.spacing(3, 2),
 			justifyContent:"center"
 		},
-		section : {
+		section:{
 			display:"flex",
-			flex: 1,
-			fontSize: "1rem",
-			maxWidth: "1200px",
-			flexBasis: "auto",
-			flexGrow: 1
+			flex:1,
+			maxWidth:"1200px",
+			flexBasis:"auto",
+			flexGrow:1,
+			justifyContent:"space-between",
+			fontSize:"0.9rem",
+		},
+		navigation:{
+			"& span" : {
+				padding:theme.spacing(0, 1),
+				"&:not(:last-child)" : {
+					borderRight:"1px solid gray"
+				}
+			}
+		},
+		link:{
+			textDecoration:"none",
+			color: "rgba(0, 0, 0, 0.87)"
 		}
 	});
 });
@@ -39,13 +51,24 @@ const Footer = () => {
 			<section className={classes.section}>
 				<div>
 					&copy;&nbsp;
-					<Link to="https://vimalmenon.com/">
+					<a 
+						className={classes.link}
+						target="_blank"
+						rel="noopener noreferrer"
+						href="https://vimalmenon.com/">
 						VimalMenon
-					</Link>,&nbsp;
+					</a>,&nbsp;
 					{new Date().getFullYear()}.
 				</div>
-				<div>
-					Version : {version}
+				<div className={classes.navigation}>
+					<span>
+						<Link className={classes.link} to="/privacy-policy">
+							privacy policy
+						</Link>
+					</span>
+					<span>
+						Version: {version}
+					</span>
 				</div>
 			</section>
 		</footer>
