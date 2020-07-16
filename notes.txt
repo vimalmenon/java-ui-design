@@ -51,11 +51,6 @@ flush privileges;
 
 
 
-
-
-
-
-
 react links			                    :   https://github.com/brillout/awesome-react-components#table--data-grid
 flexbox css  		                    :   https://cssauthor.com/css-flexbox/#Frameworks
 material color guideline                :   https://material.io/guidelines/style/color.html#

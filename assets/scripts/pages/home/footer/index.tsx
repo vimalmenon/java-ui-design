@@ -5,16 +5,29 @@ import {
 	makeStyles,
 } from "@material-ui/core/styles";
 
-import Typography from "@material-ui/core/Typography";
-import Link from "@material-ui/core/Link";
+import {
+	Link
+} from "react-router-dom";
+
 
 import {version} from "const";
 
 const useStyles = makeStyles((theme) => {
 	return createStyles({
 		footer: {
+			display:"flex",
 			backgroundColor: theme.palette.background.paper,
-			padding: theme.spacing(6, 0),
+			padding: theme.spacing(3, 0),
+			//background:"#1A1A1A",
+			justifyContent:"center"
+		},
+		section : {
+			display:"flex",
+			flex: 1,
+			fontSize: "1rem",
+			maxWidth: "1200px",
+			flexBasis: "auto",
+			flexGrow: 1
 		}
 	});
 });
@@ -23,15 +36,18 @@ const Footer = () => {
 	const classes = useStyles();
 	return (
 		<footer className={classes.footer}>
-			<Typography variant="body2" color="textSecondary" align="center">
-				{"Copyright © "}
-				<Link color="inherit" href="https://vimalmenon.com/">
-					VimalMenon.com
-				</Link>{" "}
-				{new Date().getFullYear()}
-				{"."}
-				version : {version}
-			</Typography>
+			<section className={classes.section}>
+				<div>
+					&copy;&nbsp;
+					<Link to="https://vimalmenon.com/">
+						VimalMenon
+					</Link>,&nbsp;
+					{new Date().getFullYear()}.
+				</div>
+				<div>
+					Version : {version}
+				</div>
+			</section>
 		</footer>
 	);
 };

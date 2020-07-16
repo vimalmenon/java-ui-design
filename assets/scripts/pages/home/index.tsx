@@ -27,11 +27,11 @@ const Home = () => {
 	return (
 		<div className={classes.root}>
 			<CssBaseline />
+			<Header />
 			<Container maxWidth="lg">
-				<Header />
 				<Body />
-				<Footer />
 			</Container>
+			<Footer />
 		</div>
 	);
 };

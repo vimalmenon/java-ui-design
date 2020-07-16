@@ -20,14 +20,21 @@ const useStyles = makeStyles((theme) => {
 		root: {
 			display: "flex",
 			borderBottom: `1px solid ${theme.palette.divider}`,
+			background: "#0c2340",
+			justifyContent:"center"
 		},
 		toolbarLink: {
 			padding: theme.spacing(1),
 			flexShrink: 0,
+			color:"white",
+			textDecoration: "none"
 		},
 		toolbarTitle: {
 			flex: 1,
-			fontSize: "1rem"
+			fontSize: "1rem",
+			maxWidth: "1200px",
+			flexBasis: "auto",
+			flexGrow: 1
 		},
 		input: {
 			marginLeft: theme.spacing(1),
@@ -37,7 +44,8 @@ const useStyles = makeStyles((theme) => {
 			padding: 10,
 		},
 		search : {
-			display: "flex"
+			display: "flex",
+			color:"white"
 		}
 	});
 });
@@ -49,11 +57,11 @@ const Header = () => {
 		<Toolbar className={classes.root}>
 			<Typography
 				color="inherit"
-				align="center"
 				noWrap
 				className={classes.toolbarTitle}>
 				<Link
-					to={"/"}>
+					to={"/"}
+					className={classes.toolbarLink}>
 					Vimal Menon
 				</Link>
 				{MainNavigation.map((navigation, key) => {

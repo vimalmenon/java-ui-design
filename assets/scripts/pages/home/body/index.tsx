@@ -17,6 +17,7 @@ import {MainUrlMapper} from "const";
 import About from "./about";
 import Contact from "./contact";
 import Tutorials from "./tutorials";
+import PrivacyPolicy from "./privacy-policy";
 import Home from "./home";
 
 const useStyles = makeStyles(() => {
@@ -44,6 +45,7 @@ const Body =(props) => {
 				<Route path={`/about`} component={About} />
 				<Route path={`/contact`} component={Contact} />
 				<Route path={`/tutorials`} component={Tutorials} />
+				<Route path={`/privacy-policy`} component={PrivacyPolicy} />
 			</Switch>
 		</section>
 	);
