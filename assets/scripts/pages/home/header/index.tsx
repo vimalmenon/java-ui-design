@@ -13,7 +13,9 @@ import Typography from "@material-ui/core/Typography";
 import Toolbar from "@material-ui/core/Toolbar";
 
 import {MainNavigation} from "const";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
+
+import BrightnessLowIcon from "@material-ui/icons/BrightnessLow";
+import BrightnessHighIcon from "@material-ui/icons/BrightnessHigh";
 
 const useStyles = makeStyles((theme) => {
 	return createStyles({
@@ -75,7 +77,8 @@ const Header = () => {
 					);
 				})}
 			</Typography>
-			<MoreVertIcon className={classes.search}/>
+			<BrightnessLowIcon className={classes.search}/>
+			<BrightnessHighIcon className={classes.search}/>
 		</Toolbar>
 	);
 };

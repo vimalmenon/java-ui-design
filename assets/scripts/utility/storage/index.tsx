@@ -1,7 +1,6 @@
 const storage = () => {
-
 };
 
 export default {
-    storage
+	storage
 };
