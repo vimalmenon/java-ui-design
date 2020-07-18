@@ -33,6 +33,9 @@ class ApiCaller {
 			promise = promise.then((data) => {
 				stopSpinner();
 				this.isSpinning = false;
+				if (data.headers.get("Authorization")) {
+					headers["Authorization"] = data.headers.get("Authorization");
+				}
 				if (data.headers.get("content-type") === "application/json") {
 					return data.json();
 				} else {

@@ -5,6 +5,7 @@ import ApiCaller from "./api";
 import localization from "./localization";
 import {dispatch} from "./dispatch";
 import notification from "./notification";
+import storage from "./storage";
 import used from "./used";
 
 export default {
@@ -16,6 +17,7 @@ export default {
 	localization,
 	notification,
 	dispatch,
+	storage,
 	replaceUrlBackslashAtEnd
 };
 
@@ -28,5 +30,6 @@ export {
 	localization,
 	notification,
 	dispatch,
+	storage,
 	replaceUrlBackslashAtEnd
 };

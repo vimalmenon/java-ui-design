@@ -27,6 +27,8 @@ import com.vimalmenon.application.data.url.Url;
 import com.vimalmenon.application.data.url.UrlEntitlement;
 import com.vimalmenon.application.data.url.UrlEntitlementRepository;
 import com.vimalmenon.application.data.url.UrlRepository;
+import com.vimalmenon.application.data.user.LoginAttempt;
+import com.vimalmenon.application.data.user.LoginAttemptRepository;
 import com.vimalmenon.application.data.user.User;
 import com.vimalmenon.application.data.user.UserActivity;
 import com.vimalmenon.application.data.user.UserActivityRepository;
@@ -57,7 +59,8 @@ public enum Sql {
 	CONTACTS("contacts", ContactRepository.class, Contact.class),
 	PROPERTIES("properties", PropertyRepository.class ,Property.class),
 	DEVICE_PREFERENCE("device_preferences", DevicePreferenceRepository.class, DevicePreference.class),
-	LINKS("links", LinkRepository.class, Link.class);
+	LINKS("links", LinkRepository.class, Link.class),
+	LOGIN_ATTEMPTS("login_attempts", LoginAttemptRepository.class, LoginAttempt.class);
 	
 	
 	private static List<Sql> sequence= Arrays.asList(
@@ -77,7 +80,8 @@ public enum Sql {
 		CONTACTS,
 		PROPERTIES,
 		DEVICE_PREFERENCE,
-		LINKS
+		LINKS,
+		LOGIN_ATTEMPTS
 	);
 	
 	private String sqlName;
@@ -85,7 +89,7 @@ public enum Sql {
 	private Class classes;
 	@SuppressWarnings("rawtypes")
 	private Class entityName;
-	
+
 	@SuppressWarnings("rawtypes")
 	private Sql(String name, Class classes, Class entityName) {
 		this.sqlName = name;

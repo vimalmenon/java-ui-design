@@ -8,16 +8,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class ApplicationInterceptor implements WebMvcConfigurer{
-
-	@Autowired
-	private SessionInterceptor sessionInterceptor;
 	
 	@Autowired
 	private AccessInterceptor accessInterceptor;
 	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(sessionInterceptor);
 		registry.addInterceptor(accessInterceptor);
 	}
 

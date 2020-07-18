@@ -9,6 +9,9 @@ https://amigoscode.com/courses
 https://www.figma.com/
 https://www.algoexpert.io/product
 https://uxdesign.cc/lets-talk-neumorphism-and-accessibility-44a48a6ace72 
+https://nextjs.org/
+https://colorsinspo.com/color-tools/color-wheel
+https://www.youtube.com/audiolibrary/music?nv=1
 
 
 Working on front page 
@@ -24,26 +27,27 @@ Need to work on properties
 Need to use Web Worker effectively
 Need to work on loading indicator
 Need to work on download resume
-Need to remove db folder after download and upload
-Need to check if database file exits
 Accessiblity of the pages
 Need to work on reset password
 Need to work on inactive users
 Need to work on sending email
-Need to work on google authencitation
+Need to work on google authentication 
 Need to work on spring security
+Need to start working on JWT
+Setting of session from JWT
+Need to work on filters
+Need to work on setting up response based on filter on JWT
+
+
+https://medium.com/@gustavo.ponce.ch/spring-boot-spring-mvc-spring-security-mysql-a5d8545d837d
 
 
 Need to know how to set up mysql
 UPDATE mysql.user SET authentication_string = PASSWORD('Nitya@123') WHERE User = 'root';
 update user set plugin="mysql_native_password" where User='root';
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'Nitya@123';
 SELECT User, Host, authentication_string, plugin FROM mysql.user;
 flush privileges;
-
-
-
-
-
 
 
 

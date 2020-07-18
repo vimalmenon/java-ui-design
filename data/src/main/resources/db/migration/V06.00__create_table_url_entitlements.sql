@@ -16,22 +16,6 @@ insert into url_entitlements
 	group_id,
 	access
 )
-select id, (select id from grps where name = 'No User' ), 0 from urls where url = '/api/admin';
-
-insert into url_entitlements 
-(
-	url_id,
-	group_id,
-	access
-)
-select id, (select id from grps where name = 'Super Admin' ), 1 from urls where url = '/api/admin';
-
-insert into url_entitlements 
-(
-	url_id,
-	group_id,
-	access
-)
 select id, (select id from grps where name = 'Visitor' ), 1 from urls where url = '/api/admin';
 
 
@@ -41,41 +25,7 @@ insert into url_entitlements
 	group_id,
 	access
 )
-select id, (select id from grps where name = 'No User' ), 0 from urls where url = '/api/admin/log_out';
-
-insert into url_entitlements 
-(
-	url_id,
-	group_id,
-	access
-)
-select id, (select id from grps where name = 'Super Admin' ), 1 from urls where url = '/api/admin/log_out';
-
-insert into url_entitlements 
-(
-	url_id,
-	group_id,
-	access
-)
 select id, (select id from grps where name = 'Visitor' ), 1 from urls where url = '/api/admin/log_out';
-
-
-
-insert into url_entitlements 
-(
-	url_id,
-	group_id,
-	access
-)
-select id, (select id from grps where name = 'No User' ), 0 from urls where url = '/api/admin/switch_account';
-
-insert into url_entitlements 
-(
-	url_id,
-	group_id,
-	access
-)
-select id, (select id from grps where name = 'Super Admin' ), 1 from urls where url = '/api/admin/switch_account';
 
 insert into url_entitlements 
 (
@@ -85,25 +35,6 @@ insert into url_entitlements
 )
 select id, (select id from grps where name = 'Visitor' ), 1 from urls where url = '/api/admin/switch_account';
 
-
-
-
-insert into url_entitlements 
-(
-	url_id,
-	group_id,
-	access
-)
-select id, (select id from grps where name = 'No User' ), 0 from urls where url = '/api/admin/preferences';
-
-insert into url_entitlements 
-(
-	url_id,
-	group_id,
-	access
-)
-select id, (select id from grps where name = 'Super Admin' ), 1 from urls where url = '/api/admin/preferences';
-
 insert into url_entitlements 
 (
 	url_id,
@@ -112,6 +43,10 @@ insert into url_entitlements
 )
 select id, (select id from grps where name = 'Visitor' ), 1 from urls where url = '/api/admin/preferences';
 
-
-
-
+insert into url_entitlements 
+(
+	url_id,
+	group_id,
+	access
+)
+select id, (select id from grps where name = 'Super Admin' ), 1 from urls where url = '/api/admin/*';

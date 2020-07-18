@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,12 +35,35 @@ public class GoogleDriveService {
 	*/
 	@Autowired
 	private DatabaseManager databaseManager;
+
+	private final String fileName = "database";  
 	
 	@Autowired
 	private Zipper zip;
 	
 	Logger log = LoggerFactory.getLogger(GoogleDriveService.class);
 	
+	private String getFileLocation ()
+	{
+		Path currentRelativePath = Paths.get(fileName);
+		String absolutePath = currentRelativePath.toAbsolutePath().toString();
+		return absolutePath;
+	}
+	private void createDatabaseFolderIfNotExists (java.io.File dbPath) {
+		if (!dbPath.exists()) {
+			dbPath.mkdir();
+		}
+	}
+	public boolean deleteDirectory (java.io.File file)
+	{
+		java.io.File[] contents = file.listFiles();
+		if (contents != null) {
+			for (java.io.File f : contents) {
+				deleteDirectory(f);
+			}
+		}
+		return file.delete();
+	}
 	public GoogleDriveFileModel listFile ()
 	{
 		try {
@@ -64,13 +89,12 @@ public class GoogleDriveService {
 	
 	public void uploadDatabase() {
 		try {
-			java.io.File dbPath = new java.io.File("//application/config//db");
-			
+			java.io.File dbPath = new java.io.File(getFileLocation());
+			createDatabaseFolderIfNotExists(dbPath);
+
 			zip.setFile(dbPath);
 			List<Sql> sequence = Sql.getSequence();
-			if (!dbPath.exists()) {
-				dbPath.mkdir();
-			}
+			
 			List<String> items = databaseManager.uploadDatabase();
 			FileOutputStream out = null;
 			for(int i = 0; i < items.size(); i++) {
@@ -83,8 +107,9 @@ public class GoogleDriveService {
 			
 			java.io.File filePath = new java.io.File(dbPath.getAbsoluteFile() + ".zip");
 			System.out.println(filePath.getAbsoluteFile());
-			
 			googleDriveManager.putFile("db.zip", filePath.getAbsolutePath());
+			deleteDirectory(dbPath);
+			filePath.delete();
 		} catch (IOException e) {
 			log.error(e.getMessage());
 			throw new GeneralException(e.getMessage());
@@ -93,9 +118,12 @@ public class GoogleDriveService {
 	}
 
 	public void restoreDatabase(GoogleDriveFileModel model) {
-		String zipFilePath = "//application/config//db.zip";
-		String destDir = "//application/config//database";
+		String destDir = getFileLocation();
+		String zipFilePath = destDir + "//db.zip";
 		java.io.File fileName = new java.io.File(zipFilePath);
+
+		createDatabaseFolderIfNotExists(new java.io.File(destDir));
+				
 		try {
 			googleDriveManager.downloadFile(fileName, model.getId());
 			zip.unzip(zipFilePath, destDir);
@@ -105,7 +133,7 @@ public class GoogleDriveService {
 			sequence.forEach((item) -> {
 				try {
 					String st;
-					java.io.File dbPath = new java.io.File("//application/config//database//"+item.getSqlName());
+					java.io.File dbPath = new java.io.File(destDir + "//" + item.getSqlName());
 					BufferedReader br = new BufferedReader(new FileReader(dbPath));
 					StringBuilder builder = new StringBuilder();
 					while ((st = br.readLine()) != null) {
@@ -119,9 +147,11 @@ public class GoogleDriveService {
 				}
 			});
 			databaseManager.set();
+			deleteDirectory(new java.io.File(destDir));
+			fileName.delete();
 		} catch (IOException e1) {
 			log.error("Exception for : ", e1);
-			e1.printStackTrace();
+			throw new GeneralException(e1.getMessage());
 		}
 		
 	}
