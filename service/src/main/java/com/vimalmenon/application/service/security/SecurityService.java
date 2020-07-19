@@ -2,9 +2,11 @@ package com.vimalmenon.application.service.security;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import com.vimalmenon.application.data.url.UrlEntitlement;
 import com.vimalmenon.application.manager.database.GroupManager;
 import com.vimalmenon.application.manager.database.UrlManager;
 import com.vimalmenon.application.model.security.UrlEntitlementSecurity;
@@ -26,8 +28,7 @@ public class SecurityService {
     @Autowired
     private GroupManager groupManager;
 
-    private Map<Integer, String> getGroupMap () 
-    {
+    private Map<Integer, String> getGroupMap() {
         Map<Integer, String> groupMap = new HashMap<>();
         groupManager.getGroups().forEach((group) -> {
             groupMap.put(group.getId(), group.getName());
@@ -37,11 +38,24 @@ public class SecurityService {
 
     private List<UrlEntitlementSecurity> getUrlEntitlementList() {
         Map<Integer, String> groupMap = getGroupMap();
+        Map<String, UrlEntitlementSecurity> urlMapper = new HashMap<>();
 
-        List<UrlEntitlementSecurity> urlEntitlements = new ArrayList<>();
-        
-        urlManager.getUrlEntitlementRepository().forEach((urlEntitlement) -> {
-            urlEntitlements.add(new UrlEntitlementSecurity(urlEntitlement.getUrl().getUrl(), urlEntitlement.getUrl().getMethod(), groupMap.get(urlEntitlement.getGroupId())));
+        LinkedList<UrlEntitlementSecurity> urlEntitlements = new LinkedList<>();
+
+        List<UrlEntitlement> urlEntitlementsRepo = urlManager.getUrlEntitlementRepository();
+        urlEntitlementsRepo.forEach((urlEntitlement) -> {
+            if (urlMapper.get(urlEntitlement.getUrl().getUrl()+"|"+urlEntitlement.getUrl().getMethod()) != null) {
+                urlMapper.get(urlEntitlement.getUrl().getUrl()+"|"+urlEntitlement.getUrl().getMethod()).addRoles(groupMap.get(urlEntitlement.getGroupId()));
+            } else {
+                urlMapper.put(urlEntitlement.getUrl().getUrl()+"|"+urlEntitlement.getUrl().getMethod(), new UrlEntitlementSecurity(urlEntitlement.getUrl().getUrl(), urlEntitlement.getUrl().getMethod(), groupMap.get(urlEntitlement.getGroupId())));
+            }
+        });
+        urlMapper.keySet().forEach((url) -> {
+            if(urlMapper.get(url).getMethod().equals("ALL")){
+                urlEntitlements.addLast(urlMapper.get(url));
+            } else {
+                urlEntitlements.addFirst(urlMapper.get(url));
+            }
         });
         return urlEntitlements;
     }
@@ -53,9 +67,9 @@ public class SecurityService {
 
         for(UrlEntitlementSecurity urlEntitlement: urlEntitlements) {
             if (urlEntitlement.getMethod().equals("ALL")) {
-                authorize = authorize.antMatchers(urlEntitlement.getUrl()).hasAuthority(urlEntitlement.getRole());
+                authorize = authorize.antMatchers(urlEntitlement.getUrl()).hasAnyAuthority(urlEntitlement.getRoles().toArray(String[]::new));
             } else {
-                authorize = authorize.antMatchers(urlEntitlement.getMethod(), urlEntitlement.getUrl()).hasAnyRole(urlEntitlement.getRole());
+                authorize = authorize.antMatchers(urlEntitlement.getMethod(), urlEntitlement.getUrl()).hasAnyAuthority(urlEntitlement.getRoles().toArray(String[]::new));
             }
         }
         authorize
