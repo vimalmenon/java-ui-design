@@ -10,6 +10,7 @@ import methods from "./methods";
 import icons from "./icons";
 
 const drawerWidth = 240;
+const storageValue = "VimalMenon";
 const version = VERSION;
 const deviceId = new DeviceUUID().get();
 
@@ -24,6 +25,7 @@ const constants = {
 	navigationByName,
 	MainNavigation,
 	MainUrlMapper,
+	storageValue,
 	deviceId,
 	icons
 };
@@ -40,6 +42,7 @@ export {
 	navigationByName,
 	MainNavigation,
 	MainUrlMapper,
+	storageValue,
 	deviceId,
 	icons
 };

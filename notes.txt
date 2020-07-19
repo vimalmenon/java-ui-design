@@ -39,8 +39,10 @@ Setting of session from JWT
 Need to work on filters
 Need to work on setting up response based on filter on JWT
 Need to set up session Manager/service
+Need to work on localStorage and sessionStorage
 Need to set up dark mode from localstorage
 Need to find a way to switch user.
+Need to work on logout
 
 
 
