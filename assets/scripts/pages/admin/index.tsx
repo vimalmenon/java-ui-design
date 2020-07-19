@@ -5,6 +5,9 @@ import Login from "./login";
 
 import {Entitlement} from "dumb-components";
 
+import Header from "../home/header";
+import Footer from "../home/footer";
+
 
 
 class Pages extends React.Component {
@@ -24,7 +27,11 @@ class Pages extends React.Component {
 					name="Login"
 					render={() => {
 						return (
-							<Login />
+							<React.Fragment>
+								<Header />
+								<Login />
+								<Footer />
+							</React.Fragment>
 						);}} />
 			</React.Fragment>
 		);

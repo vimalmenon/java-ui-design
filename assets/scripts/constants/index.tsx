@@ -8,9 +8,10 @@ import {navigations, urlMapper, navigationByName} from "./navigations";
 import {MainNavigation, MainUrlMapper} from "./navigations/main";
 import methods from "./methods";
 import icons from "./icons";
+import headers from "./headers";
+import {storage} from "./storage";
 
 const drawerWidth = 240;
-const storageValue = "VimalMenon";
 const version = VERSION;
 const deviceId = new DeviceUUID().get();
 
@@ -25,8 +26,9 @@ const constants = {
 	navigationByName,
 	MainNavigation,
 	MainUrlMapper,
-	storageValue,
 	deviceId,
+	headers,
+	storage,
 	icons
 };
 
@@ -42,8 +44,9 @@ export {
 	navigationByName,
 	MainNavigation,
 	MainUrlMapper,
-	storageValue,
 	deviceId,
+	headers,
+	storage,
 	icons
 };
 

@@ -73,16 +73,17 @@ public class AdminService {
 				authenticationManager.authenticate(
 						new UsernamePasswordAuthenticationToken(loginModel.getUsername(), loginModel.getPassword()));
 				UserDetails userDetails = myUserDetailsService.loadUserByUsername(loginModel.getUsername());
-				String token = jwtUtility.generateToken(userDetails);
-				response.setHeader("Authorization", "Bearer " + token);
+				String token = "Bearer " + jwtUtility.generateToken(userDetails);
+				response.setHeader("Authorization", token);
 				return token;
 			}
 		}
 		throw new ValidationError("Invalid Username or Password");
 	}
 
-	public void logOut() 
+	public void logOut(HttpServletResponse response) 
 	{
+		response.setHeader("Authorization", null);
 		setSessionForDefault();
 	}
 

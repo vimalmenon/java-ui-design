@@ -4,12 +4,9 @@ import {startSpinner, stopSpinner} from "../spinner";
 import * as actions from "actions";
 import {dispatch, notification} from "utility";
 
+import {headers as header} from "const";
 
 const {GET} = methods;
-
-const headers = {
-	"Content-Type": "application/json",
-};
 
 class ApiCaller {
 
@@ -19,6 +16,7 @@ class ApiCaller {
 	private isSpinning;
 
 	constructor (data: IApi) {
+		var headers = header.getHeaders();
 		this.controller = new AbortController();
 		this.signal = this.controller.signal;
 		this.promise = new Promise((resolve, reject) => {
@@ -33,9 +31,6 @@ class ApiCaller {
 			promise = promise.then((data) => {
 				stopSpinner();
 				this.isSpinning = false;
-				if (data.headers.get("Authorization")) {
-					headers["Authorization"] = data.headers.get("Authorization");
-				}
 				if (data.headers.get("content-type") === "application/json") {
 					return data.json();
 				} else {

@@ -19,6 +19,8 @@ public class SessionService {
         session.setId(groupModel.getId());
         session.setGroup(groupModel.getName());
         session.setPriority(groupModel.getPriority());
+        session.setUser(null);
+        session.setUserId(null);
     }
 
     public void setSession(User user) 
