@@ -14,7 +14,6 @@ public class Session {
 	private String user;
 	private String group;
 	private Integer priority;
-	private boolean session;
 
 	public int getId() {
 		return id;
@@ -55,18 +54,9 @@ public class Session {
 		this.priority = priority;
 	}
 
-	public boolean isSession() {
-		return session;
-	}
-
-	public void setSession(boolean session) {
-		this.session = session;
-	}
-
 	@Override
 	public String toString() {
-		return "Session [id=" + id + ", userId=" + userId + ", user=" + user + ", group=" + group + ", priority=" + priority + ", session="
-				+ session + "]";
+		return "Session [id=" + id + ", userId=" + userId + ", user=" + user + ", group=" + group + ", priority=" + priority + "]";
 	}
 
 }

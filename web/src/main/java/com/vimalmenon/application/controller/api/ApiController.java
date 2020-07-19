@@ -54,7 +54,8 @@ public class ApiController {
 	@PostMapping("/log_in")
 	public ApiResponseModel<String> login(@RequestBody AdminLoginModel loginModel, HttpServletResponse response) 
 	{
-		return new ApiResponseModel<String>(adminService.logIn(loginModel, response)).setData("Success");
+		String token = adminService.logIn(loginModel, response);
+		return new ApiResponseModel<String>(session).setData(token);
 	}
 	
 	@PostMapping("/component_entitlement")

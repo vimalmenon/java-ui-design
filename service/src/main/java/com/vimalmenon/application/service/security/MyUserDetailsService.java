@@ -24,7 +24,7 @@ public class MyUserDetailsService implements UserDetailsService {
         if (user.isPresent()) {
             return new CustomUserDetails(user.get());
         } else {
-            throw new UsernameNotFoundException("Invalid username or password");
+            throw new UsernameNotFoundException("Invalid Username or Password");
         }
     }
 

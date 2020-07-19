@@ -23,6 +23,7 @@ import com.vimalmenon.application.model.admin.AdminLoginModel;
 import com.vimalmenon.application.model.group.GroupModel;
 import com.vimalmenon.application.model.profile.UserProfileModel;
 import com.vimalmenon.application.model.response.Session;
+import com.vimalmenon.application.service.general.SessionService;
 import com.vimalmenon.application.service.security.JWTUtility;
 import com.vimalmenon.application.service.security.MyUserDetailsService;
 
@@ -41,20 +42,21 @@ public class AdminService {
 	@Autowired
 	private JWTUtility jwtUtility;
 
-
 	@Autowired
 	private Session session;
 
-	public GroupModel getDefaultGroup() 
+	@Autowired
+	private SessionService  sessionService;
+	
+	public void setSessionForDefault () 
 	{
 		Optional<Group> groupOptional = userGroupAdminManager.getGroupByName(Groups.NO_USER.name);
 		if (!groupOptional.isPresent()) {
 			throw new ApplicationErrorException();
 		}
-		return new GroupModel(groupOptional.get());
+		sessionService.setSession(new GroupModel(groupOptional.get()));
 	}
-
-	public Session logIn(AdminLoginModel loginModel, HttpServletResponse response) 
+	public String logIn(AdminLoginModel loginModel, HttpServletResponse response) 
 	{
 		Optional<Integer> userIdOptional = Optional.ofNullable(session.getUserId());
 		if (userIdOptional.isPresent()) {
@@ -65,9 +67,7 @@ public class AdminService {
 			User user = userOptional.get();
 			if (user.getUsername().equals(loginModel.getUsername())
 					&& Helper.verifyPassword(loginModel.getPassword(), user.getPassword())) {
-				setSessionGroup(new GroupModel(user.getGroup()));
-				session.setUser(userOptional.get().getUsername());
-				session.setUserId(userOptional.get().getId());
+				sessionService.setSession(user);
 
 				// Working on JWT
 				authenticationManager.authenticate(
@@ -75,35 +75,22 @@ public class AdminService {
 				UserDetails userDetails = myUserDetailsService.loadUserByUsername(loginModel.getUsername());
 				String token = jwtUtility.generateToken(userDetails);
 				response.setHeader("Authorization", "Bearer " + token);
-				return session;
+				return token;
 			}
 		}
-		throw new ValidationError("Invalid Username or password");
+		throw new ValidationError("Invalid Username or Password");
 	}
 
 	public void logOut() 
 	{
-		GroupModel groupModel = getDefaultGroup();
-		session.setId(groupModel.getId());
-		session.setGroup(groupModel.getName());
-		session.setPriority(groupModel.getPriority());
-		session.setSession(true);
-		session.setUser(null);
-		session.setUserId(null);
-	}
-	
-	private void setSessionGroup (GroupModel groupModel)
-	{
-		session.setId(groupModel.getId());
-		session.setGroup(groupModel.getName());
-		session.setPriority(groupModel.getPriority());
+		setSessionForDefault();
 	}
 
 	public void switchAccount(SwitchAccountModel switchAccount) 
 	{
 		Optional<Group> groupOptional = userGroupAdminManager.getGroupByName(switchAccount.getName());
 		if (groupOptional.isPresent()) {
-			setSessionGroup(new GroupModel(groupOptional.get()));
+			sessionService.setSession((new GroupModel(groupOptional.get())));
 			return;
 		}
 		throw new ValidationError("Not a valid group");
@@ -135,9 +122,7 @@ public class AdminService {
 		Optional<User> userOptional = userGroupAdminManager.login(username);
 		if (userOptional.isPresent()) {
 			User user = userOptional.get();
-			setSessionGroup(new GroupModel(user.getGroup()));
-			session.setUser(userOptional.get().getUsername());
-			session.setUserId(userOptional.get().getId());
+			sessionService.setSession(user);
 			return true;
 		}
 		return false;

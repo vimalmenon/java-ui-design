@@ -49,7 +49,6 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 	public RestAuthenticationFailureHandler accessDeniedHandler() {
 		return new RestAuthenticationFailureHandler();
     }
-    
 
 	@Bean
 	public RestAuthenticationEntryPoint authenticationEntryPoint() {

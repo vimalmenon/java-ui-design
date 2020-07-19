@@ -25,6 +25,7 @@ Need to work on exception messages
 Need to work on handling api error and success
 Need to work on properties
 Need to use Web Worker effectively
+Need to work on cache static files
 Need to work on loading indicator
 Need to work on download resume
 Accessiblity of the pages
@@ -38,6 +39,9 @@ Setting of session from JWT
 Need to work on filters
 Need to work on setting up response based on filter on JWT
 Need to set up session Manager/service
+Need to set up dark mode from localstorage
+Need to find a way to switch user.
+
 
 
 https://medium.com/@gustavo.ponce.ch/spring-boot-spring-mvc-spring-security-mysql-a5d8545d837d
