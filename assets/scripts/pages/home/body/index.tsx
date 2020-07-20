@@ -1,9 +1,12 @@
 import * as React from "react";
 
 import {
+	Theme,
 	createStyles,
 	makeStyles,
 } from "@material-ui/core/styles";
+
+import Container from "@material-ui/core/Container";
 
 import {
 	Switch,
@@ -20,10 +23,12 @@ import Tutorials from "./tutorials";
 import PrivacyPolicy from "./privacy-policy";
 import Home from "./home";
 
-const useStyles = makeStyles(() => {
+const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
 		root: {
 			display: "flex",
+			backgroundColor: theme.palette.background.default,
+			color: theme.palette.text.primary,
 		}
 	});
 });
@@ -40,13 +45,15 @@ const Body =(props) => {
 	});
 	return (
 		<section className={classes.root}>
-			<Switch>
-				<Route exact path={`/`} component={Home} />
-				<Route path={`/about`} component={About} />
-				<Route path={`/contact`} component={Contact} />
-				<Route path={`/tutorials`} component={Tutorials} />
-				<Route path={`/privacy-policy`} component={PrivacyPolicy} />
-			</Switch>
+			<Container maxWidth="lg">
+				<Switch>
+					<Route exact path={`/`} component={Home} />
+					<Route path={`/about`} component={About} />
+					<Route path={`/contact`} component={Contact} />
+					<Route path={`/tutorials`} component={Tutorials} />
+					<Route path={`/privacy-policy`} component={PrivacyPolicy} />
+				</Switch>
+			</Container>
 		</section>
 	);
 };

@@ -1,12 +1,13 @@
 import * as React from "react";
 
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Container from "@material-ui/core/Container";
+
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 import {
+	Theme,
 	createStyles,
 	makeStyles,
 	ThemeProvider,
@@ -20,12 +21,14 @@ import Header from "./header";
 import Body from "./body";
 import Footer from "./footer";
 
-const useStyles = makeStyles(() => {
+const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
 		root: {
 			display: "flex",
-			flexDirection: "column"
-		}
+			flexDirection: "column",
+			backgroundColor: theme.palette.background.paper,
+			color: theme.palette.text.primary,
+		},
 	});
 });
 
@@ -45,16 +48,14 @@ const Home = (props) => {
 		}
 	}, []);
 	return (
-		<div className={classes.root}>
-			<CssBaseline />
-			<ThemeProvider theme={theme}>
+		<ThemeProvider theme={theme}>
+			<div className={classes.root}>
+				<CssBaseline />
 				<Header />
-				<Container maxWidth="lg">
-					<Body />
-				</Container>
+				<Body />
 				<Footer />
-			</ThemeProvider>
-		</div>
+			</div>
+		</ThemeProvider>
 	);
 };
 
