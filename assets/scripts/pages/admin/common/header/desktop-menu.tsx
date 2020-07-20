@@ -3,7 +3,7 @@ import * as React from "react";
 import IconButton from "@material-ui/core/IconButton";
 
 import Brightness7Icon from "@material-ui/icons/Brightness7";
-import Brightness4Icon from "@material-ui/icons/Brightness4";
+import BrightnessLowIcon from "@material-ui/icons/BrightnessLow";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import SwapHorizIcon from "@material-ui/icons/SwapHoriz";
 
@@ -17,7 +17,7 @@ const DesktopMenu = (props: any) => {
 				</IconButton>
 				:
 				<IconButton aria-label="show 4 new mails" color="inherit" onClick={() => preferencesActions.toggleMode(mode)}>
-					<Brightness4Icon />
+					<BrightnessLowIcon />
 				</IconButton>
 			}
 			{groups.length > 1 ? 

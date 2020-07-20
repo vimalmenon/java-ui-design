@@ -34,12 +34,6 @@ class Api implements IApi{
 	
 }
 
-class SavePreferences extends Api {
-	constructor (data) {
-		super("savePreferences", POST, "/api/admin/preferences");
-		this.setApiData(data);
-	}
-}
 class ComponentEntitlement extends Api {
 	constructor (data) {
 		super("componentEntitlement", POST, "/api/component_entitlement");
@@ -209,7 +203,6 @@ class DeleteLinks extends Api {
 	}
 }
 export default {
-	SavePreferences,
 	Admin,
 	Login,
 	ComponentEntitlement,

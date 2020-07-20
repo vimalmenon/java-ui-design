@@ -1,18 +1,11 @@
-import {ApiCaller} from "utility";
-import {apiList} from "const";
-
-const {SavePreferences} = apiList;
-
 import {TOGGLE_DRAWER, TOGGLE_MODE, SET_PALETTE, SET_PALETTE_COLOR, SET_PREFERENCES} from "./preferences-types";
 
 const toggleMode = (mode: any) => {
-	return (dispatch, getState) => {
+	return (dispatch) => {
 		dispatch({
 			type : TOGGLE_MODE,
 			mode : (mode === "dark") ? "light": "dark" 
 		});
-		const state = getState();
-		new ApiCaller(new SavePreferences(state.preferences));
 	};
 };
 const toggleDrawer = (drawer: boolean) => {

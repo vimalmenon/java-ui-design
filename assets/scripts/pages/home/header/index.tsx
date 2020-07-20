@@ -8,6 +8,7 @@ import {
 import {
 	Link
 } from "react-router-dom";
+import { connect } from "react-redux";
 
 import Typography from "@material-ui/core/Typography";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -16,6 +17,11 @@ import {MainNavigation} from "const";
 
 import BrightnessLowIcon from "@material-ui/icons/BrightnessLow";
 import BrightnessHighIcon from "@material-ui/icons/BrightnessHigh";
+import IconButton from "@material-ui/core/IconButton";
+
+import { bindActionCreators } from "redux";
+
+import * as actions from "actions";
 
 const useStyles = makeStyles((theme) => {
 	return createStyles({
@@ -53,8 +59,10 @@ const useStyles = makeStyles((theme) => {
 });
 
 
-const Header = () => {
+const Header = (props) => {
 	const classes = useStyles();
+	const {preferences, preferencesActions} = props;
+	let {palette} = preferences;
 	return (
 		<Toolbar className={classes.root}>
 			<Typography
@@ -77,10 +85,31 @@ const Header = () => {
 					);
 				})}
 			</Typography>
-			<BrightnessLowIcon className={classes.search}/>
-			<BrightnessHighIcon className={classes.search}/>
+			{(palette.type ==="dark")?
+				<IconButton aria-label="show 4 new mails" color="inherit" onClick={() => preferencesActions.toggleMode(palette.type)}>
+					<BrightnessHighIcon className={classes.search}/>
+				</IconButton> :
+				<IconButton aria-label="show 4 new mails" color="inherit" onClick={() => preferencesActions.toggleMode(palette.type)}>
+					<BrightnessLowIcon className={classes.search}/> 
+				</IconButton>
+				
+			}
 		</Toolbar>
 	);
 };
 
-export default Header;
+const mapStateToProps = (state : any) => {
+	return {
+		preferences: state.preferences,
+	};
+};
+const mapDispatchToProps = (dispatch) => {
+	return {
+		preferencesActions : bindActionCreators({...actions.preferences}, dispatch)
+	};
+};
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Header);

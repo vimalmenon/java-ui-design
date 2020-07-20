@@ -52,12 +52,6 @@ public class AdminController {
 		return new ApiResponseModel<String>(session).setData("Success");
 	}
 	
-	@PostMapping("/preferences")
-	public ApiResponseModel<String> savePreferences(@RequestBody String preferences) {
-		adminControllerService.savePreferences(preferences);
-		return new ApiResponseModel<String>(session).setData("Succcess");
-	}
-	
 	@GetMapping("/profile")
 	public ApiResponseModel<UserProfileModel> getProfile ()
 	{

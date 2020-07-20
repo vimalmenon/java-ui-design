@@ -32,8 +32,6 @@ import com.vimalmenon.application.data.user.LoginAttemptRepository;
 import com.vimalmenon.application.data.user.User;
 import com.vimalmenon.application.data.user.UserActivity;
 import com.vimalmenon.application.data.user.UserActivityRepository;
-import com.vimalmenon.application.data.user.UserPreference;
-import com.vimalmenon.application.data.user.UserPreferenceRepository;
 import com.vimalmenon.application.data.user.UserProfile;
 import com.vimalmenon.application.data.user.UserProfileRepository;
 import com.vimalmenon.application.data.user.UserRepository;
@@ -45,7 +43,6 @@ public enum Sql {
 
 	GROUPS("groups", GroupRepository.class, Group.class),
 	USERS("users", UserRepository.class, User.class),
-	USER_PREFERENCES("user_preferences", UserPreferenceRepository.class, UserPreference.class),
 	NOTES("notes", NoteRepository.class, Note.class),
 	URLS("urls", UrlRepository.class, Url.class),
 	URL_ENTITLEMENTS("url_entitlements", UrlEntitlementRepository.class, UrlEntitlement.class),
@@ -65,8 +62,7 @@ public enum Sql {
 	
 	private static List<Sql> sequence= Arrays.asList(
 		GROUPS, 
-		USERS, 
-		USER_PREFERENCES, 
+		USERS,
 		NOTES, 
 		URLS, 
 		URL_ENTITLEMENTS,
