@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme:Theme) => {
 			display: "flex",
 			backgroundColor: theme.palette.background.default,
 			color: theme.palette.text.primary,
+			padding: theme.spacing(2,0),
 		}
 	});
 });
