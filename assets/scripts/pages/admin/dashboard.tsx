@@ -3,8 +3,6 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import {
 	createStyles,
 	makeStyles,
-	ThemeProvider,
-	createMuiTheme,
 } from "@material-ui/core/styles";
 
 import { connect } from "react-redux";
@@ -32,22 +30,11 @@ const useStyles = makeStyles(() => {
 	});
 });
 function Dashboard (props) {
-	const {preferences, commonActions, preferencesActions, session} = props;
-	let {palette} = preferences;
-	const theme = createMuiTheme({
-		palette : {
-			type: palette.type,
-			primary:palette.primary,
-			secondary: palette.secondary      
-		},
-	});
+	const {commonActions, session} = props;
 	React.useEffect(() => {
 		if (session.user) {
 			new ApiCaller(new Admin())
 				.success((data: any)=> {
-					if (data.preferences) {
-						preferencesActions.setPreferences(JSON.parse(data.preferences));
-					}
 					commonActions.setNavigationEntitlement(data.navigations);
 					commonActions.setGroups(data.groups);
 				});
@@ -67,25 +54,21 @@ function Dashboard (props) {
 	return (
 		<div className={classes.root}>
 			<CssBaseline />
-			<ThemeProvider theme={theme}>
-				<Header />
-				<Sidebar />
-				<Main />
-			</ThemeProvider>
+			<Header />
+			<Sidebar />
+			<Main />
 		</div>
 	);
 }
 
 const mapStateToProps = (state : any) => {
 	return {
-		preferences: state.preferences,
 		session: state.user.session
 	};
 };
 const mapDispatchToProps = (dispatch: any) => {
 	return {
-		commonActions : bindActionCreators({...actions.common}, dispatch),
-		preferencesActions : bindActionCreators({...actions.preferences}, dispatch)
+		commonActions : bindActionCreators({...actions.common}, dispatch)
 	};
 };
 

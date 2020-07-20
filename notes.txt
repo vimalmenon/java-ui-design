@@ -43,6 +43,8 @@ Need to add Youtube and insta icons
 Need to work on offline page
 Need to set up theme on the local storage.
 Need to work on URL security using spring security
+Need to remove the prefrences and from api
+Need to remove the perfrences table 
 
 
 
