@@ -3,7 +3,7 @@ CREATE TABLE navigation_entitlements
    id INT NOT NULL AUTO_INCREMENT,
    navigation_id int signed,
    group_id int signed,
-   access TINYINT (1) NOT NULL,
+   access TINYINT NOT NULL,
    PRIMARY KEY (id),
    FOREIGN KEY (group_id) REFERENCES grps (id),
    CONSTRAINT UN_COMPONENT_ENTITLEMENT_GROUP_ID_ACCESS UNIQUE (navigation_id, group_id, access)
