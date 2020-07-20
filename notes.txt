@@ -15,7 +15,6 @@ https://www.youtube.com/audiolibrary/music?nv=1
 
 
 Need to work on front page 
-Need to work on service worker
 Need to work on server side rendering
 Need to work on docker
 Need to work on loading page
@@ -35,16 +34,12 @@ Need to work on sending email
 Need to work on google authentication 
 Need to work on spring security
 Need to work on filters
-Need to work on setting up response based on filter on JWT
-Need to work on URL access using spring security.
 Need to set up dark mode from localstorage
 Need to find a way to switch user.
 Need to add Youtube and insta icons
 Need to work on offline page
 Need to set up theme on the local storage.
 Need to work on URL security using spring security
-Need to remove the prefrences and from api
-Need to remove the perfrences table 
 
 
 

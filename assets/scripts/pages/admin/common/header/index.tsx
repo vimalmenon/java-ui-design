@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) => {
 			flexGrow: 1,
 		},
 		appBar: {
-			//backgroundColor: theme.palette.background.default,
+			backgroundColor: "#0c2340",
 			zIndex: theme.zIndex.drawer + 1,
 			transition: theme.transitions.create(["width", "margin"], {
 				easing: theme.transitions.easing.sharp,
