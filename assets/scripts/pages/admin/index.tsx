@@ -1,9 +1,6 @@
 import * as React from "react";
 
-import {
-	ThemeProvider,
-	createMuiTheme,
-} from "@material-ui/core/styles";
+
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
@@ -24,33 +21,24 @@ class Pages extends React.Component<any,any> {
 		super(props);
 	}
 	render () {
-		let {preferences} = this.props;
-		let {palette} = preferences;
-		const theme = createMuiTheme({
-			palette : {
-				...palette
-			}
-		});
 		return (
 			<React.Fragment>
-				<ThemeProvider theme={theme}>
-					<Entitlement 
-						name="Dashboard" 
-						render={({read}) => {
-							return (
-								<Dashboard read={read}/>
-							);}} />
-					<Entitlement
-						name="Login"
-						render={() => {
-							return (
-								<React.Fragment>
-									<Header />
-									<Login />
-									<Footer />
-								</React.Fragment>
-							);}} />
-				</ThemeProvider>
+				<Entitlement 
+					name="Dashboard" 
+					render={({read}) => {
+						return (
+							<Dashboard read={read}/>
+						);}} />
+				<Entitlement
+					name="Login"
+					render={() => {
+						return (
+							<React.Fragment>
+								<Header />
+								<Login />
+								<Footer />
+							</React.Fragment>
+						);}} />
 			</React.Fragment>
 		);
 	}

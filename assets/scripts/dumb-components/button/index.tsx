@@ -1,11 +1,17 @@
-import * as React from "react";
+import Button from "@material-ui/core/Button";
 
-const Button = () => {
-    return (
-        <div>
-            this is button;
-        </div>
-    );
-};
+import {
+	Theme,
+	withStyles,
+	createStyles,
+} from "@material-ui/core/styles";
 
-export default Button;
+
+const ButtonComponent = withStyles((theme: Theme) => {
+	return createStyles({
+		root: {
+		}
+	});
+})(Button);
+
+export default ButtonComponent;

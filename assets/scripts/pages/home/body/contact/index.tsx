@@ -6,12 +6,13 @@ import {
 } from "@material-ui/core/styles";
 
 import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
 
 import {ApiCaller} from "utility";
 import {apiList} from "const";
 
 const {ApiSaveContact} = apiList;
+
+import {Button} from "dumb-components";
 
 const useStyles = makeStyles(() => {
 	return createStyles({
@@ -44,6 +45,7 @@ const Contact = () => {
 					required 
 					label="Name"
 					name="name"
+					color="secondary"
 					onChange={onUpdate} />
 			</div>
 			<div>

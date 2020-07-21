@@ -4,9 +4,9 @@ import {colors} from "const";
 const {lightBlue} = colors;
 
 import {
-	createStyles,
 	Theme,
 	withStyles,
+	createStyles,
 } from "@material-ui/core/styles";
 
 

@@ -9,9 +9,7 @@ import { bindActionCreators } from "redux";
 import {
 	Theme,
 	createStyles,
-	makeStyles,
-	ThemeProvider,
-	createMuiTheme,
+	makeStyles
 } from "@material-ui/core/styles";
 
 import {storage} from "const";
@@ -35,12 +33,6 @@ const useStyles = makeStyles((theme:Theme) => {
 const Home = (props) => {
 	const classes = useStyles();
 	let {preferencesActions} = props;
-	let {palette} = props.preferences;
-	const theme = createMuiTheme({
-		palette : {
-			...palette
-		}
-	});
 	React.useEffect(() => {
 		let localStorage = storage.selectStorage("local").getStorage();
 		if (localStorage["preferences"]) {
@@ -48,14 +40,12 @@ const Home = (props) => {
 		}
 	}, []);
 	return (
-		<ThemeProvider theme={theme}>
-			<div className={classes.root}>
-				<CssBaseline />
-				<Header />
-				<Body />
-				<Footer />
-			</div>
-		</ThemeProvider>
+		<div className={classes.root}>
+			<CssBaseline />
+			<Header />
+			<Body />
+			<Footer />
+		</div>
 	);
 };
 

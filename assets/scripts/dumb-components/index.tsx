@@ -11,6 +11,7 @@ import Loader from "./loader";
 import TextField from "./text-field";
 import Table from "./table";
 import Button from "./button";
+import Input from "./input";
 
 export default {
 	CustomColorPicker,
@@ -21,6 +22,7 @@ export default {
 	Loader,
 	Dialog,
 	Button,
+	Input,
 	Table,
 	Tabs,
 	Card,
@@ -37,6 +39,7 @@ export {
 	Loader,
 	Dialog,
 	Button,
+	Input,
 	Table,
 	Tabs,
 	Card,
