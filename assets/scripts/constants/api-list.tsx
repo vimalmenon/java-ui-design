@@ -34,6 +34,11 @@ class Api implements IApi{
 	
 }
 
+class MainApi extends Api {
+	constructor() {
+		super("api", GET, "/api");
+	}
+}
 class ComponentEntitlement extends Api {
 	constructor (data) {
 		super("componentEntitlement", POST, "/api/component_entitlement");
@@ -205,6 +210,7 @@ class DeleteLinks extends Api {
 export default {
 	Admin,
 	Login,
+	MainApi,
 	ComponentEntitlement,
 	GetAdminContact,
 	SaveAdminContact,

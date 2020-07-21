@@ -10,6 +10,7 @@ import Menu from "./menu";
 import Loader from "./loader";
 import TextField from "./text-field";
 import Table from "./table";
+import Button from "./button";
 
 export default {
 	CustomColorPicker,
@@ -19,6 +20,7 @@ export default {
 	TextField,
 	Loader,
 	Dialog,
+	Button,
 	Table,
 	Tabs,
 	Card,
@@ -34,6 +36,7 @@ export {
 	TextField,
 	Loader,
 	Dialog,
+	Button,
 	Table,
 	Tabs,
 	Card,

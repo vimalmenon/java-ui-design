@@ -18,6 +18,7 @@ import {MainNavigation} from "const";
 import BrightnessLowIcon from "@material-ui/icons/BrightnessLow";
 import BrightnessHighIcon from "@material-ui/icons/BrightnessHigh";
 import IconButton from "@material-ui/core/IconButton";
+import Tooltip from "@material-ui/core/Tooltip";
 
 import { bindActionCreators } from "redux";
 
@@ -86,13 +87,16 @@ const Header = (props) => {
 				})}
 			</Typography>
 			{(palette.type ==="dark")?
-				<IconButton aria-label="show 4 new mails" color="inherit" onClick={() => preferencesActions.toggleMode(palette.type)}>
-					<BrightnessHighIcon className={classes.search}/>
-				</IconButton> :
-				<IconButton aria-label="show 4 new mails" color="inherit" onClick={() => preferencesActions.toggleMode(palette.type)}>
-					<BrightnessLowIcon className={classes.search}/> 
-				</IconButton>
-				
+				<Tooltip title="Light mode" aria-label="Light mode">
+					<IconButton aria-label="show 4 new mails" color="inherit" onClick={() => preferencesActions.toggleMode(palette.type)}>
+						<BrightnessHighIcon className={classes.search}/>
+					</IconButton> 
+				</Tooltip>:
+				<Tooltip title="Dark mode" aria-label="Dark mode">
+					<IconButton aria-label="show 4 new mails" color="inherit" onClick={() => preferencesActions.toggleMode(palette.type)}>
+						<BrightnessLowIcon className={classes.search}/> 
+					</IconButton>
+				</Tooltip>
 			}
 		</Toolbar>
 	);

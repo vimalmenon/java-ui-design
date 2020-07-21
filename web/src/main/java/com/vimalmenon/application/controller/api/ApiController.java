@@ -75,6 +75,12 @@ public class ApiController {
 	public void downloadResume () {
 		
 	}
+
+	@GetMapping("/offline_page")
+	public ApiResponseModel<String> offlinePage ()
+	{
+		return new ApiResponseModel<String>(session).setData("Success");
+	}
 	
 	@RequestMapping(value = "/user")
 	public Principal user(Principal principal) {
