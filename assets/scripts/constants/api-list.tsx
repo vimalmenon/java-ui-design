@@ -39,6 +39,11 @@ class MainApi extends Api {
 		super("api", GET, "/api");
 	}
 }
+class OfflinePage extends Api {
+	constructor () {
+		super("offlinePage", GET, "/api/offline_page");
+	}
+}
 class ComponentEntitlement extends Api {
 	constructor (data) {
 		super("componentEntitlement", POST, "/api/component_entitlement");
@@ -211,6 +216,7 @@ export default {
 	Admin,
 	Login,
 	MainApi,
+	OfflinePage,
 	ComponentEntitlement,
 	GetAdminContact,
 	SaveAdminContact,
