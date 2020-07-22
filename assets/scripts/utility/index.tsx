@@ -6,6 +6,7 @@ import localization from "./localization";
 import {dispatch} from "./dispatch";
 import notification from "./notification";
 import used from "./used";
+import switchTheme from "./switch-theme";
 
 export default {
 	used,
@@ -16,7 +17,8 @@ export default {
 	localization,
 	notification,
 	dispatch,
-	replaceUrlBackslashAtEnd
+	replaceUrlBackslashAtEnd,
+	switchTheme
 };
 
 export {
@@ -28,5 +30,6 @@ export {
 	localization,
 	notification,
 	dispatch,
-	replaceUrlBackslashAtEnd
+	replaceUrlBackslashAtEnd,
+	switchTheme
 };

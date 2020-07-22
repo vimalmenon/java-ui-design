@@ -6,7 +6,7 @@ import {
 
 import loadable from "@loadable/component";
 import { useToasts } from "react-toast-notifications";
-import { notification } from "utility";
+import { notification, switchTheme } from "utility";
 import { connect } from "react-redux";
 
 import {
@@ -28,6 +28,9 @@ const Pages = (props) => {
 			...palette
 		}
 	});
+	React.useEffect(() => {
+		switchTheme.themeInit();
+	},[]);
 	return (
 		<ThemeProvider theme={theme}>
 			<Switch>

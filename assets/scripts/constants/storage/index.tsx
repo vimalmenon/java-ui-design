@@ -11,7 +11,7 @@ class Storage {
 		sessionStorage.setItem(storageValue,session);
 		this.storage = sessionStorage;
 	}
-	public selectStorage (storageType:String) {
+	public selectStorage (storageType:"session"|"local") {
 		if(storageType === "session") {
 			this.storage = sessionStorage;
 		} else {
