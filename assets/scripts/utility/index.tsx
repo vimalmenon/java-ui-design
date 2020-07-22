@@ -5,8 +5,8 @@ import ApiCaller from "./api";
 import localization from "./localization";
 import {dispatch} from "./dispatch";
 import notification from "./notification";
-import storage from "./storage";
 import used from "./used";
+import switchTheme from "./switch-theme";
 
 export default {
 	used,
@@ -17,8 +17,8 @@ export default {
 	localization,
 	notification,
 	dispatch,
-	storage,
-	replaceUrlBackslashAtEnd
+	replaceUrlBackslashAtEnd,
+	switchTheme
 };
 
 export {
@@ -30,6 +30,6 @@ export {
 	localization,
 	notification,
 	dispatch,
-	storage,
-	replaceUrlBackslashAtEnd
+	replaceUrlBackslashAtEnd,
+	switchTheme
 };

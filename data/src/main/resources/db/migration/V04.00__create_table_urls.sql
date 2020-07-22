@@ -44,17 +44,6 @@ insert into urls
 (
 	url,
 	method
-	
-) 
-values (
-	"/api/admin/preferences",
-	"POST"
-);
-
-insert into urls
-(
-	url,
-	method
 ) 
 values (
 	"/api/admin/*",

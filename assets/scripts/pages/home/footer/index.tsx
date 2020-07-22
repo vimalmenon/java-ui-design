@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => {
 		footer:{
 			display:"flex",
 			backgroundColor: theme.palette.background.paper,
+			color: theme.palette.text.primary,
 			padding: theme.spacing(3, 2),
 			justifyContent:"center"
 		},
@@ -39,7 +40,7 @@ const useStyles = makeStyles((theme) => {
 		},
 		link:{
 			textDecoration:"none",
-			color: "rgba(0, 0, 0, 0.87)"
+			color: theme.palette.text.primary,
 		}
 	});
 });

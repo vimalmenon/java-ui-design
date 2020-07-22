@@ -2,6 +2,8 @@ package com.vimalmenon.application.controller.api;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,8 +41,8 @@ public class AdminController {
 	}
 	
 	@PostMapping("/log_out")
-	public ApiResponseModel<String> logOut() {
-		adminService.logOut();
+	public ApiResponseModel<String> logOut(HttpServletResponse response) {
+		adminService.logOut(response);
 		return new ApiResponseModel<String>(session).setData("Success");
 	}
 	
@@ -48,12 +50,6 @@ public class AdminController {
 	public ApiResponseModel<String> switchAccount(@RequestBody SwitchAccountModel switchAccount) {
 		adminService.switchAccount(switchAccount);
 		return new ApiResponseModel<String>(session).setData("Success");
-	}
-	
-	@PostMapping("/preferences")
-	public ApiResponseModel<String> savePreferences(@RequestBody String preferences) {
-		adminControllerService.savePreferences(preferences);
-		return new ApiResponseModel<String>(session).setData("Succcess");
 	}
 	
 	@GetMapping("/profile")

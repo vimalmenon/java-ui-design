@@ -4,7 +4,7 @@ CREATE TABLE users
    username VARCHAR (100) NOT NULL,
    password VARCHAR (250) NOT NULL,
    group_id INT SIGNED NOT NULL,
-   is_active TINYINT (1) NOT NULL,
+   is_active TINYINT NOT NULL,
    PRIMARY KEY (id),
    FOREIGN KEY (group_id) REFERENCES grps (id),
    CONSTRAINT UN_USER_USERNAME UNIQUE (username)

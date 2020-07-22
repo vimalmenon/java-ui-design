@@ -18,7 +18,7 @@ import { withRouter } from "react-router-dom";
 
 import * as actions from "actions";
 
-import {drawerWidth, apiList} from "const";
+import {drawerWidth, apiList, storage, headers} from "const";
 import {ApiCaller} from "utility";
 
 import MobileMenu from "./mobile-menu";
@@ -34,7 +34,6 @@ const useStyles = makeStyles((theme: Theme) => {
 			flexGrow: 1,
 		},
 		appBar: {
-			//backgroundColor: theme.palette.background.default,
 			zIndex: theme.zIndex.drawer + 1,
 			transition: theme.transitions.create(["width", "margin"], {
 				easing: theme.transitions.easing.sharp,
@@ -85,7 +84,11 @@ const DashboardHeader = (props) => {
 		new ApiCaller(new SwitchAccount(group));
 	};
 	const onLogOut = () => {
-		new ApiCaller(new LogOut());
+		new ApiCaller(new LogOut())
+			.success(() => {
+				storage.selectStorage("session").addToStorage({"Authorization": null});
+				headers.setAuthorization(null);
+			});
 	};
 	return (
 		<AppBar

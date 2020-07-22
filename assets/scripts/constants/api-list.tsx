@@ -14,7 +14,7 @@ class Api implements IApi{
 	public data;
 	public failureMessage;
 	public successMessage;
-	constructor (name: string, method:string, url:string) {
+	constructor (name:String, method:String, url:String) {
 		this.name = name;
 		this.method = method;
 		this.url = url;
@@ -34,10 +34,14 @@ class Api implements IApi{
 	
 }
 
-class SavePreferences extends Api {
-	constructor (data) {
-		super("savePreferences", POST, "/api/admin/preferences");
-		this.setApiData(data);
+class MainApi extends Api {
+	constructor() {
+		super("api", GET, "/api");
+	}
+}
+class OfflinePage extends Api {
+	constructor () {
+		super("offlinePage", GET, "/api/offline_page");
 	}
 }
 class ComponentEntitlement extends Api {
@@ -209,9 +213,10 @@ class DeleteLinks extends Api {
 	}
 }
 export default {
-	SavePreferences,
 	Admin,
 	Login,
+	MainApi,
+	OfflinePage,
 	ComponentEntitlement,
 	GetAdminContact,
 	SaveAdminContact,

@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme: Theme) => {
 			alignItems: "center",
 			justifyContent: "flex-end",
 			padding: theme.spacing(0, 1),
-			backgroundColor: theme.palette.primary.main,
+			backgroundColor: "#0c2340",
 			color: theme.palette.primary.contrastText,
 			textAlign: "left",
 			boxShadow: theme.shadows[4],

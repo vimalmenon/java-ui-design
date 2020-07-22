@@ -1,10 +1,14 @@
 package com.vimalmenon.application.model.security;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UrlEntitlementSecurity {
 
     private String url;
     private String role;
     private String method;
+    private List<String> roles = new ArrayList<>();
 
     public UrlEntitlementSecurity() {
     }
@@ -13,6 +17,7 @@ public class UrlEntitlementSecurity {
         this.url = url;
         this.method = method;
         this.role = role;
+        this.roles.add(role);
     }
 
     public String getUrl() {
@@ -37,6 +42,16 @@ public class UrlEntitlementSecurity {
 
     public void setMethod(String method) {
         this.method = method;
+    }
+
+    public List<String> getRoles() {
+        return roles;
+    }
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
+    }
+    public void addRoles(String role) {
+        roles.add(role);
     }
     
 }

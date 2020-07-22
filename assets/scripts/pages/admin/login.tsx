@@ -28,9 +28,8 @@ import {
 } from "@material-ui/core/styles";
 
 import {ApiCaller} from "utility";
-import {navigationByName, apiList} from "const";
+import {navigationByName, apiList, storage, headers} from "const";
 import * as actions from "actions";
-
 
 const {Login} = apiList;
 
@@ -40,7 +39,7 @@ const useStyles = makeStyles(() => {
 			display: "flex",
 			alignItems: "center",
 			justifyContent: "center",
-			height: "100%"
+			height: "85%"
 		},
 		signInContainer: {
 			maxWidth: "800px",
@@ -64,7 +63,11 @@ function LoginPage (props) {
 	const [showPassword, setShowPassword] = React.useState(false);
 	const onLogin = (event) => {
 		if (credential.username && credential.password) {
-			new ApiCaller(new Login(credential));
+			new ApiCaller(new Login(credential))
+				.success((data) => {
+					storage.selectStorage("session").addToStorage({"Authorization": data});
+					headers.setAuthorization(data);
+				});
 		} else {
 			event.preventDefault();
 		}

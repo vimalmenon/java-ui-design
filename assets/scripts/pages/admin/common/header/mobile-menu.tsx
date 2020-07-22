@@ -7,7 +7,7 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
 import IconButton from "@material-ui/core/IconButton";
 import MoreIcon from "@material-ui/icons/MoreVert";
-
+import Tooltip from "@material-ui/core/Tooltip";
 
 import Brightness7Icon from "@material-ui/icons/Brightness7";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
@@ -30,14 +30,18 @@ const MobileMenu = (props: any) => {
 				onClose={() => setOpen(!open)}
 				element={element}>
 				<Menu.Item onClick={() => preferencesActions.toggleMode(mode)}>
-					{mode=== "dark" ? 
-						<IconButton aria-label="show 17 new notifications" color="inherit">
-							<Brightness7Icon />
-						</IconButton>
+					{mode=== "dark" ?
+						<Tooltip title="Light mode" aria-label="Light mode">
+							<IconButton aria-label="show 17 new notifications" color="inherit">
+								<Brightness7Icon />
+							</IconButton>
+						</Tooltip>
 						:
-						<IconButton aria-label="show 4 new mails" color="inherit">
-							<Brightness4Icon />
-						</IconButton>
+						<Tooltip title="Dark mode" aria-label="Dark mode">
+							<IconButton aria-label="show 4 new mails" color="inherit">
+								<Brightness4Icon />
+							</IconButton>
+						</Tooltip>
 					}
 					<p>Mode</p>
 				</Menu.Item>

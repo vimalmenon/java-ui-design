@@ -12,10 +12,10 @@ https://uxdesign.cc/lets-talk-neumorphism-and-accessibility-44a48a6ace72
 https://nextjs.org/
 https://colorsinspo.com/color-tools/color-wheel
 https://www.youtube.com/audiolibrary/music?nv=1
+https://material.io/resources/color/#!/?view.left=1&view.right=1&secondary.color=cac5f4&primary.color=8e4862
 
 
-Working on front page 
-Need to work on service worker
+Need to work on front page 
 Need to work on server side rendering
 Need to work on docker
 Need to work on loading page
@@ -25,6 +25,7 @@ Need to work on exception messages
 Need to work on handling api error and success
 Need to work on properties
 Need to use Web Worker effectively
+Need to work on cache static files
 Need to work on loading indicator
 Need to work on download resume
 Accessiblity of the pages
@@ -32,11 +33,19 @@ Need to work on reset password
 Need to work on inactive users
 Need to work on sending email
 Need to work on google authentication 
-Need to work on spring security
-Need to start working on JWT
-Setting of session from JWT
 Need to work on filters
-Need to work on setting up response based on filter on JWT
+Need to set up dark mode from localstorage
+Need to find a way to switch user.
+Need to add Youtube and insta icons
+Need to work on offline page
+Need to set up theme on the local storage.
+Need to work on setting up primary and secondry color
+need to work on breadcrumbs
+need to work on offline api
+Need to work on URL component in admin page
+themes needs to be accessable from common place
+Need to remove preference page
+
 
 
 https://medium.com/@gustavo.ponce.ch/spring-boot-spring-mvc-spring-security-mysql-a5d8545d837d

@@ -25,18 +25,17 @@ import Preference from "./pages/preference";
 import PageNotFound from "./pages/page-not-found";
 
 
-const useStyles = makeStyles((theme: Theme) => {
+const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
 		toolbar: {
 			display: "flex",
 			alignItems: "center",
 			justifyContent: "flex-end",
-			padding: theme.spacing(0, 1),
+			padding: theme.spacing(0,1),
 			...theme.mixins.toolbar,
 		},
 		main: {
 			flexGrow: 1,
-			backgroundColor: theme.palette.background.paper,
 			padding: theme.spacing(3),
 			color: theme.palette.text.primary,
 			display: "flex",

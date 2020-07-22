@@ -7,6 +7,6 @@ CREATE TABLE contacts
    subject VARCHAR (250) NOT NULL,
    message text NOT NULL,
    time TIMESTAMP NOT NULL,
-   checked TINYINT (1) signed,
+   checked TINYINT signed,
    PRIMARY KEY (id)
 );

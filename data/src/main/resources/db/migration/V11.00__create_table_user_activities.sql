@@ -6,7 +6,7 @@ CREATE TABLE user_activities
    detail VARCHAR (250) NOT NULL,
    payload text NULL,
    time TIMESTAMP NOT NULL,
-   verify TINYINT (1) signed,
+   verify TINYINT signed,
    PRIMARY KEY (id),
    FOREIGN KEY (user_id) REFERENCES users (id)
 );

@@ -8,6 +8,8 @@ import {navigations, urlMapper, navigationByName} from "./navigations";
 import {MainNavigation, MainUrlMapper} from "./navigations/main";
 import methods from "./methods";
 import icons from "./icons";
+import headers from "./headers";
+import {storage} from "./storage";
 
 const drawerWidth = 240;
 const version = VERSION;
@@ -25,6 +27,8 @@ const constants = {
 	MainNavigation,
 	MainUrlMapper,
 	deviceId,
+	headers,
+	storage,
 	icons
 };
 
@@ -41,6 +45,8 @@ export {
 	MainNavigation,
 	MainUrlMapper,
 	deviceId,
+	headers,
+	storage,
 	icons
 };
 

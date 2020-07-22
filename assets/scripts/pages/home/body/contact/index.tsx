@@ -6,12 +6,13 @@ import {
 } from "@material-ui/core/styles";
 
 import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
 
 import {ApiCaller} from "utility";
 import {apiList} from "const";
 
 const {ApiSaveContact} = apiList;
+
+import {Button} from "components";
 
 const useStyles = makeStyles(() => {
 	return createStyles({
@@ -44,6 +45,7 @@ const Contact = () => {
 					required 
 					label="Name"
 					name="name"
+					color="secondary"
 					onChange={onUpdate} />
 			</div>
 			<div>
@@ -51,6 +53,7 @@ const Contact = () => {
 					required 
 					label="Email Address"
 					name="emailAddress"
+					color="secondary"
 					onChange={onUpdate} />
 			</div>
 			<div>
@@ -58,6 +61,7 @@ const Contact = () => {
 					required 
 					label="Subject"
 					name="subject"
+					color="secondary"
 					onChange={onUpdate} />
 			</div>
 			<div>
@@ -67,10 +71,14 @@ const Contact = () => {
 					multiline
 					rows="4"
 					name="message"
+					color="secondary"
 					onChange={onUpdate} />
 			</div>
 			<div>
-				<Button variant="contained" color="primary" onClick={onSave}>
+				<Button 
+					variant="contained" 
+					color="secondary" 
+					onClick={onSave}>
 					Save
 				</Button>
 			</div>

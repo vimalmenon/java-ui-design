@@ -7,8 +7,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.vimalmenon.application.model.group.GroupModel;
-import com.vimalmenon.application.model.response.Session;
 import com.vimalmenon.application.service.admin.AdminService;
 import com.vimalmenon.application.service.security.JWTUtility;
 import com.vimalmenon.application.service.security.MyUserDetailsService;
@@ -26,8 +24,6 @@ import io.jsonwebtoken.ExpiredJwtException;
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
 
-    @Autowired
-    private Session session;
     
     @Autowired
     private AdminService adminService;
@@ -38,19 +34,11 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     @Autowired
     private MyUserDetailsService myUserDetailsService;
 
-    private void setDefaultSession () 
-    {
-        GroupModel groupModel = adminService.getDefaultGroup();
-        session.setId(groupModel.getId());
-        session.setGroup(groupModel.getName());
-        session.setPriority(groupModel.getPriority());
-        session.setSession(true);
-    }
 
     private void setSessionByUserName (String username) 
     {
         if (!adminService.setSessionForUsername(username)) {
-            setDefaultSession();
+            adminService.setSessionForDefault();
         }
     }
 
@@ -73,7 +61,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 logger.error("JWT Token has expired");
             }
         } else {
-            setDefaultSession();
+            adminService.setSessionForDefault();
             logger.warn("JWT Token does not begin with Bearer String");
         }
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
@@ -84,11 +72,11 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
                 setSessionByUserName(userDetails.getUsername());
             } else {
-                setDefaultSession();
+                adminService.setSessionForDefault();
             }
             
         } else {
-            setDefaultSession();
+            adminService.setSessionForDefault();
         }
         filterChain.doFilter(request, response);
     }
