@@ -12,7 +12,7 @@ import {apiList} from "const";
 
 const {ApiSaveContact} = apiList;
 
-import {Button} from "dumb-components";
+import {Button} from "components";
 
 const useStyles = makeStyles(() => {
 	return createStyles({

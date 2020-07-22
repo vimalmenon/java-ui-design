@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => {
 		root: {
 			display: "flex",
 			borderBottom: `1px solid ${theme.palette.divider}`,
-			background: "#0c2340",
+			background: theme.palette.primary.main,
 			justifyContent:"center"
 		},
 		toolbarLink: {

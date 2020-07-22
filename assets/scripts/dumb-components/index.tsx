@@ -10,7 +10,6 @@ import Menu from "./menu";
 import Loader from "./loader";
 import TextField from "./text-field";
 import Table from "./table";
-import Button from "./button";
 import Input from "./input";
 
 export default {
@@ -21,7 +20,6 @@ export default {
 	TextField,
 	Loader,
 	Dialog,
-	Button,
 	Input,
 	Table,
 	Tabs,
@@ -38,7 +36,6 @@ export {
 	TextField,
 	Loader,
 	Dialog,
-	Button,
 	Input,
 	Table,
 	Tabs,

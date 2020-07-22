@@ -10,7 +10,11 @@ import {
 const ButtonComponent = withStyles((theme: Theme) => {
 	return createStyles({
 		root: {
-		}
+			backgroundColor: "red",
+			"&:hover": {
+				backgroundColor: "green"
+			}
+		},
 	});
 })(Button);
 

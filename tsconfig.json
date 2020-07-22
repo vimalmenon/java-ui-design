@@ -16,7 +16,8 @@
             "store": ["assets/scripts/redux"],
             "const" : ["assets/scripts/constants"],
             "actions": ["assets/scripts/state/actions"],
-            "dumb-components" : ["assets/scripts/dumb-components"]
+            "dumb-components" : ["assets/scripts/dumb-components"],
+            "components" : ["assets/scripts/components"],
         }
     }
 }
