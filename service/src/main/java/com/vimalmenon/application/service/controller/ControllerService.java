@@ -1,6 +1,7 @@
 package com.vimalmenon.application.service.controller;
 
-
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,8 @@ public class ControllerService {
 	@Autowired
 	private Session session;
 
+	@Autowired
+	private PropertyService propertyService;
 
 	
 	public ComponentEntitlementModel getComponentEntitlement (String name)
@@ -30,5 +33,17 @@ public class ControllerService {
 		}
 		return new ComponentEntitlementModel();
 
+	}
+
+	public Map<String, Object> getIndex() 
+	{
+		Map<String, Object> index = new HashMap<>();
+		index.put("properties", propertyService.getIndexProperties());
+		return index;
+	}
+
+	public String getTutorials() 
+	{
+		return "testing";
 	}
 }

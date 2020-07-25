@@ -1,6 +1,7 @@
 package com.vimalmenon.application.controller.api;
 
 import java.security.Principal;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -40,15 +41,15 @@ public class ApiController {
 	private ContactService contactService;
 	
 	@GetMapping("")
-	public ApiResponseModel<String> index() 
-	{
-		return new ApiResponseModel<String>(session).setData("testing");
+	public ApiResponseModel<Map<String, Object>> index() 
+	{	
+		return new ApiResponseModel<Map<String, Object>>(session).setData(controllerService.getIndex());
 	}
 	
-	@PostMapping("")
-	public ApiResponseModel<String> getIndex () 
+	@PostMapping("/tutorials")
+	public ApiResponseModel<String> getTutorials () 
 	{
-		return null;
+		return new ApiResponseModel<String>(session).setData(controllerService.getTutorials());
 	}
 	
 	@PostMapping("/log_in")
