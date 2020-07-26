@@ -14,7 +14,7 @@ public class ApplicationInterceptor implements WebMvcConfigurer{
 
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
-		registry.addMapping("/**").allowedOrigins("http://localhost:8082").allowedMethods("*");
+		registry.addMapping("/**").allowedOrigins("*").allowedMethods("*");
 	}
 
 }
