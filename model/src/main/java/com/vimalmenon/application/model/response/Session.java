@@ -14,6 +14,7 @@ public class Session {
 	private String user;
 	private String group;
 	private Integer priority;
+	private boolean flush;
 
 	public int getId() {
 		return id;
@@ -54,9 +55,17 @@ public class Session {
 		this.priority = priority;
 	}
 
+	pubic boolean isFlush () {
+		return flush;
+	}
+
+	public void setFlush (boolean flush) {
+		this.flush=flush;
+	}
+
 	@Override
 	public String toString() {
-		return "Session [id=" + id + ", userId=" + userId + ", user=" + user + ", group=" + group + ", priority=" + priority + "]";
+		return "Session [id=" + id + ", userId=" + userId + ", user=" + user + ", group=" + group + ", priority=" + priority + ", flush="+ flush +" ]";
 	}
 
 }

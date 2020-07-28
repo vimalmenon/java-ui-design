@@ -19,6 +19,8 @@ https://www.sessions.edu/color-calculator/
 https://coolors.co/palettes/trending
 
 
+document.designMode = 'on'
+
 Need to work on front page 
 Need to work on server side rendering
 Need to work on docker

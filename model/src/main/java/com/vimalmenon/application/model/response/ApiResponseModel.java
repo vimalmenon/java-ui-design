@@ -6,6 +6,7 @@ public class ApiResponseModel<T> {
 	private int code;
 	private String message;
 	private ApiSessionModel session;
+	private boolean flush;
 	private T data;
 	
 	private ResponseCode responseCode = ResponseCode.SUCCESS;
@@ -56,6 +57,13 @@ public class ApiResponseModel<T> {
 		this.data = data;
 		return this;
 	}
+	
+	pubic boolean isFlush () {
+		return flush;
+	}
 
+	public void setFlush (boolean flush) {
+		this.flush=flush;
+	}
 }
 
