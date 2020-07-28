@@ -10,12 +10,6 @@ public class ApiResponseModel<T> {
 	private T data;
 	
 	private ResponseCode responseCode = ResponseCode.SUCCESS;
-
-	public ApiResponseModel(Response response, Session session) {
-		setCode(responseCode.code);
-		setMessage(responseCode.msg);
-		setSession(new ApiSessionModel(session));
-	}
 	
 	public ApiResponseModel(Session session) {
 		setCode(responseCode.code);
@@ -58,7 +52,7 @@ public class ApiResponseModel<T> {
 		return this;
 	}
 	
-	pubic boolean isFlush () {
+	public boolean isFlush () {
 		return flush;
 	}
 

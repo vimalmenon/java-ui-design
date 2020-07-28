@@ -55,7 +55,7 @@ public class Session {
 		this.priority = priority;
 	}
 
-	pubic boolean isFlush () {
+	public boolean isFlush () {
 		return flush;
 	}
 
