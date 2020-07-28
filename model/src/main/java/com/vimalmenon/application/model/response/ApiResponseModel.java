@@ -14,6 +14,7 @@ public class ApiResponseModel<T> {
 	public ApiResponseModel(Session session) {
 		setCode(responseCode.code);
 		setMessage(responseCode.msg);
+		setFlush(session.isFlush());
 		setSession(new ApiSessionModel(session));
 	}
 
@@ -59,5 +60,6 @@ public class ApiResponseModel<T> {
 	public void setFlush (boolean flush) {
 		this.flush=flush;
 	}
+	
 }
 

@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.vimalmenon.application.model.response.Session;
 import com.vimalmenon.application.service.admin.AdminService;
 import com.vimalmenon.application.service.security.JWTUtility;
 import com.vimalmenon.application.service.security.MyUserDetailsService;
@@ -34,6 +35,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     @Autowired
     private MyUserDetailsService myUserDetailsService;
 
+    @Autowired
+    private Session session;
 
     private void setSessionByUserName (String username) 
     {
@@ -56,8 +59,10 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             try {
                 username = jwtUtility.getUsernameFromToken(jwtToken);
             } catch (IllegalArgumentException e) {
+                session.setFlush(true);
                 logger.error("Unable to get JWT Token");
             } catch (ExpiredJwtException e) {
+                session.setFlush(true);
                 logger.error("JWT Token has expired");
             }
         } else {
