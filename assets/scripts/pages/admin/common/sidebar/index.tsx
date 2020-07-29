@@ -56,9 +56,9 @@ const useStyles = makeStyles((theme: Theme) => {
 			display: "flex",
 			alignItems: "center",
 			justifyContent: "flex-end",
-			padding: theme.spacing(0, 1),
+			padding:theme.spacing(0, 1),
 			backgroundColor: "#0c2340",
-			color: theme.palette.primary.contrastText,
+			color:theme.palette.primary.contrastText,
 			textAlign: "left",
 			boxShadow: theme.shadows[4],
 			...theme.mixins.toolbar,
@@ -81,6 +81,9 @@ const useStyles = makeStyles((theme: Theme) => {
 				display : "flex",
 				flexDirection : "column"
 			}
+		},
+		icons : {
+			color:theme.palette.primary.contrastText,
 		}
 	});
 });

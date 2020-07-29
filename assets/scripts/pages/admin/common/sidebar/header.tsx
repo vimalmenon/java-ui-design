@@ -13,7 +13,7 @@ const Header = (props) => {
 				VimalMenon
 			</Typography>
 			<IconButton onClick={() => actions.toggleDrawer(drawer)}>
-				{theme.direction === "rtl" ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+				{theme.direction === "rtl" ? <ChevronRightIcon className={classes.icons}/> : <ChevronLeftIcon className={classes.icons}/>}
 			</IconButton>
 		</div>
 	);
