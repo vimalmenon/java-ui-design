@@ -4,7 +4,7 @@ import {startSpinner, stopSpinner} from "../spinner";
 import * as actions from "actions";
 import {dispatch, notification} from "utility";
 
-import {headers as header} from "const";
+import {headers as header, storage} from "const";
 
 const {GET} = methods;
 
@@ -41,6 +41,9 @@ class ApiCaller {
 				if (value.session) {
 					dispatch(actions.user.setSession(value.session));
 				}
+				if (value.flush) {
+					this.flushSession();
+				}
 				if (value.code === 0) {
 					if (data.successMessage) {
 						notification.notifySuccess({
@@ -58,6 +61,10 @@ class ApiCaller {
 				}
 			});
 		});	
+	}
+	private flushSession () {
+		let sessionStorage = storage.selectStorage("session").getStorage();
+		storage.selectStorage("session").addToStorage({...sessionStorage, Authorization: null});
 	}
 	public success(successCallback:Function) {
 		this.promise = this.promise.then(successCallback);
