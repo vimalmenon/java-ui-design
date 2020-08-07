@@ -21,6 +21,8 @@ import About from "./about";
 import Contact from "./contact";
 import Tutorials from "./tutorials";
 import PrivacyPolicy from "./privacy-policy";
+import ComingSoon from "./coming-soon";
+
 import Home from "./home";
 
 const useStyles = makeStyles((theme:Theme) => {
@@ -53,6 +55,8 @@ const Body =(props) => {
 					<Route path={`/contact`} component={Contact} />
 					<Route path={`/tutorials`} component={Tutorials} />
 					<Route path={`/privacy-policy`} component={PrivacyPolicy} />
+					<Route path={`/coming-soon`} component={ComingSoon} />
+					<Route component={ComingSoon} />
 				</Switch>
 			</Container>
 		</section>
