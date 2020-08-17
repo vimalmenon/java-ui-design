@@ -120,9 +120,21 @@ SSR                                     :   https://github.com/spatie/laravel-se
 admin dashboard with material design    :   https://gurayyarar.github.io/AdminBSBMaterialDesign/
 
 
-tutorials table {
+table tutorial_topics {
     id,
     name,
+    sequence,
+    is_shown
+}
+table tutorial_links {
+    id,
+    name,
+    link,
+}
+table tutorials {
+    id,
+    name,
+    topic_id,
     youtube_url,
-    notes,
+    notes
 }
