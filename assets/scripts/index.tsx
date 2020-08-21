@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import {Spinner} from "react-redux-spinner";
 import { ToastProvider } from "react-toast-notifications";
 
-import store from "./redux";
+import store from "./state/store";
 import Pages from "./pages";
 
 class Main extends React.Component {
