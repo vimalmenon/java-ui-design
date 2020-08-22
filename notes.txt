@@ -19,6 +19,7 @@ https://www.sessions.edu/color-calculator/
 https://coolors.co/palettes/trending
 Need to work on comming soon screen.
 Need to host the website to the web server in aws
+Need to include testing
 
 
 
