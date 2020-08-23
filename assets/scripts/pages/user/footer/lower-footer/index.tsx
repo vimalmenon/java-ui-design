@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
 		root: {
 			display: "flex",
-			background: "#001B34",
+			background: theme.palette.type==="light"?"#001B34":"#222323",
 			justifyContent : "center",
 			color: "white",
 			flex: "0 0 3.875rem",
