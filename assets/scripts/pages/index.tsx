@@ -15,7 +15,7 @@ import {
 } from "@material-ui/core/styles";
 
 import Home from "./home";
-
+import User from "./user";
 
 const Admin = loadable(() => import( /* webpackChunkName: "admin" */ /* webpackMode: "lazy" */ "./admin"));
 
@@ -35,6 +35,7 @@ const Pages = (props) => {
 		<ThemeProvider theme={theme}>
 			<Switch>
 				<Route path="/admin" component={Admin} />
+				<Route path="/user" component={User} />
 				<Route path="/" component={Home} />
 			</Switch>
 		</ThemeProvider>
