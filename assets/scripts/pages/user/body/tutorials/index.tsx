@@ -1,5 +1,5 @@
 import * as React from "react";
-
+import {Title} from "../../common";
 import {
 	Theme,
 	makeStyles,
@@ -32,7 +32,14 @@ const Tutorials = () => {
 	return (
 		<div className={classes.root}>
 			<div className={classes.container}>
-				This is Tutorials
+				<div>
+					<div>
+						<Title title={"Tutorials"} dark={false}/>
+					</div>
+					<div>
+						This is Tutorials
+					</div>
+				</div>
 			</div>
 		</div>
 	);

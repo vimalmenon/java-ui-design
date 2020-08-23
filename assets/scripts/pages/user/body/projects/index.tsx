@@ -4,6 +4,7 @@ import {
 	makeStyles,
 	createStyles
 } from "@material-ui/core/styles";
+import {Title} from "../../common";
 
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
@@ -31,7 +32,14 @@ const Projects = () => {
 	return (
 		<div className={classes.root}>
 			<div className={classes.container}>
-				This is Projects
+				<div>
+					<div>
+						<Title title={"Projects"} dark={false}/>
+					</div>
+					<div>
+						This is Projects
+					</div>
+				</div>
 			</div>
 		</div>
 	);
