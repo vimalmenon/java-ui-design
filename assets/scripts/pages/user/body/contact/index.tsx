@@ -4,6 +4,10 @@ import {
 	makeStyles,
 	createStyles
 } from "@material-ui/core/styles";
+
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+
 import {Title} from "../../common";
 
 const useStyles = makeStyles((theme:Theme) => {
@@ -12,8 +16,8 @@ const useStyles = makeStyles((theme:Theme) => {
 			display: "flex",
 			flex: "0 0 3.125rem",
 			justifyContent : "center",
-			backgroundColor:(theme.palette.type==="light")?"#F2F6F9":"#19191A",
-			margin:theme.spacing(3,0),
+			backgroundColor:(value)=> value?(theme.palette.type==="light")?"#F2F6F9":"#19191A":"",
+			margin:theme.spacing(1,0),
 		},
 		container : {
 			display:"flex",
@@ -23,21 +27,58 @@ const useStyles = makeStyles((theme:Theme) => {
 				display:"flex",
 				flex: `0 0 ${theme.breakpoints.values.lg}px`,
 			},
+		},
+		section : {
+			display: "flex",
+			flexDirection:"column",
+			flex: "1 1 100%"
+		},
+		title: {
+			display: "flex",
+			flex: "1 1 100%"
+		},
+		content: {
+			display: "flex",
+			flex: "1 1 100%"
+		},
+		contactLine: {
+			margin: theme.spacing(2,0)
 		}
 	});
 });
 
-const Contact = () => {
-	const classes = useStyles();
+const Contact = ({dark}) => {
+	const classes = useStyles(dark);
 	return (
 		<div className={classes.root}>
 			<div className={classes.container}>
-				<div>
-					<div>
+				<div className={classes.section}>
+					<div className={classes.title}>
 						<Title title={"Contact Us"} dark={false}/>
 					</div>
-					<div>
-						This is contact
+					<div className={classes.content}>
+						<div>
+							<div className={classes.contactLine}>
+								<TextField label="Your Name *" color="secondary" />
+								<TextField label="Your Email" color="secondary" />
+							</div>
+							<div className={classes.contactLine}>
+								<TextField label="Subject *" color="secondary" fullWidth={true}/>
+							</div>
+							<div className={classes.contactLine}>
+								<TextField 
+									fullWidth={true}
+									label="Message *" 
+									color="secondary" 
+									multiline 
+									rows={6}/>
+							</div>
+							<div>
+								<Button variant="contained" color="secondary">
+									Save
+								</Button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

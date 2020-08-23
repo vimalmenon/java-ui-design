@@ -22,13 +22,13 @@ const useStyles = makeStyles((theme:Theme) => {
 			fontStyle: "normal",
 			fontWeight: "bold",
 			fontSize: "36px",
-			color: (value)=>!value?"#00172B":"#FFFFFF"
+			color: (value)=>!value&&theme.palette.type==="light"?"#00172B":"#FFFFFF"
 		},
 		divider: {
 			display:"flex",
 			height: "2px",
 			width: "100%",
-			backgroundColor:(value)=>!value?"#00172B":"#FFFFFF",
+			backgroundColor:(value)=>!value&&theme.palette.type==="light"?"#00172B":"#FFFFFF",
 		},
 		stroke: {
 			backgroundColor:"#FA2B54",

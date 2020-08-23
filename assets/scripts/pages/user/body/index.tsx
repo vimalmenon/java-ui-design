@@ -22,13 +22,14 @@ const useStyles = makeStyles((theme:Theme) => {
 });
 const Body = () => {
 	const classes = useStyles();
+	const hide = false;
 	return (
 		<div className={classes.root}>
 			<Hero />
-			<About />
-			<Tutorials />
-			<Projects />
-			<Contact />
+			<About dark={true}/>
+			<Tutorials dark={false}/>
+			{hide ? <Projects />: null}
+			<Contact dark={true}/>
 		</div>
 	);
 };

@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme:Theme) => {
 			display: "flex",
 			flex: "0 0 3.125rem",
 			justifyContent : "center",
-			backgroundColor:(theme.palette.type==="light")?"#F2F6F9":"#19191A",
+			backgroundColor:(value)=> value?(theme.palette.type==="light")?"#F2F6F9":"#19191A":"",
 			margin:theme.spacing(2,0),
 		},
 		container : {
@@ -27,8 +27,8 @@ const useStyles = makeStyles((theme:Theme) => {
 	});
 });
 
-const Tutorials = () => {
-	const classes = useStyles();
+const Tutorials = ({dark}) => {
+	const classes = useStyles(dark);
 	return (
 		<div className={classes.root}>
 			<div className={classes.container}>
