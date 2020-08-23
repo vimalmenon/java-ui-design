@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme:Theme) => {
 				},
 			},
 			"&.active" : {
-				backgroundColor:"#19191A",
+				//backgroundColor:"#19191A",
 				color:(theme.palette.type==="light")?"black":"white"
 			},	
 		},

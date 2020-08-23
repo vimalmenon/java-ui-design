@@ -40,16 +40,21 @@ const useStyles = makeStyles((theme:Theme) => {
 
 const NavigationBar = ()=> {
 	const classes = useStyles();
+	const [search, setSearch] = React.useState(false);
 	return (
 		<div className={classes.root}>
 			<div className={classes.container}>
 				<Logo />
 				<div className={classes.navigation}>
 					<Navigation />
-					<Toolbar />
+					<Toolbar 
+						search={search}
+						setSearch={setSearch}/>
 				</div>
 			</div>
-			<Search />
+			<Search 
+				search={search}
+				setSearch={setSearch}/>
 		</div>
 	);
 };

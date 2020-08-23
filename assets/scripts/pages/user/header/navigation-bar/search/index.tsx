@@ -9,10 +9,12 @@ import {
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import SearchIcon from "@material-ui/icons/Search";
+import Input from "@material-ui/core/Input";
+
 
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
-		root: {
+		root:{
 			display: "flex",
 			height: "3.125rem",
 			position:"absolute",
@@ -21,22 +23,34 @@ const useStyles = makeStyles((theme:Theme) => {
 			width:`${theme.breakpoints.values.lg}px`,
 			margin: theme.spacing(1,0),
 			alignItems : "center",
+		},
+		icon:{
+			flex:"0 0 70px"
+		},
+		auto:{
+			flex:"1 1 100%"
 		}
 	});
 });
 
-const Search = () => {
+const Search = ({search, setSearch}) => {
 	const classes = useStyles();
-	return (
-		<div className={classes.root}>
-			<IconButton>
-				<SearchIcon />
-			</IconButton>
-			<IconButton>
-				<CloseIcon />
-			</IconButton>
-		</div>
-	);
+	if (search){
+		return (
+			<div className={classes.root}>
+				<IconButton className={classes.icon}>
+					<SearchIcon />
+				</IconButton>
+				<div className={classes.auto}>
+					<Input placeholder="Search" fullWidth={true}/>
+				</div>
+				<IconButton className={classes.icon} onClick={()=>setSearch(!search)}>
+					<CloseIcon />
+				</IconButton>
+			</div>
+		);
+	}
+	return null;
 };
 
 export default Search;

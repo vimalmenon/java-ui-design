@@ -22,12 +22,12 @@ const useStyles = makeStyles((theme:Theme) => {
 	});
 });
 
-const Toolbar = ({preferences}) => {
+const Toolbar = ({preferences, search, setSearch}) => {
 	const classes = useStyles();
 	const {type} = preferences.palette;
 	return (
 		<div className={classes.root}>
-			<IconButton>
+			<IconButton onClick={()=>setSearch(!search)}>
 				<SearchIcon />
 			</IconButton>
 			{type === "light" ?
