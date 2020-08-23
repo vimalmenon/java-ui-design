@@ -1,6 +1,6 @@
 import * as React from "react";
 
-
+import {Title} from "../../common";
 import {
 	Theme,
 	makeStyles,
@@ -33,7 +33,14 @@ const About = () => {
 	return (
 		<div className={classes.root}>
 			<div className={classes.container}>
-				This is about me page
+				<div>
+					<div>
+						<Title title={"About Me"} dark={false}/>
+					</div>
+					<div>
+						This is about me page
+					</div>
+				</div>
 			</div>
 		</div>
 	);
