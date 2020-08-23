@@ -1,7 +1,7 @@
 export default {
 	lang: "en",
 	palette : {
-		type : "light",
+		type : "dark",
 		primary:{
 			light:"#394a6b",
 			main:"#0c2340",

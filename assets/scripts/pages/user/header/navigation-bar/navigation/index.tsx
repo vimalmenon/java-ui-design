@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme:Theme) => {
 				width:"0%"
 			},
 			"100%": {
-				opacity:"100%"
+				width:"100%"
 			}
 		},
 	});

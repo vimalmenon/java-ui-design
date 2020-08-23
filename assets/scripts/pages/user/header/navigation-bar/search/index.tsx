@@ -19,17 +19,33 @@ const useStyles = makeStyles((theme:Theme) => {
 			height: "3.125rem",
 			position:"absolute",
 			backgroundColor:(theme.palette.type==="light")?theme.palette.background.paper:"#121212",
-			color:"black",
-			width:`${theme.breakpoints.values.lg}px`,
+			width:"100%",
 			margin: theme.spacing(1,0),
 			alignItems : "center",
+			[theme.breakpoints.up("lg")]: {
+				display:"flex",
+				width:`${theme.breakpoints.values.lg}px`,
+			},
 		},
 		icon:{
-			flex:"0 0 70px"
+			flex:"0 0 50px"
 		},
 		auto:{
 			flex:"1 1 100%"
-		}
+		},
+		input : {
+			float: "right",
+			width: "100%",
+			animation: `$myEffect 600ms ${theme.transitions.easing.easeInOut}`,
+		},
+		"@keyframes myEffect": {
+			"0%": {
+				width:"0%"
+			},
+			"100%": {
+				width:"100%"
+			}
+		},
 	});
 });
 
@@ -42,7 +58,7 @@ const Search = ({search, setSearch}) => {
 					<SearchIcon />
 				</IconButton>
 				<div className={classes.auto}>
-					<Input placeholder="Search" fullWidth={true}/>
+					<Input placeholder="Search" className={classes.input}/>
 				</div>
 				<IconButton className={classes.icon} onClick={()=>setSearch(!search)}>
 					<CloseIcon />
