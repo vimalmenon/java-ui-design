@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme:Theme) => {
 			display: "flex",
 			flex: "0 0 3.125rem",
 			justifyContent : "center",
-			backgroundColor:(theme.palette.type==="light")?theme.palette.background.default:"#121212"
+			backgroundColor:(theme.palette.type==="light")?theme.palette.background.paper:"#121212"
 		},
 		container : {
 			display:"flex",

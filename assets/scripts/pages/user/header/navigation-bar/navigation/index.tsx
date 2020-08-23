@@ -1,4 +1,6 @@
 import * as React from "react";
+import clsx from "clsx";
+
 
 import {
 	Theme,
@@ -8,9 +10,45 @@ import {
 
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
-		root: {
+		root:{
 			display: "flex",
-		}
+		},
+		navigationItem:{
+			display:"flex",
+			justifyContent:"center",
+			alignItems:"center",
+			margin: theme.spacing(0,1),
+			padding: theme.spacing(0,0.5),
+			fontSize:"1.25rem",
+			flexDirection:"column",
+			"&::after" : {
+				content: "''",
+				display:"inline-block",
+				width:"100%",
+				height:"2px",
+			},
+			"&:hover" : {
+				"&::after" : {
+					content: "''",
+					display:"inline-block",
+					width:"100%",
+					height:"2px",
+					background: "#FA2B54",
+					animation: `$myEffect 300ms ${theme.transitions.easing.easeInOut}`,
+				},
+			},
+			"&.active" : {
+				backgroundColor:theme.palette.background.default
+			},	
+		},
+		"@keyframes myEffect": {
+			"0%": {
+				width:"0%"
+			},
+			"100%": {
+				opacity:"100%"
+			}
+		},
 	});
 });
 
@@ -28,7 +66,11 @@ const navigations = [
 		link:"/tutorials"
 	},
 	{
-		name:"Contact",
+		name:"Projects",
+		link:"/projects"
+	},
+	{
+		name:"Contact Us",
 		link:"/contact-us"
 	}
 ];
@@ -38,9 +80,11 @@ const Navigation = () => {
 		<div className={classes.root}>
 			{navigations.map((navigation, key) => {
 				return (
-					<span key={key}>
-						{navigation.name}
-					</span>
+					<div key={key} className={clsx(classes.navigationItem, {"active":key===0})}>
+						<span>
+							{navigation.name}
+						</span>
+					</div>
 				);
 			})}
 		</div>
