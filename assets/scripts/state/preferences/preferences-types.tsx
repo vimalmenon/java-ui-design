@@ -6,6 +6,7 @@ export const SET_PRIMARY_MAIN = "SET_PRIMARY_MAIN";
 export const SET_SECONDARY_MAIN = "SET_SECONDARY_MAIN";
 export const SET_ERROR_MAIN = "SET_ERROR_MAIN";
 export const SET_PREFERENCES = "SET_PREFERENCES";
+export const SET_SEARCH = "SET_SEARCH";
 
 export default {
 	TOGGLE_DRAWER,
@@ -15,5 +16,6 @@ export default {
 	SET_PREFERENCES,
 	SET_ERROR_MAIN,
 	SET_PALETTE,
-	TOGGLE_MODE
+	TOGGLE_MODE,
+	SET_SEARCH
 };

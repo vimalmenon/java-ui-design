@@ -1,7 +1,7 @@
 export default {
 	lang: "en",
 	palette : {
-		type : "dark",
+		type : "light",
 		primary:{
 			light:"#394a6b",
 			main:"#0c2340",
@@ -16,6 +16,7 @@ export default {
 		}
 	},
 	drawer: true,
+	search:false,
 	theme : {
 		dark:{
 			primary : {
