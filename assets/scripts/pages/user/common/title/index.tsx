@@ -11,7 +11,11 @@ const useStyles = makeStyles((theme:Theme) => {
 		root: {
 			display: "flex",
 			flex:"0 0 auto",
-			flexDirection:"column"
+			flexDirection:"column",
+			"&:hover $stroke": {
+				animation: `$myEffect 600ms ${theme.transitions.easing.easeInOut}`,
+				flex:"0 0 100%"
+			}
 		},
 		title: {
 			fontFamily: "Philosopher",
@@ -21,20 +25,25 @@ const useStyles = makeStyles((theme:Theme) => {
 			color: (value)=>!value?"#00172B":"#FFFFFF"
 		},
 		divider: {
-			display:"flex"
-		},
-		line: {
+			display:"flex",
 			height: "2px",
 			width: "100%",
 			backgroundColor:(value)=>!value?"#00172B":"#FFFFFF",
-			flex:"1 1 60%"
 		},
 		stroke: {
 			backgroundColor:"#FA2B54",
-			flex: "1 1 40%",
+			flex: "0 0 40%",
 			height: "2px",
 			width: "100%",
-		}
+		},
+		"@keyframes myEffect": {
+			"0%": {
+				flex:"0 0 40%"
+			},
+			"100%": {
+				flex:"0 0 100%"
+			}
+		},
 	});
 });
 
@@ -47,7 +56,6 @@ const Title = ({title, dark=true}) => {
 			</div>
 			<div className={classes.divider}>
 				<span className={classes.stroke}></span>
-				<span className={classes.line}></span>
 			</div>
 		</div>
 	);
