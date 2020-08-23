@@ -24,7 +24,6 @@ const Header = () => {
 		<header className={classes.header}>
 			<ContactBar />
 			<NavigationBar />
-			This is heading
 		</header>
 	);
 };
