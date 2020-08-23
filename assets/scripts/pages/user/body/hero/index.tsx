@@ -33,93 +33,68 @@ const useStyles = makeStyles((theme:Theme) => {
 		}
 	});
 });
-const items = [
+const carousels = [
 	{
+		id: 1,
 		Name: "Electronics",
 		Caption: "Electrify your friends!",
 		contentPosition: "left",
-		Items: [
-			{
-				Name: "Macbook Pro",
-				Image: image1
-			}
-		]
+		image: image1,
 	},
 	{
+		id: 2,
 		Name: "Home Appliances",
 		Caption: "Say no to manual home labour!",
 		contentPosition: "middle",
-		Items: [
-			{
-				Name: "Washing Machine WX9102",
-				Image: image2
-			}
-		]
+		image: image2,
 	},
 	{
+		id: 3,
 		Name: "Decoratives",
 		Caption: "Give style and color to your living room!",
 		contentPosition: "right",
-		Items: [
-			{
-				Name: "Living Room Lamp",
-				Image: image3
-			}
-		]
+		image: image3,
 	},
 	{
+		id: 4,
 		Name: "Decoratives",
 		Caption: "Give style and color to your living room!",
 		contentPosition: "right",
-		Items: [
-			{
-				Name: "Living Room Lamp",
-				Image: image4
-			}
-		]
+		image: image4,
 	}
 ];
 
 function Banner(props) {
-	if (props.newProp) console.log(props.newProp);
-	const totalItems = props.length ? props.length : 3;
-	const mediaLength = totalItems - 1;
-
 	let items:any = [];
-	for (let i = 0; i < mediaLength; i++) {
-		const item = props.item.Items[i];
-		if(item) {
-			const media = (
-				<Grid item xs={12} key={item.Name}>
-					<CardMedia
-						style={{height:"764px"}}
-						image={item.Image}
-						title={item.Name}>
-						<Typography className="MediaCaption">
-							{item.Name}
+	const item = props.item;
+	const media = (
+		<Grid item xs={12} key={props.item.id}>
+			<CardMedia
+				style={{height:"764px"}}
+				image={item.image}
+				title={props.item.Name}>
+				<Typography className="MediaCaption">
+					{item.Name}
+				</Typography>
+				<Grid item xs={12} key="content">
+					<CardContent className="Content">
+						<Typography className="Title">
+							{props.item.Name}
 						</Typography>
-						<Grid item xs={12} key="content">
-							<CardContent className="Content">
-								<Typography className="Title">
-									{props.item.Name}
-								</Typography>
 
-								<Typography className="Caption">
-									{props.item.Caption}
-								</Typography>
-								<Button variant="outlined" className="ViewButton">
-									View Now
-								</Button>
-							</CardContent>
-						</Grid>
-					</CardMedia>
+						<Typography className="Caption">
+							{props.item.Caption}
+						</Typography>
+						<Button variant="outlined" className="ViewButton">
+							View Now
+						</Button>
+					</CardContent>
 				</Grid>
-			);
-	
-			items.push(media);
-		}
-	}
+			</CardMedia>
+		</Grid>
+	);
 
+	items.push(media);
 	return (
 		<Card raised className="Banner">
 			<Grid container spacing={0} className="BannerGrid">
@@ -136,11 +111,11 @@ const Hero = () => {
 				className={classes.carousel}
 				autoPlay={false}
 				timer={5000}
-				animation={"fade"}
+				animation={"slide"}
 				indicators={true}
 				timeout={500}
 				navButtonsAlwaysVisible={true}>
-				{items.map((item, index) => {
+				{carousels.map((item, index) => {
 					return (<Banner item={item} key={index} contentPosition={item.contentPosition}/>);
 				})}
 			</Carousel>
