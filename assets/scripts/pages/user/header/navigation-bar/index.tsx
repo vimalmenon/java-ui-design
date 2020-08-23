@@ -20,8 +20,7 @@ const useStyles = makeStyles((theme:Theme) => {
 		},
 		container : {
 			display:"flex",
-			flexDirection:"row",
-			flex: `1 1 100%`,
+			flex: "1 1 100%",
 			alignItems : "center",
 			margin: theme.spacing(1,0),
 			[theme.breakpoints.up("lg")]: {

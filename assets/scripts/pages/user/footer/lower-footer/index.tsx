@@ -14,20 +14,21 @@ const useStyles = makeStyles((theme:Theme) => {
 			background: "#001B34",
 			justifyContent : "center",
 			color: "white",
-			flex: "0 0 3.875rem"
+			flex: "0 0 3.875rem",
 		},
 		container : {
 			dislay:"flex",
 			flexDirection:"row",
 			flex: `1 1 100%`,
 			alignItems : "center",
+			margin: theme.spacing(0,1),
 			[theme.breakpoints.up("lg")]: {
 				display:"flex",
 				flex: `0 0 ${theme.breakpoints.values.lg}px`,
 			},
 		},
 		footerName : {
-			color : "red"
+			color:"#FA2B54"
 		},
 		span : {
 			margin: theme.spacing(0,1)

@@ -12,6 +12,9 @@ const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
 		root:{
 			display: "flex",
+			[theme.breakpoints.down("sm")]:{
+				display: "none",
+			}
 		},
 		navigationItem:{
 			display:"flex",
@@ -38,7 +41,8 @@ const useStyles = makeStyles((theme:Theme) => {
 				},
 			},
 			"&.active" : {
-				backgroundColor:theme.palette.background.default
+				backgroundColor:"#19191A",
+				color:(theme.palette.type==="light")?"black":"white"
 			},	
 		},
 		"@keyframes myEffect": {
