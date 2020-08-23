@@ -6,24 +6,41 @@ import {
 	createStyles
 } from "@material-ui/core/styles";
 
+import Logo from "./logo";
+import Toolbar from "./toolbar";
+import Navigation from "./navigation";
+
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
 		root: {
 			display: "flex",
 			flex: "0 0 3.125rem",
-			background: "green"
+			justifyContent : "center",
 		},
+		container : {
+			dislay:"flex",
+			flexDirection:"row",
+			flex: `1 1 100%`,
+			alignItems : "center",
+			[theme.breakpoints.up("lg")]: {
+				display:"flex",
+				flex: `0 0 ${theme.breakpoints.values.lg}px`,
+			},
+		}
 	});
 });
 
-import Logo from "./logo";
+
 
 const NavigationBar = ()=> {
 	const classes = useStyles();
 	return (
 		<div className={classes.root}>
-			<Logo />
-			This is navigation bar
+			<div className={classes.container}>
+				<Logo />
+				<Navigation />
+				<Toolbar />
+			</div>
 		</div>
 	);
 };

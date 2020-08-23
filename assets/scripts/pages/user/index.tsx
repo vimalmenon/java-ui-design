@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme:Theme) => {
 		root: {
 			display: "flex",
 			flexDirection: "column",
-			backgroundColor: "red" || theme.palette.background.paper,
+			backgroundColor: theme.palette.background.paper,
 			color: theme.palette.text.primary,
 		},
 	});

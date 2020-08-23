@@ -37,7 +37,6 @@ const ContactBar = ()=> {
 		<div className={classes.root}>
 			<div className={classes.container}>
 				<Icons />
-				This is Contact Bar
 			</div>
 		</div>
 	);
