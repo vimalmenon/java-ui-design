@@ -76,12 +76,11 @@ function Banner(props) {
 				<Typography className="MediaCaption">
 					{item.Name}
 				</Typography>
-				<Grid item xs={12} key="content">
+				<Grid item xs={12}>
 					<CardContent className="Content">
 						<Typography className="Title">
 							{props.item.Name}
 						</Typography>
-
 						<Typography className="Caption">
 							{props.item.Caption}
 						</Typography>

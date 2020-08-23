@@ -58,10 +58,6 @@ const useStyles = makeStyles((theme:Theme) => {
 
 const navigations = [
 	{
-		name:"Home",
-		link:"/"
-	},
-	{
 		name: "About Me",
 		link:"/about-me"
 	},

@@ -11,7 +11,8 @@ const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
 		root: {
 			display: "flex",
-			flex:"1 1 50%"
+			flex:"1 1 50%",
+			margin: theme.spacing(1),
 		},
 		explore: {
 			fontFamily: "Philosopher",

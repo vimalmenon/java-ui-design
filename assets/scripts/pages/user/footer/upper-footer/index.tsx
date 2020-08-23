@@ -21,10 +21,10 @@ const useStyles = makeStyles((theme:Theme) => {
 			dislay:"flex",
 			flexDirection:"row",
 			flex: `1 1 100%`,
-			alignItems : "center",
 			margin: theme.spacing(0,1),
 			[theme.breakpoints.up("lg")]: {
 				display:"flex",
+				flexDirection:"row",
 				flex: `0 0 ${theme.breakpoints.values.lg}px`,
 			},
 		},

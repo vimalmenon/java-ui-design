@@ -13,7 +13,8 @@ const useStyles = makeStyles((theme:Theme) => {
 			display: "flex",
 			flex: "0 0 3.125rem",
 			justifyContent : "center",
-			//backgroundColor:(theme.palette.type==="light")?"#F2F6F9":"#19191A"
+			backgroundColor:(theme.palette.type==="light")?"#F2F6F9":"#19191A",
+			margin:theme.spacing(3,0),
 		},
 		container : {
 			display:"flex",
@@ -32,7 +33,7 @@ const About = () => {
 	return (
 		<div className={classes.root}>
 			<div className={classes.container}>
-				This is about us page
+				This is about me page
 			</div>
 		</div>
 	);
