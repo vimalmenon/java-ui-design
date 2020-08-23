@@ -10,6 +10,7 @@ import {
 } from "@material-ui/core/styles";
 
 import Heading from "./header";
+import Body from "./body";
 import Footer from "./footer";
 
 const useStyles = makeStyles((theme:Theme) => {
@@ -29,6 +30,7 @@ const Home = () => {
 		<div className={classes.root}>
 			<CssBaseline />
 			<Heading />
+			<Body />
 			<Footer />
 		</div>
 	);
