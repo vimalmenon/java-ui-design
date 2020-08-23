@@ -13,6 +13,7 @@ https://nextjs.org/
 https://colorsinspo.com/color-tools/color-wheel
 https://www.youtube.com/audiolibrary/music?nv=1
 https://material.io/resources/color/#!/?view.left=1&view.right=1&secondary.color=cac5f4&primary.color=8e4862
+https://fonts.google.com/specimen/Philosopher?sidebar.open=true&selection.family=Philosopher
 https://danilowoz.com/create-content-loader/
 https://coolors.co/palettes
 https://www.sessions.edu/color-calculator/
