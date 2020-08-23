@@ -19,10 +19,12 @@ const useStyles = makeStyles((theme:Theme) => {
 			flex: "0 0 3.9375rem"
 		},
 		container : {
-			dislay:"flex",
+			display:"flex",
 			flexDirection:"row",
 			flex: `1 1 100%`,
 			alignItems : "center",
+			justifyContent :"flex-end",
+			margin: theme.spacing(0,1),
 			[theme.breakpoints.up("lg")]: {
 				display:"flex",
 				flex: `0 0 ${theme.breakpoints.values.lg}px`,

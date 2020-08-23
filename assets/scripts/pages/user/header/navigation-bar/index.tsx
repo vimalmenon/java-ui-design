@@ -16,20 +16,26 @@ const useStyles = makeStyles((theme:Theme) => {
 			display: "flex",
 			flex: "0 0 3.125rem",
 			justifyContent : "center",
+			backgroundColor:(theme.palette.type==="light")?theme.palette.background.default:"#121212"
 		},
 		container : {
-			dislay:"flex",
+			display:"flex",
 			flexDirection:"row",
 			flex: `1 1 100%`,
 			alignItems : "center",
+			margin: theme.spacing(1,0),
 			[theme.breakpoints.up("lg")]: {
 				display:"flex",
 				flex: `0 0 ${theme.breakpoints.values.lg}px`,
 			},
+		},
+		navigationEnd : {
+			display: "flex",
+			justifyContent :"flex-end",
+			flex: "1 1 auto"
 		}
 	});
 });
-
 
 
 const NavigationBar = ()=> {
@@ -38,8 +44,10 @@ const NavigationBar = ()=> {
 		<div className={classes.root}>
 			<div className={classes.container}>
 				<Logo />
-				<Navigation />
-				<Toolbar />
+				<div className={classes.navigationEnd}>
+					<Navigation />
+					<Toolbar />
+				</div>
 			</div>
 		</div>
 	);
