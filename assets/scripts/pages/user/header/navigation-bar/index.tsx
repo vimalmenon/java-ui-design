@@ -8,6 +8,7 @@ import {
 
 import Logo from "./logo";
 import Toolbar from "./toolbar";
+import Search from "./search";
 import Navigation from "./navigation";
 
 const useStyles = makeStyles((theme:Theme) => {
@@ -28,7 +29,7 @@ const useStyles = makeStyles((theme:Theme) => {
 				flex: `0 0 ${theme.breakpoints.values.lg}px`,
 			},
 		},
-		navigationEnd : {
+		navigation : {
 			display: "flex",
 			justifyContent :"flex-end",
 			flex: "1 1 auto"
@@ -43,11 +44,12 @@ const NavigationBar = ()=> {
 		<div className={classes.root}>
 			<div className={classes.container}>
 				<Logo />
-				<div className={classes.navigationEnd}>
+				<div className={classes.navigation}>
 					<Navigation />
 					<Toolbar />
 				</div>
 			</div>
+			<Search />
 		</div>
 	);
 };
