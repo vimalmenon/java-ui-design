@@ -1,9 +1,39 @@
 import * as React from "react";
 
+
+import {
+	Theme,
+	makeStyles,
+	createStyles
+} from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme:Theme) => {
+	return createStyles({
+		root: {
+			display: "flex",
+			flex: "0 0 3.125rem",
+			justifyContent : "center",
+			//backgroundColor:(theme.palette.type==="light")?"#F2F6F9":"#19191A"
+		},
+		container : {
+			display:"flex",
+			flex: "1 1 100%",
+			margin: theme.spacing(1,0),
+			[theme.breakpoints.up("lg")]: {
+				display:"flex",
+				flex: `0 0 ${theme.breakpoints.values.lg}px`,
+			},
+		}
+	});
+});
+
 const About = () => {
+	const classes = useStyles();
 	return (
-		<div>
-			This is about us page
+		<div className={classes.root}>
+			<div className={classes.container}>
+				This is about us page
+			</div>
 		</div>
 	);
 };
