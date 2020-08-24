@@ -19,6 +19,7 @@ https://coolors.co/palettes
 https://www.sessions.edu/color-calculator/
 https://coolors.co/palettes/trending
 https://www.pngegg.com/en/search?q=git
+https://www.canva.com/colors/color-wheel/
 Need to work on comming soon screen.
 Need to host the website to the web server in aws
 Need to include testing

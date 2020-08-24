@@ -1,14 +1,16 @@
 import * as React from "react";
+
 import {
 	Theme,
 	makeStyles,
 	createStyles
 } from "@material-ui/core/styles";
 
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
+
 
 import {Title} from "../../common";
+
+import ContactForm from "./contact-form";
 
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
@@ -17,12 +19,14 @@ const useStyles = makeStyles((theme:Theme) => {
 			flex: "0 0 3.125rem",
 			justifyContent : "center",
 			backgroundColor:(value)=> value?(theme.palette.type==="light")?"#F2F6F9":"#19191A":"",
-			margin:theme.spacing(1,0),
+			margin:theme.spacing(4,0),
+			
 		},
 		container : {
 			display:"flex",
 			flex: "1 1 100%",
 			margin: theme.spacing(1,0),
+			padding:theme.spacing(3,0),
 			[theme.breakpoints.up("lg")]: {
 				display:"flex",
 				flex: `0 0 ${theme.breakpoints.values.lg}px`,
@@ -41,26 +45,11 @@ const useStyles = makeStyles((theme:Theme) => {
 			display: "flex",
 			flex: "1 1 100%"
 		},
-		contactForm: {
-			display:"flex",
-			flex:"1 1 60%",
-			flexDirection:"column",
-		},
 		reachUs: {
 			display:"flex",
-			flex:"1 1 40%",
+			flex:"1 1 50%",
 			flexDirection:"column",
 		},
-		contactLine: {
-			margin: theme.spacing(0.5,0),
-			"& .name":{
-				width:"40%",
-				margin:theme.spacing(0,0.5,0,0),
-			},
-			"& .email":{
-				width:"55%"
-			}
-		}
 	});
 });
 
@@ -75,30 +64,28 @@ const Contact = ({dark}) => {
 					</div>
 					<div className={classes.content}>
 						<div className={classes.reachUs}>
-							Reach Us
-						</div>
-						<div className={classes.contactForm}>
-							<div className={classes.contactLine}>
-								<TextField label="Your Name *" className="name" color="secondary" />
-								<TextField label="Your Email" className="email" color="secondary" />
+							
+							<div>
+								<div>
+									DON’T BE A STRANGER, JUST SAY HELLO
+								</div>
+								<div>
+									Feel free to get in touch with us. We are always open to discussing new projects, creative ideas or opportunities to be part of your visions.
+								</div>
+								<div>
+									Reach us on social media
+								</div>
+								<div>
+									youtube
+									instagram
+								</div>
 							</div>
-							<div className={classes.contactLine}>
-								<TextField label="Subject *" color="secondary" fullWidth={true}/>
-							</div>
-							<div className={classes.contactLine}>
-								<TextField 
-									fullWidth={true}
-									label="Message *" 
-									color="secondary" 
-									multiline 
-									rows={6}/>
-							</div>
-							<div className={classes.contactLine}>
-								<Button variant="contained" color="secondary" >
-									Save
-								</Button>
+							<div>
+
 							</div>
 						</div>
+						<ContactForm />
+
 					</div>
 				</div>
 			</div>
