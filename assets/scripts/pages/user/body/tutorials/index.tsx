@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme:Theme) => {
 		},
 	});
 });
-const PageNotFound = () => {
+const Tutorials = () => {
 	const classes = useStyles();
 	return (
 		<div className={classes.root}>
@@ -22,4 +22,4 @@ const PageNotFound = () => {
 	);
 };
 
-export default PageNotFound;
+export default Tutorials;
