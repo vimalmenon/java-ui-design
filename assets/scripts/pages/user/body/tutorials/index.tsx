@@ -6,6 +6,10 @@ import {
 	createStyles
 } from "@material-ui/core/styles";
 
+
+import LatestVideos from "./latest-videos";
+import PopularVideos from "./popular-videos";
+
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
 		root: {
@@ -37,6 +41,8 @@ const Tutorials = ({dark}) => {
 						<Title title={"Tutorials"} dark={false}/>
 					</div>
 					<div>
+						<LatestVideos />
+						<PopularVideos />
 						This is Tutorials
 					</div>
 				</div>

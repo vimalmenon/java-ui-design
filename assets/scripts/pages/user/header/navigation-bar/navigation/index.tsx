@@ -66,10 +66,6 @@ const navigations = [
 		link:"/tutorials"
 	},
 	{
-		name:"Projects",
-		link:"/projects"
-	},
-	{
 		name:"Contact Us",
 		link:"/contact-us"
 	}
