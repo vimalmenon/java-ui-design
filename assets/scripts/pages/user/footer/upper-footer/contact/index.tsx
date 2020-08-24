@@ -20,7 +20,7 @@ const Contact = () => {
 	const classes = useStyles();
 	return (
 		<div className={classes.root}>
-			<Title title={"Reach Us"} />
+			<Title title={"Follow us"} />
 			<div>
 				<div>
 				</div>
