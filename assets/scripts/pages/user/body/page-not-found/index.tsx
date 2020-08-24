@@ -18,6 +18,7 @@ const PageNotFound = () => {
 	const classes = useStyles();
 	return (
 		<div className={classes.root}>
+			page not found
 		</div>
 	);
 };
