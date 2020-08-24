@@ -8,7 +8,7 @@ import {
 
 
 
-import {Title} from "../../common";
+import {Title} from "../../../common";
 
 import ContactForm from "./contact-form";
 
@@ -64,7 +64,6 @@ const Contact = ({dark}) => {
 					</div>
 					<div className={classes.content}>
 						<div className={classes.reachUs}>
-							
 							<div>
 								<div>
 									DON’T BE A STRANGER, JUST SAY HELLO
@@ -85,7 +84,6 @@ const Contact = ({dark}) => {
 							</div>
 						</div>
 						<ContactForm />
-
 					</div>
 				</div>
 			</div>

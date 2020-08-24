@@ -1,11 +1,10 @@
 import * as React from "react";
-
-import {Title} from "../../common";
 import {
 	Theme,
 	makeStyles,
 	createStyles
 } from "@material-ui/core/styles";
+import {Title} from "../../../common";
 
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
@@ -13,8 +12,8 @@ const useStyles = makeStyles((theme:Theme) => {
 			display: "flex",
 			flex: "0 0 3.125rem",
 			justifyContent : "center",
-			backgroundColor:(value)=> value?(theme.palette.type==="light")?"#F2F6F9":"#19191A":"",
-			margin:theme.spacing(1,0),
+			backgroundColor:(theme.palette.type==="light")?"#F2F6F9":"#19191A",
+			margin:theme.spacing(2,0),
 		},
 		container : {
 			display:"flex",
@@ -28,17 +27,17 @@ const useStyles = makeStyles((theme:Theme) => {
 	});
 });
 
-const About = ({dark}) => {
-	const classes = useStyles(dark);
+const Projects = () => {
+	const classes = useStyles();
 	return (
 		<div className={classes.root}>
 			<div className={classes.container}>
 				<div>
 					<div>
-						<Title title={"About Me"} dark={false}/>
+						<Title title={"Projects"} dark={false}/>
 					</div>
 					<div>
-						This is about me page
+						This is Projects
 					</div>
 				</div>
 			</div>
@@ -46,4 +45,4 @@ const About = ({dark}) => {
 	);
 };
 
-export default About;
+export default Projects;

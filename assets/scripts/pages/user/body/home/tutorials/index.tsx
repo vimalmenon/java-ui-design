@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Title} from "../../common";
+import {Title} from "../../../common";
 import {
 	Theme,
 	makeStyles,
