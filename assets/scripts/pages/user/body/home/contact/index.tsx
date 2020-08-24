@@ -72,7 +72,7 @@ const Contact = ({dark}) => {
 									Feel free to get in touch with us. We are always open to discussing new projects, creative ideas or opportunities to be part of your visions.
 								</div>
 								<div>
-									Reach us on social media
+									Follow us
 								</div>
 								<div>
 									youtube
