@@ -10,7 +10,6 @@ const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
 		root: {
 			display: "flex",
-			flex: "0 0 3.125rem",
 			justifyContent : "center",
 			backgroundColor:(value)=> value?(theme.palette.type==="light")?"#F2F6F9":"#19191A":"",
 			margin:theme.spacing(1,0),
