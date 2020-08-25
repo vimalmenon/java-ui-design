@@ -13,7 +13,6 @@ const useStyles = makeStyles((theme:Theme) => {
 		root: {
 			display: "flex",
 			flex:"1 1 50%",
-			margin: theme.spacing(1),
 		}
 	});
 });

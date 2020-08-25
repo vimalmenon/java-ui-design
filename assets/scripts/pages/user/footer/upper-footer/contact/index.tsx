@@ -12,7 +12,6 @@ const useStyles = makeStyles((theme:Theme) => {
 		root: {
 			display: "flex",
 			flex:"1 1 50%",
-			margin: theme.spacing(1),
 		}
 	});
 });
@@ -20,9 +19,11 @@ const Contact = () => {
 	const classes = useStyles();
 	return (
 		<div className={classes.root}>
-			<Title title={"Follow us"} />
 			<div>
+				<Title title={"Follow us"} />
 				<div>
+					<div>
+					</div>
 				</div>
 			</div>
 		</div>
