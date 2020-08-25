@@ -21,7 +21,6 @@ const useStyles = makeStyles((theme:Theme) => {
 		},
 		title: {
 			display: "flex",
-			flex: "1 1 100%",
 			margin:theme.spacing(4,0),
 		},
 		content: {
