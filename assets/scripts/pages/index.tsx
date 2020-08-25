@@ -29,17 +29,16 @@ const Pages = (props) => {
 			...palette
 		}
 	});
-	const hide = false;
+	const loading = true;
 	React.useEffect(() => {
 		switchTheme.themeInit();
 	},[]);
 	return (
 		<ThemeProvider theme={theme}>
-			{hide ? <Switch>
+			{!loading ? <Switch>
 				<Route path="/admin" component={Admin} />
 				<Route path="/" component={User} />
-			</Switch>: null}
-			<Loading />
+			</Switch>: <Loading />}
 		</ThemeProvider>
 	);
 };
