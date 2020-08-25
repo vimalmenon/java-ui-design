@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme:Theme) => {
 		container : {
 			display:"flex",
 			flexDirection:"column",
-			padding: theme.spacing(1,2),
+			padding: theme.spacing(3,0),
 		},
 		contactLine: {
 			margin: theme.spacing(0.5,0),

@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme:Theme) => {
 		container:{
 			display:"flex",
 			flexDirection:"column",
-			padding: theme.spacing(1),
+			padding: theme.spacing(3,0),
 		}
 	});
 });

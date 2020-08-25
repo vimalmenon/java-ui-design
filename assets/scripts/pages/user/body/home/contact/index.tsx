@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme:Theme) => {
 		container : {
 			display:"flex",
 			flex: "1 1 100%",
-			margin: theme.spacing(1,0),
+			margin:theme.spacing(1,1),
 			padding:theme.spacing(3,0),
 			[theme.breakpoints.up("lg")]: {
 				display:"flex",
