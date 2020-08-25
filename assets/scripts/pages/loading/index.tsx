@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from "react";
 
 import {
 	Theme,
@@ -27,8 +27,8 @@ const useStyles = makeStyles((theme:Theme) => {
 			borderRadius: "50%",
 			border: "3px solid transparent",
 			borderTopColor: "#3498db",
-			animation: "spin 2s linear infinite",
-			"& :before": {
+			animation: "$spin 2s linear infinite",
+			"&:before": {
 				content: "''",
 				position: "absolute",
 				top: "5px",
@@ -38,9 +38,9 @@ const useStyles = makeStyles((theme:Theme) => {
 				borderRadius: "50%",
 				border: "3px solid transparent",
 				borderTopColor: "#e74c3c",
-				animation: "spin 3s linear infinite",
+				animation: "$spin 3s linear infinite",
 			},
-			"& :after": {
+			"&:after": {
 				content: "''",
 				position: "absolute",
 				top: "15px",
@@ -50,9 +50,17 @@ const useStyles = makeStyles((theme:Theme) => {
 				borderRadius: "50%",
 				border: "3px solid transparent",
 				borderTopColor: "#f9c922",
-				animation: "spin 1.5s linear infinite",
+				animation: "$spin 1.5s linear infinite",
 			},
-		}
+		},
+		"@keyframes spin": {
+			"0%": {
+				transform: "rotate(0deg)"
+			},
+			"100%": {
+				transform: "rotate(360deg)"
+			}
+		},
 	});
 });
 const Loading = () => {
@@ -60,8 +68,6 @@ const Loading = () => {
 	return (
 		<div className={classes.loadingWrapper}>
 			<div className={classes.loader}></div>
-			<div className="loader-section section-left"/>
-			<div className="loader-section section-right"/>
 		</div>
 	);
 };

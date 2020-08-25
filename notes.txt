@@ -151,3 +151,9 @@ table social_media {
     title,
     url
 }
+
+
+User page
+Need to work on loading page
+Need to set up proper margin and padding for page
+Need to work on Switching from dark to light mode

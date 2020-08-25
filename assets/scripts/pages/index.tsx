@@ -9,6 +9,8 @@ import { useToasts } from "react-toast-notifications";
 import { notification, switchTheme } from "utility";
 import { connect } from "react-redux";
 
+import Loading from "./loading";
+
 import {
 	ThemeProvider,
 	createMuiTheme
@@ -27,15 +29,17 @@ const Pages = (props) => {
 			...palette
 		}
 	});
+	const hide = false;
 	React.useEffect(() => {
 		switchTheme.themeInit();
 	},[]);
 	return (
 		<ThemeProvider theme={theme}>
-			<Switch>
+			{hide ? <Switch>
 				<Route path="/admin" component={Admin} />
 				<Route path="/" component={User} />
-			</Switch>
+			</Switch>: null}
+			<Loading />
 		</ThemeProvider>
 	);
 };
