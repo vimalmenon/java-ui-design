@@ -29,7 +29,7 @@ const Pages = (props) => {
 			...palette
 		}
 	});
-	const loading = true;
+	const loading = false;
 	React.useEffect(() => {
 		switchTheme.themeInit();
 	},[]);
