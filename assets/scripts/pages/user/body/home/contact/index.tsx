@@ -11,6 +11,7 @@ import {
 import {Title} from "../../../common";
 
 import ContactForm from "./contact-form";
+import ContactText from "./contact-text";
 
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
@@ -43,12 +44,10 @@ const useStyles = makeStyles((theme:Theme) => {
 		},
 		content: {
 			display: "flex",
-			flex: "1 1 100%"
-		},
-		reachUs: {
-			display:"flex",
-			flex:"1 1 50%",
-			flexDirection:"column",
+			flex: "1 1 100%",
+			[theme.breakpoints.down("sm")]: {
+				flexDirection:"column-reverse"
+			},
 		},
 	});
 });
@@ -63,26 +62,7 @@ const Contact = ({dark}) => {
 						<Title title={"Contact Us"} dark={false}/>
 					</div>
 					<div className={classes.content}>
-						<div className={classes.reachUs}>
-							<div>
-								<div>
-									DON’T BE A STRANGER, JUST SAY HELLO
-								</div>
-								<div>
-									Feel free to get in touch with us. We are always open to discussing new projects, creative ideas or opportunities to be part of your visions.
-								</div>
-								<div>
-									Follow us
-								</div>
-								<div>
-									youtube
-									instagram
-								</div>
-							</div>
-							<div>
-
-							</div>
-						</div>
+						<ContactText />
 						<ContactForm />
 					</div>
 				</div>
