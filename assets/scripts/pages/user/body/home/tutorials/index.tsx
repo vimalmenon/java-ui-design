@@ -43,7 +43,6 @@ const Tutorials = ({dark}) => {
 					<div>
 						<LatestVideos />
 						<PopularVideos />
-						This is Tutorials
 					</div>
 				</div>
 			</div>

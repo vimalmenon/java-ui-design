@@ -4,8 +4,8 @@ export default {
 		type : "light",
 		primary:{
 			light:"#394a6b",
-			main:"#0c2340",
-			dark:"#00001b",
+			main:"#00172B",
+			dark:"#00325e",
 			contrastText:"#fff"
 		},
 		secondary : {
@@ -16,29 +16,5 @@ export default {
 		}
 	},
 	drawer: true,
-	search:false,
-	theme : {
-		dark:{
-			primary : {
-				light:"#394a6b",
-				main:"#0c2340",
-				dark:"#00001b",
-				contrastText:"#fff"
-			},
-			secondary : {
-				light:"#ffe756",
-				main:"#fcb51b",
-				dark:"#c48600",
-				contrastText:"#000000"
-			}
-		},
-		light : {
-			primary:{
-				light:"#394a6b",
-				main:"#0c2340",
-				dark:"#00001b",
-				contrastText:"#fff"
-			},
-		}
-	}
+	search:false
 };

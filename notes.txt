@@ -142,3 +142,12 @@ table tutorials {
     youtube_url,
     notes
 }
+
+table navigations {
+
+}
+table social_media {
+    name,
+    title,
+    url
+}
