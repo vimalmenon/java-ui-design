@@ -19,7 +19,14 @@ const useStyles = makeStyles((theme:Theme) => {
 		title:{
 			display: "flex",
 			margin:theme.spacing(4,0),
-		}
+		},
+		content: {
+			display: "flex",
+			flexDirection:"column",
+			[theme.breakpoints.down("sm")]: {
+				flexDirection:"column"
+			},
+		},
 	});
 });
 
@@ -31,7 +38,7 @@ const About = ({dark}) => {
 				<div className={classes.title}>
 					<Title title={"About Me"} dark={false}/>
 				</div>
-				<div>
+				<div className={classes.content}>
 					<Details />
 					This is about me page
 				</div>
