@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
 		root: {
 			display:"flex",
-			flex:"1 1 60%",
+			flex:"0 0 50%",
 			flexDirection:"column",
 		},
 		container : {

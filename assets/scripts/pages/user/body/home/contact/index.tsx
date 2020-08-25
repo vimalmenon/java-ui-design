@@ -21,15 +21,29 @@ const useStyles = makeStyles((theme:Theme) => {
 		},
 		title: {
 			display: "flex",
-			flex: "1 1 100%"
+			flex: "1 1 100%",
+			margin:theme.spacing(4,0),
 		},
 		content: {
 			display: "flex",
 			flex: "1 1 100%",
+			flexDirection:"column",
 			[theme.breakpoints.down("sm")]: {
-				flexDirection:"column-reverse"
+				flexDirection:"column"
 			},
 		},
+		contactFormText : {
+			display: "flex",
+			flex: "1 1 100%",
+			justifyContent: "space-between",
+			[theme.breakpoints.down("sm")]: {
+				flexDirection:"column"
+			},
+		},
+		name : {
+			display: "flex",
+			fontSize: "1.3rem",
+		}
 	});
 });
 
@@ -42,8 +56,13 @@ const Contact = ({dark}) => {
 					<Title title={"Contact Us"} dark={false}/>
 				</div>
 				<div className={classes.content}>
-					<ContactText />
-					<ContactForm />
+					<div className={classes.name}>
+						We&apos;d like to hear from you
+					</div>
+					<div className={classes.contactFormText}>
+						<ContactText />
+						<ContactForm />
+					</div>
 				</div>
 			</div>
 		</Container>

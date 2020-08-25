@@ -146,10 +146,11 @@ table tutorials {
 table navigations {
 
 }
-table social_media {
+table social_medias {
     name,
     title,
-    url
+    url,
+    is_active
 }
 
 

@@ -1,11 +1,12 @@
 import * as React from "react";
 
-
 import {
 	Theme,
 	makeStyles,
 	createStyles
 } from "@material-ui/core/styles";
+
+import {version} from "const";
 
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
@@ -17,11 +18,12 @@ const useStyles = makeStyles((theme:Theme) => {
 			flex: "0 0 3.875rem",
 		},
 		container : {
-			dislay:"flex",
+			display:"flex",
 			flexDirection:"row",
 			flex: `1 1 100%`,
 			alignItems : "center",
 			margin: theme.spacing(0,1),
+			justifyContent:"space-between",
 			[theme.breakpoints.up("lg")]: {
 				display:"flex",
 				flex: `0 0 ${theme.breakpoints.values.lg}px`,
@@ -49,7 +51,9 @@ const LowerFooter = () => {
 						&copy; All Right Reserved - 2020
 					</span>
 				</p>
-				
+				<p>
+					v{version}
+				</p>
 			</div>
 		</div>
 	);
