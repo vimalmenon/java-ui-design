@@ -28,7 +28,7 @@ const Body = () => {
 			<Hero />
 			<About dark={true}/>
 			<Tutorials dark={false}/>
-			{hide ? <Projects />: null}
+			{hide ? <Projects dark={false}/>: null}
 			<Contact dark={true}/>
 		</div>
 	);

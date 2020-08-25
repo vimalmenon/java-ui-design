@@ -4,44 +4,30 @@ import {
 	makeStyles,
 	createStyles
 } from "@material-ui/core/styles";
-import {Title} from "../../../common";
+import {Title, Container} from "../../../common";
 
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
 		root: {
 			display: "flex",
-			flex: "0 0 3.125rem",
-			justifyContent : "center",
-			backgroundColor:(theme.palette.type==="light")?"#F2F6F9":"#19191A",
-			margin:theme.spacing(2,0),
-		},
-		container : {
-			display:"flex",
-			flex: "1 1 100%",
-			margin: theme.spacing(1,0),
-			[theme.breakpoints.up("lg")]: {
-				display:"flex",
-				flex: `0 0 ${theme.breakpoints.values.lg}px`,
-			},
+			flexDirection:"column"
 		}
 	});
 });
 
-const Projects = () => {
+const Projects = ({dark}) => {
 	const classes = useStyles();
 	return (
-		<div className={classes.root}>
-			<div className={classes.container}>
+		<Container dark={dark}>
+			<div className={classes.root}>
 				<div>
-					<div>
-						<Title title={"Projects"} dark={false}/>
-					</div>
-					<div>
-						This is Projects
-					</div>
+					<Title title={"Projects"} dark={false}/>
+				</div>
+				<div>
+					This is Projects
 				</div>
 			</div>
-		</div>
+		</Container>
 	);
 };
 
