@@ -58,7 +58,10 @@ const Search = ({search, setSearch}) => {
 					<SearchIcon />
 				</IconButton>
 				<div className={classes.auto}>
-					<Input placeholder="Search" className={classes.input}/>
+					<Input 
+						placeholder="Search" 
+						className={classes.input} 
+						color="secondary"/>
 				</div>
 				<IconButton className={classes.icon} onClick={()=>setSearch(!search)}>
 					<CloseIcon />

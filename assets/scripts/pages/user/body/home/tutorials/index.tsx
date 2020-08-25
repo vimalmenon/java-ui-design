@@ -13,9 +13,14 @@ import PopularVideos from "./popular-videos";
 
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
-		root: {
+		root:{
 			display: "flex",
-			flexDirection:"column"
+			flexDirection:"column",
+			flex: "1 1 100%"
+		},
+		title: {
+			display: "flex",
+			margin:theme.spacing(4,0),
 		}
 	});
 });
@@ -25,7 +30,7 @@ const Tutorials = ({dark}) => {
 	return (
 		<Container dark={dark}>		
 			<div className={classes.root}>
-				<div>
+				<div className={classes.title}>
 					<Title title={"Tutorials"} dark={false}/>
 				</div>
 				<div>

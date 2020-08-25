@@ -14,10 +14,9 @@ import ContactText from "./contact-text";
 
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
-		section : {
+		root : {
 			display: "flex",
 			flexDirection:"column",
-			flex: "1 1 100%"
 		},
 		title: {
 			display: "flex",
@@ -50,7 +49,7 @@ const Contact = ({dark}) => {
 	const classes = useStyles();
 	return (
 		<Container dark={dark}>
-			<div className={classes.section}>
+			<div className={classes.root}>
 				<div className={classes.title}>
 					<Title title={"Contact Us"} dark={false}/>
 				</div>
