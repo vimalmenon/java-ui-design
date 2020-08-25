@@ -11,11 +11,7 @@ const useStyles = makeStyles((theme:Theme) => {
 		root: {
 			display: "flex",
 			flex:"0 0 auto",
-			flexDirection:"column",
-			"&:hover $stroke": {
-				animation: `$myEffect 600ms ${theme.transitions.easing.easeInOut}`,
-				flex:"0 0 100%"
-			}
+			flexDirection:"column"
 		},
 		title: {
 			fontFamily: "Philosopher",
@@ -35,15 +31,7 @@ const useStyles = makeStyles((theme:Theme) => {
 			flex: "0 0 40%",
 			height: "2px",
 			width: "100%",
-		},
-		"@keyframes myEffect": {
-			"0%": {
-				flex:"0 0 40%"
-			},
-			"100%": {
-				flex:"0 0 100%"
-			}
-		},
+		}
 	});
 });
 
