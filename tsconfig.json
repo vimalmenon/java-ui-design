@@ -10,6 +10,9 @@
         "moduleResolution": "node",
         "preserveConstEnums": true,
         "baseUrl": "./",
+        "types": [
+            "@types/jest"
+        ],
         "typeRoots" : ["assets/scripts/typings"],
         "paths": {
             "utility": ["assets/scripts/utility"],

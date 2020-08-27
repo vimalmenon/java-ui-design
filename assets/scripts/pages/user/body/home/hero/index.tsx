@@ -109,7 +109,6 @@ const Hero = () => {
 			<Carousel
 				className={classes.carousel}
 				autoPlay={false}
-				timer={5000}
 				animation={"slide"}
 				indicators={true}
 				timeout={500}
