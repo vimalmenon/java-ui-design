@@ -215,7 +215,27 @@ const navigations = [
 	expenses
 ];
 
+const home = {
+	name : "Home",
+	link : "/",
+	title : "Vimal Menon",
+};
+
+const tutorials = {
+	name : "Tutorials",
+	link : "/tutorials",
+	title : "Tutorials | Vimal Menon",
+	breadcrumbs : [
+		home
+	]
+};
+const mainNavigations = [
+	tutorials
+];
+
 const urlMapper = {
+	"/":home,
+	"/tutorials":tutorials,
 	"/admin": dashboard,
 	"/admin/admin" : admin,
 	"/admin/profile" : profile,
@@ -229,6 +249,8 @@ const urlMapper = {
 };
 
 const navigationByName = {
+	home,
+	tutorials,
 	signIn,
 	dashboard,
 	admin,
@@ -243,4 +265,4 @@ const navigationByName = {
 	YoutubeScript,
 	message
 };
-export {navigations, urlMapper, navigationByName};
+export {navigations, urlMapper, navigationByName,  mainNavigations};
