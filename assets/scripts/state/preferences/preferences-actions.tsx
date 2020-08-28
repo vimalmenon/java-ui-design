@@ -1,6 +1,6 @@
 import {TOGGLE_DRAWER, TOGGLE_MODE, SET_PALETTE, SET_PALETTE_COLOR, SET_PREFERENCES, SET_SEARCH} from "./preferences-types";
 
-const toggleMode = (mode: any) => {
+const toggleMode = (mode: "light"|"dark") => {
 	return (dispatch) => {
 		dispatch({
 			type : TOGGLE_MODE,

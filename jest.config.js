@@ -1,5 +1,6 @@
 module.exports = {
     verbose: true,
+    preset: 'ts-jest',
     transform: {
         "\\.tsx$": ['babel-jest', 'ts-jest']
     },

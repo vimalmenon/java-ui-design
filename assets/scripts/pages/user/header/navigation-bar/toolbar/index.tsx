@@ -14,6 +14,10 @@ import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
 import Tooltip from "@material-ui/core/Tooltip";
 
+import { bindActionCreators } from "redux";
+
+import * as actions from "actions";
+
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
 		root: {
@@ -22,7 +26,7 @@ const useStyles = makeStyles((theme:Theme) => {
 	});
 });
 
-const Toolbar = ({preferences, search, setSearch}) => {
+const Toolbar = ({preferences, search, setSearch, preferencesActions}) => {
 	const classes = useStyles();
 	const {type} = preferences.palette;
 	return (
@@ -31,12 +35,12 @@ const Toolbar = ({preferences, search, setSearch}) => {
 				<SearchIcon />
 			</IconButton>
 			{type === "light" ?
-				<Tooltip title="Dark mode" aria-label="Dark mode">
+				<Tooltip title="Dark mode" aria-label="Dark mode" onClick={() => preferencesActions.toggleMode(type)}>
 					<IconButton>
 						<BrightnessLowIcon/> 
 					</IconButton>
 				</Tooltip>:
-				<Tooltip title="Light mode" aria-label="Light mode">
+				<Tooltip title="Light mode" aria-label="Light mode" onClick={() => preferencesActions.toggleMode(type)}>
 					<IconButton>
 						<BrightnessHighIcon/> 
 					</IconButton>
@@ -53,6 +57,7 @@ const mapStateToProps = (state : any) => {
 };
 const mapDispatchToProps = (dispatch) => {
 	return {
+		preferencesActions : bindActionCreators({...actions.preferences}, dispatch)
 	};
 };
 
