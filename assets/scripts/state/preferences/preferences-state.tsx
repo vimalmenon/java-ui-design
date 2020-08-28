@@ -1,6 +1,6 @@
 export default {
-	lang: "en",
-	palette : {
+	lang:"en",
+	palette:{
 		type : "light",
 		primary:{
 			light:"#394a6b",
@@ -15,6 +15,9 @@ export default {
 			contrastText:"#fff"
 		}
 	},
-	drawer: true,
-	loading: true
+	drawer:true,
+	loading:true,
+	promises:[new Promise((resolve, reject) => {
+		setTimeout(resolve, 1000);
+	})]
 };

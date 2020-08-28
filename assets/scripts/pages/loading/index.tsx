@@ -14,7 +14,8 @@ const useStyles = makeStyles((theme:Theme) => {
 			left:"0",
 			width:"100%",
 			height:"100%",
-			zIndex:1000
+			zIndex:1000,
+			backgroundColor:theme.palette.type==="light"?"#fff":"#424242"
 		},
 		loader: {
 			display:"block",

@@ -20,25 +20,28 @@ import User from "./user";
 
 const Admin = loadable(() => import( /* webpackChunkName: "admin" */ /* webpackMode: "lazy" */ "./admin"));
 
-const Pages = (props) => {
+const Pages = ({preferences}) => {
 	const { addToast } = useToasts();
-	let {palette} = props.preferences;
+	let {palette, promises} = preferences;
 	notification.setNotification(addToast);
 	const theme = createMuiTheme({
 		palette : {
 			...palette
 		}
 	});
-	const loading = false;
+	const [loading, setLoading] = React.useState(true);
 	React.useEffect(() => {
 		switchTheme.themeInit();
+		Promise.all(promises).then(() => {
+			setLoading(false);
+		});
 	},[]);
 	return (
 		<ThemeProvider theme={theme}>
 			{!loading ? <Switch>
 				<Route path="/admin" component={Admin} />
 				<Route path="/" component={User} />
-			</Switch>: <Loading />}
+			</Switch>: <Loading/>}
 		</ThemeProvider>
 	);
 };
