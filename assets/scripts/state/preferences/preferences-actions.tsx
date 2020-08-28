@@ -1,4 +1,4 @@
-import {TOGGLE_DRAWER, TOGGLE_MODE, SET_PALETTE, SET_PALETTE_COLOR, SET_PREFERENCES, SET_SEARCH} from "./preferences-types";
+import {TOGGLE_DRAWER, TOGGLE_MODE, SET_PALETTE, SET_PALETTE_COLOR, SET_PREFERENCES, SET_LOADING} from "./preferences-types";
 
 const toggleMode = (mode: "light"|"dark") => {
 	return (dispatch) => {
@@ -34,10 +34,10 @@ const setPreferences = (preferences) => {
 		preferences
 	};
 };
-const setSearch = (search: boolean) => {
+const setLoading = (loading:boolean) => {
 	return {
-		type:SET_SEARCH,
-		search
+		type:SET_LOADING,
+		loading
 	};
 };
 export default {
@@ -46,5 +46,5 @@ export default {
 	toggleMode,
 	setPreferences,
 	setPalette,
-	setSearch
+	setLoading
 };

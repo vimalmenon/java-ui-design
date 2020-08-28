@@ -5,7 +5,9 @@ import {
 	makeStyles,
 	createStyles
 } from "@material-ui/core/styles";
+
 import { connect } from "react-redux";
+import {switchTheme} from "utility";
 
 
 import BrightnessLowIcon from "@material-ui/icons/BrightnessLow";
@@ -14,9 +16,7 @@ import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
 import Tooltip from "@material-ui/core/Tooltip";
 
-import { bindActionCreators } from "redux";
 
-import * as actions from "actions";
 
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
@@ -26,8 +26,9 @@ const useStyles = makeStyles((theme:Theme) => {
 	});
 });
 
-const Toolbar = ({preferences, search, setSearch, preferencesActions}) => {
+const Toolbar = ({preferences, search, setSearch}) => {
 	const classes = useStyles();
+	let {palette} = preferences;
 	const {type} = preferences.palette;
 	return (
 		<div className={classes.root}>
@@ -35,12 +36,12 @@ const Toolbar = ({preferences, search, setSearch, preferencesActions}) => {
 				<SearchIcon />
 			</IconButton>
 			{type === "light" ?
-				<Tooltip title="Dark mode" aria-label="Dark mode" onClick={() => preferencesActions.toggleMode(type)}>
+				<Tooltip title="Dark mode" aria-label="Dark mode" onClick={() => switchTheme.switchTheme({...palette, type: (type==="light")? "dark": "light"})}>
 					<IconButton>
 						<BrightnessLowIcon/> 
 					</IconButton>
 				</Tooltip>:
-				<Tooltip title="Light mode" aria-label="Light mode" onClick={() => preferencesActions.toggleMode(type)}>
+				<Tooltip title="Light mode" aria-label="Light mode" onClick={() => switchTheme.switchTheme({...palette, type: (type==="light")? "dark": "light"})}>
 					<IconButton>
 						<BrightnessHighIcon/> 
 					</IconButton>
@@ -55,13 +56,7 @@ const mapStateToProps = (state : any) => {
 		preferences: state.preferences,
 	};
 };
-const mapDispatchToProps = (dispatch) => {
-	return {
-		preferencesActions : bindActionCreators({...actions.preferences}, dispatch)
-	};
-};
 
 export default connect(
-	mapStateToProps,
-	mapDispatchToProps
+	mapStateToProps
 )(Toolbar);

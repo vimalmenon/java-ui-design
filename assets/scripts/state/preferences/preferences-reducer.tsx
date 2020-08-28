@@ -1,4 +1,4 @@
-import {TOGGLE_DRAWER, TOGGLE_MODE, SET_PALETTE, SET_PALETTE_COLOR, SET_PRIMARY_MAIN, SET_PREFERENCES, SET_SEARCH} from "./preferences-types"; 
+import {TOGGLE_DRAWER, TOGGLE_MODE, SET_PALETTE, SET_PALETTE_COLOR, SET_PRIMARY_MAIN, SET_PREFERENCES, SET_LOADING} from "./preferences-types"; 
 
 export default function (oldState, action) {
 	let state;
@@ -28,9 +28,9 @@ export default function (oldState, action) {
 		state = {...oldState};
 		state.palette.primary.main = action.color;
 		return state;
-	case SET_SEARCH:
+	case SET_LOADING:
 		state = {...oldState};
-		state.search = action.search;
+		state.loading = action.loading;
 		return state;
 	case SET_PREFERENCES:
 		state = {...action.preferences};

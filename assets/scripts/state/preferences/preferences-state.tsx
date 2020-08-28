@@ -16,5 +16,5 @@ export default {
 		}
 	},
 	drawer: true,
-	search:false
+	loading: true
 };
