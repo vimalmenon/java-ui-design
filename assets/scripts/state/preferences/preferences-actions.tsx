@@ -1,13 +1,5 @@
-import {TOGGLE_DRAWER, TOGGLE_MODE, SET_PALETTE, SET_PALETTE_COLOR, SET_PREFERENCES, SET_LOADING} from "./preferences-types";
+import {TOGGLE_DRAWER, SET_PALETTE, SET_PALETTE_COLOR, SET_PREFERENCES, SET_LOADING} from "./preferences-types";
 
-const toggleMode = (mode: "light"|"dark") => {
-	return (dispatch) => {
-		dispatch({
-			type : TOGGLE_MODE,
-			mode : (mode === "dark") ? "light": "dark" 
-		});
-	};
-};
 const toggleDrawer = (drawer: boolean) => {
 	return {
 		type : TOGGLE_DRAWER,
@@ -43,7 +35,6 @@ const setLoading = (loading:boolean) => {
 export default {
 	setPaletteColor,
 	toggleDrawer,
-	toggleMode,
 	setPreferences,
 	setPalette,
 	setLoading
