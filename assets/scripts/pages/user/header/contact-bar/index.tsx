@@ -6,7 +6,7 @@ import {
 	createStyles
 } from "@material-ui/core/styles";
 
-import Icons from "./icons";
+import FollowUs from "../../common/follow-us";
 
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
@@ -38,7 +38,7 @@ const ContactBar = ()=> {
 	return (
 		<div className={classes.root}>
 			<div className={classes.container}>
-				<Icons />
+				<FollowUs />
 			</div>
 		</div>
 	);
