@@ -11,7 +11,8 @@ import com.vimalmenon.application.data.link.LinkRepository;
 @Service
 public class LinkManager {
 
-	
+	private static final String SOCIAL_MEDIA = "SOCIAL_MEDIA";
+
 	@Autowired
 	private LinkRepository linkRepository;
 
@@ -25,5 +26,9 @@ public class LinkManager {
 
 	public void deleteLinks(List<Link> items) {
 		linkRepository.deleteAll(items);
+	}
+
+	public List<Link> getSocialMedias() {
+		return linkRepository.findByType(SOCIAL_MEDIA);
 	}
 }

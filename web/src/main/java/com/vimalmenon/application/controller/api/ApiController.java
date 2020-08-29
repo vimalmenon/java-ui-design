@@ -74,7 +74,7 @@ public class ApiController {
 	
 	@GetMapping("/download_resume")
 	public void downloadResume () {
-		
+		System.out.println("vimal Menon");
 	}
 
 	@GetMapping("/offline_page")

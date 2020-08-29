@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.vimalmenon.application.data.component.ComponentEntitlement;
 import com.vimalmenon.application.manager.database.ComponentManager;
+import com.vimalmenon.application.manager.database.LinkManager;
 import com.vimalmenon.application.model.component.ComponentEntitlementModel;
 import com.vimalmenon.application.model.response.Session;
 
@@ -20,6 +21,9 @@ public class ControllerService {
 	
 	@Autowired
 	private Session session;
+
+	@Autowired
+	private LinkManager linkManager;
 
 	@Autowired
 	private PropertyService propertyService;
@@ -39,6 +43,7 @@ public class ControllerService {
 	{
 		Map<String, Object> index = new HashMap<>();
 		index.put("properties", propertyService.getIndexProperties());
+		index.put("socialMedias", linkManager.getSocialMedias());
 		return index;
 	}
 
