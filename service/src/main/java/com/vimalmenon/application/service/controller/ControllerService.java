@@ -1,6 +1,8 @@
 package com.vimalmenon.application.service.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -25,9 +27,6 @@ public class ControllerService {
 	@Autowired
 	private LinkManager linkManager;
 
-	@Autowired
-	private PropertyService propertyService;
-
 	
 	public ComponentEntitlementModel getComponentEntitlement (String name)
 	{
@@ -42,13 +41,12 @@ public class ControllerService {
 	public Map<String, Object> getIndex() 
 	{
 		Map<String, Object> index = new HashMap<>();
-		index.put("properties", propertyService.getIndexProperties());
 		index.put("socialMedias", linkManager.getSocialMedias());
 		return index;
 	}
 
-	public String getTutorials() 
+	public List<String> getTutorials() 
 	{
-		return "testing";
+		return new ArrayList<>();
 	}
 }

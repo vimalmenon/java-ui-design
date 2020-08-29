@@ -1,11 +1,14 @@
 package com.vimalmenon.application.controller.api;
 
 import java.security.Principal;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,6 +42,8 @@ public class ApiController {
 	
 	@Autowired
 	private ContactService contactService;
+
+	Logger log = LoggerFactory.getLogger(ApiController.class);
 	
 	@GetMapping("")
 	public ApiResponseModel<Map<String, Object>> index() 
@@ -47,9 +52,9 @@ public class ApiController {
 	}
 	
 	@PostMapping("/tutorials")
-	public ApiResponseModel<String> getTutorials () 
+	public ApiResponseModel<List<String>> getTutorials () 
 	{
-		return new ApiResponseModel<String>(session).setData(controllerService.getTutorials());
+		return new ApiResponseModel<List<String>>(session).setData(controllerService.getTutorials());
 	}
 	
 	@PostMapping("/log_in")
@@ -74,7 +79,7 @@ public class ApiController {
 	
 	@GetMapping("/download_resume")
 	public void downloadResume () {
-		System.out.println("vimal Menon");
+		log.info("vimal Menon");
 	}
 
 	@GetMapping("/offline_page")

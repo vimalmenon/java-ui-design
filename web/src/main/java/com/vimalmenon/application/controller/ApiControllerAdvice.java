@@ -68,7 +68,7 @@ public class ApiControllerAdvice {
 	}
 	 
 	@ExceptionHandler(value = Exception.class)
-	public ApiResponseModel<String> exception(final Exception exception, HttpServletResponse httpResponse) throws Exception
+	public ApiResponseModel<String> exception(final Exception exception, HttpServletResponse httpResponse)
 	{
 		return this.generalException(new GeneralException(exception.getMessage()), httpResponse);
 	}

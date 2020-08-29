@@ -46,8 +46,7 @@ public class GoogleDriveService {
 	private String getFileLocation ()
 	{
 		Path currentRelativePath = Paths.get(fileName);
-		String absolutePath = currentRelativePath.toAbsolutePath().toString();
-		return absolutePath;
+		return currentRelativePath.toAbsolutePath().toString();
 	}
 	private void createDatabaseFolderIfNotExists (java.io.File dbPath) {
 		if (!dbPath.exists()) {
@@ -130,7 +129,7 @@ public class GoogleDriveService {
 			List<Sql> sequence = Sql.getSequence();
 			
 			databaseManager.unset();
-			sequence.forEach((item) -> {
+			sequence.forEach(item -> {
 				try {
 					String st;
 					java.io.File dbPath = new java.io.File(destDir + "//" + item.getSqlName());
@@ -142,7 +141,6 @@ public class GoogleDriveService {
 					br.close();
 					databaseManager.restoreDatabase(item, builder.toString());
 				} catch (BeansException | IOException e) {
-					log.error("Exception for : ", e);
 					throw new GeneralException(e.getMessage());
 				}
 			});

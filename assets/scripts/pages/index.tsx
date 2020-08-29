@@ -6,19 +6,20 @@ import {
 
 import loadable from "@loadable/component";
 import { useToasts } from "react-toast-notifications";
-import { notification, switchTheme } from "utility";
+import { notification} from "utility";
 import { connect } from "react-redux";
-
-import Loading from "./loading";
 
 import {
 	ThemeProvider,
 	createMuiTheme
 } from "@material-ui/core/styles";
 
-import User from "./user";
-
 const Admin = loadable(() => import( /* webpackChunkName: "admin" */ /* webpackMode: "lazy" */ "./admin"));
+
+import Loading from "./loading";
+import User from "./user";
+import {init} from "./index.service";
+
 
 const Pages = ({preferences}) => {
 	const { addToast } = useToasts();
@@ -31,7 +32,7 @@ const Pages = ({preferences}) => {
 	});
 	const [loading, setLoading] = React.useState(true);
 	React.useEffect(() => {
-		switchTheme.themeInit();
+		init();
 		Promise.all(promises).then(() => {
 			setLoading(false);
 		});
