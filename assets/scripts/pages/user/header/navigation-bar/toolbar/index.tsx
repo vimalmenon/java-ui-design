@@ -32,9 +32,12 @@ const Toolbar = ({preferences, search, setSearch}) => {
 	const {type} = preferences.palette;
 	return (
 		<div className={classes.root}>
-			<IconButton onClick={()=>setSearch(!search)}>
-				<SearchIcon />
-			</IconButton>
+			<Tooltip title="Search" aria-label="Search" onClick={()=>setSearch(!search)}>
+				<IconButton>
+					<SearchIcon />
+				</IconButton>
+			</Tooltip>
+			
 			{type === "light" ?
 				<Tooltip title="Dark mode" aria-label="Dark mode" onClick={() => switchTheme.switchTheme({...palette, type: (type==="light")? "dark": "light"})}>
 					<IconButton>

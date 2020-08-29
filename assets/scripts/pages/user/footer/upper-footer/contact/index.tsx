@@ -5,7 +5,7 @@ import {
 	createStyles
 } from "@material-ui/core/styles";
 
-import {Title} from "../../../common";
+import {Title, FollowUs} from "../../../common";
 
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
@@ -22,8 +22,7 @@ const Contact = () => {
 			<div>
 				<Title title={"Follow us"} />
 				<div>
-					<div>
-					</div>
+					<FollowUs />
 				</div>
 			</div>
 		</div>
