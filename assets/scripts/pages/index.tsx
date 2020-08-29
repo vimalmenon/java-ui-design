@@ -14,6 +14,10 @@ import {
 	createMuiTheme
 } from "@material-ui/core/styles";
 
+import { bindActionCreators } from "redux";
+
+import * as actions from "actions";
+
 const Admin = loadable(() => import( /* webpackChunkName: "admin" */ /* webpackMode: "lazy" */ "./admin"));
 
 import Loading from "./loading";
@@ -21,9 +25,10 @@ import User from "./user";
 import {init} from "./index.service";
 
 
-const Pages = ({preferences}) => {
+const Pages = ({preferences, common, commonActions}) => {
 	const { addToast } = useToasts();
-	let {palette, promises} = preferences;
+	const {palette} = preferences;
+	const {promises} = common;
 	notification.setNotification(addToast);
 	const theme = createMuiTheme({
 		palette : {
@@ -32,7 +37,7 @@ const Pages = ({preferences}) => {
 	});
 	const [loading, setLoading] = React.useState(true);
 	React.useEffect(() => {
-		init();
+		init(commonActions);
 		Promise.all(promises).then(() => {
 			setLoading(false);
 		});
@@ -47,12 +52,20 @@ const Pages = ({preferences}) => {
 	);
 };
 
-const mapStateToProps = (state : any) => {
+const mapStateToProps = (state:any) => {
 	return {
 		preferences: state.preferences,
+		common: state.common
+	};
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		commonActions: bindActionCreators({...actions.common}, dispatch),
 	};
 };
 
 export default connect(
-	mapStateToProps
+	mapStateToProps,
+	mapDispatchToProps
 )(Pages);

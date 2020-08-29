@@ -16,8 +16,5 @@ export default {
 		}
 	},
 	drawer:true,
-	loading:true,
-	promises:[new Promise((resolve, reject) => {
-		setTimeout(resolve, 1000);
-	})]
+	loading:true
 };

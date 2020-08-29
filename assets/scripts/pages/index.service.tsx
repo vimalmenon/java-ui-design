@@ -3,12 +3,12 @@ import {apiList} from "const";
 
 const {MainApi} = apiList;
 
-const init = () => {
+const init = (actions) => {
 	switchTheme.themeInit();
-	new ApiCaller(new MainApi)
-		.success((data) => {
-			console.log(data.socialMedias);
-		});
+	actions.addPromise(new ApiCaller(new MainApi()).success((data) => {
+		actions.setSocialMedias(data.socialMedias);
+		return data;
+	}));
 };
 
 export {

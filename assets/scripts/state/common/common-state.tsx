@@ -2,7 +2,8 @@ const  common = {
 	selectedNavigation : {},
 	navigationEntitlement: {},
 	groups: [],
-	socialMedia:[]
+	socialMedias:[],
+	promises:[]
 };
 
 export default common;
