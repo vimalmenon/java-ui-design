@@ -8,7 +8,6 @@ import Group from "./group";
 import Database from "./database";
 import Component from "./component";
 import Properties from "./properties";
-import Preference from "./preference";
 import Link from "./link";
 
 import Slide from "@material-ui/core/Slide";
@@ -102,7 +101,6 @@ const AdminHome = () => {
 					{(component === "component") ? <Component />: null}
 					{(component === "group") ? <Group groups={groups} />: null}
 					{(component === "properties") ? <Properties />: null}
-					{(component === "preference") ? <Preference />: null}
 					{(component === "link") ? <Link />: null}
 				</div>
 			</div>

@@ -1,5 +1,4 @@
 import HomeIcon from "@material-ui/icons/Home";
-import SettingsIcon from "@material-ui/icons/Settings";
 import NoteIcon from "@material-ui/icons/Note";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
@@ -129,19 +128,6 @@ const admin = {
 		}
 	]
 };
-const preference = {
-	name : "Preference",
-	Icon : SettingsIcon,
-	link : "/admin/preference",
-	title : "Preference | Vimal Menon",
-	breadcrumbs : [
-		dashboard,
-		{
-			name : "preference",
-			Icon : SettingsIcon,
-		}
-	]
-};
 const profile = {
 	name : "Profile",
 	Icon : AccountCircleIcon,
@@ -210,7 +196,6 @@ const navigations = [
 	dashboard,
 	profile,
 	admin,
-	preference,
 	notes,
 	expenses
 ];
@@ -239,7 +224,6 @@ const urlMapper = {
 	"/admin": dashboard,
 	"/admin/admin" : admin,
 	"/admin/profile" : profile,
-	"/admin/preference" : preference,
 	"/admin/notes" : notes,
 	"/admin/calendar" : calendar,
 	"/admin/expenses" : expenses,
@@ -254,7 +238,6 @@ const navigationByName = {
 	signIn,
 	dashboard,
 	admin,
-	preference,
 	profile,
 	notes,
 	calendar,

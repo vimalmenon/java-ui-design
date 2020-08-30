@@ -4,6 +4,8 @@ import EditIcon from "@material-ui/icons/Edit";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import InstagramIcon from "@material-ui/icons/Instagram";
+import SettingsIcon from "@material-ui/icons/Settings";
+import EmailIcon from "@material-ui/icons/Email";
 
 const icons = {
 	Add:AddIcon,
@@ -11,6 +13,8 @@ const icons = {
 	Edit:EditIcon,
 	YouTube:YouTubeIcon,
 	GitHub:GitHubIcon,
-	Instagram:InstagramIcon
+	Instagram:InstagramIcon,
+	setting:SettingsIcon,
+	email:EmailIcon
 };
 export default icons;

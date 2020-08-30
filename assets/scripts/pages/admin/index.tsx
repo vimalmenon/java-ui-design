@@ -4,8 +4,6 @@ import {Entitlement} from "dumb-components";
 
 import Dashboard from "./dashboard";
 import Login from "./login";
-import Header from "../home/header";
-import Footer from "../home/footer";
 
 class Pages extends React.Component<any,any> {
 	constructor(props) {
@@ -25,9 +23,7 @@ class Pages extends React.Component<any,any> {
 					render={() => {
 						return (
 							<React.Fragment>
-								<Header />
 								<Login />
-								<Footer />
 							</React.Fragment>
 						);}} />
 			</React.Fragment>
