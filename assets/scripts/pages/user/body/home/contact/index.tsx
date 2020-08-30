@@ -6,6 +6,7 @@ import {
 	createStyles
 } from "@material-ui/core/styles";
 
+import {Element} from "react-scroll";
 
 import {Title, Container} from "../../../common";
 
@@ -47,8 +48,8 @@ const useStyles = makeStyles((theme:Theme) => {
 const Contact = ({dark}) => {
 	const classes = useStyles();
 	return (
-		<Container dark={dark} className={"contact-us"}>
-			<div className={classes.root}>
+		<Container dark={dark}>
+			<Element name="contact-us" className={classes.root}>
 				<div className={classes.title}>
 					<Title title={"Contact Us"} dark={false}/>
 				</div>
@@ -61,7 +62,7 @@ const Contact = ({dark}) => {
 						<ContactForm />
 					</div>
 				</div>
-			</div>
+			</Element>
 		</Container>
 	);
 };

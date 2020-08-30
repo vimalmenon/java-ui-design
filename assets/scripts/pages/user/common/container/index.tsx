@@ -29,10 +29,10 @@ const useStyles = makeStyles((theme:Theme) => {
 	});
 });
 
-const Container = ({dark, children, className}) => {
+const Container = ({dark, children}) => {
 	const classes = useStyles(dark);
 	return(
-		<div className={clsx(classes.root, className)}>
+		<div className={clsx(classes.root)}>
 			<div className={classes.container}>
 				{children}
 			</div>

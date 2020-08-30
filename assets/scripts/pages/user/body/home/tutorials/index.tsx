@@ -6,6 +6,7 @@ import {
 	createStyles
 } from "@material-ui/core/styles";
 
+import {Element} from "react-scroll";
 
 import {Title, Container} from "../../../common";
 import LatestVideos from "./latest-videos";
@@ -35,8 +36,8 @@ const useStyles = makeStyles((theme:Theme) => {
 const Tutorials = ({dark}) => {
 	const classes = useStyles();
 	return (
-		<Container dark={dark} className={"tutorials"}>		
-			<div className={classes.root}>
+		<Container dark={dark}>		
+			<Element name="tutorials" className={classes.root}>
 				<div className={classes.title}>
 					<Title title={"Tutorials"} dark={false}/>
 				</div>
@@ -44,7 +45,7 @@ const Tutorials = ({dark}) => {
 					<LatestVideos />
 					<PopularVideos />
 				</div>
-			</div>
+			</Element>
 		</Container>
 	);
 };

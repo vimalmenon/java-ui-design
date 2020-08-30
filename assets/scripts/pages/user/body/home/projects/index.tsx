@@ -4,6 +4,7 @@ import {
 	makeStyles,
 	createStyles
 } from "@material-ui/core/styles";
+import {Element} from "react-scroll";
 import {Title, Container} from "../../../common";
 
 const useStyles = makeStyles((theme:Theme) => {
@@ -18,15 +19,15 @@ const useStyles = makeStyles((theme:Theme) => {
 const Projects = ({dark}) => {
 	const classes = useStyles();
 	return (
-		<Container dark={dark} className="projects">
-			<div className={classes.root}>
+		<Container dark={dark}>
+			<Element name="projects" className={classes.root}>
 				<div>
 					<Title title={"Projects"} dark={false}/>
 				</div>
 				<div>
 					This is Projects
 				</div>
-			</div>
+			</Element>
 		</Container>
 	);
 };

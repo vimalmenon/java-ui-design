@@ -46,11 +46,23 @@ const useStyles = makeStyles((theme:Theme) => {
 		container : {
 			display:"flex",
 			flex:"1 1 100%",
-			color:"white",
+			color:"#FFFFFF",
 			[theme.breakpoints.up("lg")]: {
 				display:"flex",
 				flex: `0 0 ${theme.breakpoints.values.lg}px`,
 			},
+		},
+		content : {
+			display:"flex",
+			flexDirection:"column",
+			flex:"1 1 100%",
+			justifyContent:"space-around"
+		},
+		title: {
+			fontSize:"2rem"
+		},
+		description:{
+
 		}
 	});
 });
@@ -99,21 +111,21 @@ function Banner(props) {
 				image={item.image}
 				title={item.imageTitle}>
 				<div className={classes.container}>
-					<Grid item xs={12}>
-						<CardContent className="Content">
-							<Typography className="Title">
-								{item.title}
-							</Typography>
-							<Typography className="Caption">
+					<CardContent className={classes.content}>
+						<Typography className={classes.title}>
+							{item.title}
+						</Typography>
+						<Typography className={classes.description} component="div">
+							<div>
 								{item.description}
-							</Typography>
-							<Link to={item.buttonLink} spy={true} smooth={true} offset={50} duration={500}>
-								<Button variant="contained" color="secondary">
-									{item.buttonLable}
-								</Button>
-							</Link>
-						</CardContent>
-					</Grid>
+							</div>
+						</Typography>
+						<Link to={item.buttonLink} spy={true} smooth={true} offset={50} duration={500}>
+							<Button variant="contained" color="secondary">
+								{item.buttonLable}
+							</Button>
+						</Link>
+					</CardContent>
 				</div>
 			</CardMedia>
 		</Grid>
