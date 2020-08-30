@@ -26,18 +26,20 @@ const useStyles = makeStyles((theme:Theme) => {
 	});
 });
 
-const Toolbar = ({preferences, search, setSearch}) => {
+const Toolbar = ({preferences, search, setSearch, showSearch}) => {
 	const classes = useStyles();
 	let {palette} = preferences;
 	const {type} = preferences.palette;
 	return (
 		<div className={classes.root}>
-			<Tooltip title="Search" aria-label="Search" onClick={()=>setSearch(!search)}>
-				<IconButton>
-					<SearchIcon />
-				</IconButton>
-			</Tooltip>
-			
+			{showSearch ?
+				<Tooltip title="Search" aria-label="Search" onClick={()=>setSearch(!search)}>
+					<IconButton>
+						<SearchIcon />
+					</IconButton>
+				</Tooltip>:
+				null
+			}
 			{type === "light" ?
 				<Tooltip title="Dark mode" aria-label="Dark mode" onClick={() => switchTheme.switchTheme({...palette, type: (type==="light")? "dark": "light"})}>
 					<IconButton>

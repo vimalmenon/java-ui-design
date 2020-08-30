@@ -6,19 +6,24 @@ import {
 	createStyles
 } from "@material-ui/core/styles";
 
-import Logo from "./logo";
-import Toolbar from "./toolbar";
-import Search from "./search";
-import Navigation from "./navigation";
+import {scrollSpy} from "react-scroll";
 
-import HeaderScroll from "./header-scroll";
+import Logo from "../logo";
+import Navigation from "../navigation";
+import Toolbar from "../toolbar";
 
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
-		root: {
+		root:{
 			display: "flex",
 			flex: "0 0 63px",
 			justifyContent : "center",
+			position:"fixed",
+			top:"0px",
+			width:"100%",
+			overflow:"hidden",
+			zIndex:1000,
+			height:(value) =>`${value}px`,
 			backgroundColor:(theme.palette.type==="light")?theme.palette.background.paper:"#121212"
 		},
 		container : {
@@ -38,30 +43,29 @@ const useStyles = makeStyles((theme:Theme) => {
 		}
 	});
 });
-
-
-const NavigationBar = ()=> {
-	const classes = useStyles();
-	const [search, setSearch] = React.useState(false);
+const HeaderScroll = () => {
+	const [pos, setPos] = React.useState(0);
+	React.useEffect(() => {
+		scrollSpy.addSpyHandler((x, y) => {
+			setPos(y);
+		}, document);
+	},[]);
+	const classes = useStyles((pos>970)?(pos-970>63)?63:pos-970:0);
 	return (
 		<div className={classes.root}>
 			<div className={classes.container}>
-				<Logo />
+				<Logo/>
 				<div className={classes.navigation}>
 					<Navigation />
 					<Toolbar 
-						search={search}
-						setSearch={setSearch}
-						showSearch={true}
-						/>
+						search={false}
+						setSearch={() =>{}}
+						showSearch={false} />
 				</div>
+				
 			</div>
-			<Search 
-				search={search}
-				setSearch={setSearch}/>
-			<HeaderScroll />
 		</div>
 	);
 };
 
-export default NavigationBar;
+export default HeaderScroll;
