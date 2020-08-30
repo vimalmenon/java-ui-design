@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme:Theme) => {
 const Projects = ({dark}) => {
 	const classes = useStyles();
 	return (
-		<Container dark={dark}>
+		<Container dark={dark} className="projects">
 			<div className={classes.root}>
 				<div>
 					<Title title={"Projects"} dark={false}/>

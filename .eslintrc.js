@@ -21,7 +21,8 @@ module.exports =  {
         "AbortController":"readonly",
         "document":"readonly",
         "location":"readonly",
-        "setTimeout":"readonly"
+        "setTimeout":"readonly",
+        "window":"readonly"
     },
     rules:  {
       "indent": [2, "tab"],

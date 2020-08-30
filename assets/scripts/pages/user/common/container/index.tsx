@@ -6,6 +6,8 @@ import {
 	createStyles
 } from "@material-ui/core/styles";
 
+import clsx from "clsx";
+
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
 		root: {
@@ -27,10 +29,10 @@ const useStyles = makeStyles((theme:Theme) => {
 	});
 });
 
-const Container = ({dark, children}) => {
+const Container = ({dark, children, className}) => {
 	const classes = useStyles(dark);
 	return(
-		<div className={classes.root}>
+		<div className={clsx(classes.root, className)}>
 			<div className={classes.container}>
 				{children}
 			</div>

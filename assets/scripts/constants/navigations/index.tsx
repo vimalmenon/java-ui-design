@@ -207,7 +207,7 @@ const home = {
 };
 const PrivacyPolicy = {
 	name : "Privacy Policy",
-	link : "/privacy_policy",
+	link : "/privacy-policy",
 	title : "Privacy Policy | Vimal Menon",
 	breadcrumbs : [
 		home

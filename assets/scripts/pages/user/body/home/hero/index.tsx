@@ -14,90 +14,114 @@ import {
 	Grid,
 	Button
 } from "@material-ui/core";
+import {Link} from "react-scroll";
 
 import image1 from "../../../../images/image1.jpg";
 import image2 from "../../../../images/image5.jpg";
 import image3 from "../../../../images/image3.jpg";
-import image4 from "../../../../images/image4.jpg";
+
+
 
 
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
-		root: {
+		root:{
 			display: "flex"
 		},
-		carousel: {
+		carousel:{
 			display: "flex",
 			flexDirection:"column",
 			flex:"1 1 100%"
+		},
+		cardContent:{
+			width:"100%",
+			display:"flex"
+		},
+		cardMedia:{
+			height:"906px",
+			width:"100%",
+			display:"flex",
+			justifyContent : "center",
+		},
+		container : {
+			display:"flex",
+			flex:"1 1 100%",
+			color:"white",
+			[theme.breakpoints.up("lg")]: {
+				display:"flex",
+				flex: `0 0 ${theme.breakpoints.values.lg}px`,
+			},
 		}
 	});
 });
 const carousels = [
 	{
 		id: 1,
-		Name: "Electronics",
-		Caption: "Electrify your friends!",
-		contentPosition: "left",
+		name: "About Me",
 		image: image1,
+		imageTitle:"About Me",
+		title:"My name is Vimal Menon",
+		description:"My name is Vimal Menon, I am a fullstack web developer",
+		buttonLable: "About Me",
+		buttonLink:"about-me",
+		contentPosition: "left",
 	},
 	{
 		id: 2,
-		Name: "Home Appliances",
-		Caption: "Say no to manual home labour!",
-		contentPosition: "middle",
+		name: "Tutorials",
 		image: image2,
+		imageTitle:"Tutorials",
+		title:"",
+		description:"",
+		buttonLable: "Tutorials",
+		buttonLink:"tutorials",
+		contentPosition: "middle",
 	},
 	{
 		id: 3,
-		Name: "Decoratives",
-		Caption: "Give style and color to your living room!",
-		contentPosition: "right",
+		name: "Contact Us",
 		image: image3,
-	},
-	{
-		id: 4,
-		Name: "Decoratives",
-		Caption: "Give style and color to your living room!",
+		imageTitle:"Contact Us",
+		title:"",
+		description:"",
+		buttonLable: "Contact Us",
+		buttonLink:"contact-us",
 		contentPosition: "right",
-		image: image4,
 	}
 ];
 
 function Banner(props) {
-	let items:any = [];
-	const item = props.item;
+	const {item, classes} = props;
 	const media = (
-		<Grid item xs={12} key={props.item.id}>
+		<Grid item xs={12} className={classes.cardContent}>
 			<CardMedia
-				style={{height:"764px"}}
+				className={classes.cardMedia}
 				image={item.image}
-				title={props.item.Name}>
-				<Typography className="MediaCaption">
-					{item.Name}
-				</Typography>
-				<Grid item xs={12}>
-					<CardContent className="Content">
-						<Typography className="Title">
-							{props.item.Name}
-						</Typography>
-						<Typography className="Caption">
-							{props.item.Caption}
-						</Typography>
-						<Button variant="outlined" className="ViewButton">
-							View Now
-						</Button>
-					</CardContent>
-				</Grid>
+				title={item.imageTitle}>
+				<div className={classes.container}>
+					<Grid item xs={12}>
+						<CardContent className="Content">
+							<Typography className="Title">
+								{item.title}
+							</Typography>
+							<Typography className="Caption">
+								{item.description}
+							</Typography>
+							<Link to={item.buttonLink} spy={true} smooth={true} offset={50} duration={500}>
+								<Button variant="contained" color="secondary">
+									{item.buttonLable}
+								</Button>
+							</Link>
+						</CardContent>
+					</Grid>
+				</div>
 			</CardMedia>
 		</Grid>
 	);
-
-	items.push(media);
 	return (
-		<Card raised className="Banner">
-			<Grid container spacing={0} className="BannerGrid">
-				{items}
+		<Card raised>
+			<Grid container spacing={0}>
+				{media}
 			</Grid>
 		</Card>
 	);
@@ -114,7 +138,13 @@ const Hero = () => {
 				timeout={500}
 				navButtonsAlwaysVisible={true}>
 				{carousels.map((item, index) => {
-					return (<Banner item={item} key={index} contentPosition={item.contentPosition}/>);
+					return (
+						<Banner 
+							item={item} 
+							key={index} 
+							contentPosition={item.contentPosition} 
+							classes={classes}/>
+					);
 				})}
 			</Carousel>
 		</div>

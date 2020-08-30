@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme:Theme) => {
 const Contact = ({dark}) => {
 	const classes = useStyles();
 	return (
-		<Container dark={dark}>
+		<Container dark={dark} className={"contact-us"}>
 			<div className={classes.root}>
 				<div className={classes.title}>
 					<Title title={"Contact Us"} dark={false}/>
