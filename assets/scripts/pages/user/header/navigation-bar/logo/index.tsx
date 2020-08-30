@@ -1,4 +1,7 @@
 import * as React from "react";
+import {
+	Link
+} from "react-router-dom";
 
 import {
 	Theme,
@@ -34,16 +37,18 @@ const Logo = ({preferences}) => {
 	const classes = useStyles();
 	return (
 		<div className={classes.root}>
-			{type==="light" ?
-				<img 
-					src={light} 
-					alt={"Vimal Menon"} 
-					className={classes.logo}/>:
-				<img 
-					src={dark} 
-					alt={"Vimal Menon"} 
-					className={classes.logo}/>
-			}
+			<Link to={"/"}>
+				{type==="light" ?
+					<img 
+						src={light} 
+						alt={"Vimal Menon"} 
+						className={classes.logo}/>:
+					<img 
+						src={dark} 
+						alt={"Vimal Menon"} 
+						className={classes.logo}/>
+				}
+			</Link>
 		</div>
 	);
 };
