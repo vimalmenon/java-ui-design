@@ -8,6 +8,9 @@ import {
 	createStyles
 } from "@material-ui/core/styles";
 
+import {Link} from "react-scroll";
+
+
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
 		root:{
@@ -42,7 +45,15 @@ const useStyles = makeStyles((theme:Theme) => {
 			},
 			"&.active" : {
 				//backgroundColor:"#19191A",
-				color:(theme.palette.type==="light")?"black":"white"
+				color:(theme.palette.type==="light")?"black":"white",
+				"&::after" : {
+					content: "''",
+					display:"inline-block",
+					width:"100%",
+					height:"2px",
+					background: "#FA2B54",
+					animation: `$myEffect 300ms ${theme.transitions.easing.easeInOut}`,
+				},
 			},	
 		},
 		"@keyframes myEffect": {
@@ -59,15 +70,18 @@ const useStyles = makeStyles((theme:Theme) => {
 const navigations = [
 	{
 		name: "About Me",
-		link:"/about-me"
+		link:"/about-me",
+		to:"about-me"
 	},
 	{
 		name:"Tutorials",
-		link:"/tutorials"
+		link:"/tutorials",
+		to:"tutorials"
 	},
 	{
 		name:"Contact Us",
-		link:"/contact-us"
+		link:"/contact-us",
+		to:"contact-us"
 	}
 ];
 const Navigation = () => {
@@ -76,11 +90,9 @@ const Navigation = () => {
 		<div className={classes.root}>
 			{navigations.map((navigation, key) => {
 				return (
-					<div key={key} className={clsx(classes.navigationItem, {"active":key===0})}>
-						<span>
-							{navigation.name}
-						</span>
-					</div>
+					<Link key={key} activeClass="active" to={navigation.to} spy={true} smooth={true} offset={50} duration={500} className={clsx(classes.navigationItem)}>
+						{navigation.name}
+					</Link>
 				);
 			})}
 		</div>
