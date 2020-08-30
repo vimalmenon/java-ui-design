@@ -50,7 +50,7 @@ const HeaderScroll = () => {
 			setPos(y);
 		}, document);
 	},[]);
-	const classes = useStyles((pos>970)?(pos-970>63)?63:pos-970:0);
+	const classes = useStyles((pos>900)?(pos-900>63)?63:(pos-900)/2:0);
 	return (
 		<div className={classes.root}>
 			<div className={classes.container}>

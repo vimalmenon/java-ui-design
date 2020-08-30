@@ -52,8 +52,7 @@ const NavigationBar = ()=> {
 					<Toolbar 
 						search={search}
 						setSearch={setSearch}
-						showSearch={true}
-						/>
+						showSearch={true}/>
 				</div>
 			</div>
 			<Search 
