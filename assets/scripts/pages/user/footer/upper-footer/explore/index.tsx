@@ -5,9 +5,13 @@ import {
 	makeStyles,
 	createStyles
 } from "@material-ui/core/styles";
+import {
+	Link
+} from "react-router-dom";
 
-import {extraNavigations} from "const";
+import {extraNavigations, icons} from "const";
 import {Title} from "../../../common";
+const {ArrowForward} =  icons;
 
 
 const useStyles = makeStyles((theme:Theme) => {
@@ -25,7 +29,17 @@ const useStyles = makeStyles((theme:Theme) => {
 		},
 		linkItem : {
 			display:"flex",
-			flex: "1 1 50%"
+			flex: "1 1 50%",
+		},
+		link : {
+			color:"white",
+			textDecoration:"none",
+			"&:hover": {
+				color:"white"
+			}
+		},
+		icon: {
+			fontSize:"0.6rem"
 		}
 	});
 });
@@ -38,11 +52,12 @@ const Explore = () => {
 			</div>
 			<div className={classes.container}>
 				{extraNavigations.map((navigation, key) => {
-					const {name} = navigation;
-					console.log(name);
+					const {name, link} = navigation;
 					return (
 						<div key={key} className={classes.linkItem}>
-							{name}
+							<Link to={link} className={classes.link}>
+								<ArrowForward className={classes.icon}/> {name}
+							</Link>
 						</div>
 					);
 				})}

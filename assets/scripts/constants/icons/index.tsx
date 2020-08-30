@@ -16,9 +16,9 @@ const icons = {
 	YouTube:YouTubeIcon,
 	GitHub:GitHubIcon,
 	Instagram:InstagramIcon,
-	setting:SettingsIcon,
-	email:EmailIcon,
-	home:HomeIcon,
-	arrowForward:ArrowForwardIosIcon
+	Setting:SettingsIcon,
+	Email:EmailIcon,
+	Home:HomeIcon,
+	ArrowForward:ArrowForwardIosIcon
 };
 export default icons;
