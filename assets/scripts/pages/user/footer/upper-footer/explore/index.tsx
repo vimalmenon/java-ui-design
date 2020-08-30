@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme:Theme) => {
 		linkItem : {
 			display:"flex",
 			flex: "1 1 50%",
+			margin:theme.spacing(1,0),
 		},
 		link : {
 			color:"white",

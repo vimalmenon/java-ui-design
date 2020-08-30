@@ -6,6 +6,10 @@ import {
 	createStyles
 } from "@material-ui/core/styles";
 
+import {
+	Link
+} from "react-router-dom";
+
 import {version} from "const";
 
 const useStyles = makeStyles((theme:Theme) => {
@@ -20,9 +24,9 @@ const useStyles = makeStyles((theme:Theme) => {
 		container : {
 			display:"flex",
 			flexDirection:"row",
-			flex: `1 1 100%`,
+			flex:`1 1 100%`,
 			alignItems : "center",
-			margin: theme.spacing(0,1),
+			margin:theme.spacing(0,1),
 			justifyContent:"space-between",
 			[theme.breakpoints.up("lg")]: {
 				display:"flex",
@@ -44,9 +48,7 @@ const LowerFooter = () => {
 		<div className={classes.root}>
 			<div className={classes.container}>
 				<p>
-					<span className={classes.footerName}>
-						VimalMenon.com  
-					</span>
+					<Link to={"/"} className={classes.footerName}>VimalMenon.com</Link> 
 					<span className={classes.span}>
 						&copy; All Right Reserved - 2020
 					</span>
