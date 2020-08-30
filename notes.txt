@@ -93,19 +93,26 @@ table tutorial_topics {
     id,
     name,
     sequence,
-    show
+    link,
+    image_refrence,
+    is_active
 }
 table tutorials {
     id,
     name,
     topic_id,
     youtube_url,
+    image,
     notes
 }
 table tutorial_links {
     id,
     name,
     link,
+}
+table images {
+    id,
+    name,
 }
 
 

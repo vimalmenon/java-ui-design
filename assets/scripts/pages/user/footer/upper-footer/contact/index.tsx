@@ -12,6 +12,13 @@ const useStyles = makeStyles((theme:Theme) => {
 		root: {
 			display: "flex",
 			flex:"1 1 50%",
+			flexDirection:"column"
+		},
+		title : {
+			display: "flex",
+		},
+		container :{
+			display: "flex",
 		}
 	});
 });
@@ -19,11 +26,11 @@ const Contact = () => {
 	const classes = useStyles();
 	return (
 		<div className={classes.root}>
-			<div>
+			<div className={classes.title}>
 				<Title title={"Follow us"} />
-				<div>
-					<FollowUs />
-				</div>
+			</div>
+			<div className={classes.container}>
+				<FollowUs />
 			</div>
 		</div>
 	);

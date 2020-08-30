@@ -4,7 +4,7 @@ import {DeviceUUID} from "device-uuid";
 
 import apiList from "./api-list";
 import colors from "./color";
-import {navigations, urlMapper, navigationByName} from "./navigations";
+import {navigations, urlMapper, navigationByName, mainNavigations, extraNavigations} from "./navigations";
 import {MainNavigation, MainUrlMapper} from "./navigations/main";
 import methods from "./methods";
 import icons from "./icons";
@@ -24,6 +24,8 @@ const constants = {
 	navigations,
 	urlMapper,
 	navigationByName,
+	mainNavigations,
+	extraNavigations,
 	MainNavigation,
 	MainUrlMapper,
 	deviceId,
@@ -42,6 +44,8 @@ export {
 	navigations,
 	urlMapper,
 	navigationByName,
+	mainNavigations,
+	extraNavigations,
 	MainNavigation,
 	MainUrlMapper,
 	deviceId,

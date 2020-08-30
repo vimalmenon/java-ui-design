@@ -6,6 +6,8 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import SettingsIcon from "@material-ui/icons/Settings";
 import EmailIcon from "@material-ui/icons/Email";
+import HomeIcon from "@material-ui/icons/Home";
+import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 
 const icons = {
 	Add:AddIcon,
@@ -15,6 +17,8 @@ const icons = {
 	GitHub:GitHubIcon,
 	Instagram:InstagramIcon,
 	setting:SettingsIcon,
-	email:EmailIcon
+	email:EmailIcon,
+	home:HomeIcon,
+	arrowForward:ArrowForwardIosIcon
 };
 export default icons;

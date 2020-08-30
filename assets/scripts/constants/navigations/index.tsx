@@ -205,6 +205,14 @@ const home = {
 	link : "/",
 	title : "Vimal Menon",
 };
+const PrivacyPolicy = {
+	name : "Privacy Policy",
+	link : "/privacy_policy",
+	title : "Privacy Policy | Vimal Menon",
+	breadcrumbs : [
+		home
+	]
+};
 
 const tutorials = {
 	name : "Tutorials",
@@ -217,10 +225,15 @@ const tutorials = {
 const mainNavigations = [
 	tutorials
 ];
+const extraNavigations = [
+	tutorials,
+	PrivacyPolicy
+];
 
 const urlMapper = {
 	"/":home,
 	"/tutorials":tutorials,
+	"/privacy_policy":PrivacyPolicy,
 	"/admin": dashboard,
 	"/admin/admin" : admin,
 	"/admin/profile" : profile,
@@ -234,6 +247,7 @@ const urlMapper = {
 
 const navigationByName = {
 	home,
+	PrivacyPolicy,
 	tutorials,
 	signIn,
 	dashboard,
@@ -248,4 +262,4 @@ const navigationByName = {
 	YoutubeScript,
 	message
 };
-export {navigations, urlMapper, navigationByName,  mainNavigations};
+export {navigations, urlMapper, navigationByName, mainNavigations, extraNavigations};

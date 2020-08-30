@@ -6,6 +6,8 @@ import {
 	createStyles
 } from "@material-ui/core/styles";
 
+import{FollowUs} from "../../../../common";
+
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
 		root: {
@@ -37,11 +39,7 @@ const ContactText = () => {
 				</div>
 				<div>
 					<div>
-						Follow us
-					</div>
-					<div>
-						youtube
-						instagram
+						Follow us  : <FollowUs />
 					</div>
 				</div>
 			</div>
