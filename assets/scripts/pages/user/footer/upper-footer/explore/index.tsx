@@ -19,13 +19,16 @@ const useStyles = makeStyles((theme:Theme) => {
 		root: {
 			display: "flex",
 			flex:"1 1 50%",
-			flexDirection:"column"
+			flexDirection:"column",
+			margin: theme.spacing(3,0),
 		},
 		title : {
 			display: "flex",
+			margin: theme.spacing(1,0),
 		},
 		container :{
 			display: "flex",
+			margin: theme.spacing(1,0),
 		},
 		linkItem : {
 			display:"flex",

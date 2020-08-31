@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme:Theme) => {
 		},
 		container:{
 			display:"flex",
-			padding: theme.spacing(3,0),
+			padding: theme.spacing(5,0),
 			flexDirection:"column",
 			justifyContent:"space-around",
 			flex:"1 1 100%"

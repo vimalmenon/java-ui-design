@@ -21,10 +21,10 @@ const useStyles = makeStyles((theme:Theme) => {
 		container : {
 			display:"flex",
 			flexDirection:"column",
-			padding: theme.spacing(3,0),
+			padding: theme.spacing(5,0),
 		},
 		contactLine: {
-			margin: theme.spacing(0.5,0),
+			margin: theme.spacing(2,0),
 			display: "flex",
 			justifyContent:"space-between",
 			"& .name":{
@@ -33,6 +33,11 @@ const useStyles = makeStyles((theme:Theme) => {
 			"& .email":{
 				flex: "0 0 60%"
 			}
+		},
+		contactButton: {
+			margin: theme.spacing(4,0),
+			display: "flex",
+			justifyContent:"space-between",
 		},
 		arrowIcon: {
 			fontSize:"1rem",
@@ -65,7 +70,7 @@ const ContactForm = () => {
 						multiline 
 						rows={6}/>
 				</div>
-				<div className={classes.contactLine}>
+				<div className={classes.contactButton}>
 					<Button variant="contained" color="secondary" >
 						Send Message
 						<ArrowForwardIcon className={classes.arrowIcon}/>

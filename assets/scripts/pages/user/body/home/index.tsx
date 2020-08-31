@@ -12,6 +12,8 @@ import {
 	createStyles
 } from "@material-ui/core/styles";
 
+import HeaderScroll from "./header-scroll";
+
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
 		root: {
@@ -25,6 +27,7 @@ const Body = () => {
 	const hide = false;
 	return (
 		<div className={classes.root}>
+			<HeaderScroll />
 			<Hero />
 			<About dark={true}/>
 			<Tutorials dark={false}/>

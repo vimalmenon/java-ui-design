@@ -8,9 +8,9 @@ import {
 
 import {scrollSpy} from "react-scroll";
 
-import Logo from "../logo";
-import Navigation from "../navigation";
-import Toolbar from "../toolbar";
+import Logo from "../../../header/navigation-bar/logo";
+import Navigation from "../../../header/navigation-bar/navigation";
+import Toolbar from "../../../header/navigation-bar/toolbar";
 
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({

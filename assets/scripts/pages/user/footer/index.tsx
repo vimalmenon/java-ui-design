@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
 		footer: {
 			display: "flex",
-			flexDirection: "column",
+			flexDirection: "column"
 		}
 	});
 });

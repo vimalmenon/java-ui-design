@@ -18,10 +18,11 @@ const useStyles = makeStyles((theme:Theme) => {
 		root : {
 			display: "flex",
 			flexDirection:"column",
+			margin:theme.spacing(10,0),
 		},
 		title: {
 			display: "flex",
-			margin:theme.spacing(4,0),
+			margin:theme.spacing(10,0),
 		},
 		content: {
 			display: "flex",
@@ -62,48 +63,6 @@ const Contact = ({dark}) => {
 						<ContactForm />
 					</div>
 				</div>
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
 			</Element>
 		</Container>
 	);
