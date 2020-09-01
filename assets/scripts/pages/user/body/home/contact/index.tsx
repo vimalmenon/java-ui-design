@@ -15,6 +15,10 @@ import ContactText from "./contact-text";
 
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
+		element: {
+			display: "flex",
+			flexDirection:"column",
+		},
 		root : {
 			display: "flex",
 			flexDirection:"column",
@@ -49,22 +53,24 @@ const useStyles = makeStyles((theme:Theme) => {
 const Contact = ({dark}) => {
 	const classes = useStyles();
 	return (
-		<Container dark={dark}>
-			<Element name="contact-us" className={classes.root}>
-				<div className={classes.title}>
-					<Title title={"Contact Us"} dark={false}/>
-				</div>
-				<div className={classes.content}>
-					<div className={classes.name}>
-						We&apos;d like to hear from you
+		<Element name="contact-us" className={classes.element}>
+			<Container dark={dark}>
+				<div className={classes.root}>
+					<div className={classes.title}>
+						<Title title={"Contact Us"} dark={false}/>
 					</div>
-					<div className={classes.contactFormText}>
-						<ContactText />
-						<ContactForm />
+					<div className={classes.content}>
+						<div className={classes.name}>
+							We&apos;d like to hear from you
+						</div>
+						<div className={classes.contactFormText}>
+							<ContactText />
+							<ContactForm />
+						</div>
 					</div>
 				</div>
-			</Element>
-		</Container>
+			</Container>
+		</Element>
 	);
 };
 
