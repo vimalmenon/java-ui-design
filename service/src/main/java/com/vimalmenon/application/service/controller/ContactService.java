@@ -20,9 +20,11 @@ public class ContactService {
 	@Autowired
 	private ContactManager contactManager;
 
+	private static final Boolean TRUE = true;
+
 	public List<ContactAdminModel> getContact() {
 		List<ContactAdminModel> items = new ArrayList<>();
-		contactManager.getContact().forEach((contact) -> {
+		contactManager.getContact().forEach(contact -> {
 			ContactAdminModel data = new ContactAdminModel();
 			data.setId(contact.getId());
 			data.setName(contact.getName());
@@ -31,7 +33,7 @@ public class ContactService {
 			data.setSubject(contact.getSubject());
 			data.setMessage(contact.getMessage());
 			data.setTimeDate(contact.getTimeDate());
-			data.setRead((contact.getRead() ==1) ? true : false);
+			data.setRead((contact.getRead() ==1));
 			items.add(data);
 		});
 		return items;
@@ -51,7 +53,7 @@ public class ContactService {
 
 	public List<ContactAdminModel> saveContact(List<ContactAdminModel> contacts) {
 		List<Contact> items = new ArrayList<>();
-		contacts.forEach((contact) -> {
+		contacts.forEach(contact -> {
 			Contact data = new Contact();
 			data.setId(contact.getId());
 			data.setName(contact.getName());
@@ -60,7 +62,7 @@ public class ContactService {
 			data.setSubject(contact.getSubject());
 			data.setMessage(contact.getMessage());
 			data.setTimeDate(contact.getTimeDate());
-			data.setRead(contact.getRead() ? 1 : 0);
+			data.setRead(TRUE.equals(contact.getRead())?1:0);
 			items.add(data);
 		});
 		contactManager.saveAllContact(items);
@@ -69,7 +71,7 @@ public class ContactService {
 
 	public List<ContactAdminModel> deleteContact(List<ContactAdminModel> contacts) {
 		List<Contact> items = new ArrayList<>();
-		contacts.forEach((contact) -> {
+		contacts.forEach(contact -> {
 			Contact data = new Contact();
 			data.setId(contact.getId());
 			data.setName(contact.getName());
@@ -78,7 +80,7 @@ public class ContactService {
 			data.setSubject(contact.getSubject());
 			data.setMessage(contact.getMessage());
 			data.setTimeDate(contact.getTimeDate());
-			data.setRead(contact.getRead()? 1 : 0);
+			data.setRead(TRUE.equals(contact.getRead())?1:0);
 			items.add(data);
 		});
 		contactManager.deleteContact(items);
