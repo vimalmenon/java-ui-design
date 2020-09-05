@@ -12,16 +12,20 @@ const useStyles = makeStyles((theme:Theme) => {
 			display: "flex",
 			flex:"1 1 50%"
 		},
+		iframe:{
+			height:"400px",
+			width:"100%",
+		}
 	});
 });
 
-const Details = () => {
+const Video = ({aboutMe}) => {
 	const classes = useStyles();
-	return (
-		<section className={classes.root}>
-			This is detailpage
-		</section>
+	return(
+		<div className={classes.root}>
+			<iframe className={classes.iframe} src={aboutMe.videoLink} frameBorder="0" allowFullScreen={true} />
+		</div>
 	);
 };
 
-export default Details;
+export default Video;

@@ -12,13 +12,16 @@ CREATE TABLE tutorials (
 );
 
 insert into tutorials(name,link,youtube_url)
-    values("Introduction to My Channel","introduction-to-my-channel", "https://www.youtube.com/watch?v=Wb1uty_bc3c");
+    values("Introduction to My Channel","introduction-to-my-channel", "https://www.youtube.com/embed/Wb1uty_bc3c");
 
 insert into tutorials(name,link,youtube_url)
-    values("Web Development Introduction","web-development-introduction", "https://www.youtube.com/watch?v=Jg-FAIH2yf4");
+    values("Web Development Introduction","web-development-introduction", "https://www.youtube.com/embed/Jg-FAIH2yf4");
 
 insert into tutorials(name,link,youtube_url)
-    values("01 Introduction to HTML","introduction-to-html", "https://www.youtube.com/watch?v=kAHzqg7AVcs");
+    values("01 Introduction to HTML","introduction-to-html", "https://www.youtube.com/embed/kAHzqg7AVcs");
 
 insert into tutorials(name,link,youtube_url)
-    values("02 - More HTML tags and Attributes","more-html-tags-and-attributes", "https://www.youtube.com/watch?v=iyrdiFVaVtc&t=31s");
+    values("02 - More HTML tags and Attributes","more-html-tags-and-attributes", "https://www.youtube.com/embed/iyrdiFVaVtc");
+
+insert into tutorials(name,link,youtube_url)
+    values("01 - Introduction to Git and GitHub","introduction-to-git-and-gitHub", "https://www.youtube.com/embed/DwRpOkmw33g");

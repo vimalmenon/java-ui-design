@@ -10,6 +10,7 @@ import {Element} from "react-scroll";
 
 import {Title, Container} from "../../../common";
 import Details from "./details";
+import Video from "./video";
 
 import {ApiCaller} from "utility";
 import {apiList} from "const";
@@ -33,7 +34,6 @@ const useStyles = makeStyles((theme:Theme) => {
 		},
 		content: {
 			display: "flex",
-			flexDirection:"column",
 			[theme.breakpoints.down("sm")]: {
 				flexDirection:"column"
 			},
@@ -43,12 +43,14 @@ const useStyles = makeStyles((theme:Theme) => {
 
 const About = ({dark}) => {
 	const classes = useStyles();
+	const [aboutMe, setAboutMe] = React.useState({videoLink:"", loaded:false});
 	React.useEffect(() => {
 		new ApiCaller(new AboutMe())
 			.success((data) => {
-				console.log(data);
+				setAboutMe({...data,loaded:true});
 			});
 	}, []);
+	const {loaded} = aboutMe;
 	return (
 		<Element name="about-me" className={classes.element}>
 			<Container dark={dark} >
@@ -56,10 +58,13 @@ const About = ({dark}) => {
 					<div className={classes.title}>
 						<Title title={"About Me"} dark={false}/>
 					</div>
-					<div className={classes.content}>
-						<Details />
-						This is about me page
-					</div>
+					{loaded ? 
+						<div className={classes.content}>
+							<Video aboutMe={aboutMe}/>
+							<Details />
+						</div>
+						:null 
+					}
 				</div>
 			</Container>
 		</Element>
