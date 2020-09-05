@@ -94,6 +94,7 @@ table tutorial_topics {
     name,
     sequence,
     link,
+    playlist,
     image_refrence,
     is_active
 }
@@ -108,7 +109,9 @@ table tutorials {
 table tutorial_links {
     id,
     name,
+    type,
     link,
+    tutorial_id
 }
 table images {
     id,
