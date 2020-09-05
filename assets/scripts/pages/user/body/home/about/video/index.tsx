@@ -13,8 +13,8 @@ const useStyles = makeStyles((theme:Theme) => {
 			flex:"1 1 50%"
 		},
 		iframe:{
-			height:"400px",
-			width:"100%",
+			height:"320px",
+			width:"90%",
 		}
 	});
 });
@@ -23,7 +23,7 @@ const Video = ({aboutMe}) => {
 	const classes = useStyles();
 	return(
 		<div className={classes.root}>
-			<iframe className={classes.iframe} src={aboutMe.videoLink} frameBorder="0" allowFullScreen={true} />
+			<iframe className={classes.iframe} width={"100%"} src={`//www.youtube.com/embed/${aboutMe.videoLink}`} frameBorder="0" allowFullScreen={true} />
 		</div>
 	);
 };

@@ -89,16 +89,6 @@ SSR                                     :   https://github.com/spatie/laravel-se
 admin dashboard with material design    :   https://gurayyarar.github.io/AdminBSBMaterialDesign/
 
 
-table contents {
-    
-}
-table tutorial_links {
-    id,
-    name,
-    type,
-    link,
-    tutorial_id
-}
 table images {
     id,
     name,
