@@ -13,11 +13,12 @@ import Button from "@material-ui/core/Button";
 import {ApiCaller} from "utility";
 import {apiList} from "const";
 
-const {GetContent} = apiList;
+const {GetContent, PostContent} = apiList;
 
 const Content = () => {
-	const [contents, setContents]= React.useState([]);
+	const [contents, setContents]= React.useState<any>([]);
 	const [newContent, setNewContent] = React.useState<any>({});
+	const [selectedIndex, setSelectedIndex] = React.useState(0);
 	React.useEffect(() => {
 		new ApiCaller(new GetContent())
 			.success((content) => {
@@ -28,26 +29,32 @@ const Content = () => {
 		const{name, value}= e.target;
 		setNewContent({...newContent,[name]:value});
 	};
+	const onSave = () => {
+		new ApiCaller(new PostContent(newContent))
+			.success((content) => {
+				setContents(content);
+			});
+	};
 	return (
 		<div>
 			{contents.map((content, key) => {
 				return (
-					<Accordion expanded={false} key={key}>
+					<Accordion expanded={selectedIndex===key} onChange={()=>setSelectedIndex(key)} key={key}>
 						<AccordionSummary
 							expandIcon={<ExpandMoreIcon />}>
 							<div>
-								This is header
+								{content.name}
 							</div>	
 						</AccordionSummary>
 						<AccordionDetails>
 							<div>
-								This is body
+								{content.content}
 							</div>
 						</AccordionDetails>
 					</Accordion>
 				);
 			})}
-			<Accordion expanded={true}>
+			<Accordion expanded={contents.length ===selectedIndex} onChange={()=>setSelectedIndex(contents.length)}>
 				<AccordionSummary
 					expandIcon={<ExpandMoreIcon />}>
 					<Typography component="div">
@@ -73,7 +80,7 @@ const Content = () => {
 							fullWidth={true}
 							onChange={updateContent} />
 						<div>
-							<Button variant="contained" color="secondary">
+							<Button variant="contained" color="secondary" onClick={onSave}>
 								Save
 							</Button>
 						</div>

@@ -12,8 +12,9 @@ public class ContentModel {
         setId(content.getId());
         setName(content.getName());
         setContent(content.getContentData());
-	}
-
+    }
+    public ContentModel() {
+    }
 	public int getId() {
         return id;
     }
@@ -37,5 +38,7 @@ public class ContentModel {
     public void setContent(String content) {
         this.content = content;
     }
+
+
     
 }

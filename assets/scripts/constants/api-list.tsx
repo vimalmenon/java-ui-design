@@ -222,6 +222,12 @@ class GetContent extends Api {
 		super("getContent", GET, "/api/admin/content");
 	}
 }
+class PostContent extends Api {
+	constructor(data) {
+		super("postContent", POST, "/api/admin/content");
+		this.setApiData(data);
+	}
+}
 export default {
 	Admin,
 	Login,
@@ -255,5 +261,6 @@ export default {
 	PostLinks,
 	DeleteLinks,
 	AboutMe,
-	GetContent
+	GetContent,
+	PostContent
 };

@@ -19,4 +19,8 @@ public class ContentManager {
     {
         return contentRepository.findAll();
     }
+
+	public Content postContent(Content contentModel) {
+        return contentRepository.save(contentModel);
+	}
 }

@@ -3,6 +3,7 @@ package com.vimalmenon.application.service.database;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.vimalmenon.application.data.content.Content;
 import com.vimalmenon.application.manager.database.ContentManager;
 import com.vimalmenon.application.model.content.ContentModel;
 
@@ -20,5 +21,14 @@ public class ContentService {
         contentManager.getContent().forEach(content -> items.add(new ContentModel(content)));
         return items;
     }
+
+	public List<ContentModel> postContent(ContentModel contentModel) {
+        Content content = new Content();
+        content.setId(contentModel.getId());
+        content.setName(contentModel.getName());
+        content.setContentData(contentModel.getContent());
+        contentManager.postContent(content);
+        return getContent();
+	}
     
 }

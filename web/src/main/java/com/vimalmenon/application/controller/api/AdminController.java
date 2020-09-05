@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -72,5 +73,13 @@ public class AdminController {
 	public ApiResponseModel<List<ContentModel>> getContent() {
 		return new ApiResponseModel<List<ContentModel>>(session).setData(contentService.getContent());
 	}
+	@PostMapping("/content")
+	public ApiResponseModel<List<ContentModel>> postContent(@RequestBody ContentModel contentModel) {
+		return new ApiResponseModel<List<ContentModel>>(session).setData(contentService.postContent(contentModel));
+	}
 
+	@DeleteMapping("/content")
+	public ApiResponseModel<List<ContentModel>> deleteContent(@RequestBody ContentModel contentModel) {
+		return new ApiResponseModel<List<ContentModel>>(session).setData(contentService.getContent());
+	}
 }
