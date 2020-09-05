@@ -21,8 +21,8 @@ public class Tutorial {
     @Column(nullable = true, name = "topic_id")
     private Integer topicId;
     
-    @Column(nullable = false, name = "youtube_url")
-    private String youtubeUrl;
+    @Column(nullable = false, name = "youtube_id")
+    private String youtubeId;
     
     @Column(nullable = true, name = "notes")
     private String notes;
@@ -59,14 +59,6 @@ public class Tutorial {
         this.topicId = topicId;
     }
 
-    public String getYoutubeUrl() {
-        return youtubeUrl;
-    }
-
-    public void setYoutubeUrl(String youtubeUrl) {
-        this.youtubeUrl = youtubeUrl;
-    }
-
     public String getNotes() {
         return notes;
     }
@@ -74,4 +66,13 @@ public class Tutorial {
     public void setNotes(String notes) {
         this.notes = notes;
     }
+
+    public String getYoutubeId() {
+        return youtubeId;
+    }
+
+    public void setYoutubeId(String youtubeId) {
+        this.youtubeId = youtubeId;
+    }
+
 }

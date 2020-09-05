@@ -8,7 +8,7 @@ public class TutorialModel {
 	private String name;
     private String link;
     private Integer topicId;
-    private String youtubeUrl;
+    private String youtubeId;
     private String notes;
 
     public TutorialModel(Tutorial tutorial) {
@@ -16,7 +16,7 @@ public class TutorialModel {
         setName(tutorial.getName());
         setLink(tutorial.getLink());
         setTopicId(tutorial.getTopicId());
-        setYoutubeUrl(tutorial.getYoutubeUrl());
+        setYoutubeId(tutorial.getYoutubeId());
         setNotes(tutorial.getNotes());
     }
 
@@ -51,14 +51,7 @@ public class TutorialModel {
     public void setTopicId(Integer topicId) {
         this.topicId = topicId;
     }
-
-    public String getYoutubeUrl() {
-        return youtubeUrl;
-    }
-
-    public void setYoutubeUrl(String youtubeUrl) {
-        this.youtubeUrl = youtubeUrl;
-    }
+    
 
     public String getNotes() {
         return notes;
@@ -68,6 +61,13 @@ public class TutorialModel {
         this.notes = notes;
     }
 
+    public String getYoutubeId() {
+        return youtubeId;
+    }
+
+    public void setYoutubeId(String youtubeId) {
+        this.youtubeId = youtubeId;
+    }
 
     
 }

@@ -1,0 +1,7 @@
+CREATE TABLE contents (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR (100) NOT NULL,
+    content TEXT NOT NULL,
+    PRIMARY KEY (id),
+    CONSTRAINT UN_NAME UNIQUE (name)
+);

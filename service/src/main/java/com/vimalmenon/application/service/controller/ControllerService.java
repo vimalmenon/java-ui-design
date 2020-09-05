@@ -56,7 +56,7 @@ public class ControllerService {
 		Optional<Tutorial> tutorial = tutorialManager.getAboutMeVideos();
 		Map<String, Object> aboutMe = new HashMap<>();
 		if (tutorial.isPresent()) {
-			aboutMe.put("videoLink", tutorial.get().getYoutubeUrl());
+			aboutMe.put("videoLink", tutorial.get().getYoutubeId());
 		}
 		return aboutMe;
 	}

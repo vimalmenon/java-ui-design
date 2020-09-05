@@ -29,9 +29,7 @@ public class SecurityService {
 
     private Map<Integer, String> getGroupMap() {
         Map<Integer, String> groupMap = new HashMap<>();
-        groupManager.getGroups().forEach((group) -> {
-            groupMap.put(group.getId(), group.getName());
-        });
+        groupManager.getGroups().forEach(group -> groupMap.put(group.getId(), group.getName()));
         return groupMap;
     }
 
@@ -42,14 +40,14 @@ public class SecurityService {
         LinkedList<UrlEntitlementSecurity> urlEntitlements = new LinkedList<>();
 
         List<UrlEntitlement> urlEntitlementsRepo = urlManager.getUrlEntitlementRepository();
-        urlEntitlementsRepo.forEach((urlEntitlement) -> {
-            if (urlMapper.get(urlEntitlement.getUrl().getUrl()+"|"+urlEntitlement.getUrl().getMethod()) != null) {
-                urlMapper.get(urlEntitlement.getUrl().getUrl()+"|"+urlEntitlement.getUrl().getMethod()).addRoles(groupMap.get(urlEntitlement.getGroupId()));
+        urlEntitlementsRepo.forEach(urlEntitlement -> {
+            if (urlMapper.get(urlEntitlement.getUrl().getUrlData()+"|"+urlEntitlement.getUrl().getMethod()) != null) {
+                urlMapper.get(urlEntitlement.getUrl().getUrlData()+"|"+urlEntitlement.getUrl().getMethod()).addRoles(groupMap.get(urlEntitlement.getGroupId()));
             } else {
-                urlMapper.put(urlEntitlement.getUrl().getUrl()+"|"+urlEntitlement.getUrl().getMethod(), new UrlEntitlementSecurity(urlEntitlement.getUrl().getUrl(), urlEntitlement.getUrl().getMethod(), groupMap.get(urlEntitlement.getGroupId())));
+                urlMapper.put(urlEntitlement.getUrl().getUrlData()+"|"+urlEntitlement.getUrl().getMethod(), new UrlEntitlementSecurity(urlEntitlement.getUrl().getUrlData(), urlEntitlement.getUrl().getMethod(), groupMap.get(urlEntitlement.getGroupId())));
             }
         });
-        urlMapper.keySet().forEach((url) -> {
+        urlMapper.keySet().forEach(url -> {
             if(urlMapper.get(url).getMethod().equals("ALL")){
                 urlEntitlements.addLast(urlMapper.get(url));
             } else {
