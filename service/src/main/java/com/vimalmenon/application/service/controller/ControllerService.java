@@ -10,26 +10,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.vimalmenon.application.data.component.ComponentEntitlement;
+import com.vimalmenon.application.data.tutorial.Tutorial;
 import com.vimalmenon.application.manager.database.ComponentManager;
 import com.vimalmenon.application.manager.database.LinkManager;
+import com.vimalmenon.application.manager.database.TutorialManager;
 import com.vimalmenon.application.model.component.ComponentEntitlementModel;
 import com.vimalmenon.application.model.response.Session;
 
 @Service
 public class ControllerService {
-	
+
 	@Autowired
 	private ComponentManager componentManager;
-	
+
 	@Autowired
 	private Session session;
 
 	@Autowired
 	private LinkManager linkManager;
 
-	
-	public ComponentEntitlementModel getComponentEntitlement (String name)
-	{
+	@Autowired
+	private TutorialManager tutorialManager;
+
+	public ComponentEntitlementModel getComponentEntitlement(String name) {
 		Optional<ComponentEntitlement> entitlementOption = componentManager.checkEntitlement(session.getId(), name);
 		if (entitlementOption.isPresent()) {
 			return new ComponentEntitlementModel(entitlementOption.get());
@@ -38,20 +41,23 @@ public class ControllerService {
 
 	}
 
-	public Map<String, Object> getIndex() 
-	{
+	public Map<String, Object> getIndex() {
 		Map<String, Object> index = new HashMap<>();
 		index.put("socialMedias", linkManager.getSocialMedias());
 		return index;
 	}
 
-	public List<String> getTutorials() 
-	{
+	public List<String> getTutorials() {
 		return new ArrayList<>();
 	}
 
-	public String getAboutMe ()
+	public Map<String, Object> getAboutMe()
 	{
-		return "About Me";
+		Optional<Tutorial> tutorial = tutorialManager.getAboutMeVideos();
+		Map<String, Object> aboutMe = new HashMap<>();
+		if (tutorial.isPresent()) {
+			aboutMe.put("videoLink", tutorial.get().getYoutubeUrl());
+		}
+		return aboutMe;
 	}
 }

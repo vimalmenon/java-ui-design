@@ -30,8 +30,6 @@ public class User {
 	@Column(nullable = false, name = "is_active")
 	private int isActive;
 
-	public User() {
-	}
 	public int getId() {
 		return id;
 	}

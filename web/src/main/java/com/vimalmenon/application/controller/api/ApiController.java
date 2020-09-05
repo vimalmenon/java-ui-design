@@ -52,9 +52,9 @@ public class ApiController {
 	}
 	
 	@GetMapping("/about_me")
-	public ApiResponseModel<String> getAboutMe () 
+	public ApiResponseModel<Map<String, Object>> getAboutMe () 
 	{
-		return new ApiResponseModel<String>(session).setData(controllerService.getAboutMe());
+		return new ApiResponseModel<Map<String, Object>>(session).setData(controllerService.getAboutMe());
 	} 
 	@PostMapping("/tutorials")
 	public ApiResponseModel<List<String>> getTutorials () 
