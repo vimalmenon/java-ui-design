@@ -14,7 +14,7 @@ class Api implements IApi{
 	public data;
 	public failureMessage;
 	public successMessage;
-	constructor (name:String, method:String, url:String) {
+	constructor (name:string, method:string, url:string) {
 		this.name = name;
 		this.method = method;
 		this.url = url;
@@ -212,6 +212,11 @@ class DeleteLinks extends Api {
 		this.setApiData(data);
 	}
 }
+class AboutMe extends Api {
+	constructor() {
+		super("aboutMe", GET, "/api/about_me");
+	}
+}
 export default {
 	Admin,
 	Login,
@@ -243,5 +248,6 @@ export default {
 	DeleteProperties,
 	GetLinks,
 	PostLinks,
-	DeleteLinks
+	DeleteLinks,
+	AboutMe
 };

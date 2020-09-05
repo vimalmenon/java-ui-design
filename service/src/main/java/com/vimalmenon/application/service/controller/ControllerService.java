@@ -49,4 +49,9 @@ public class ControllerService {
 	{
 		return new ArrayList<>();
 	}
+
+	public String getAboutMe ()
+	{
+		return "About Me";
+	}
 }

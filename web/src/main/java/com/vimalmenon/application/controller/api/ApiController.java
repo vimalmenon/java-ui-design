@@ -51,6 +51,11 @@ public class ApiController {
 		return new ApiResponseModel<Map<String, Object>>(session).setData(controllerService.getIndex());
 	}
 	
+	@GetMapping("/about_me")
+	public ApiResponseModel<String> getAboutMe () 
+	{
+		return new ApiResponseModel<String>(session).setData(controllerService.getAboutMe());
+	} 
 	@PostMapping("/tutorials")
 	public ApiResponseModel<List<String>> getTutorials () 
 	{

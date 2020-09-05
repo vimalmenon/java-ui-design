@@ -11,8 +11,17 @@ import {Element} from "react-scroll";
 import {Title, Container} from "../../../common";
 import Details from "./details";
 
+import {ApiCaller} from "utility";
+import {apiList} from "const";
+
+const {AboutMe} = apiList;
+
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
+		element: {
+			display: "flex",
+			flexDirection:"column",
+		},
 		root:{
 			display: "flex",
 			flexDirection:"column",
@@ -34,60 +43,26 @@ const useStyles = makeStyles((theme:Theme) => {
 
 const About = ({dark}) => {
 	const classes = useStyles();
+	React.useEffect(() => {
+		new ApiCaller(new AboutMe())
+			.success((data) => {
+				console.log(data);
+			});
+	}, []);
 	return (
-		<Container dark={dark} >
-			<Element name="about-me" className={classes.root}>
-				<div className={classes.title}>
-					<Title title={"About Me"} dark={false}/>
+		<Element name="about-me" className={classes.element}>
+			<Container dark={dark} >
+				<div className={classes.root}>
+					<div className={classes.title}>
+						<Title title={"About Me"} dark={false}/>
+					</div>
+					<div className={classes.content}>
+						<Details />
+						This is about me page
+					</div>
 				</div>
-				<div className={classes.content}>
-					<Details />
-					This is about me page
-				</div>
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-			</Element>
-		</Container>
+			</Container>
+		</Element>
 	);
 };
 

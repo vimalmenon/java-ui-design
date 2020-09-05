@@ -25,8 +25,6 @@ public class UrlEntitlement {
 	@Column(nullable = false, name = "access")
 	private int access;
 
-	public UrlEntitlement() {
-	}
 	public int getId() {
 		return id;
 	}

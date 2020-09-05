@@ -17,9 +17,6 @@ public class Url {
 
 	@Column(nullable = false, name = "method")
 	private String method;
-	
-	public Url() {
-	}
 
 	public int getId() {
 		return id;
