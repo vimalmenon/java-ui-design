@@ -217,6 +217,11 @@ class AboutMe extends Api {
 		super("aboutMe", GET, "/api/about_me");
 	}
 }
+class GetContent extends Api {
+	constructor() {
+		super("getContent", GET, "/api/admin/content");
+	}
+}
 export default {
 	Admin,
 	Login,
@@ -249,5 +254,6 @@ export default {
 	GetLinks,
 	PostLinks,
 	DeleteLinks,
-	AboutMe
+	AboutMe,
+	GetContent
 };
