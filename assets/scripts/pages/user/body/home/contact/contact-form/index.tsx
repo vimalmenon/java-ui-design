@@ -61,8 +61,8 @@ const ContactForm = () => {
 	};
 	const onSave = () => {
 		new ApiCaller(new SaveContact(contact))
-			.success((data) => {
-				console.log(data);
+			.success(() => {
+				setContact({});
 			});
 	};
 	return (

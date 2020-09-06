@@ -23,6 +23,7 @@ import com.vimalmenon.application.model.component.EntitlementModel;
 import com.vimalmenon.application.model.contact.ContactModel;
 import com.vimalmenon.application.model.response.ApiResponseModel;
 import com.vimalmenon.application.model.response.Session;
+import com.vimalmenon.application.model.tutorial.TutorialModel;
 import com.vimalmenon.application.service.admin.AdminService;
 import com.vimalmenon.application.service.controller.ContactService;
 import com.vimalmenon.application.service.controller.ControllerService;
@@ -56,8 +57,8 @@ public class ApiController {
 	}
 
 	@PostMapping("/tutorials")
-	public ApiResponseModel<List<String>> getTutorials() {
-		return new ApiResponseModel<List<String>>(session).setData(controllerService.getTutorials());
+	public ApiResponseModel<List<TutorialModel>> getTutorials() {
+		return new ApiResponseModel<List<TutorialModel>>(session).setData(controllerService.getTutorials());
 	}
 
 	@PostMapping("/log_in")
@@ -76,14 +77,14 @@ public class ApiController {
 	@PostMapping("/save_contact")
 	public ApiResponseModel<String> saveContact(@RequestBody ContactModel contact, HttpServletRequest request) {
 		contactService.saveUserContact(contact, request);
-		return new ApiResponseModel<String>(session).setData(null);
+		return new ApiResponseModel<String>(session).setData("Success");
 	}
 
 	@GetMapping("/contact_us")
 	public ApiResponseModel<JsonNode> getContactUs() {
 		return new ApiResponseModel<JsonNode>(session).setData(contactService.getContactUs());
 	}
-	
+
 	@GetMapping("/download_resume")
 	public void downloadResume () {
 		log.info("vimal Menon");

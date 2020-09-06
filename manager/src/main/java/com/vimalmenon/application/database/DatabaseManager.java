@@ -1,6 +1,5 @@
 package com.vimalmenon.application.database;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
+import com.vimalmenon.application.common.exceptions.GeneralException;
 import com.vimalmenon.application.data.group.GroupRepository;
 import com.vimalmenon.application.enums.Sql;
 
@@ -35,7 +35,7 @@ public class DatabaseManager {
 			try {
 				items.add(mapper.writeValueAsString(((JpaRepository) applicationContext.getBean(file.getClasses())).findAll()));
 			} catch (BeansException | JsonProcessingException e) {
-				throw new RuntimeException(e);
+				throw new GeneralException(e);
 			}			
 		});
 		return items;

@@ -1,5 +1,6 @@
 package com.vimalmenon.application.manager.database;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.vimalmenon.application.data.tutorial.Tutorial;
@@ -17,5 +18,10 @@ public class TutorialManager {
     public Optional<Tutorial> getAboutMeVideos() 
     {
         return tutorialRepository.findById(1);
+    }
+
+    public List<Tutorial> getTutorials () 
+    {
+        return tutorialRepository.findAll();
     }
 }

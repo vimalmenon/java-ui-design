@@ -1,6 +1,5 @@
 package com.vimalmenon.application.service.controller;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +20,8 @@ import com.vimalmenon.application.manager.database.LinkManager;
 import com.vimalmenon.application.manager.database.TutorialManager;
 import com.vimalmenon.application.model.component.ComponentEntitlementModel;
 import com.vimalmenon.application.model.response.Session;
+import com.vimalmenon.application.model.tutorial.TutorialModel;
+import com.vimalmenon.application.service.database.TutorialService;
 
 @Service
 public class ControllerService {
@@ -40,6 +41,9 @@ public class ControllerService {
 	@Autowired
 	private ContentManager contentManager;
 
+	@Autowired
+	private TutorialService tutorialService;
+
 	Logger log = LoggerFactory.getLogger(ControllerService.class);
 
 	public ComponentEntitlementModel getComponentEntitlement(String name) {
@@ -57,8 +61,8 @@ public class ControllerService {
 		return index;
 	}
 
-	public List<String> getTutorials() {
-		return new ArrayList<>();
+	public List<TutorialModel> getTutorials() {
+		return tutorialService.getHomeTutorials();
 	}
 
 	public Map<String, Object> getAboutMe() {
