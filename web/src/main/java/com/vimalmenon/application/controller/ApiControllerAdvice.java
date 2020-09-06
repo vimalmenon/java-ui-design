@@ -27,7 +27,7 @@ public class ApiControllerAdvice {
 	
 	@ExceptionHandler(value = UrlNotFoundException.class)
 	public ApiResponseModel<String> urlNotFound(final UrlNotFoundException exception, HttpServletResponse httpResponse) {
-		log.error(exception.getMessage());
+		log.error("URL Not founf : ", exception);
 		httpResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 		return new ApiResponseModel<String>(session).setMessage(exception.toString())
 				.setCode(exception.getCode());
@@ -42,14 +42,14 @@ public class ApiControllerAdvice {
 	}
 	@ExceptionHandler(value = DatabaseException.class)
 	public ApiResponseModel<String> generalException(final DatabaseException exception, HttpServletResponse httpResponse) {
-		log.error(exception.getMessage());
+		log.error("Database Error : ", exception);
 		httpResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 		return new ApiResponseModel<String>(session).setMessage(exception.toString())
 				.setCode(exception.getCode());
 	}
 	@ExceptionHandler(value = ApplicationErrorException.class)
 	public ApiResponseModel<String> applicationErrorException(final ApplicationErrorException exception, HttpServletResponse httpResponse) {
-		log.error(exception.getMessage());
+		log.error("Application Error : ", exception);
 		httpResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 		return new ApiResponseModel<String>(session).setMessage(exception.toString())
 				.setCode(exception.getCode());
@@ -70,6 +70,7 @@ public class ApiControllerAdvice {
 	@ExceptionHandler(value = Exception.class)
 	public ApiResponseModel<String> exception(final Exception exception, HttpServletResponse httpResponse)
 	{
+		log.error("Exception Error : ", exception);
 		return this.generalException(new GeneralException(exception.getMessage()), httpResponse);
 	}
 	
