@@ -241,6 +241,11 @@ class SaveContact extends Api {
 		this.setApiData(data);
 	}
 }
+class GetTutorials extends Api {
+	constructor() {
+		super("getTutorials", GET, "/api/tutorials");
+	}
+}
 export default {
 	Admin,
 	Login,
@@ -277,5 +282,6 @@ export default {
 	GetContent,
 	PostContent,
 	DeleteContent,
-	GetContactUs
+	GetContactUs,
+	GetTutorials
 };

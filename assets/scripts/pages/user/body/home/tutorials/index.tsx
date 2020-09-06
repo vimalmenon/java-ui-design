@@ -10,10 +10,19 @@ import {Element} from "react-scroll";
 
 import {Title, Container} from "../../../common";
 import LatestVideos from "./latest-videos";
-import PopularVideos from "./popular-videos";
+//import PopularVideos from "./popular-videos";
+
+import {ApiCaller} from "utility";
+import {apiList} from "const";
+
+const {GetTutorials} = apiList;
 
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
+		element: {
+			display: "flex",
+			flexDirection:"column",
+		},
 		root:{
 			display: "flex",
 			flexDirection:"column",
@@ -35,60 +44,30 @@ const useStyles = makeStyles((theme:Theme) => {
 
 const Tutorials = ({dark}) => {
 	const classes = useStyles();
+	const [tutorials, setTutorials] = React.useState<any>(null);
+	React.useEffect(() => {
+		new ApiCaller(new GetTutorials())
+			.success((data) => {
+				setTutorials(data);
+			});
+	},[]);
 	return (
-		<Container dark={dark}>		
-			<Element name="tutorials" className={classes.root}>
-				<div className={classes.title}>
-					<Title title={"Tutorials"} dark={false}/>
+		<Element name="tutorials" className={classes.element}>
+			<Container dark={dark}>		
+				<div className={classes.root}>
+					<div className={classes.title}>
+						<Title title={"Tutorials"} dark={false}/>
+					</div>
+					{tutorials ? 
+						<div className={classes.content}>
+							<LatestVideos tutorials={tutorials}/>
+							{/*<PopularVideos />*/}
+						</div>
+						: null
+					}
 				</div>
-				<div className={classes.content}>
-					<LatestVideos />
-					<PopularVideos />
-				</div>
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-			</Element>
-		</Container>
+			</Container>
+		</Element>
 	);
 };
 

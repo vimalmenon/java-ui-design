@@ -61,7 +61,7 @@ const About = ({dark}) => {
 					{loaded ? 
 						<div className={classes.content}>
 							<Video aboutMe={aboutMe}/>
-							<Details />
+							<Details aboutMe={aboutMe}/>
 						</div>
 						:null 
 					}
