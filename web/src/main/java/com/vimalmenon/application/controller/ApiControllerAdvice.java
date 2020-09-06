@@ -27,7 +27,7 @@ public class ApiControllerAdvice {
 	
 	@ExceptionHandler(value = UrlNotFoundException.class)
 	public ApiResponseModel<String> urlNotFound(final UrlNotFoundException exception, HttpServletResponse httpResponse) {
-		log.error("URL Not founf : ", exception);
+		log.error("URL Not found : ", exception);
 		httpResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 		return new ApiResponseModel<String>(session).setMessage(exception.toString())
 				.setCode(exception.getCode());

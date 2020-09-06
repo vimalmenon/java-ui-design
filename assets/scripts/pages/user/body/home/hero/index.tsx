@@ -110,7 +110,7 @@ function Banner(props) {
 				className={classes.cardMedia}
 				image={item.image}
 				title={item.imageTitle}>
-				<div className={classes.container}>
+				{/*<div className={classes.container}>
 					<CardContent className={classes.content}>
 						<Typography className={classes.title}>
 							{item.title}
@@ -126,7 +126,7 @@ function Banner(props) {
 							</Button>
 						</Link>
 					</CardContent>
-				</div>
+				</div>*/}
 			</CardMedia>
 		</Grid>
 	);
