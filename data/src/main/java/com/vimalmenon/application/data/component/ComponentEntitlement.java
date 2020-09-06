@@ -23,8 +23,6 @@ public class ComponentEntitlement {
 	@JoinColumn(name = "component_id", referencedColumnName = "id")
 	private Component component;
 	
-	 public ComponentEntitlement() {
-	 }
 	@Column(nullable = false, name = "write_access")
 	private int writeAccess;
 

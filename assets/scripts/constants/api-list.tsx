@@ -153,12 +153,6 @@ class RestoreDatabase extends Api {
 		this.setFailureMessage(true);
 	}
 }
-class ApiSaveContact extends Api {
-	constructor(data) {
-		super("saveContact", POST, "/api/save_contact");
-		this.setApiData(data);
-	}
-}
 
 class GetAdminContact extends Api {
 	constructor () {
@@ -240,6 +234,13 @@ class GetContactUs extends Api {
 		super("getContactUs", GET, "/api/contact_us");
 	}
 }
+
+class SaveContact extends Api {
+	constructor(data) {
+		super("saveContact", POST, "/api/save_contact");
+		this.setApiData(data);
+	}
+}
 export default {
 	Admin,
 	Login,
@@ -259,7 +260,7 @@ export default {
 	UploadDatabase,
 	ListDatabases,
 	GetComponents,
-	ApiSaveContact,
+	SaveContact,
 	GetGroups,
 	GetUrls,
 	RestoreDatabase,

@@ -78,7 +78,7 @@ const Contact = ({dark}) => {
 								{contact.title}
 							</div>
 							<div className={classes.contactFormText}>
-								<ContactText />
+								<ContactText contact={contact}/>
 								<ContactForm />
 							</div>
 						</div>

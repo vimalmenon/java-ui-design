@@ -27,15 +27,19 @@ const useStyles = makeStyles((theme:Theme) => {
 });
 
 
-const ContactText = () => {
+const ContactText = ({contact}) => {
 	const classes = useStyles();
 	return (
 		<section className={classes.root}>
 			<div className={classes.container}>
 				<div>
-					<div>
-						Feel free to get in touch with us. We are always open to discussing new projects, creative ideas or opportunities to be part of your visions.
-					</div>
+					{contact.details.map((detail, key) => {
+						return (
+							<div key={key}>
+								{detail}
+							</div>
+						);
+					})}
 				</div>
 				<div>
 					<div>
