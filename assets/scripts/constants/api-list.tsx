@@ -228,6 +228,12 @@ class PostContent extends Api {
 		this.setApiData(data);
 	}
 }
+class DeleteContent extends Api {
+	constructor(data) {
+		super("deleteContent", DELETE, "/api/admin/content");
+		this.setApiData(data);
+	}
+}
 export default {
 	Admin,
 	Login,
@@ -262,5 +268,6 @@ export default {
 	DeleteLinks,
 	AboutMe,
 	GetContent,
-	PostContent
+	PostContent,
+	DeleteContent
 };

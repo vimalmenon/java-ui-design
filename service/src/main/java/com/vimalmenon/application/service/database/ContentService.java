@@ -30,5 +30,14 @@ public class ContentService {
         contentManager.postContent(content);
         return getContent();
 	}
+
+	public List<ContentModel> deleteContent(ContentModel contentModel) {
+        Content content = new Content();
+        content.setId(contentModel.getId());
+        content.setName(contentModel.getName());
+        content.setContentData(contentModel.getContent());
+        contentManager.deleteContent(content);
+		return getContent();
+	}
     
 }

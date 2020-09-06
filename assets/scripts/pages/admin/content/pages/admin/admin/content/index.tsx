@@ -13,24 +13,32 @@ import Button from "@material-ui/core/Button";
 import {ApiCaller} from "utility";
 import {apiList} from "const";
 
-const {GetContent, PostContent} = apiList;
+const {GetContent, PostContent, DeleteContent} = apiList;
 
 const Content = () => {
-	const [contents, setContents]= React.useState<any>([]);
-	const [newContent, setNewContent] = React.useState<any>({});
+	const [contents, setContents] = React.useState<any>([{}]);
 	const [selectedIndex, setSelectedIndex] = React.useState(0);
 	React.useEffect(() => {
 		new ApiCaller(new GetContent())
 			.success((content) => {
-				setContents(content);
+				setContents([...content, {}]);
 			});
 	},[]);
-	const updateContent = (e)=> {
+	const updateContent = (e:any, key:any)=> {
 		const{name, value}= e.target;
-		setNewContent({...newContent,[name]:value});
+		let newContent=contents[key]||{};
+		newContent = {...newContent,[name]:value};
+		contents[key]= newContent;
+		setContents([...contents]);
 	};
-	const onSave = () => {
-		new ApiCaller(new PostContent(newContent))
+	const onSave = (data) => {
+		new ApiCaller(new PostContent(data))
+			.success((content) => {
+				setContents(content);
+			});
+	};
+	const onDelete = (data) => {
+		new ApiCaller(new DeleteContent(data))
 			.success((content) => {
 				setContents(content);
 			});
@@ -38,6 +46,7 @@ const Content = () => {
 	return (
 		<div>
 			{contents.map((content, key) => {
+				console.log(content);
 				return (
 					<Accordion expanded={selectedIndex===key} onChange={()=>setSelectedIndex(key)} key={key}>
 						<AccordionSummary
@@ -47,46 +56,39 @@ const Content = () => {
 							</div>	
 						</AccordionSummary>
 						<AccordionDetails>
-							<div>
-								{content.content}
-							</div>
+							<Typography component="div">
+								<TextField 
+									color="secondary"
+									label="Name"
+									name="name"
+									value={(content.name) ||""}
+									fullWidth={true}
+									onChange={(e)=>updateContent(e, key)} />
+								<TextField 
+									color="secondary"
+									label="Content"
+									name="content"
+									multiline={true}
+									rows={5}
+									value={content.content ||""}
+									fullWidth={true}
+									onChange={(e)=>updateContent(e, key)} />
+								<div>
+									<Button variant="contained" color="secondary" onClick={() =>onSave(content)}>
+										Save
+									</Button>
+									{content.id? 
+										<Button variant="contained" color="secondary" onClick={() =>onDelete(content)}>
+											Delete
+										</Button>
+										: null
+									}
+								</div>
+							</Typography>
 						</AccordionDetails>
 					</Accordion>
 				);
 			})}
-			<Accordion expanded={contents.length ===selectedIndex} onChange={()=>setSelectedIndex(contents.length)}>
-				<AccordionSummary
-					expandIcon={<ExpandMoreIcon />}>
-					<Typography component="div">
-						Add Content
-					</Typography>	
-				</AccordionSummary>
-				<AccordionDetails>
-					<Typography component="div">
-						<TextField 
-							color="secondary"
-							label="Name"
-							name="name"
-							value={newContent.name ||""}
-							fullWidth={true}
-							onChange={updateContent} />
-						<TextField 
-							color="secondary"
-							label="Content"
-							name="content"
-							multiline={true}
-							rows={5}
-							value={newContent.content ||""}
-							fullWidth={true}
-							onChange={updateContent} />
-						<div>
-							<Button variant="contained" color="secondary" onClick={onSave}>
-								Save
-							</Button>
-						</div>
-					</Typography>
-				</AccordionDetails>
-			</Accordion>
 		</div>
 	);
 };

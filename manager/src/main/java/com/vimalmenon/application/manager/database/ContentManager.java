@@ -23,4 +23,8 @@ public class ContentManager {
 	public Content postContent(Content contentModel) {
         return contentRepository.save(contentModel);
 	}
+
+	public void deleteContent(Content content) {
+        contentRepository.delete(content);
+	}
 }

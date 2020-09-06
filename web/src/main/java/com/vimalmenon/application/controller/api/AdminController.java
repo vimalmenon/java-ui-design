@@ -80,6 +80,6 @@ public class AdminController {
 
 	@DeleteMapping("/content")
 	public ApiResponseModel<List<ContentModel>> deleteContent(@RequestBody ContentModel contentModel) {
-		return new ApiResponseModel<List<ContentModel>>(session).setData(contentService.getContent());
+		return new ApiResponseModel<List<ContentModel>>(session).setData(contentService.deleteContent(contentModel));
 	}
 }
