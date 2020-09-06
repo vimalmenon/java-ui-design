@@ -8,10 +8,16 @@ import {
 
 import {Element} from "react-scroll";
 
+import {apiList} from "const";
+import {ApiCaller} from "utility";
+
 import {Title, Container} from "../../../common";
 
 import ContactForm from "./contact-form";
 import ContactText from "./contact-text";
+
+
+const {GetContactUs} = apiList;
 
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
@@ -52,6 +58,13 @@ const useStyles = makeStyles((theme:Theme) => {
 
 const Contact = ({dark}) => {
 	const classes = useStyles();
+	const [contact, setContact] = React.useState<any>(null);
+	React.useEffect(() => {
+		new ApiCaller(new GetContactUs())
+			.success((data) => {
+				setContact(data);
+			});
+	},[]);
 	return (
 		<Element name="contact-us" className={classes.element}>
 			<Container dark={dark}>
@@ -59,15 +72,18 @@ const Contact = ({dark}) => {
 					<div className={classes.title}>
 						<Title title={"Contact Us"} dark={false}/>
 					</div>
-					<div className={classes.content}>
-						<div className={classes.name}>
-							We&apos;d like to hear from you
+					{contact ?
+						<div className={classes.content}>
+							<div className={classes.name}>
+								{contact.title}
+							</div>
+							<div className={classes.contactFormText}>
+								<ContactText />
+								<ContactForm />
+							</div>
 						</div>
-						<div className={classes.contactFormText}>
-							<ContactText />
-							<ContactForm />
-						</div>
-					</div>
+						: null
+					}
 				</div>
 			</Container>
 		</Element>

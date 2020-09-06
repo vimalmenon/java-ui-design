@@ -1,31 +1,37 @@
 package com.vimalmenon.application.common.helper;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class Helper {
-	
-	private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-	public static String urlFixer(String url) {
-		if (url.endsWith("/")) {
-			return url.substring(0, url.length() - 1);
-		}
-		return url;
+	private static Logger log = LoggerFactory.getLogger(Helper.class);
+
+	private Helper() {
 	}
+
+	private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
 	public static boolean verifyPassword(String candidate, String passwordToVerify) {
 		return encoder.matches(candidate, passwordToVerify);
-		//return BCrypt.checkpw(candidate, passwordToVerify);
 	}
 
 	public static String createPassword(String password) {
 		return encoder.encode(password);
-		//return BCrypt.hashpw(password, salt);
 	}
-	public static String converSpaceToDashAndLowercase (String value, String prefix) {
-		if (prefix == null) {
 
+	public static JsonNode convertToJSON(String data){
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			return mapper.readTree(data);
+		} catch (JsonProcessingException e) {
+			log.error("Exception : ", e);
 		}
-		return value;
+		return null;
 	}
 }

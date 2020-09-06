@@ -11,8 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.vimalmenon.application.common.helper.Helper;
 import com.vimalmenon.application.data.component.ComponentEntitlement;
 import com.vimalmenon.application.data.content.Content;
 import com.vimalmenon.application.data.tutorial.Tutorial;
@@ -70,12 +69,7 @@ public class ControllerService {
 			aboutMe.put("videoLink", tutorial.get().getYoutubeId());
 		}
 		if (content.isPresent()) {
-			ObjectMapper mapper = new ObjectMapper();
-			try {
-				aboutMe.put("detail", mapper.readTree(content.get().getContentData()));
-			} catch (JsonProcessingException e1) {
-				log.error("Exception : ",e1);
-			}
+			aboutMe.put("detail", Helper.convertToJSON(content.get().getContentData()));
 		}
 		return aboutMe;
 	}

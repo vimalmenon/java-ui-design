@@ -30,7 +30,7 @@ public class YoutubeSciptService {
 		return items;
 	}
 
-	public List<YoutubeScriptModel> SaveScripts(List<YoutubeScriptModel> youtubeScripts) {
+	public List<YoutubeScriptModel> saveScripts(List<YoutubeScriptModel> youtubeScripts) {
 		List<YoutubeScript> items = new ArrayList<>();
 		for(YoutubeScriptModel script: youtubeScripts) {
 			YoutubeScript data = new YoutubeScript();

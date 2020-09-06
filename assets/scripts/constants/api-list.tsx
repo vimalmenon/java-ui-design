@@ -234,6 +234,12 @@ class DeleteContent extends Api {
 		this.setApiData(data);
 	}
 }
+
+class GetContactUs extends Api {
+	constructor() {
+		super("getContactUs", GET, "/api/contact_us");
+	}
+}
 export default {
 	Admin,
 	Login,
@@ -269,5 +275,6 @@ export default {
 	AboutMe,
 	GetContent,
 	PostContent,
-	DeleteContent
+	DeleteContent,
+	GetContactUs
 };

@@ -145,9 +145,9 @@ const Hero = () => {
 			<Carousel
 				className={classes.carousel}
 				autoPlay={false}
-				animation={"slide"}
+				animation={"fade"}
 				indicators={true}
-				timeout={500}
+				interval={1000}
 				navButtonsAlwaysVisible={true}>
 				{carousels.map((item, index) => {
 					return (

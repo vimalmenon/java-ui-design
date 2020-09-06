@@ -3,14 +3,19 @@ package com.vimalmenon.application.service.controller;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.vimalmenon.application.common.helper.Helper;
 import com.vimalmenon.application.data.contacts.Contact;
+import com.vimalmenon.application.data.content.Content;
 import com.vimalmenon.application.manager.database.ContactManager;
+import com.vimalmenon.application.manager.database.ContentManager;
 import com.vimalmenon.application.model.contact.ContactAdminModel;
 import com.vimalmenon.application.model.contact.ContactModel;
 
@@ -19,6 +24,9 @@ public class ContactService {
 
 	@Autowired
 	private ContactManager contactManager;
+
+	@Autowired
+	private ContentManager contentManager;
 
 	private static final Boolean TRUE = true;
 
@@ -33,18 +41,18 @@ public class ContactService {
 			data.setSubject(contact.getSubject());
 			data.setMessage(contact.getMessage());
 			data.setTimeDate(contact.getTimeDate());
-			data.setRead((contact.getRead() ==1));
+			data.setRead((contact.getRead() == 1));
 			items.add(data);
 		});
 		return items;
 	}
-	
-	public void saveUserContact (ContactModel contact, HttpServletRequest request) {
+
+	public void saveUserContact(ContactModel contact, HttpServletRequest request) {
 		Contact contactData = new Contact();
 		contactData.setName(contact.getName());
 		contactData.setEmail(contact.getEmailAddress());
 		contactData.setIpAddress(request.getRemoteAddr());
-		//request.getHeader("X-FORWARDED-FOR")
+		// request.getHeader("X-FORWARDED-FOR")
 		contactData.setSubject(contact.getSubject());
 		contactData.setMessage(contact.getMessage());
 		contactData.setTimeDate(new Date());
@@ -62,7 +70,7 @@ public class ContactService {
 			data.setSubject(contact.getSubject());
 			data.setMessage(contact.getMessage());
 			data.setTimeDate(contact.getTimeDate());
-			data.setRead(TRUE.equals(contact.getRead())?1:0);
+			data.setRead(TRUE.equals(contact.getRead()) ? 1 : 0);
 			items.add(data);
 		});
 		contactManager.saveAllContact(items);
@@ -80,10 +88,18 @@ public class ContactService {
 			data.setSubject(contact.getSubject());
 			data.setMessage(contact.getMessage());
 			data.setTimeDate(contact.getTimeDate());
-			data.setRead(TRUE.equals(contact.getRead())?1:0);
+			data.setRead(TRUE.equals(contact.getRead()) ? 1 : 0);
 			items.add(data);
 		});
 		contactManager.deleteContact(items);
 		return getContact();
+	}
+
+	public JsonNode getContactUs() {
+		Optional<Content> content = contentManager.getContentByName("ContactUs");
+		if(content.isPresent()) {
+			return Helper.convertToJSON(content.get().getContentData());
+		}
+		return null;
 	}
 }
