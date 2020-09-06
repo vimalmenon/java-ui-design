@@ -46,7 +46,6 @@ const Content = () => {
 	return (
 		<div>
 			{contents.map((content, key) => {
-				console.log(content);
 				return (
 					<Accordion expanded={selectedIndex===key} onChange={()=>setSelectedIndex(key)} key={key}>
 						<AccordionSummary
@@ -69,7 +68,7 @@ const Content = () => {
 									label="Content"
 									name="content"
 									multiline={true}
-									rows={5}
+									rows={10}
 									value={content.content ||""}
 									fullWidth={true}
 									onChange={(e)=>updateContent(e, key)} />

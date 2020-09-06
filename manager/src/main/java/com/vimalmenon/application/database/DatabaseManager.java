@@ -11,7 +11,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.vimalmenon.application.data.group.GroupRepository;
@@ -29,10 +28,10 @@ public class DatabaseManager {
 
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public List<String> uploadDatabase() throws RuntimeException{
-		List<String> items = new ArrayList<String>();
+	public List<String> uploadDatabase(){
+		List<String> items = new ArrayList<>();
 		ObjectMapper mapper = new ObjectMapper();
-		Sql.getSequence().forEach((file) -> {
+		Sql.getSequence().forEach(file -> {
 			try {
 				items.add(mapper.writeValueAsString(((JpaRepository) applicationContext.getBean(file.getClasses())).findAll()));
 			} catch (BeansException | JsonProcessingException e) {
@@ -52,7 +51,7 @@ public class DatabaseManager {
 		groupRepository.setConstrain();
 	}
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public void restoreDatabase (Sql item, String string) throws BeansException, JsonMappingException, JsonProcessingException {
+	public void restoreDatabase (Sql item, String string) throws JsonProcessingException {
 		
 		((JpaRepository)applicationContext.getBean(item.getClasses())).deleteAll();
 		((JpaRepository)applicationContext.getBean(item.getClasses())).flush();

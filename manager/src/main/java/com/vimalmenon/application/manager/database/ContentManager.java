@@ -1,7 +1,7 @@
 package com.vimalmenon.application.manager.database;
 
 import java.util.List;
-
+import java.util.Optional;
 
 import com.vimalmenon.application.data.content.Content;
 import com.vimalmenon.application.data.content.ContentRepository;
@@ -15,16 +15,19 @@ public class ContentManager {
     @Autowired
     private ContentRepository contentRepository;
 
-    public List<Content> getContent() 
-    {
+    public List<Content> getContent() {
         return contentRepository.findAll();
     }
 
-	public Content postContent(Content contentModel) {
+    public Content postContent(Content contentModel) {
         return contentRepository.save(contentModel);
-	}
+    }
 
-	public void deleteContent(Content content) {
+    public void deleteContent(Content content) {
         contentRepository.delete(content);
-	}
+    }
+
+    public Optional<Content> getContentByName(String name) {
+        return contentRepository.findByName(name);
+    }
 }
