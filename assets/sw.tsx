@@ -1,14 +1,26 @@
 declare var VERSION:string;
 declare var caches:CacheStorage;
+declare var ENV:string;
  
+
+const prefix = (ENV ==="PRODUCTION")?"/static":"";
+
+console.log(prefix);
+
 var cacheList = [
 	"/",
-	"/fonts/dark.png",
-	"/fonts/light.jpg",
-	"/main.js",
-	"/main.css"
+	`${prefix}/fonts/dark.png`,
+	`${prefix}/fonts/light.jpg`,
+	`${prefix}/main.js`,
+	`${prefix}/main.css`,
+	`${prefix}/fonts/image1.jpg`,
+	`${prefix}/fonts/image5.jpg`,
+	`${prefix}/fonts/image3.jpg`,
 ];
+
+console.log(cacheList);
 var cacheVersion = `v${VERSION}`;
+
 
 self.addEventListener("install", (event: any) => {
 	event.waitUntil(
@@ -31,13 +43,18 @@ self.addEventListener("activate", (event: any) => {
 });
 
 self.addEventListener("fetch", (event:  any) => {
-	caches.open(cacheVersion).then((cache: any) => {
-		if ((event.request.url.endsWith("js") || event.request.url.endsWith("css")) && !event.request.url.startsWith("chrome-extension")) {
-			fetch(event.request).then((response) => {
-				cache.put(event.request, response.clone());
-				return response;
-			});
-		}		
-	});
-	event.respondWith(fetch(event.request));
+	console.log("Fetch event for ", event.request.url);
+	event.respondWith(
+		caches.match(event.request)
+			.then(response => {
+				if (response) {
+					console.log("Found ", event.request.url, " in cache");
+					return response;
+				}
+				console.log("Network request for ", event.request.url);
+				return fetch(event.request);
+			}).catch(error => {
+				// TODO 6 - Respond with custom offline page
+			})
+	);
 });
