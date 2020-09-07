@@ -14,8 +14,13 @@ const alias = {
     "components" : path.resolve(__dirname, "../assets/scripts/components"),
 };
 const definePlugin = {
-	'VERSION' : `'${packageJson.version}'`
-}
+    'VERSION' : `'${packageJson.version}'`,
+    'ENV' : `'DEVELOPMENT'`,
+};
+const defineProdPlugin = {
+    'VERSION' : `'${packageJson.version}'`,
+    'ENV' : `'PRODUCTION'`,
+};
 const modules = ["assets", "node_modules"];
 const extensions = [".ts", ".tsx", ".js", "jsx", ".scss", ".json"];
 const main = path.resolve(__dirname, "../assets/index.tsx");
@@ -34,4 +39,5 @@ exports.tsxExpression = tsxExpression;
 exports.scssExpression = scssExpression;
 exports.fileExpression = fileExpression;
 exports.definePlugin = definePlugin;
+exports.defineProdPlugin = defineProdPlugin;
 
