@@ -10,10 +10,13 @@
         "moduleResolution": "node",
         "preserveConstEnums": true,
         "baseUrl": "./",
+        "types": [
+            "@types/jest"
+        ],
         "typeRoots" : ["assets/scripts/typings"],
         "paths": {
             "utility": ["assets/scripts/utility"],
-            "store": ["assets/scripts/redux"],
+            "store": ["assets/scripts/state/store"],
             "const" : ["assets/scripts/constants"],
             "actions": ["assets/scripts/state/actions"],
             "dumb-components" : ["assets/scripts/dumb-components"],

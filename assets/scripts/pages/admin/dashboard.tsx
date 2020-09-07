@@ -15,9 +15,9 @@ import Sidebar from "./common/sidebar";
 
 import * as actions from "actions";
 
-import {urlMapper, apiList} from "const";
+import {apiList} from "const";
 
-import {replaceUrlBackslashAtEnd, ApiCaller} from "utility";
+import {ApiCaller} from "utility";
 
 const {Admin} = apiList;
 
@@ -41,14 +41,14 @@ function Dashboard (props) {
 		}
 	},[session.id]);
 	React.useEffect(() => {
-		let {pathname} = props.history.location;
+		/*let {pathname} = props.history.location;
 		pathname = replaceUrlBackslashAtEnd(pathname);
 		if (urlMapper[pathname] && !urlMapper[pathname].checkEntitlement) {
 			document.title = urlMapper[pathname].title;
 			if (pathname) {
 				commonActions.setSelectedNavigation(urlMapper[pathname]);
 			}
-		}
+		}*/
 	});
 	const classes = useStyles();
 	return (

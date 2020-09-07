@@ -13,14 +13,16 @@ module.exports =  {
       },
     },
     "globals": {
-        "console": "readonly",
-        "self": "readonly",
-        "Worker" : "readonly",
-        "Promise" : "readonly",
-        "fetch" : "readonly",
-        "AbortController" : "readonly",
-        "document" : "readonly",
-        "location" : "readonly"
+        "console":"readonly",
+        "self":"readonly",
+        "Worker":"readonly",
+        "Promise":"readonly",
+        "fetch":"readonly",
+        "AbortController":"readonly",
+        "document":"readonly",
+        "location":"readonly",
+        "setTimeout":"readonly",
+        "window":"readonly"
     },
     rules:  {
       "indent": [2, "tab"],

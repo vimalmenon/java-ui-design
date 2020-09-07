@@ -25,21 +25,19 @@ public class NoteService {
 		 Optional<List<Note>> notesOptional = noteManager.getNotes(session.getUserId());
 		 List<NoteModel> notes = new ArrayList<>();
 		 if (notesOptional.isPresent()) {
-			 notesOptional.get().forEach((note) -> {
-				 notes.add(new NoteModel(note));
-			 });
+			notesOptional.get().forEach(note -> notes.add(new NoteModel(note)));
 		 }
 		 return notes;
 	}
 
 	public List<NoteModel> saveNotes(List<NoteModel> notesModel) {
 		List<Note> nodes = new ArrayList<>();
-		notesModel.forEach((NoteModel) -> {
+		notesModel.forEach(noteModel -> {
 			Note note = new Note();
-			note.setId(NoteModel.getId());
+			note.setId(noteModel.getId());
 			note.setUserId(session.getUserId());
-			note.setNote(NoteModel.getNote());
-			note.setTitle(NoteModel.getTitle());
+			note.setNote(noteModel.getNote());
+			note.setTitle(noteModel.getTitle());
 			nodes.add(note);
 		});
 		noteManager.saveNotes(nodes);
@@ -48,12 +46,12 @@ public class NoteService {
 
 	public List<NoteModel> deleteNotes(List<NoteModel> notesModel) {
 		List<Note> nodes = new ArrayList<>();
-		notesModel.forEach((NoteModel) -> {
+		notesModel.forEach(noteModel -> {
 			Note note = new Note();
-			note.setId(NoteModel.getId());
+			note.setId(noteModel.getId());
 			note.setUserId(session.getUserId());
-			note.setNote(NoteModel.getNote());
-			note.setTitle(NoteModel.getTitle());
+			note.setNote(noteModel.getNote());
+			note.setTitle(noteModel.getTitle());
 			nodes.add(note);
 		});
 		noteManager.deleteNotes(nodes);

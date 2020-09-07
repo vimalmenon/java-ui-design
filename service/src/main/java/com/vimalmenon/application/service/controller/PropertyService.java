@@ -2,6 +2,7 @@ package com.vimalmenon.application.service.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ public class PropertyService {
 	
 	public List<PropertyModel> getProperties() {
 		List<PropertyModel> items = new ArrayList<>();
-		propertyManager.getProperties().forEach((property) -> {
+		propertyManager.getProperties().forEach(property -> {
 			PropertyModel model = new PropertyModel();
 			model.setId(property.getId());
 			model.setProperty(property.getProperty());
@@ -32,7 +33,7 @@ public class PropertyService {
 
 	public List<PropertyModel> saveProperties(List<PropertyModel> properties) {
 		List<Property> items = new ArrayList<>();
-		properties.forEach((property) -> {
+		properties.forEach(property -> {
 			Property model = new Property();
 			model.setId(property.getId());
 			model.setProperty(property.getProperty());
@@ -45,7 +46,7 @@ public class PropertyService {
 
 	public List<PropertyModel> deleteProperties(List<PropertyModel> properties) {
 		List<Property> items = new ArrayList<>();
-		properties.forEach((property) -> {
+		properties.forEach(property -> {
 			Property model = new Property();
 			model.setId(property.getId());
 			model.setProperty(property.getProperty());
@@ -54,6 +55,11 @@ public class PropertyService {
 		});
 		propertyManager.deleteProperties(items);
 		return getProperties();
+	}
+
+	public Map<String, Object> getIndexProperties() 
+	{
+		return null;
 	}
 
 }

@@ -1,7 +1,13 @@
 declare var VERSION:string;
 declare var caches:CacheStorage;
  
-var cacheList = ["/"];
+var cacheList = [
+	"/",
+	"/fonts/dark.png",
+	"/fonts/light.jpg",
+	"/main.js",
+	"/main.css"
+];
 var cacheVersion = `v${VERSION}`;
 
 self.addEventListener("install", (event: any) => {

@@ -5,10 +5,10 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { bindActionCreators } from "redux";
 
-import {urlMapper} from "const";
+//import {urlMapper} from "const";
 import * as actions from "actions";
 
-import {replaceUrlBackslashAtEnd} from "utility";
+//import {replaceUrlBackslashAtEnd} from "utility";
 
 import {
 	Switch,
@@ -26,14 +26,14 @@ const Admin = (props) => {
 	const {match} = props;
 	const {url} = match;
 	React.useEffect(() => {
-		let {navigationEntitlement, history, commonActions} = props;
+		/*let {navigationEntitlement, history, commonActions} = props;
 		let {pathname} = history.location;
 		if (pathname.startsWith("/admin/admin") && navigationEntitlement["Admin"]) {
 			document.title = urlMapper[replaceUrlBackslashAtEnd(pathname)].title;
 			if (pathname) {
 				commonActions.setSelectedNavigation(urlMapper[replaceUrlBackslashAtEnd(pathname)]);
 			}
-		}
+		}*/
 	});
 	return (
 		<Entitlement 

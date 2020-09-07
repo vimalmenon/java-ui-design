@@ -1,4 +1,4 @@
-import {SET_SELECTED_NAVIGATION, SET_GROUPS, SET_NAVIGATION_ENTITLEMENT} from "./common-types";
+import {SET_SELECTED_NAVIGATION, SET_GROUPS, SET_NAVIGATION_ENTITLEMENT, SET_SOCIAL_MEDIAS, ADD_PROMISE} from "./common-types";
 
 import {navigationByName} from "const";
 
@@ -29,8 +29,22 @@ const setNavigationEntitlement = (navigationList) => {
 		navigationEntitlement
 	};
 };
+const setSocialMedias = (socialMedias) => {
+	return {
+		type : SET_SOCIAL_MEDIAS,
+		socialMedias
+	};
+};
+const addPromise = (promise) => {
+	return {
+		type : ADD_PROMISE,
+		promise
+	};
+};
 export default {
+	setGroups,
+	addPromise,
+	setSocialMedias,
 	setSelectedNavigation,
-	setNavigationEntitlement,
-	setGroups
+	setNavigationEntitlement
 };

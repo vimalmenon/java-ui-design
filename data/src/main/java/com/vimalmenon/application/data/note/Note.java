@@ -22,8 +22,6 @@ public class Note {
 	@Column(nullable = false, name = "note")
 	private String note;
 
-	public Note() {
-	}
 	public int getId() {
 		return id;
 	}

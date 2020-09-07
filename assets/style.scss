@@ -2,9 +2,7 @@ $fa-font-path: "~font-awesome/fonts/";
 @import '~font-awesome/scss/font-awesome';
 
 @import '~react-redux-spinner/dist/react-redux-spinner.css';
-
-@import '~react-grid-layout/css/styles.css';
-@import '~react-resizable/css/styles.css';
+@import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');
 
 html, body, #main {
     height: 100%;

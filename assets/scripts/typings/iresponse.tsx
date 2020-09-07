@@ -2,5 +2,6 @@ interface IResponse {
 	code:number;
 	message:string;
 	session: ISession;
-	data: any
+	data: any;
+	flush:boolean;
 };

@@ -13,42 +13,20 @@ https://nextjs.org/
 https://colorsinspo.com/color-tools/color-wheel
 https://www.youtube.com/audiolibrary/music?nv=1
 https://material.io/resources/color/#!/?view.left=1&view.right=1&secondary.color=cac5f4&primary.color=8e4862
-
-
-Need to work on front page 
-Need to work on server side rendering
-Need to work on docker
-Need to work on loading page
-Need to work on hosting to the linux box
-Need to work on favicon
-Need to work on exception messages
-Need to work on handling api error and success
-Need to work on properties
-Need to use Web Worker effectively
-Need to work on cache static files
-Need to work on loading indicator
-Need to work on download resume
-Accessiblity of the pages
-Need to work on reset password
-Need to work on inactive users
-Need to work on sending email
-Need to work on google authentication 
-Need to work on filters
-Need to set up dark mode from localstorage
-Need to find a way to switch user.
-Need to add Youtube and insta icons
-Need to work on offline page
-Need to set up theme on the local storage.
-Need to work on setting up primary and secondry color
-need to work on breadcrumbs
-need to work on offline api
-Need to work on URL component in admin page
-themes needs to be accessable from common place
-Need to remove preference page
-
-
-
+https://fonts.google.com/specimen/Philosopher?sidebar.open=true&selection.family=Philosopher
+https://danilowoz.com/create-content-loader/
+https://coolors.co/palettes
+https://www.sessions.edu/color-calculator/
+https://coolors.co/palettes/trending
+https://www.pngegg.com/en/search?q=git
+https://www.canva.com/colors/color-wheel/
 https://medium.com/@gustavo.ponce.ch/spring-boot-spring-mvc-spring-security-mysql-a5d8545d837d
+
+
+
+document.designMode = 'on'
+
+
 
 
 Need to know how to set up mysql
@@ -109,3 +87,42 @@ regex                                   :   https://regex101.com/
 certbot                                 :   https://certbot.eff.org/docs/using.html#where-are-my-certificates
 SSR                                     :   https://github.com/spatie/laravel-server-side-rendering-examples
 admin dashboard with material design    :   https://gurayyarar.github.io/AdminBSBMaterialDesign/
+
+
+table images {
+    id,
+    name,
+}
+
+
+User page
+Need to work on loading page
+
+Need to set up proper margin and padding for page
+Need to work on hosting to the linux box
+
+Need to host the website to the web server in aws
+Need to include testing
+Need to work on front page 
+Need to work on server side rendering
+Need to work on docker
+Need to work on loading page
+Need to work on favicon
+Need to work on exception messages
+Need to work on handling api error and success
+Need to work on properties
+Need to use Web Worker effectively
+Need to work on cache static files
+Need to work on download resume
+Accessiblity of the pages
+Need to work on reset password
+Need to work on inactive users
+Need to work on sending email
+Need to work on google authentication 
+Need to work on filters
+Need to find a way to switch user.
+Need to work on offline page
+need to work on breadcrumbs on main page
+need to work on offline api
+Need to work on URL component in admin page
+Need to work on favicon

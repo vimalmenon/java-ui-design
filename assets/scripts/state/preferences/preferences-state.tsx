@@ -1,29 +1,20 @@
 export default {
-	lang: "en",
-	palette : {
-		type : "dark",
+	lang:"en",
+	palette:{
+		type : "light",
 		primary:{
 			light:"#394a6b",
-			main:"#0c2340",
-			dark:"#00001b",
+			main:"#00172B",
+			dark:"#00325e",
 			contrastText:"#fff"
 		},
 		secondary : {
-			light:"#ffa040",
-			main:"#ff6f00",
-			dark:"#c43e00",
+			light:"#f3637f",
+			main:"#FA2B54",
+			dark:"#EC0633",
 			contrastText:"#fff"
 		}
 	},
-	drawer: true,
-	theme : {
-		one:{
-			primary : {
-				light:"#394a6b",
-				main:"#0c2340",
-				dark:"#00001b",
-				contrastText:"#fff"
-			}
-		}
-	}
+	drawer:true,
+	loading:true
 };

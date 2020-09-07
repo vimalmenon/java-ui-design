@@ -14,7 +14,7 @@ class Api implements IApi{
 	public data;
 	public failureMessage;
 	public successMessage;
-	constructor (name:String, method:String, url:String) {
+	constructor (name:string, method:string, url:string) {
 		this.name = name;
 		this.method = method;
 		this.url = url;
@@ -153,12 +153,6 @@ class RestoreDatabase extends Api {
 		this.setFailureMessage(true);
 	}
 }
-class ApiSaveContact extends Api {
-	constructor(data) {
-		super("saveContact", POST, "/api/save_contact");
-		this.setApiData(data);
-	}
-}
 
 class GetAdminContact extends Api {
 	constructor () {
@@ -212,6 +206,46 @@ class DeleteLinks extends Api {
 		this.setApiData(data);
 	}
 }
+class AboutMe extends Api {
+	constructor() {
+		super("aboutMe", GET, "/api/about_me");
+	}
+}
+class GetContent extends Api {
+	constructor() {
+		super("getContent", GET, "/api/admin/content");
+	}
+}
+class PostContent extends Api {
+	constructor(data) {
+		super("postContent", POST, "/api/admin/content");
+		this.setApiData(data);
+	}
+}
+class DeleteContent extends Api {
+	constructor(data) {
+		super("deleteContent", DELETE, "/api/admin/content");
+		this.setApiData(data);
+	}
+}
+
+class GetContactUs extends Api {
+	constructor() {
+		super("getContactUs", GET, "/api/contact_us");
+	}
+}
+
+class SaveContact extends Api {
+	constructor(data) {
+		super("saveContact", POST, "/api/save_contact");
+		this.setApiData(data);
+	}
+}
+class GetTutorials extends Api {
+	constructor() {
+		super("getTutorials", GET, "/api/tutorials");
+	}
+}
 export default {
 	Admin,
 	Login,
@@ -231,7 +265,7 @@ export default {
 	UploadDatabase,
 	ListDatabases,
 	GetComponents,
-	ApiSaveContact,
+	SaveContact,
 	GetGroups,
 	GetUrls,
 	RestoreDatabase,
@@ -243,5 +277,11 @@ export default {
 	DeleteProperties,
 	GetLinks,
 	PostLinks,
-	DeleteLinks
+	DeleteLinks,
+	AboutMe,
+	GetContent,
+	PostContent,
+	DeleteContent,
+	GetContactUs,
+	GetTutorials
 };

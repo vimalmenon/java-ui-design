@@ -25,8 +25,6 @@ public class NavigationEntitlement {
 	@Column(nullable = false, name = "access")
 	private int access;
 
-	public NavigationEntitlement() {
-	}
 	public int getId() {
 		return id;
 	}

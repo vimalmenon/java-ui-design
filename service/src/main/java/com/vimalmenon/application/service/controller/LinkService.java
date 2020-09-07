@@ -18,11 +18,14 @@ public class LinkService {
 
 	public List<LinkModel> getLink() {
 		List<LinkModel> items = new ArrayList<>();
-		linkManager.getLink().forEach((link) -> {
+		linkManager.getLink().forEach(link -> {
 			LinkModel model = new LinkModel();
 			model.setId(link.getId());
 			model.setName(link.getName());
-			model.setLink(link.getLink());
+			model.setTitle(link.getTitle());
+			model.setUrl(link.getUrl());
+			model.setType(link.getType());
+			model.setActive(link.getIsActive()==1?true:false);
 			items.add(model);
 		});
 		return items;
@@ -30,11 +33,14 @@ public class LinkService {
 
 	public List<LinkModel> postLinks(List<LinkModel> models) {
 		List<Link> items = new ArrayList<>();
-		models.forEach((model) -> {
+		models.forEach(model -> {
 			Link link = new Link();
 			link.setId(model.getId());
 			link.setName(model.getName());
-			link.setLink(model.getLink());
+			link.setTitle(model.getTitle());
+			link.setUrl(model.getUrl());
+			link.setType(model.getType());
+			link.setIsActive(model.isActive()?1:0);
 			items.add(link);
 		});
 		linkManager.saveLinks(items);
@@ -44,14 +50,33 @@ public class LinkService {
 
 	public List<LinkModel> deleteLinks(List<LinkModel> models) {
 		List<Link> items = new ArrayList<>();
-		models.forEach((model) -> {
+		models.forEach(model -> {
 			Link link = new Link();
 			link.setId(model.getId());
 			link.setName(model.getName());
-			link.setLink(model.getLink());
+			link.setTitle(model.getTitle());
+			link.setUrl(model.getUrl());
+			link.setType(model.getType());
+			link.setIsActive(model.isActive()?1:0);
 			items.add(link);
 		});
 		linkManager.deleteLinks(items);
 		return getLink();
 	}
+
+	public List<LinkModel> getSocialMedias() {
+		List<LinkModel> items = new ArrayList<>();
+		linkManager.getSocialMedias().forEach((link) -> {
+			LinkModel model = new LinkModel();
+			model.setId(link.getId());
+			model.setName(link.getName());
+			model.setTitle(link.getTitle());
+			model.setUrl(link.getUrl());
+			model.setType(link.getType());
+			model.setActive(link.getIsActive()==1?true:false);
+			items.add(model);
+		});
+		return items;
+	}
+
 }

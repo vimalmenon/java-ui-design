@@ -6,7 +6,7 @@ const output = {
     filename: "[name].js"
 };
 const alias = {
-	"store": path.resolve(__dirname, "../assets/scripts/redux"),
+	"store": path.resolve(__dirname, "../assets/scripts/state/store"),
     "const" : path.resolve(__dirname, "../assets/scripts/constants"),
     "utility" : path.resolve(__dirname, "../assets/scripts/utility"),
     "dumb-components" : path.resolve(__dirname, "../assets/scripts/dumb-components"),

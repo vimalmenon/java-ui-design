@@ -28,7 +28,7 @@ import {
 } from "@material-ui/core/styles";
 
 import {ApiCaller} from "utility";
-import {navigationByName, apiList, storage, headers} from "const";
+import {apiList, storage, headers} from "const";
 import * as actions from "actions";
 
 const {Login} = apiList;
@@ -55,9 +55,9 @@ const useStyles = makeStyles(() => {
 function LoginPage (props) {
 	const classes  = useStyles();
 	React.useEffect(() => {
-		const {signIn} = navigationByName;
-		document.title = signIn.title;
-		props.commonActions.setSelectedNavigation(signIn);
+		//const {signIn} = navigationByName;
+		//document.title = signIn.title;
+		//props.commonActions.setSelectedNavigation(signIn);
 	});
 	const [credential, setCredential] = React.useState<any>({});
 	const [showPassword, setShowPassword] = React.useState(false);
