@@ -84,7 +84,7 @@ module.exports = {
             protectWebpackAssets: false,
             cleanOnceBeforeBuildPatterns: ['**/*']
         }),
-        new webpack.DefinePlugin(config.definePlugin)
+        new webpack.DefinePlugin(config.defineProdPlugin)
     ],
     resolve: {
         extensions: config.extensions,
