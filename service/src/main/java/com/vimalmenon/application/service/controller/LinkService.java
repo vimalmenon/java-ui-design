@@ -25,7 +25,7 @@ public class LinkService {
 			model.setTitle(link.getTitle());
 			model.setUrl(link.getUrl());
 			model.setType(link.getType());
-			model.setActive(link.getIsActive()==1?true:false);
+			model.setActive(link.getIsActive()==1);
 			items.add(model);
 		});
 		return items;
@@ -66,14 +66,14 @@ public class LinkService {
 
 	public List<LinkModel> getSocialMedias() {
 		List<LinkModel> items = new ArrayList<>();
-		linkManager.getSocialMedias().forEach((link) -> {
+		linkManager.getSocialMedias().forEach(link -> {
 			LinkModel model = new LinkModel();
 			model.setId(link.getId());
 			model.setName(link.getName());
 			model.setTitle(link.getTitle());
 			model.setUrl(link.getUrl());
 			model.setType(link.getType());
-			model.setActive(link.getIsActive()==1?true:false);
+			model.setActive(link.getIsActive()==1);
 			items.add(model);
 		});
 		return items;

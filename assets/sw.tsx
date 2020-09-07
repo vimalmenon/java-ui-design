@@ -5,10 +5,9 @@ declare var ENV:string;
 
 const prefix = (ENV ==="PRODUCTION")?"/static":"";
 
-console.log(prefix);
-
 var cacheList = [
 	"/",
+	"/api",
 	`${prefix}/fonts/dark.png`,
 	`${prefix}/fonts/light.jpg`,
 	`${prefix}/main.js`,
@@ -18,7 +17,6 @@ var cacheList = [
 	`${prefix}/fonts/image3.jpg`,
 ];
 
-console.log(cacheList);
 var cacheVersion = `v${VERSION}`;
 
 
@@ -54,6 +52,7 @@ self.addEventListener("fetch", (event:  any) => {
 				console.log("Network request for ", event.request.url);
 				return fetch(event.request);
 			}).catch(error => {
+				console.log("error while caching ", error);
 				// TODO 6 - Respond with custom offline page
 			})
 	);
