@@ -35,27 +35,24 @@ public class AdminControllerService {
 	{
 		
 		Optional<User> userOptional = userGroupAdminManager.getUserById(session.getUserId());
-		int priorityId = userOptional.get().getGroup().getPriority();
+		Map<String, Object> data = new HashMap<>();
 		
-		Map<String, Object> data = new HashMap<String, Object>();
-		
-		Optional<List<Group>> switchableGroup = userGroupAdminManager.getSwitchableGroups(priorityId);
-		if (switchableGroup.isPresent()) {
-			List<Group> switchGroup = switchableGroup.get();
-			List<SwitchableGroupModel> groups = new ArrayList<>();
-			switchGroup.forEach((group) -> {
-				groups.add(new SwitchableGroupModel(group));
-			});
-			data.put("groups", groups);
-		}
-		
-		Optional<List<NavigationEntitlement>> navigationOptional = navigationManager.getNavigation(session.getId());
-		if (navigationOptional.isPresent()) {
-			List<NavigationModel> navigations = new ArrayList<>();
-			navigationOptional.get().forEach((navigation) -> {
-				navigations.add(new NavigationModel(navigation));
-			});
-			data.put("navigations", navigations);
+		if(userOptional.isPresent()){
+			int priorityId = userOptional.get().getGroup().getPriority();
+			Optional<List<Group>> switchableGroup = userGroupAdminManager.getSwitchableGroups(priorityId);
+			if (switchableGroup.isPresent()) {
+				List<Group> switchGroup = switchableGroup.get();
+				List<SwitchableGroupModel> groups = new ArrayList<>();
+				switchGroup.forEach(group -> groups.add(new SwitchableGroupModel(group)));
+				data.put("groups", groups);
+			}
+			
+			Optional<List<NavigationEntitlement>> navigationOptional = navigationManager.getNavigation(session.getId());
+			if (navigationOptional.isPresent()) {
+				List<NavigationModel> navigations = new ArrayList<>();
+				navigationOptional.get().forEach(navigation -> navigations.add(new NavigationModel(navigation)));
+				data.put("navigations", navigations);
+			}
 		}
 		return data;
 	}

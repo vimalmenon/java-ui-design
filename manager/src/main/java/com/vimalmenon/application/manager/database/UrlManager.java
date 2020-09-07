@@ -22,7 +22,7 @@ public class UrlManager {
 	
 	public Optional<UrlEntitlement> getEntitlementByGroupIdUrlMethod (int groupId, String url,String method) 
 	{
-		return urlEntitlementRepository.findByGroupIdAndUrlUrlAndUrlMethod(groupId, url, method);
+		return urlEntitlementRepository.findByGroupIdAndUrlUrlDataAndUrlMethod(groupId, url, method);
 	}
 
 	public List<Url> getUrls() {

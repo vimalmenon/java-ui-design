@@ -17,9 +17,7 @@ public class ComponentService {
 
 	public List<ComponentModel> getComponents() {
 		List<ComponentModel> items = new ArrayList<>();
-		componentManager.getAllComponents().forEach((component) -> {
-			items.add(new ComponentModel(component));
-		});
+		componentManager.getAllComponents().forEach(component -> items.add(new ComponentModel(component)));
 		return items;
 	}
 }

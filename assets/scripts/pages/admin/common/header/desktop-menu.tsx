@@ -8,20 +8,24 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import SwapHorizIcon from "@material-ui/icons/SwapHoriz";
 import Tooltip from "@material-ui/core/Tooltip";
 
+import { connect } from "react-redux";
+import {switchTheme} from "utility";
 
 const DesktopMenu = (props: any) => {
-	const {className, mode, preferencesActions, onLogOut, setModel, groups} = props;
+	const {className, mode, onLogOut, setModel, groups, preferences} = props;
+	const {palette} = preferences;
+	const {type} = preferences.palette;
 	return (
 		<div className={className}>
 			{mode=== "dark" ?
 				<Tooltip title="Light mode" aria-label="Light mode">
-					<IconButton aria-label="show 17 new notifications" color="inherit" onClick={() => preferencesActions.toggleMode(mode)}>
+					<IconButton aria-label="show 17 new notifications" color="inherit" onClick={() => switchTheme.switchTheme({...palette, type: (type==="light")? "dark": "light"})}>
 						<Brightness7Icon />
 					</IconButton>
 				</Tooltip>
 				:
 				<Tooltip title="Dark mode" aria-label="Dark mode">
-					<IconButton aria-label="show 4 new mails" color="inherit" onClick={() => preferencesActions.toggleMode(mode)}>
+					<IconButton aria-label="show 4 new mails" color="inherit" onClick={() => switchTheme.switchTheme({...palette, type: (type==="light")? "dark": "light"})}>
 						<BrightnessLowIcon />
 					</IconButton>
 				</Tooltip>
@@ -46,4 +50,13 @@ const DesktopMenu = (props: any) => {
 	);
 };
 
-export default DesktopMenu;
+
+const mapStateToProps = (state : any) => {
+	return {
+		preferences: state.preferences,
+	};
+};
+
+export default connect(
+	mapStateToProps
+)(DesktopMenu);

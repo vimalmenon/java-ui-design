@@ -9,7 +9,6 @@ import {
 
 import Main from "./scripts";
 
-
 ReactDOM.render(
 	<Router>
 		<Main />

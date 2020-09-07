@@ -6,19 +6,23 @@ public class GeneralException extends RuntimeException{
 
 	private static final long serialVersionUID = 1L;
 	
-	private static ResponseCode response = ResponseCode.EXCEPTION;
-	private final static int code = response.code;
-	private final String msg = "Error while processing request";
+	private static final ResponseCode response = ResponseCode.EXCEPTION;
+	private static final int CODE = response.code;
+	private static final String MSG = "Error while processing request";
 	
 	public GeneralException(String msg) {
 		super(msg);
 	}
 	
+	public GeneralException(Exception e) {
+	}
+
 	public int getCode () 
 	{
-		return code;
+		return CODE;
 	}
+	@Override
 	public String getMessage () {
-		return msg;
+		return MSG;
 	}
 }

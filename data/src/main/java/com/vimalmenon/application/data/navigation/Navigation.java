@@ -15,8 +15,6 @@ public class Navigation {
 	@Column(nullable = false, name = "name")
 	private String name;
 	
-	public Navigation() {
-	}
 	public int getId() {
 		return id;
 	}

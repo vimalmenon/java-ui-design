@@ -4,7 +4,10 @@ public class LinkModel {
 
 	public int id;
 	private String name;
-	private String link;
+	private String title;
+	private String url;
+	private String type;
+	private boolean isActive;
 	
 	public int getId() {
 		return id;
@@ -18,11 +21,37 @@ public class LinkModel {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getLink() {
-		return link;
+
+	public String getTitle() {
+		return title;
 	}
-	public void setLink(String link) {
-		this.link = link;
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
 	}
 	
 }

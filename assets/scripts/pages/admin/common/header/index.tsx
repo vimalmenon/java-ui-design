@@ -8,8 +8,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import {
 	Theme,
 	makeStyles,
-	createStyles,
-	useTheme
+	createStyles
 } from "@material-ui/core/styles";
 
 import { connect } from "react-redux";

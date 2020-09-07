@@ -6,18 +6,18 @@ public class UnauthorizedAccessException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
 	
-	private static ResponseCode response = ResponseCode.UNAUTHORIZED_ACCESS;
-	private final int code = response.code;
-	private final static String msg = response.msg;
+	private static final ResponseCode response = ResponseCode.UNAUTHORIZED_ACCESS;
+	private static final int CODE = response.code;
+	private static final String MSG = response.msg;
 	
 	public UnauthorizedAccessException() {
-		super(msg);
+		super(MSG);
 	}
 	public int getCode ()
 	{
-		return code;
+		return CODE;
 	}
 	public String getMessage () {
-		return msg;
+		return MSG;
 	}
 }

@@ -32,9 +32,9 @@ public class YouTubeScriptController {
 	}
 	
 	@PostMapping("")
-	public ApiResponseModel<List<YoutubeScriptModel>> SaveScripts(@RequestBody List<YoutubeScriptModel> youtubeScripts)
+	public ApiResponseModel<List<YoutubeScriptModel>> saveScripts(@RequestBody List<YoutubeScriptModel> youtubeScripts)
 	{
-		return new ApiResponseModel<List<YoutubeScriptModel>>(session).setData(youtubeSciptService.SaveScripts(youtubeScripts));
+		return new ApiResponseModel<List<YoutubeScriptModel>>(session).setData(youtubeSciptService.saveScripts(youtubeScripts));
 	}
 	
 	@DeleteMapping("")

@@ -1,5 +1,4 @@
 import HomeIcon from "@material-ui/icons/Home";
-import SettingsIcon from "@material-ui/icons/Settings";
 import NoteIcon from "@material-ui/icons/Note";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
@@ -129,19 +128,6 @@ const admin = {
 		}
 	]
 };
-const preference = {
-	name : "Preference",
-	Icon : SettingsIcon,
-	link : "/admin/preference",
-	title : "Preference | Vimal Menon",
-	breadcrumbs : [
-		dashboard,
-		{
-			name : "preference",
-			Icon : SettingsIcon,
-		}
-	]
-};
 const profile = {
 	name : "Profile",
 	Icon : AccountCircleIcon,
@@ -210,16 +196,47 @@ const navigations = [
 	dashboard,
 	profile,
 	admin,
-	preference,
 	notes,
 	expenses
 ];
 
+const home = {
+	name : "Home",
+	link : "/",
+	title : "Vimal Menon",
+};
+const PrivacyPolicy = {
+	name : "Privacy Policy",
+	link : "/privacy-policy",
+	title : "Privacy Policy | Vimal Menon",
+	breadcrumbs : [
+		home
+	]
+};
+
+const tutorials = {
+	name : "Tutorials",
+	link : "/tutorials",
+	title : "Tutorials | Vimal Menon",
+	breadcrumbs : [
+		home
+	]
+};
+const mainNavigations = [
+	tutorials
+];
+const extraNavigations = [
+	tutorials,
+	PrivacyPolicy
+];
+
 const urlMapper = {
+	"/":home,
+	"/tutorials":tutorials,
+	"/privacy_policy":PrivacyPolicy,
 	"/admin": dashboard,
 	"/admin/admin" : admin,
 	"/admin/profile" : profile,
-	"/admin/preference" : preference,
 	"/admin/notes" : notes,
 	"/admin/calendar" : calendar,
 	"/admin/expenses" : expenses,
@@ -229,10 +246,12 @@ const urlMapper = {
 };
 
 const navigationByName = {
+	home,
+	PrivacyPolicy,
+	tutorials,
 	signIn,
 	dashboard,
 	admin,
-	preference,
 	profile,
 	notes,
 	calendar,
@@ -243,4 +262,4 @@ const navigationByName = {
 	YoutubeScript,
 	message
 };
-export {navigations, urlMapper, navigationByName};
+export {navigations, urlMapper, navigationByName, mainNavigations, extraNavigations};

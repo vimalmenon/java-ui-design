@@ -14,8 +14,6 @@ public class Component {
 	@Column(nullable = false, name = "name")
 	private String name;
 
-	public Component() {
-	}
 	public int getId() {
 		return id;
 	}

@@ -6,6 +6,8 @@ import {
 	createStyles
 } from "@material-ui/core/styles";
 
+import FollowUs from "../../common/follow-us";
+
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
 		root: {
@@ -14,12 +16,15 @@ const useStyles = makeStyles((theme:Theme) => {
 			background : "#00172B",
 			justifyContent : "center",	
 			color:"white",
-			flex: "0 0 3.9375rem"
+			flex: "0 0 63px"
 		},
 		container : {
-			dislay:"flex",
+			display:"flex",
 			flexDirection:"row",
 			flex: `1 1 100%`,
+			alignItems : "center",
+			justifyContent :"flex-end",
+			margin: theme.spacing(0,1),
 			[theme.breakpoints.up("lg")]: {
 				display:"flex",
 				flex: `0 0 ${theme.breakpoints.values.lg}px`,
@@ -33,7 +38,7 @@ const ContactBar = ()=> {
 	return (
 		<div className={classes.root}>
 			<div className={classes.container}>
-				This is Contact Bar
+				<FollowUs />
 			</div>
 		</div>
 	);

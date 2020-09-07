@@ -7,8 +7,8 @@ public class DatabaseException extends RuntimeException {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private static ResponseCode response = ResponseCode.DATABASE;
-	private final static int code = response.code;
+	private static final ResponseCode response = ResponseCode.DATABASE;
+	private static final int CODE = response.code;
 		
 	
 	public DatabaseException(String msg) {
@@ -16,6 +16,6 @@ public class DatabaseException extends RuntimeException {
 	}
 	
 	public int getCode () {
-		return code;
+		return CODE;
 	}
 }

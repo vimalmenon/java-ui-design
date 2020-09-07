@@ -10,7 +10,7 @@ public class UrlModel {
 	
 	public UrlModel(Url url) {
 		setId(url.getId());
-		setUrl(url.getUrl());
+		setUrl(url.getUrlData());
 		setMethod(url.getMethod());
 	}
 	

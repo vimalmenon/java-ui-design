@@ -7,10 +7,10 @@ public class ApplicationErrorException extends RuntimeException  {
 
 	private static final long serialVersionUID = 1L;
 
-	private static ResponseCode response = ResponseCode.APPLICATION_ERROR;
-	private final static int code = response.code;
+	private static final ResponseCode response = ResponseCode.APPLICATION_ERROR;
+	private static final int CODE = response.code;
 	
 	public int getCode () {
-		return code;
+		return CODE;
 	}
 }

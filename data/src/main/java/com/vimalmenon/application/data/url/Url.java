@@ -13,13 +13,10 @@ public class Url {
 	private int id;
 
 	@Column(nullable = false, name = "url")
-	private String url;
+	private String urlData;
 
 	@Column(nullable = false, name = "method")
 	private String method;
-	
-	public Url() {
-	}
 
 	public int getId() {
 		return id;
@@ -29,20 +26,20 @@ public class Url {
 		this.id = id;
 	}
 
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
 	public String getMethod() {
 		return method;
 	}
 
 	public void setMethod(String method) {
 		this.method = method;
+	}
+
+	public String getUrlData() {
+		return urlData;
+	}
+
+	public void setUrlData(String urlData) {
+		this.urlData = urlData;
 	}
 	
 }

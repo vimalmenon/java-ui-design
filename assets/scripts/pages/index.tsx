@@ -6,7 +6,7 @@ import {
 
 import loadable from "@loadable/component";
 import { useToasts } from "react-toast-notifications";
-import { notification, switchTheme } from "utility";
+import { notification} from "utility";
 import { connect } from "react-redux";
 
 import {
@@ -14,40 +14,58 @@ import {
 	createMuiTheme
 } from "@material-ui/core/styles";
 
-import Home from "./home";
-import User from "./user";
+import { bindActionCreators } from "redux";
+
+import * as actions from "actions";
 
 const Admin = loadable(() => import( /* webpackChunkName: "admin" */ /* webpackMode: "lazy" */ "./admin"));
 
-const Pages = (props) => {
+import Loading from "./loading";
+import User from "./user";
+import {init} from "./index.service";
+
+
+const Pages = ({preferences, common, commonActions}) => {
 	const { addToast } = useToasts();
-	let {palette} = props.preferences;
+	const {palette} = preferences;
+	const {promises} = common;
 	notification.setNotification(addToast);
 	const theme = createMuiTheme({
 		palette : {
 			...palette
 		}
 	});
+	const [loading, setLoading] = React.useState(true);
 	React.useEffect(() => {
-		switchTheme.themeInit();
+		init(commonActions);
+		Promise.all(promises).then(() => {
+			setLoading(false);
+		});
 	},[]);
 	return (
 		<ThemeProvider theme={theme}>
-			<Switch>
+			{!loading ? <Switch>
 				<Route path="/admin" component={Admin} />
-				<Route path="/user" component={User} />
-				<Route path="/" component={Home} />
-			</Switch>
+				<Route path="/" component={User} />
+			</Switch>: <Loading/>}
 		</ThemeProvider>
 	);
 };
 
-const mapStateToProps = (state : any) => {
+const mapStateToProps = (state:any) => {
 	return {
 		preferences: state.preferences,
+		common: state.common
+	};
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		commonActions: bindActionCreators({...actions.common}, dispatch),
 	};
 };
 
 export default connect(
-	mapStateToProps
+	mapStateToProps,
+	mapDispatchToProps
 )(Pages);

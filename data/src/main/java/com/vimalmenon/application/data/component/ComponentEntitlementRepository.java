@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ComponentEntitlementRepository extends JpaRepository<ComponentEntitlement, Integer> {
 	
-	public Optional<ComponentEntitlement> findByGroupIdAndComponentName(Integer groupId, String Name);
+	public Optional<ComponentEntitlement> findByGroupIdAndComponentName(Integer groupId, String name);
 	
 }
