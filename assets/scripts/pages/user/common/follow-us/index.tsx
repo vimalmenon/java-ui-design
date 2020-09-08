@@ -5,6 +5,9 @@ import * as React from "react";
 import { connect } from "react-redux";
 import {icons} from "const";
 
+import { bindActionCreators } from "redux";
+import * as actions from "actions";
+
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import Link from "@material-ui/core/Link";
@@ -13,11 +16,12 @@ import Snackbar from "@material-ui/core/Snackbar";
 
 
 
-const FollowUs = ({common}) => {
+const FollowUs = ({common, commonActions}) => {
 	const {socialMedias}=common;
 	const copy = (value) => {
-		navigator.clipboard.writeText(value);
-		console.log(value);
+		navigator.clipboard.writeText(value).then(() => {
+			commonActions.showSnackbar("Copied to clipboard");
+		});
 	};
 	return (
 		<>
@@ -55,7 +59,12 @@ const mapStateToProps = (state:any) => {
 		common: state.common
 	};
 };
-
+const mapDispatchToProps = (dispatch) => {
+	return {
+		commonActions: bindActionCreators({...actions.common}, dispatch),
+	};
+};
 export default connect(
-	mapStateToProps
+	mapStateToProps,
+	mapDispatchToProps
 )(FollowUs);

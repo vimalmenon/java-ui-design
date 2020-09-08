@@ -9,9 +9,6 @@ import * as actions from "actions";
 
 const SnackBarComponent = ({common, commonActions}) => {
 	let {snackBar, snackMessage} = common;
-	const onClose = () => {
-		console.log(commonActions);
-	};
 	return (
 		<Snackbar
 			anchorOrigin={{
@@ -20,7 +17,7 @@ const SnackBarComponent = ({common, commonActions}) => {
 			}}
 			open={snackBar}
 			autoHideDuration={3000}
-			onClose={onClose}
+			onClose={commonActions.closeSnackbar}
 			message={snackMessage} />
 	);
 };

@@ -1,4 +1,4 @@
-import {SET_SELECTED_NAVIGATION, SET_GROUPS, SET_NAVIGATION_ENTITLEMENT, SET_SOCIAL_MEDIAS, ADD_PROMISE} from "./common-types";
+import {SET_SELECTED_NAVIGATION, SET_GROUPS, SET_NAVIGATION_ENTITLEMENT, SET_SOCIAL_MEDIAS, ADD_PROMISE, SET_SNACKBAR} from "./common-types";
 
 import {navigationByName} from "const";
 
@@ -41,10 +41,26 @@ const addPromise = (promise) => {
 		promise
 	};
 };
+const showSnackbar = (snackMessage) => {
+	return {
+		type : SET_SNACKBAR,
+		snackBar:true, 
+		snackMessage
+	};
+};
+const closeSnackbar = () => {
+	return {
+		type : SET_SNACKBAR,
+		snackBar:false, 
+		snackMessage:null
+	};
+};
 export default {
 	setGroups,
 	addPromise,
 	setSocialMedias,
+	showSnackbar,
+	closeSnackbar,
 	setSelectedNavigation,
 	setNavigationEntitlement
 };
