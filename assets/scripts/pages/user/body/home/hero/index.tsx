@@ -42,6 +42,13 @@ const useStyles = makeStyles((theme:Theme) => {
 			width:"100%",
 			display:"flex",
 			justifyContent : "center",
+			backgroundSize:"100% 100%",
+			[theme.breakpoints.down("sm")]: {
+				height:"600px",
+			},
+			[theme.breakpoints.down("xs")]: {
+				height:"500px"
+			},
 		},
 		container : {
 			display:"flex",
