@@ -21,20 +21,20 @@ public class RestAuthenticationFailureHandler implements AccessDeniedHandler {
 
    
 	private static ResponseCode response = ResponseCode.UNAUTHORIZED_ACCESS;
-	private final int code = response.code;
-    private final static String msg = response.msg;
+	private static final int CODE = response.code;
+    private static final  String MSG = response.msg;
     
     @Autowired
     private Session session;
 
     @Override
     public void handle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AccessDeniedException e) throws IOException, ServletException {
-        ApiResponseModel<String> response = new ApiResponseModel<String>(session);
-        response.setMessage(msg);
-        response.setCode(code);
+        ApiResponseModel<String> output = new ApiResponseModel<>(session);
+        output.setMessage(MSG);
+        output.setCode(CODE);
         OutputStream out = httpServletResponse.getOutputStream();
         ObjectMapper mapper = new ObjectMapper();
-        mapper.writeValue(out, response);
+        mapper.writeValue(out, output);
         out.flush();
     }
     

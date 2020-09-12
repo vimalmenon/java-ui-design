@@ -15,7 +15,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @Component
 public class JWTUtility {
 
-	public static final long JWT_TOKEN_VALIDITY = 5*60*60;
+	public static final int JWT_TOKEN_VALIDITY = 5*60*60;
     
     private String secret = "VimalMenon";
     
@@ -52,7 +52,7 @@ public class JWTUtility {
 				.signWith(SignatureAlgorithm.HS512, secret).compact();
 	}
 	//validate token
-	public Boolean validateToken(String token, UserDetails userDetails) {
+	public boolean validateToken(String token, UserDetails userDetails) {
 		final String username = getUsernameFromToken(token);
 		return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
 	}
