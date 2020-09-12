@@ -3,7 +3,9 @@ const  common = {
 	navigationEntitlement: {},
 	groups: [],
 	socialMedias:[],
-	promises:[]
+	promises:[],
+	snackBar:false, 
+	snackMessage:null
 };
 
 export default common;

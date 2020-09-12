@@ -5,7 +5,7 @@ public enum Groups {
 	VISITOR("Visitor"),
 	NO_USER("No User");
 	
-	public String name;
+	public final String name;
 	
 	private Groups(String name) {
 		this.name= name;

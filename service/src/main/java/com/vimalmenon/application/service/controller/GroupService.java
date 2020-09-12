@@ -17,9 +17,7 @@ public class GroupService {
 
 	public List<GroupModel> getGroups() {
 		List<GroupModel> items = new ArrayList<>();
-		groupManager.getGroups().forEach((group) -> {
-			items.add(new GroupModel(group));
-		});
+		groupManager.getGroups().forEach(group -> items.add(new GroupModel(group)));
 		return items;
 	}
 
