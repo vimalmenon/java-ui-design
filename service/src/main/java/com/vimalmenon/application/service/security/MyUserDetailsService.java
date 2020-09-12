@@ -19,7 +19,7 @@ public class MyUserDetailsService implements UserDetailsService {
     private UserGroupAdminManager userGroupAdminManager;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) {
         Optional<User> user = userGroupAdminManager.login(username);
         if (user.isPresent()) {
             return new CustomUserDetails(user.get());

@@ -9,15 +9,16 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
 public class Zipper {
 
-	private ZipOutputStream zip;
-	
-	public Zipper() {
-	}
+    private ZipOutputStream zip;
+    
+    Logger log = LoggerFactory.getLogger(Zipper.class);
 	
 	public void setFile (FileOutputStream fos)
 	{
@@ -28,7 +29,7 @@ public class Zipper {
 		zip = new ZipOutputStream(new FileOutputStream(file.getAbsoluteFile() + ".zip"));
 	}
 	
-	public void writeToZipFile(String path, String fileName) throws FileNotFoundException, IOException {
+	public void writeToZipFile(String path, String fileName) throws IOException {
 
         File aFile = new File(path);
         FileInputStream fis = new FileInputStream(aFile);
@@ -61,7 +62,7 @@ public class Zipper {
             while(ze != null){
                 String fileName = ze.getName();
                 File newFile = new File(destDir + File.separator + fileName);
-                System.out.println("Unzipping to "+newFile.getAbsolutePath());
+                log.info("Unzipping to %s", newFile.getAbsolutePath());
                 //create directories for sub directories in zip
                 new File(newFile.getParent()).mkdirs();
                 FileOutputStream fos = new FileOutputStream(newFile);
