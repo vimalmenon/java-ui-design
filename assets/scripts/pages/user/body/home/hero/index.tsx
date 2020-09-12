@@ -46,9 +46,6 @@ const useStyles = makeStyles((theme:Theme) => {
 			[theme.breakpoints.down("sm")]: {
 				height:"600px",
 			},
-			[theme.breakpoints.down("xs")]: {
-				height:"500px"
-			},
 		},
 		container : {
 			display:"flex",

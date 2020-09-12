@@ -52,8 +52,11 @@ self.addEventListener("fetch", (event:  any) => {
 				console.log("Network request for ", event.request.url);
 				return fetch(event.request);
 			}).catch(error => {
-				console.log("error while caching ", error);
 				// TODO 6 - Respond with custom offline page
+				console.log("error while caching ", error);
+				return {
+					offline: true
+				};
 			})
 	);
 });
