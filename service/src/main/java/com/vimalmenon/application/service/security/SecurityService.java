@@ -77,7 +77,10 @@ public class SecurityService {
             .and()
             .formLogin().disable()
             .httpBasic().disable()
-            .exceptionHandling().accessDeniedHandler(accessDeniedHandler).authenticationEntryPoint(authenticationEntryPoint);
+            .exceptionHandling().accessDeniedHandler(accessDeniedHandler).authenticationEntryPoint(authenticationEntryPoint)
+            .and()
+            .oauth2Login()
+            .loginPage("/login");
         
 	}
 }

@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class PagesController {
 	
-	@RequestMapping(value = "")
+	/*@RequestMapping(value = "")
 	public String index() {
 		return "index";
-	}
+	}*/
 	@GetMapping(value = "/sw")
 	public ResponseEntity<FileSystemResource> getSw(HttpServletResponse response) {
 		HttpHeaders responseHeaders = new HttpHeaders();
@@ -30,10 +30,10 @@ public class PagesController {
         ResponseEntity<FileSystemResource> responseEntity = new ResponseEntity<FileSystemResource>(new FileSystemResource(file), responseHeaders,HttpStatus.OK);
 		return responseEntity;
 	}
-	@RequestMapping(value = "{path:(?!static|error).*$}/**")
+	/*@RequestMapping(value = "{path:(?!static|error).*$}/**")
 	public String urlNotFound() 
 	{
 		return "index";
-	}
+	}*/
 
 }
