@@ -1,5 +1,6 @@
 package com.vimalmenon.application.controller.api;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,6 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ResolvableType;
+import org.springframework.security.oauth2.client.registration.ClientRegistration;
+import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -43,6 +48,9 @@ public class ApiController {
 
 	@Autowired
 	private ContactService contactService;
+
+	@Autowired
+	private ClientRegistrationRepository clientRegistrationRepository;
 
 	Logger log = LoggerFactory.getLogger(ApiController.class);
 
@@ -96,6 +104,25 @@ public class ApiController {
 		return new ApiResponseModel<String>(session).setData("Success");
 	}
 	
+	@GetMapping("/oauth_login")
+    public Map<String, String> getLoginPage(Model model) {
+		Iterable<ClientRegistration> clientRegistrations = null;
+		ResolvableType type = ResolvableType.forInstance(clientRegistrationRepository)
+		  .as(Iterable.class);
+		if (type != ResolvableType.NONE && 
+		  ClientRegistration.class.isAssignableFrom(type.resolveGenerics()[0])) {
+			clientRegistrations = (Iterable<ClientRegistration>) clientRegistrationRepository;
+		}
+	 
+		String authorizationRequestBaseUri = "oauth2/authorization";
+    	Map<String, String> oauth2AuthenticationUrls = new HashMap<>();
+		clientRegistrations.forEach(registration -> 
+		  oauth2AuthenticationUrls.put(registration.getClientName(), 
+		  authorizationRequestBaseUri + "/" + registration.getRegistrationId())
+		);
+        return oauth2AuthenticationUrls;
+	}
+
 	@RequestMapping(value = "**")
 	public void urlNotFound(HttpServletRequest request) 
 	{
