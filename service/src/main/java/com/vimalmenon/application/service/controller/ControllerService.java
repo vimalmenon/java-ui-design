@@ -8,6 +8,7 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.vimalmenon.application.common.helper.Helper;
@@ -19,6 +20,7 @@ import com.vimalmenon.application.manager.database.ContentManager;
 import com.vimalmenon.application.manager.database.LinkManager;
 import com.vimalmenon.application.manager.database.TutorialManager;
 import com.vimalmenon.application.model.component.ComponentEntitlementModel;
+import com.vimalmenon.application.model.google.GoogleDetails;
 import com.vimalmenon.application.model.response.Session;
 import com.vimalmenon.application.model.tutorial.TutorialModel;
 import com.vimalmenon.application.service.database.TutorialService;
@@ -41,6 +43,9 @@ public class ControllerService {
 	@Autowired
 	private ContentManager contentManager;
 
+	@Value("${spring.security.oauth2.client.registration.google.client-id}")
+	private String clientId;
+
 	@Autowired
 	private TutorialService tutorialService;
 
@@ -57,7 +62,10 @@ public class ControllerService {
 
 	public Map<String, Object> getIndex() {
 		Map<String, Object> index = new HashMap<>();
+		GoogleDetails google = new GoogleDetails();
+		google.setClientId(clientId);
 		index.put("socialMedias", linkManager.getSocialMedias());
+		index.put("google", google);
 		return index;
 	}
 

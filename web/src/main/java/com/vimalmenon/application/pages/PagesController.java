@@ -27,8 +27,7 @@ public class PagesController {
 		String fileName = "static/static/sw.js";
         File file = new File(this.getClass().getClassLoader().getResource(fileName).getFile());
         
-        ResponseEntity<FileSystemResource> responseEntity = new ResponseEntity<FileSystemResource>(new FileSystemResource(file), responseHeaders,HttpStatus.OK);
-		return responseEntity;
+		return new ResponseEntity<>(new FileSystemResource(file), responseHeaders,HttpStatus.OK);
 	}
 	@RequestMapping(value = "{path:(?!static|error).*$}/**")
 	public String urlNotFound() 

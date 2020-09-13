@@ -72,12 +72,16 @@ public class SecurityService {
         authorize
             .anyRequest().permitAll()
             .and()
+            .oauth2Login()
+            .and()
             .csrf().disable()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and()
             .formLogin().disable()
             .httpBasic().disable()
-            .exceptionHandling().accessDeniedHandler(accessDeniedHandler).authenticationEntryPoint(authenticationEntryPoint);
+            .exceptionHandling()
+            .accessDeniedHandler(accessDeniedHandler)
+            .authenticationEntryPoint(authenticationEntryPoint);
         
 	}
 }
