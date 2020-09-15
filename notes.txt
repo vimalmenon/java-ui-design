@@ -24,6 +24,16 @@ https://medium.com/@gustavo.ponce.ch/spring-boot-spring-mvc-spring-security-mysq
 
 
 
+
+https://www.callicoder.com/spring-boot-security-oauth2-social-login-part-1/
+https://www.callicoder.com/spring-boot-security-oauth2-social-login-part-2/
+https://www.callicoder.com/spring-boot-security-oauth2-social-login-part-3/
+
+https://github.com/callicoder/spring-boot-react-oauth2-social-login-demo/blob/master/react-social/src/user/login/Login.js
+
+
+
+
 document.designMode = 'on'
 
 
