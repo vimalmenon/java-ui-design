@@ -94,3 +94,6 @@ table images {
     name,
 }
 
+
+
+http://localhost:8081/oauth2/authorization/google?redirect_uri=http://localhost:8081/oauth2/redirect
