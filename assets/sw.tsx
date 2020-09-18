@@ -8,8 +8,10 @@ const prefix = (ENV ==="PRODUCTION")?"/static":"";
 var cacheList = [
 	"/",
 	"/api",
+	"/api/offline",
 	`${prefix}/fonts/dark.png`,
 	`${prefix}/fonts/light.jpg`,
+	`${prefix}/worker.js`,
 	`${prefix}/main.js`,
 	`${prefix}/main.css`,
 	`${prefix}/fonts/image1.jpg`,
@@ -54,9 +56,7 @@ self.addEventListener("fetch", (event:  any) => {
 			}).catch(error => {
 				// TODO 6 - Respond with custom offline page
 				console.log("error while caching ", error);
-				return {
-					offline: true
-				};
+				return caches.match("/api/offline");
 			})
 	);
 });

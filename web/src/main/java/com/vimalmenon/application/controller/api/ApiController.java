@@ -98,10 +98,12 @@ public class ApiController {
 		log.info("vimal Menon");
 	}
 
-	@GetMapping("/offline_page")
-	public ApiResponseModel<String> offlinePage ()
+	@GetMapping("/offline")
+	public ApiResponseModel<Map<String, Boolean>> offlinePage ()
 	{
-		return new ApiResponseModel<String>(session).setData("Success");
+		Map<String, Boolean> data = new HashMap<>();
+		data.put("offline", true);
+		return new ApiResponseModel<Map<String, Boolean>>(session).setData(data);
 	}
 	
 	@GetMapping("/oauth_login")

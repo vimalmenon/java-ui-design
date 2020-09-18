@@ -51,24 +51,28 @@ const Tutorials = ({dark}) => {
 				setTutorials(data);
 			});
 	},[]);
-	return (
-		<Element name="tutorials" className={classes.element}>
-			<Container dark={dark}>		
-				<div className={classes.root}>
-					<div className={classes.title}>
-						<Title title={"Tutorials"} dark={false}/>
-					</div>
-					{tutorials ? 
-						<div className={classes.content}>
-							<LatestVideos tutorials={tutorials}/>
-							{/*<PopularVideos />*/}
+	if (tutorials) {
+		return (
+			<Element name="tutorials" className={classes.element}>
+				<Container dark={dark}>		
+					<div className={classes.root}>
+						<div className={classes.title}>
+							<Title title={"Tutorials"} dark={false}/>
 						</div>
-						: null
-					}
-				</div>
-			</Container>
-		</Element>
-	);
+						{tutorials ? 
+							<div className={classes.content}>
+								<LatestVideos tutorials={tutorials}/>
+								{/*<PopularVideos />*/}
+							</div>
+							: null
+						}
+					</div>
+				</Container>
+			</Element>
+		);
+	}
+	return null;
+	
 };
 
 export default Tutorials;
