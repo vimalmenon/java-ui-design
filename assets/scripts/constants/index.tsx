@@ -10,6 +10,7 @@ import methods from "./methods";
 import icons from "./icons";
 import headers from "./headers";
 import {storage} from "./storage";
+import * as workerDetails from "./worker-details";
 
 const drawerWidth = 240;
 const version = VERSION;
@@ -31,7 +32,8 @@ const constants = {
 	deviceId,
 	headers,
 	storage,
-	icons
+	icons,
+	workerDetails
 };
 
 
@@ -51,7 +53,8 @@ export {
 	deviceId,
 	headers,
 	storage,
-	icons
+	icons,
+	workerDetails
 };
 
 export default constants;
