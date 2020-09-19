@@ -1,3 +1,5 @@
+import process from "./process";
+
 const ctx: Worker = self as any;
 
 
@@ -6,7 +8,7 @@ ctx.postMessage({ foo: "foo" });
 
 // Respond to message from parent thread
 ctx.addEventListener("message", (event) => {
-	console.log(event);
+	console.log(event, process);
 });
 
 

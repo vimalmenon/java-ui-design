@@ -8,19 +8,15 @@ import {
 import Carousel from "react-material-ui-carousel";
 import {
 	Card,
-	CardContent,
 	CardMedia,
-	Typography,
 	Grid,
-	Button
 } from "@material-ui/core";
-import {Link} from "react-scroll";
 
 import image1 from "../../../../images/image1.jpg";
 import image2 from "../../../../images/image5.jpg";
 import image3 from "../../../../images/image3.jpg";
 
-
+//import CardDetail from "./card-details";
 
 
 const useStyles = makeStyles((theme:Theme) => {
@@ -114,23 +110,7 @@ function Banner(props) {
 				className={classes.cardMedia}
 				image={item.image}
 				title={item.imageTitle}>
-				{/*<div className={classes.container}>
-					<CardContent className={classes.content}>
-						<Typography className={classes.title}>
-							{item.title}
-						</Typography>
-						<Typography className={classes.description} component="div">
-							<div>
-								{item.description}
-							</div>
-						</Typography>
-						<Link to={item.buttonLink} spy={true} smooth={true} offset={50} duration={500}>
-							<Button variant="contained" color="secondary">
-								{item.buttonLable}
-							</Button>
-						</Link>
-					</CardContent>
-				</div>*/}
+				{/*<CardDetail item={item} />*/}
 			</CardMedia>
 		</Grid>
 	);
