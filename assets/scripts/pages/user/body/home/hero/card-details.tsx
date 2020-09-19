@@ -15,28 +15,6 @@ import {Link} from "react-scroll";
 
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
-		root:{
-			display: "flex"
-		},
-		carousel:{
-			display: "flex",
-			flexDirection:"column",
-			flex:"1 1 100%"
-		},
-		cardContent:{
-			width:"100%",
-			display:"flex"
-		},
-		cardMedia:{
-			height:"906px",
-			width:"100%",
-			display:"flex",
-			justifyContent : "center",
-			backgroundSize:"100% 100%",
-			[theme.breakpoints.down("sm")]: {
-				height:"600px",
-			},
-		},
 		container : {
 			display:"flex",
 			flex:"1 1 100%",

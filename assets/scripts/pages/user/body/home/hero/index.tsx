@@ -42,27 +42,6 @@ const useStyles = makeStyles((theme:Theme) => {
 			[theme.breakpoints.down("sm")]: {
 				height:"600px",
 			},
-		},
-		container : {
-			display:"flex",
-			flex:"1 1 100%",
-			color:"#FFFFFF",
-			[theme.breakpoints.up("lg")]: {
-				display:"flex",
-				flex: `0 0 ${theme.breakpoints.values.lg}px`,
-			},
-		},
-		content : {
-			display:"flex",
-			flexDirection:"column",
-			flex:"1 1 100%",
-			justifyContent:"space-around"
-		},
-		title: {
-			fontSize:"2rem"
-		},
-		description:{
-
 		}
 	});
 });
