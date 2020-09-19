@@ -9,8 +9,8 @@ class Worker {
 		this.name = name;
 		this.data = data;
 	}
-	onCallback () {
-
+	onSuccess(data) {
+		console.log(data);
 	}
 }
 
@@ -22,5 +22,6 @@ class RandomProcessWorker extends Worker {
 }
 
 export {
+	Worker,
 	RandomProcessWorker
 };

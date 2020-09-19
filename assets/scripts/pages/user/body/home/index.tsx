@@ -33,6 +33,7 @@ const Body = () => {
 	const hide = false;
 	React.useEffect(() => {
 		worker.processJob(new RandomProcessWorker("test"));
+		worker.processJob(new RandomProcessWorker("test1"));
 	}, []);
 	return (
 		<div className={classes.root}>
