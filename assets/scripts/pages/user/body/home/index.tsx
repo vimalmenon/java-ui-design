@@ -14,11 +14,6 @@ import {
 
 import HeaderScroll from "./header-scroll";
 
-import {worker} from "utility";
-import {workerDetails} from "const";
-
-const {RandomProcessWorker} = workerDetails;
-
 
 const useStyles = makeStyles((theme:Theme) => {
 	return createStyles({
@@ -31,10 +26,6 @@ const useStyles = makeStyles((theme:Theme) => {
 const Body = () => {
 	const classes = useStyles();
 	const hide = false;
-	React.useEffect(() => {
-		worker.processJob(new RandomProcessWorker("test"));
-		worker.processJob(new RandomProcessWorker("test1"));
-	}, []);
 	return (
 		<div className={classes.root}>
 			<HeaderScroll />

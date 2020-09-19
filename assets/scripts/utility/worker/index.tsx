@@ -1,16 +1,17 @@
 import * as CoreWorker from "../../worker/core.worker";
 
 const worker = new (CoreWorker as any)();
-const callback = {};
+const callbacks = {};
 
 worker.onmessage = (event:any) => {
 	const {data} = event;
-	callback[data.id].onSuccess(data.value);
+	callbacks[data.id].onSuccess(data.value);
 };
 
 const processJob = (message) => {
-	callback[message.id]= message;
-	worker.postMessage(message);
+	const {callback, ...rest} = message;
+	callbacks[message.id]= message;
+	worker.postMessage(rest);
 };
 
 export default {
