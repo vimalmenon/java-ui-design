@@ -10,8 +10,7 @@ const alias = {
     "const" : path.resolve(__dirname, "../assets/scripts/constants"),
     "utility" : path.resolve(__dirname, "../assets/scripts/utility"),
     "dumb-components" : path.resolve(__dirname, "../assets/scripts/dumb-components"),
-    "actions": path.resolve(__dirname, "../assets/scripts/state/actions"),
-    "components" : path.resolve(__dirname, "../assets/scripts/components"),
+    "actions": path.resolve(__dirname, "../assets/scripts/state/actions")
 };
 const definePlugin = {
     'VERSION' : `'${packageJson.version}'`,

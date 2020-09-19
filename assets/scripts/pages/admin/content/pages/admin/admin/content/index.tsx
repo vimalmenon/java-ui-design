@@ -13,11 +13,28 @@ import Button from "@material-ui/core/Button";
 import {ApiCaller} from "utility";
 import {apiList} from "const";
 
+import {
+	Theme,
+	makeStyles,
+	createStyles
+} from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme:Theme) => {
+	return createStyles({
+		root: {
+			display: "flex",
+			flexDirection:"column",
+			flex:"1 1 100%"
+		},
+	});
+});
+
 const {GetContent, PostContent, DeleteContent} = apiList;
 
 const Content = () => {
 	const [contents, setContents] = React.useState<any>([{}]);
 	const [selectedIndex, setSelectedIndex] = React.useState(0);
+	const classes = useStyles();
 	React.useEffect(() => {
 		new ApiCaller(new GetContent())
 			.success((content) => {
@@ -55,7 +72,7 @@ const Content = () => {
 							</div>	
 						</AccordionSummary>
 						<AccordionDetails>
-							<Typography component="div">
+							<Typography component="div" className={classes.root}>
 								<TextField 
 									color="secondary"
 									label="Name"

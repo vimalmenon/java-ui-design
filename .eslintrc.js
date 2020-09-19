@@ -22,6 +22,7 @@ module.exports =  {
         "document":"readonly",
         "location":"readonly",
         "setTimeout":"readonly",
+        "Symbol":"readonly",
         "window":"readonly"
     },
     rules:  {

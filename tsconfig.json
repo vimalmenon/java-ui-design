@@ -19,8 +19,7 @@
             "store": ["assets/scripts/state/store"],
             "const" : ["assets/scripts/constants"],
             "actions": ["assets/scripts/state/actions"],
-            "dumb-components" : ["assets/scripts/dumb-components"],
-            "components" : ["assets/scripts/components"],
+            "dumb-components" : ["assets/scripts/dumb-components"]
         }
     }
 }
