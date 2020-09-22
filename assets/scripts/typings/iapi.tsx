@@ -5,4 +5,4 @@ interface IApi {
 	data : string,
 	failureMessage: boolean,
 	successMessage: boolean
-};
+}
