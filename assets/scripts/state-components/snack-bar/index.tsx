@@ -8,7 +8,7 @@ import { bindActionCreators } from "redux";
 import * as actions from "actions";
 
 const SnackBarComponent = ({common, commonActions}) => {
-	let {snackBar, snackMessage} = common;
+	const {snackBar, snackMessage} = common;
 	return (
 		<Snackbar
 			anchorOrigin={{
@@ -22,7 +22,7 @@ const SnackBarComponent = ({common, commonActions}) => {
 	);
 };
 
-const mapStateToProps = (state:any) => {
+const mapStateToProps = (state: any) => {
 	return {
 		common: state.common
 	};

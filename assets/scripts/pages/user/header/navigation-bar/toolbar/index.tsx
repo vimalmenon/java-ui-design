@@ -18,7 +18,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 
 
 
-const useStyles = makeStyles((theme:Theme) => {
+const useStyles = makeStyles((theme: Theme) => {
 	return createStyles({
 		root: {
 			display: "flex",
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme:Theme) => {
 
 const Toolbar = ({preferences, search, setSearch, showSearch}) => {
 	const classes = useStyles();
-	let {palette} = preferences;
+	const {palette} = preferences;
 	const {type} = preferences.palette;
 	return (
 		<div className={classes.root}>
@@ -56,7 +56,7 @@ const Toolbar = ({preferences, search, setSearch, showSearch}) => {
 	);
 };
 
-const mapStateToProps = (state : any) => {
+const mapStateToProps = (state: any) => {
 	return {
 		preferences: state.preferences,
 	};

@@ -11,7 +11,7 @@ import {
 import {Link} from "react-scroll";
 
 
-const useStyles = makeStyles((theme:Theme) => {
+const useStyles = makeStyles((theme: Theme) => {
 	return createStyles({
 		root:{
 			display: "flex",

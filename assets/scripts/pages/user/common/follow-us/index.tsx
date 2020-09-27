@@ -1,4 +1,4 @@
-declare var navigator;
+declare const navigator;
 
 import * as React from "react";
 
@@ -54,7 +54,7 @@ const FollowUs = ({common, commonActions}) => {
 	);
 };
 
-const mapStateToProps = (state:any) => {
+const mapStateToProps = (state: any) => {
 	return {
 		common: state.common
 	};

@@ -8,7 +8,7 @@ import {
 
 import FollowUs from "../../common/follow-us";
 
-const useStyles = makeStyles((theme:Theme) => {
+const useStyles = makeStyles((theme: Theme) => {
 	return createStyles({
 		root: {
 			display: "flex",

@@ -19,7 +19,7 @@ import image3 from "../../../../images/image3.jpg";
 //import CardDetail from "./card-details";
 
 
-const useStyles = makeStyles((theme:Theme) => {
+const useStyles = makeStyles((theme: Theme) => {
 	return createStyles({
 		root:{
 			display: "flex"

@@ -14,7 +14,7 @@ import { connect } from "react-redux";
 import light from "../../../../images/logo/light.jpg";
 import dark from  "../../../../images/logo/dark.png";
 
-const useStyles = makeStyles((theme:Theme) => {
+const useStyles = makeStyles((theme: Theme) => {
 	console.log();
 	return createStyles({
 		root: {
@@ -53,7 +53,7 @@ const Logo = ({preferences}) => {
 	);
 };
 
-const mapStateToProps = (state : any) => {
+const mapStateToProps = (state: any) => {
 	return {
 		preferences: state.preferences,
 	};

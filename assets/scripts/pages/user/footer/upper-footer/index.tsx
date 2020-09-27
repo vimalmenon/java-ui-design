@@ -8,7 +8,7 @@ import {
 import Explore from "./explore";
 import Contact from "./contact";
 
-const useStyles = makeStyles((theme:Theme) => {
+const useStyles = makeStyles((theme: Theme) => {
 	return createStyles({
 		root: {
 			display: "flex",

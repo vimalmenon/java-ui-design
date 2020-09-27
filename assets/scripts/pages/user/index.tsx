@@ -12,7 +12,7 @@ import Heading from "./header";
 import Body from "./body";
 import Footer from "./footer";
 
-const useStyles = makeStyles((theme:Theme) => {
+const useStyles = makeStyles((theme: Theme) => {
 	return createStyles({
 		root: {
 			display: "flex",

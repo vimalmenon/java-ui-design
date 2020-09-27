@@ -19,7 +19,7 @@ import ContactText from "./contact-text";
 
 const {GetContactUs} = apiList;
 
-const useStyles = makeStyles((theme:Theme) => {
+const useStyles = makeStyles((theme: Theme) => {
 	return createStyles({
 		element: {
 			display: "flex",
