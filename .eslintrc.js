@@ -4,6 +4,7 @@ module.exports =  {
       "eslint:recommended",
       "plugin:react/recommended",  // Uses the recommended rules from @eslint-plugin-react
       "plugin:@typescript-eslint/recommended",  // Uses the recommended rules from @typescript-eslint/eslint-plugin
+      "plugin:@typescript-eslint/eslint-recommended"
     ],
     parserOptions:  {
       ecmaVersion:  2018,  // Allows for the parsing of modern ECMAScript features
@@ -26,6 +27,7 @@ module.exports =  {
         "window":"readonly"
     },
     rules:  {
+      "no-console": 1,
       "indent": [2, "tab"],
       "no-unused-vars": [1, { "vars": "local", "args": "none", "ignoreRestSiblings": true, "varsIgnorePattern": "Theme" }],
       "react/prop-types": [0, { ignore: ["location"]}],
