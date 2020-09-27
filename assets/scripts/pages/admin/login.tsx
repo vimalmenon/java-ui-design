@@ -128,7 +128,7 @@ function LoginPage (props) {
 }
 
 
-const mapStateToProps = (state : any) => {
+const mapStateToProps = (state: any) => {
 	return {
 	};
 };

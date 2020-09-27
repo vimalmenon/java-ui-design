@@ -5,7 +5,7 @@ const headers = {
 };
 
 const init = () => {
-	let value = storage.selectStorage("session").getStorage();
+	const value = storage.selectStorage("session").getStorage();
 	if(value["Authorization"]) {
 		headers["Authorization"] = value["Authorization"];
 	}

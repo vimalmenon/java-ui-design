@@ -13,7 +13,7 @@ class Api implements IApi{
 	public data;
 	public failureMessage;
 	public successMessage;
-	constructor (name:string, method:string, url:string) {
+	constructor (name: string, method: string, url: string) {
 		this.name = name;
 		this.method = method;
 		this.url = url;

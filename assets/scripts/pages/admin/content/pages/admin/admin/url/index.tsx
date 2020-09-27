@@ -18,7 +18,7 @@ const {GetUrls} = apiList;
 const Url = () => {
 	const [urls, setUrls] = React.useState([]);
 	React.useEffect(() => {
-		let caller = new ApiCaller(new GetUrls())
+		const caller = new ApiCaller(new GetUrls())
 			.success((urls: any) => {
 				setUrls(urls);
 			});

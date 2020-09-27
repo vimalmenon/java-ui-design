@@ -1,6 +1,3 @@
-declare var localStorage:any;
-declare var sessionStorage:any;
-
 const storageValue = "VimalMenon";
 class Storage {
 	storage: any;
@@ -11,7 +8,7 @@ class Storage {
 		sessionStorage.setItem(storageValue,session);
 		this.storage = sessionStorage;
 	}
-	public selectStorage (storageType:"session"|"local") {
+	public selectStorage (storageType: "session"|"local") {
 		if(storageType === "session") {
 			this.storage = sessionStorage;
 		} else {
@@ -23,7 +20,7 @@ class Storage {
 		return JSON.parse(this.storage.getItem(storageValue));
 	}
 	public addToStorage (value) {
-		var storage = this.getStorage();
+		const storage = this.getStorage();
 		this.storage.setItem(storageValue, JSON.stringify({...storage, ...value}));
 	}
 }

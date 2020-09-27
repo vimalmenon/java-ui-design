@@ -51,7 +51,7 @@ const Admin = (props) => {
 	);
 };
 
-const mapStateToProps = (state : any) => {
+const mapStateToProps = (state: any) => {
 	return {
 		navigationEntitlement: state.common.navigationEntitlement
 	};

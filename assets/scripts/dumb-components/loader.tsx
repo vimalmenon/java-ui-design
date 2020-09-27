@@ -1,10 +1,10 @@
 import * as React from "react";
 
-interface ILoader {
-	loading: boolean
+interface Loader {
+	loading: boolean;
 }
 
-const Loader = (props: ILoader) => {
+const Loader = (props: Loader) => {
 	//const {loading} = props;
 	return (
 		<div>

@@ -56,7 +56,7 @@ const Message = () => {
 						</TableRow>
 					</TableHead>
 					<TableBody>
-						{contacts.map((contact:any, key) => (
+						{contacts.map((contact: any, key) => (
 							<React.Fragment key={key}>
 								<TableRow>
 									<TableCell>{contact.name}</TableCell>
@@ -64,7 +64,7 @@ const Message = () => {
 									<TableCell>{contact.subject}</TableCell>
 									<TableCell>{contact.timeDate}</TableCell>
 									<TableCell>
-										<span onClick={() => {}}>{(contact.read) ? <VisibilityIcon />: <VisibilityOffIcon />}</span>
+										<span onClick={() => {console.log("this")}}>{(contact.read) ? <VisibilityIcon />: <VisibilityOffIcon />}</span>
 										<span onClick={() => onDelete(contact)}><DeleteIcon /></span> 
 										<span onClick={() => onExpand(key)}>{(selected ===key) ? <KeyboardArrowDownIcon />: <KeyboardArrowRightIcon />}</span>
 									</TableCell>

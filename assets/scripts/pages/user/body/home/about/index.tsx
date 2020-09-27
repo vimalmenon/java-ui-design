@@ -17,7 +17,7 @@ import {apiList} from "const";
 
 const {AboutMe} = apiList;
 
-const useStyles = makeStyles((theme:Theme) => {
+const useStyles = makeStyles((theme: Theme) => {
 	return createStyles({
 		element: {
 			display: "flex",

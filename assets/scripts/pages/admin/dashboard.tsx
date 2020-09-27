@@ -61,7 +61,7 @@ function Dashboard (props) {
 	);
 }
 
-const mapStateToProps = (state : any) => {
+const mapStateToProps = (state: any) => {
 	return {
 		session: state.user.session
 	};

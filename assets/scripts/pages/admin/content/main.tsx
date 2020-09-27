@@ -21,11 +21,10 @@ import Admin from "./pages/admin";
 import Profile from "./pages/profile";
 import Expenses from "./pages/expenses";
 import Calendar from "./pages/calendar";
-import Preference from "./pages/preference";
 import PageNotFound from "./pages/page-not-found";
 
 
-const useStyles = makeStyles((theme:Theme) => {
+const useStyles = makeStyles((theme: Theme) => {
 	return createStyles({
 		toolbar: {
 			display: "flex",
@@ -64,7 +63,6 @@ const MainComponent = (props: any) => {
 				<Switch>
 					<Route exact path={`${url}/expenses`} component={Expenses} />
 					<Route path={`${url}/calendar`} component={Calendar} />
-					<Route path={`${url}/preference`} component={Preference} />
 					<Route path={`${url}/notes`} component={Notes} />
 					<Route path={`${url}/profile`} component={Profile} />
 					<Route path={`${url}/admin`} component={Admin} />

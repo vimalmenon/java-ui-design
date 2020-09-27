@@ -1,5 +1,3 @@
-declare var VERSION:string;
-
 import {DeviceUUID} from "device-uuid";
 
 import apiList from "./api-list";

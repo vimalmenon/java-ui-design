@@ -1,6 +1,4 @@
 import Tabs from "./tabs";
-import ColorPicker from "./color-picker";
-import CustomColorPicker from "./custom-color-picker";
 import Entitlement from "./entitlement";
 import Unauthorised from "./unauthorised";
 import Card from "./card";
@@ -13,9 +11,7 @@ import Table from "./table";
 import Input from "./input";
 
 export default {
-	CustomColorPicker,
 	Unauthorised,
-	ColorPicker,
 	Entitlement,
 	TextField,
 	Loader,
@@ -29,9 +25,7 @@ export default {
 };
 
 export {
-	CustomColorPicker,
 	Unauthorised,
-	ColorPicker,
 	Entitlement,
 	TextField,
 	Loader,

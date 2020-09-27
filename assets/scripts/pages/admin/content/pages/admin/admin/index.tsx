@@ -26,7 +26,7 @@ const AdminHome = () => {
 	const [component, setComponent] = React.useState("database");
 	React.useEffect(() => {
 		setSlide(true);
-		let caller = new ApiCaller(new GetGroups())
+		const caller = new ApiCaller(new GetGroups())
 			.success((groups: any) => {
 				setGroups(groups);
 			});

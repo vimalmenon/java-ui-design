@@ -5,7 +5,7 @@ import Menu from "@material-ui/core/Menu";
 import Item from "./item";
 
 
-const MenuComponent = (props:any) => {
+const MenuComponent = (props: any) => {
 	const {open, children, element, ...rest} = props;
 	const menu = React.Children.map(children, child =>{
 		return React.cloneElement(child);

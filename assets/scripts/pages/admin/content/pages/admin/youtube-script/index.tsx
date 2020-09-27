@@ -52,15 +52,15 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 
-interface IScripts {
-	id ?:number,
-	heading: string,
-	note: string,
-	sequence ?: number
+interface Scripts {
+	id?: number;
+	heading: string;
+	note: string;
+	sequence?: number;
 }
 
 const YoutubeScript = () => {
-	const [value, setValue] = React.useState<IScripts|null>(null);
+	const [value, setValue] = React.useState<Scripts|null>(null);
 	const [scripts, setScripts] = React.useState([]);
 	React.useEffect(() => {
 		new ApiCaller(new GetYoutubeScript())
@@ -141,7 +141,7 @@ const YoutubeScript = () => {
 						<Button variant="contained" color="primary" onClick={() => setValue({heading: "", note: ""})}>Create</Button>
 					</div>
 					<div className={classes.items}>
-						{scripts.map((script: IScripts, key) => {
+						{scripts.map((script: Scripts, key) => {
 							return (
 								<div key={key} className={classes.item}>
 									<div className={classes.heading}>

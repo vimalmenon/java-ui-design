@@ -19,13 +19,13 @@ import {
 	createStyles
 } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme:Theme) => {
+const useStyles = makeStyles((theme: Theme) => {
 	return createStyles({
 		root: {
 			display: "flex",
 			flexDirection:"column",
 			flex:"1 1 100%"
-		},
+		}
 	});
 });
 
@@ -41,7 +41,7 @@ const Content = () => {
 				setContents([...content, {}]);
 			});
 	},[]);
-	const updateContent = (e:any, key:any)=> {
+	const updateContent = (e: any, key: any)=> {
 		const{name, value}= e.target;
 		let newContent=contents[key]||{};
 		newContent = {...newContent,[name]:value};

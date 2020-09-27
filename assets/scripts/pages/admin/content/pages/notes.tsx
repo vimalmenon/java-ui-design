@@ -19,7 +19,7 @@ const {GetNotes, SaveNotes, DeleteNotes} = apiList;
 
 
 const Note = (props) => {
-	let {classes, deleteNotes, saveNotes, index, value} = props;
+	const {classes, deleteNotes, saveNotes, index, value} = props;
 	const [noteTitle, setNoteTitle] = React.useState(value.title);
 	const [note, setNote] = React.useState(value.note);
 	return (
@@ -88,7 +88,7 @@ export default function Notes () {
 	}, []);
 	const onSaveNotes = (note) => {
 		new ApiCaller(new SaveNotes([note]))
-			.success((data:any) =>{
+			.success((data: any) =>{
 				setNotes(data);
 			});
 	};
@@ -99,7 +99,7 @@ export default function Notes () {
 			});
 	};
 	const onAddNote = () => {
-		let newNotes: any = [...notes];
+		const newNotes: any = [...notes];
 		newNotes.push({title: "",note:""});
 		setNotes(newNotes);
 	};

@@ -27,7 +27,7 @@ const Properties = () => {
 			});
 	}, []);
 	const onChange = (e) => {
-		let {name, value} = e.target;
+		const {name, value} = e.target;
 		setProperty({
 			...property,
 			[name]: value

@@ -15,7 +15,7 @@ const Entitlement = (props) => {
 	const [entitlement, setEntitlement] = React.useState({read: false, write: false, loaded: false});
 	React.useEffect(() => {
 		new ApiCaller(new ComponentEntitlement({name}))
-			.success((value:any) => {
+			.success((value: any) => {
 				setEntitlement({...value, loaded :true});
 			});
 	},[session.id]);
@@ -26,7 +26,7 @@ const Entitlement = (props) => {
 	);
 };
 
-const mapStateToProps = (state : any) => {
+const mapStateToProps = (state: any) => {
 	return {
 		session : state.user.session
 	};

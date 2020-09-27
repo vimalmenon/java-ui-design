@@ -10,7 +10,7 @@ import YouTubeIcon from "@material-ui/icons/YouTube";
 import EmailIcon from "@material-ui/icons/Email";
 
 
-let {pathname} = location;
+const {pathname} = location;
 
 const signIn = {
 	name : "Sign In",

@@ -52,7 +52,7 @@ const Pages = ({preferences, common, commonActions}) => {
 	);
 };
 
-const mapStateToProps = (state:any) => {
+const mapStateToProps = (state: any) => {
 	return {
 		preferences: state.preferences,
 		common: state.common

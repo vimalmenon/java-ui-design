@@ -48,7 +48,7 @@ const DashboardBreadcrumbs = (props) => {
 	);
 };
 
-const mapStateToProps = (state : any) => {
+const mapStateToProps = (state: any) => {
 	return {      
 		common : state.common
 	};

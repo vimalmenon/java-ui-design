@@ -7,7 +7,7 @@ import {
 
 import {version} from "const";
 
-const useStyles = makeStyles((theme:Theme) => {
+const useStyles = makeStyles((theme: Theme) => {
 	return createStyles({
 		footer: {
 			display: (value: boolean) => value ? "flex": "none",

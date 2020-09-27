@@ -17,7 +17,7 @@ const {GetComponents} = apiList;
 const Component = () => {
 	const [components, setComponents] = React.useState([]);
 	React.useEffect(() => {
-		let caller = new ApiCaller(new GetComponents())
+		const caller = new ApiCaller(new GetComponents())
 			.success((components: any) => {
 				setComponents(components);
 			});

@@ -30,7 +30,7 @@ const Group = (props: any) => {
 							</TableRow>
 						</TableHead>
 						<TableBody>
-							{groups.map((group: any, key:number) => (
+							{groups.map((group: any, key: number) => (
 								<TableRow key={key}>
 									<TableCell>
 										{group.name}
