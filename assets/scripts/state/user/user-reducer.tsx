@@ -1,6 +1,6 @@
 import {SET_SESSION} from "./user-types";
 
-export default function (oldState:any, action : any) {
+export default function (oldState: any, action: any) {
 	let state;
 	switch (action.type) {
 	case SET_SESSION:

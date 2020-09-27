@@ -4,7 +4,6 @@ import {
 	POST,
 	DELETE
 } from "./methods";
-import {used} from "utility";
 
 
 class Api implements IApi{
@@ -20,7 +19,6 @@ class Api implements IApi{
 		this.url = url;
 		this.failureMessage = false;
 		this.successMessage = false;
-		used(PUT);
 	}
 	public setApiData (data) {
 		this.data = JSON.stringify(data);

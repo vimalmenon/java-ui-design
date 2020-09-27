@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import {apiList} from "const";
-import {ApiCaller, used} from "utility";
+import {ApiCaller} from "utility";
 
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -39,8 +39,6 @@ const Properties = () => {
 				setProperties(data);
 			});
 	};
-	used(SaveProperties);
-	used(DeleteProperties);
 	return (
 		<Grid container spacing={3}>
 			<Grid item xs={12} sm={6}>

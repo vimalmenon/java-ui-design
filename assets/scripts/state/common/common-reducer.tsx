@@ -1,6 +1,6 @@
 import {SET_SELECTED_NAVIGATION, SET_GROUPS, SET_NAVIGATION_ENTITLEMENT, SET_SOCIAL_MEDIAS, ADD_PROMISE, SET_SNACKBAR} from "./common-types";
 
-export default function (oldState:any, action : any) {
+export default function (oldState: any, action: any) {
 	let state;
 	switch (action.type) {
 	case SET_SELECTED_NAVIGATION:

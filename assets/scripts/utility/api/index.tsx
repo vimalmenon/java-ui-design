@@ -16,7 +16,7 @@ class ApiCaller {
 	private isSpinning;
 
 	constructor (data: IApi) {
-		var headers = header.getHeaders();
+		const headers = header.getHeaders();
 		this.controller = new AbortController();
 		this.signal = this.controller.signal;
 		this.promise = new Promise((resolve, reject) => {
@@ -63,14 +63,14 @@ class ApiCaller {
 		});	
 	}
 	private flushSession () {
-		let sessionStorage = storage.selectStorage("session").getStorage();
+		const sessionStorage = storage.selectStorage("session").getStorage();
 		storage.selectStorage("session").addToStorage({...sessionStorage, Authorization: null});
 	}
-	public success(successCallback:Function) {
+	public success(successCallback: Function) {
 		this.promise = this.promise.then(successCallback);
 		return this;
 	}
-	public failure (failureCallback:Function) {
+	public failure (failureCallback: Function) {
 		this.promise = this.promise.catch(failureCallback);
 		return this;
 	}

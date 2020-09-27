@@ -26,7 +26,7 @@ const setPreferences = (preferences) => {
 		preferences
 	};
 };
-const setLoading = (loading:boolean) => {
+const setLoading = (loading: boolean) => {
 	return {
 		type:SET_LOADING,
 		loading

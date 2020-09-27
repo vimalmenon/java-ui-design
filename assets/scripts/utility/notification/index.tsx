@@ -1,21 +1,21 @@
-interface INotification {
-	text : String;
+interface NotificationMessage {
+	text: string;
 }
 let notification;
 
 const setNotification = (toast) => {
 	notification = toast;
 };
-const notifySuccess = (message:INotification) => {
+const notifySuccess = (message: NotificationMessage) => {
 	notification(message.text, { appearance: "success" });
 };
-const notifyError = (message:INotification) => {
+const notifyError = (message: NotificationMessage) => {
 	notification(message.text, { appearance: "error" });
 };
-const notifyInfo = (message:INotification) => {
+const notifyInfo = (message: NotificationMessage) => {
 	notification(message.text, { appearance: "info" });
 };
-const notifyWarning = (message:INotification) => {
+const notifyWarning = (message: NotificationMessage) => {
 	notification(message.text, { appearance: "warning" });
 };
 export default {

@@ -1,11 +1,10 @@
-declare var VERSION:string;
-declare var caches:CacheStorage;
-declare var ENV:string;
+declare const VERSION: string;
+declare const ENV: string;
  
 
 const prefix = (ENV ==="PRODUCTION")?"/static":"";
 
-var cacheList = [
+const cacheList = [
 	"/",
 	"/api",
 	"/api/offline",
@@ -19,7 +18,7 @@ var cacheList = [
 	`${prefix}/fonts/image3.jpg`,
 ];
 
-var cacheVersion = `v${VERSION}`;
+const cacheVersion = `v${VERSION}`;
 
 
 self.addEventListener("install", (event: any) => {

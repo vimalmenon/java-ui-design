@@ -27,7 +27,7 @@ module.exports =  {
         "window":"readonly"
     },
     rules:  {
-      "no-console": 1,
+      //"no-console": 1,
       "indent": [2, "tab"],
       "no-unused-vars": [1, { "vars": "local", "args": "none", "ignoreRestSiblings": true, "varsIgnorePattern": "Theme" }],
       "react/prop-types": [0, { ignore: ["location"]}],
