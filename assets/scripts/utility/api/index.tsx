@@ -66,11 +66,11 @@ class ApiCaller {
 		const sessionStorage = storage.selectStorage("session").getStorage();
 		storage.selectStorage("session").addToStorage({...sessionStorage, Authorization: null});
 	}
-	public success(successCallback: Function) {
+	public success(successCallback:(data: any) => void) {
 		this.promise = this.promise.then(successCallback);
 		return this;
 	}
-	public failure (failureCallback: Function) {
+	public failure (failureCallback:(data: any) => void) {
 		this.promise = this.promise.catch(failureCallback);
 		return this;
 	}

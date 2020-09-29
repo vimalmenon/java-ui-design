@@ -4,8 +4,6 @@ const  common = {
 	groups: [],
 	socialMedias:[],
 	promises:[],
-	snackBar:false, 
-	snackMessage:null
 };
 
 export default common;

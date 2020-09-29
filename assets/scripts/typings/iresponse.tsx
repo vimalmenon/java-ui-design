@@ -1,7 +1,7 @@
 interface IResponse {
 	code:number;
 	message:string;
-	session: ISession;
+	session: ISessionState;
 	data: any;
 	flush:boolean;
 };

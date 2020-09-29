@@ -23,7 +23,11 @@ module.exports =  {
         "location":"readonly",
         "setTimeout":"readonly",
         "Symbol":"readonly",
-        "window":"readonly"
+        "window":"readonly",
+        "caches":"readonly",
+        "VERSION":"readonly",
+        "localStorage":"readonly",
+        "sessionStorage":"readonly",
     },
     rules:  {
       //"no-console": 1,

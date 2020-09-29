@@ -12,6 +12,8 @@ import EmailIcon from "@material-ui/icons/Email";
 
 const {pathname} = location;
 
+console.log(typeof HomeIcon)
+
 const signIn = {
 	name : "Sign In",
 	Icon : HomeIcon,
